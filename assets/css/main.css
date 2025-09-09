@@ -89,6 +89,11 @@ body {
     -ms-transition: none !important;
     transition: none !important; }
 
+.name-highlight {
+  font-weight: 800;
+  color: #f56a6a;
+}
+
 /* Type */
 body, input, select, textarea {
   color: #7f888f;
