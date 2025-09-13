@@ -60,6 +60,22 @@ input, select, textarea {
   -ms-appearance: none;
   appearance: none; }
 
+.notion-embed-container {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 75%; /* Adjust this percentage for a taller/shorter view */
+}
+
+.notion-embed-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+  
 /* Basic */
 @-ms-viewport {
   width: device-width; }
