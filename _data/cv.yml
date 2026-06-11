@@ -1,0 +1,108 @@
+cv:
+  name: Harshit Tiwari
+  label: FARE Fellow
+  email: tharshit@iitk.ac.in
+  location: Kanpur, India
+  image: "prof_pic.jpg"
+  summary: FARE Fellow at IIT Kanpur working on turbulent convection, atmospheric and astrophysical flows, compressible flows, and high-performance computing.
+
+  social_networks:
+    - network: GitHub
+      username: harshitiwari
+    - network: LinkedIn
+      username: harshit-tiwari-6989b216b
+
+  address:
+    street: D108, Hall 7, IIT Kanpur
+    city: Kanpur
+    region: Uttar Pradesh
+    postalCode: 208016
+    countryCode: IN
+
+  sections:
+    Education:
+      - institution: Indian Institute of Technology Kanpur
+        location: Kanpur, India
+        studyType: Doctor of Philosophy in Physics
+        start_date: 2021
+        end_date: 2026
+        score: "9.56/10"
+        highlights:
+          - Thesis: Compressible turbulent convection at extreme Rayleigh numbers
+          - Courses on Tapestry of Field Theory, Physics of Turbulence, High-Performance Computing, and Advanced Statistical Physics.
+      - institution: Indian Institute of Technology Kanpur
+        location: Kanpur, India
+        studyType: Master of Science in Physics
+        start_date: 2019
+        end_date: 2021
+        score: "8.30/10"
+        highlights:
+          - Courses on High Energy Astrophysics, Nuclear and Particle Physics, and Quantum Field Theory.
+      - institution: Kumaun University
+        location: Nainital, India
+        studyType: Bachelor of Science
+        start_date: 2016
+        end_date: 2019
+        score: "66.4%"
+        highlights:
+          - Subjects: Physics, Mathematics, Chemistry
+
+    Experience:
+      - company: Department of Physics, IIT Kanpur
+        position: Fellowship for Academic and Research Excellence (FARE) Fellow
+        location: Kanpur, India
+        start_date: 2026
+        end_date: Present
+        summary: High-resolution simulations of moist turbulent convection in Earth’s troposphere, quantum and classical Euler turbulence, and scale-by-scale energy transfer in thermal convection.
+      - company: Department of Physics, IIT Kanpur
+        position: Graduate Researcher
+        location: Kanpur, India
+        start_date: 2021
+        end_date: 2026
+        summary: Simulated turbulent compressible convection at extreme Rayleigh numbers, developed scalable solvers with GPU and MPI support, and applied advanced numerical methods to study shocks/turbulence in astrophysical flows.
+      - company: Department of Physics, IIT Kanpur
+        position: Master's Student Researcher
+        location: Kanpur, India
+        start_date: 2020
+        end_date: 2021
+        summary: Project on "Theoretical Modelling of Accretion Disk Oscillations" under Prof. Pankaj Jain and Prof. J.S. Yadav.
+
+    Teaching Experience:
+      - company: IIT Kanpur
+        position: Graduate Teaching Assistant
+        start_date: 2021
+        end_date: 2026
+        highlights:
+          - "PHY441A: Electronics (Aug 2021 - May 2022)"
+          - "PHY473A: Computational Physics (Aug 2022 - Nov 2022)"
+          - "PHY113A: Classical Electrodynamics (Mar 2023 - Nov 2023)"
+          - "NPTEL: Scientific Computing using Python (Jun 2023 - Nov 2023)"
+          - "NPTEL: Tapestry of Field Theory (Jan 2024 - Jan 2025)"
+          - "PHY461A/462A: Experimental Physics I/II (Jan 2024 - May 2025)"
+          - "PHY111A: Undergraduate Lab (Aug 2025 - Aug 2026)"
+
+    Awards:
+      - title: Session Chair
+        awarder: APS DFD Annual Meeting (Houston, Texas, USA)
+        date: 2025
+        summary: 'Chaired session "Convection and Buoyancy-Driven Flows: Heat Transfer, Instabilities & Turbulence"'
+      - title: Division of Fluid Dynamics Enabling Award
+        awarder: American Physical Society
+        date: 2025
+        summary: Supported attendance at the 2025 DFD Annual Meeting.
+      - title: IIT JAM All India Rank 74
+        awarder: IIT JAM
+        date: 2019
+        summary: Secured AIR 74 among 15,000 applicants.
+      - title: Merit cum Means Scholarship
+        awarder: IIT Kanpur
+        date: 2019
+        summary: Aug 2019 - May 2021
+
+    References:
+      - name: Prof. Mahendra K. Verma
+        reference: Department of Physics, IIT Kanpur, India (mkv@iitk.ac.in)
+      - name: Prof. Rajesh Ranjan
+        reference: Department of Aerospace Engineering, IIT Kanpur, India (rajeshr@iitk.ac.in)
+      - name: Prof. Katepalli R. Sreenivasan
+        reference: Professor of Physics, NYU, USA (katepalli.sreenivasan@nyu.edu)

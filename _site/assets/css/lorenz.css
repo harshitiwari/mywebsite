@@ -1,0 +1,30 @@
+:root {
+  --global-bg-color: #f4f6f8;
+  --global-card-bg-color: #ffffff;
+  --global-text-color: #1e293b;
+  --global-theme-color: #0f766e;
+  --global-hover-color: #0d9488;
+  --global-code-bg-color: rgba(15, 118, 110, 0.05);
+  --global-divider-color: rgba(30, 41, 59, 0.15);
+}
+
+html[data-theme="dark"] {
+  --global-bg-color: #0f172a;
+  --global-card-bg-color: #1e293b;
+  --global-text-color: #f1f5f9;
+  --global-theme-color: #2dd4bf;
+  --global-hover-color: #38bdf8;
+  --global-code-bg-color: #1e293b;
+  --global-divider-color: rgba(241, 245, 249, 0.15);
+}
+
+#lorenz-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.85;
+}
