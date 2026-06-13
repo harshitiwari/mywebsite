@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://harshitiwari.site/sitemap.xml
+Sitemap: http://localhost:8085/sitemap.xml

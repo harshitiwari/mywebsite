@@ -81,7 +81,7 @@
 
 <link rel="stylesheet" href="/assets/css/main.css?v=f0b101217084a90093badfe99ff9a7d1">
 
-<link rel="canonical" href="https://harshitiwari.site/">
+<link rel="canonical" href="http://localhost:8085/">
 
 
   <!-- Dark Mode -->
@@ -437,8 +437,13 @@
       https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
     -->
     
-    <img src="/assets/img/prof_pic.jpg?v=49f8ead4598cad0656cec3eeb41f249d" class="img-fluid rounded" width="100%" height="auto" alt="prof_pic.jpg" loading="eager" onerror="this.onerror=null; document.querySelectorAll('.responsive-img-srcset').forEach(function (n) { n.remove(); });">
-  </picture>
+      
+        <source class="responsive-img-srcset" srcset="/assets/img/prof_pic-480.webp 480w,/assets/img/prof_pic-800.webp 800w,/assets/img/prof_pic-1400.webp 1400w," type="image/webp" sizes="(min-width: 930px) 270.0px, (min-width: 576px)
+      30vw, 95vw">
+      
+    
+    <img src="/assets/img/prof_pic.png?v=490a0eeed1ea5d379cd803facb9ba627" class="img-fluid rounded" width="100%" height="auto" alt="prof_pic.png" loading="eager" onerror="this.onerror=null; document.querySelectorAll('.responsive-img-srcset').forEach(function (n) { n.remove(); });">
+  </source></picture>
 
   
 </figure>
