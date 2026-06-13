@@ -28,7 +28,3 @@ html[data-theme="dark"] {
   pointer-events: none;
   opacity: 0.85;
 }
-
-.post p {
-  text-align: justify;
-}
