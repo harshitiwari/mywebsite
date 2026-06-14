@@ -19,7 +19,7 @@ social: true # includes social icons at the bottom of the page
 announcements:
   enabled: true # Enable news announcements on the home/intro page
   scrollable: true
-  limit: 5
+  limit: 3
 
 latest_posts:
   enabled: false # disable posts for now to focus on clean about/publications layout

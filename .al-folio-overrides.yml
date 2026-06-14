@@ -7,25 +7,39 @@ overrides:
     upstream_path: _includes/footer.liquid
     upstream_sha256: 65219faad5445eb4456649d77921acd07845875bbcad4fb8f33b12b3d52d96d2
     local_sha256: cd11a74ed8bcad06cdcae9ca25269c046fa7f8ef7b9ee13a051a88aa2f46baa1
-    acknowledged_at: '2026-06-13'
+    acknowledged_at: '2026-06-14'
+  _includes/header.liquid:
+    owner: al_folio_core
+    gem_version: 1.0.11
+    upstream_path: _includes/header.liquid
+    upstream_sha256: c8663513baded68d9fa5fbe4d6363a976535bbe201efe5138243d0ff03101058
+    local_sha256: ec7d44abde8b533a50727c3c53535ab76da697ca4eadf02832670c45cae49612
+    acknowledged_at: '2026-06-14'
   _layouts/about.liquid:
     owner: al_folio_core
     gem_version: 1.0.11
     upstream_path: _layouts/about.liquid
     upstream_sha256: 2c28eb83b71fe65f252202c11f0b4a19a9b6f1faccdc870b4f91c4ea51d0c6f1
-    local_sha256: 71c08054ef6b1cf582fd6cf114eaffba5f9bfcd476fc6476895c954ba603e603
-    acknowledged_at: '2026-06-13'
+    local_sha256: 7493e88e640e1177b7e331641815ac4d0aa5454630be1f47ebc50a60c88d790d
+    acknowledged_at: '2026-06-14'
   _layouts/bib.liquid:
     owner: al_folio_core
     gem_version: 1.0.11
     upstream_path: _layouts/bib.liquid
     upstream_sha256: 430311d9b94adf6fb1c2fab7609f6e726efc98e2b50e7b1c4cde0ad654c04506
     local_sha256: 05ea17d4e5b3be35c043bd7c7a1b7e73fde3f2b79fd559e0efbd9ef4489dac55
-    acknowledged_at: '2026-06-13'
+    acknowledged_at: '2026-06-14'
   _layouts/default.liquid:
     owner: al_folio_core
     gem_version: 1.0.11
     upstream_path: _layouts/default.liquid
     upstream_sha256: 4b713c35f7383692b99f4f1086123acbc3cb247e775a4cebe39985b5302fb9b2
-    local_sha256: b1f668bf884fc854d376c9381b4e73d088312ea40359e4db758e97e330d7108e
-    acknowledged_at: '2026-06-13'
+    local_sha256: 551c35059fd2f039863e9d88a9ffb07ed6547a17117dc2177d97bd65cc20137a
+    acknowledged_at: '2026-06-14'
+  assets/css/main.scss:
+    owner: al_folio_core
+    gem_version: 1.0.11
+    upstream_path: assets/css/main.scss
+    upstream_sha256: 437c6c911c596391413e435dc0ea7095e682e85c572c1fd3fff69f9597455b3e
+    local_sha256: d9d24430db700d6259979efc9d0408df0c58aaf9af69da4479f3ef2dac3917e5
+    acknowledged_at: '2026-06-14'
