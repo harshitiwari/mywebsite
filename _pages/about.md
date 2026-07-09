@@ -2,16 +2,16 @@
 layout: about
 title: About
 permalink: /
-subtitle: FARE Fellow @ IIT Kanpur
+subtitle: Postdoctoral Associate @ New York University
 
 profile:
   align: right
   image: prof_pic.png
   image_circular: false # crops the image to make it circular
   more_info: >
-    <p>103E, Old Core Labs</p>
-    <p>Academic area, IIT Kanpur</p>
-    <p>Kanpur 208016, U.P., India</p>
+    <p>370 Jay Street</p>
+    <p>NYU Tandon School of Engineering</p>
+    <p>Brooklyn, New York 11201, USA</p>
 
 selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
@@ -27,7 +27,8 @@ latest_posts:
   limit: 3
 ---
 
-I am a Fellowship for Academic and Research Excellence (FARE) Fellow in the Department of Physics at IIT Kanpur, where I also completed my Ph.D. My doctoral research, jointly supervised by [Prof. Mahendra K. Verma](https://sites.google.com/view/mahendra-verma/) and [Prof. Rajesh Ranjan](https://home.iitk.ac.in/~rajeshr/), focused on compressible turbulent convection at extreme Rayleigh numbers. Currently, I am working on high-resolution simulations of moist turbulent convection in Earth's troposphere, quantum and classical Euler turbulence, and scale-by-scale energy transfer.
+I am a Postdoctoral Associate in the Department of Mechanical and Aerospace Engineering at the Tandon School of Engineering, New York University, working with [Prof. Katepalli R. Sreenivasan](https://as.nyu.edu/faculty/katepalli-sreenivasan.html) on quantum computing for fluid dynamics (QCFD). Prior to this, I had a Fellowship for Academic and Research Excellence (FARE) at IIT Kanpur, where I also completed my Ph.D. in Physics. My doctoral research, supervised by [Prof. Mahendra K. Verma](https://sites.google.com/view/mahendra-verma/) and [Prof. Rajesh Ranjan](https://home.iitk.ac.in/~rajeshr/), focused on compressible turbulent convection at extreme Rayleigh numbers.
+
 
 I specialize in building scalable, custom simulation software from the ground up (such as [DHARA](https://harshtiwari.notion.site/DHARA-A-general-PDE-solver-26d6da4c3d6080019eb2de57235cae2b?source=copy_link)) to run large-scale Direct Numerical Simulations (DNS) on high-performance supercomputers using MPI and GPU acceleration. My work bridges fundamental fluid dynamics and astrophysical flows with high-performance computation.
 
