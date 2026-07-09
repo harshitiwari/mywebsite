@@ -7,11 +7,13 @@ subtitle: Postdoctoral Associate @ New York University
 profile:
   align: right
   image: prof_pic.png
-  image_circular: false # crops the image to make it circular
+  image_circular: true # crops the image to make it circular
   more_info: >
-    <p>370 Jay Street</p>
-    <p>NYU Tandon School of Engineering</p>
-    <p>Brooklyn, New York 11201, USA</p>
+    <div style="font-size: 0.8rem; line-height: 1.4;">
+      <p>370 Jay Street</p>
+      <p>NYU Tandon School of Engineering</p>
+      <p>Brooklyn, New York 11201, USA</p>
+    </div>
 
 selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page

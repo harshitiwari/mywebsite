@@ -102,10 +102,10 @@
 
             // Opacity scales up towards the front of the path
             const ratio = j / p.history.length;
-            const opacity = ratio * (isDark ? 0.25 : 0.35);
+            const opacity = ratio * (isDark ? 0.9 : 1.0);
 
             ctx.strokeStyle = isDark ? `rgba(45, 212, 191, ${opacity})` : `rgba(15, 118, 110, ${opacity})`;
-            ctx.lineWidth = 2.6 * ratio; // Taper line slightly towards the tail
+            ctx.lineWidth = 1.6 * ratio; // Taper line slightly towards the tail
             ctx.stroke();
           }
         }

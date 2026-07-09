@@ -31,3 +31,20 @@
 @use "tabs";
 @use "teachings";
 @use "typograms";
+
+// Custom profile picture border matching theme Lorenz simulation colors
+.profile img.rounded-circle {
+  outline: 2px solid #0f766e; // Light theme color (dark teal)
+  outline-offset: -2px;       // Inset stroke overlapping the image
+  border: none;
+  padding: 0;
+}
+
+html[data-theme='dark'] {
+  .profile img.rounded-circle {
+    outline-color: #2dd4bf; // Dark theme color (light teal)
+  }
+}
+
+
+
