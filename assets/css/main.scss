@@ -279,6 +279,11 @@ html[data-theme="dark"] {
 
 .research-section-title {
   margin-top: 3rem;
+  margin-bottom: 0;
+}
+
+.research-section-title + .research-grid {
+  margin-top: 0.55rem;
 }
 
 .research-card,

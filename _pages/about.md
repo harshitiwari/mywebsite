@@ -46,9 +46,7 @@ I received my Ph.D. in Physics from IIT Kanpur in 2026. My thesis, _Compressible
   <span>Turbulence · Thermal convection · Machine learning · High-performance computing · Atmospheric &amp; astrophysical flows · Quantum computing · Quantum fluids</span>
 </div>
 
-## Research at a glance
-
-{: .research-section-title }
+<h2 class="research-section-title">Research at a glance</h2>
 
 <div class="research-grid">
   <a class="research-card" href="/projects/compressible-convection/">
