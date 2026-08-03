@@ -115,10 +115,9 @@
   const savedMusicTime = Number(
     getStoredValue(sessionStorage, "ambient-music-time"),
   );
-  // Every fresh document requests playback by default. Seamless navigation
-  // keeps this audio element alive, so a manual pause remains respected while
-  // moving between the normal site pages.
-  let resumeMusicOnNavigation = true;
+  // Music is opt-in on every fresh page load. Once started, seamless site
+  // navigation keeps this audio element alive across normal page changes.
+  let resumeMusicOnNavigation = false;
 
   async function startMusicAfterInteraction() {
     if (!resumeMusicOnNavigation || !music.paused) return;
@@ -139,8 +138,6 @@
     );
     document.addEventListener("keydown", startMusicAfterInteraction, options);
   }
-
-  armAutoplayFallback();
 
   function restoreMusicPosition() {
     if (
