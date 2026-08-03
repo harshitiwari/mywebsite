@@ -39,7 +39,6 @@ I received my Ph.D. in Physics from IIT Kanpur in 2026. My thesis, _Compressible
   <a class="hero-action hero-action-primary" href="/projects/">Explore research</a>
   <a class="hero-action" href="/publications/">Publications</a>
   <a class="hero-action" href="/assets/pdf/cv.pdf" target="_blank" rel="noopener noreferrer">Download CV</a>
-  <a class="hero-action" href="mailto:harshit.tiwari@nyu.edu">Email me</a>
 </div>
 
 <div class="research-interests-strip" aria-label="Research interests">
@@ -48,6 +47,8 @@ I received my Ph.D. in Physics from IIT Kanpur in 2026. My thesis, _Compressible
 </div>
 
 ## Research at a glance
+
+{: .research-section-title }
 
 <div class="research-grid">
   <a class="research-card" href="/projects/compressible-convection/">

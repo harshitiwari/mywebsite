@@ -3,13 +3,15 @@ layout: page
 permalink: /repositories/
 title: Repositories
 description: Open-source code and scientific-computing work on GitHub.
-nav: true
+nav: false
 nav_order: 7
 ---
 
 {% if site.data.repositories.github_users %}
 
-## GitHub users
+## GitHub profile
+
+[View @harshitiwari on GitHub](https://github.com/harshitiwari){: .btn .btn-sm .btn-outline-primary target="\_blank" rel="noopener noreferrer"}
 
 <div class="repositories d-flex flex-wrap flex-md-row flex-column justify-content-between align-items-center">
   {% for user in site.data.repositories.github_users %}
@@ -37,11 +39,20 @@ nav_order: 7
 
 {% if site.data.repositories.github_repos %}
 
-## GitHub Repositories
+## Public repositories
 
-<div class="repositories d-flex flex-wrap flex-md-row flex-column justify-content-between align-items-center">
+<div class="repository-grid">
   {% for repo in site.data.repositories.github_repos %}
-    {% include repository/repo.liquid repository=repo %}
+    {% assign repo_parts = repo | split: '/' %}
+    {% assign repo_name = repo_parts | last %}
+    <a class="repository-card" href="https://github.com/{{ repo }}" target="_blank" rel="noopener noreferrer">
+      <span class="repository-card-icon"><i class="fa-brands fa-github" aria-hidden="true"></i></span>
+      <span class="repository-card-copy">
+        <strong>{{ repo_name }}</strong>
+        <small>{{ repo }}</small>
+      </span>
+      <i class="fa-solid fa-arrow-up-right-from-square repository-card-arrow" aria-hidden="true"></i>
+    </a>
   {% endfor %}
 </div>
 {% endif %}

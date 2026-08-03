@@ -4,14 +4,14 @@ title: Supersonic Turbulence
 description: Energy spectra and fluxes from high-fidelity direct numerical simulations.
 importance: 3
 category: research
-img: assets/img/publication_preview/tiwari-supersonic-flow.png
+img: assets/img/projects/supersonic-turbulence.png
 ---
 
 This project examines how kinetic energy moves across scales in compressible and supersonic turbulence. We performed $1024^3$ direct numerical simulations spanning turbulent Mach numbers $0.2\leq M_t\leq3.0$, resolving the transition from subsonic eddies to shock-dominated flow.
 
-![Vorticity, velocity divergence, and density-gradient fields in supersonic turbulence](/assets/img/publication_preview/tiwari-supersonic-flow.png){: .img-fluid .rounded .z-depth-1 }
+![A cross-section from a supersonic-turbulence simulation](/assets/img/projects/supersonic-turbulence.png){: .img-fluid .rounded .z-depth-1 }
 
-_Vorticity, velocity divergence, and normalized density-gradient fields as the turbulent Mach number increases from 1.4 to 3.0._
+_A cross-sectional field from a high-resolution supersonic-turbulence simulation._
 
 ## What we did
 

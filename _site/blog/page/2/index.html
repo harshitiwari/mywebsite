@@ -17,7 +17,7 @@
   
   
     
-      Blog - page 2 | Harshit Tiwari
+      Notes - page 2 | Harshit Tiwari
     
   
 </title>
@@ -35,7 +35,7 @@
   <!-- OpenGraph -->
   <meta property="og:site_name" content="Harshit Tiwari">
   <meta property="og:type" content="article">
-  <meta property="og:title" content="Harshit Tiwari | Blog - page 2">
+  <meta property="og:title" content="Harshit Tiwari | Notes - page 2">
   <meta property="og:url" content="https://harshitiwari.site/blog/page/2/">
   <meta property="og:description" content="Harshit Tiwari is a postdoctoral researcher at New York University working on turbulent flows, scientific computing, and quantum computing for fluid dynamics.
 ">
@@ -46,7 +46,7 @@
 
   <!-- Twitter card -->
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Blog - page 2">
+  <meta name="twitter:title" content="Notes - page 2">
   <meta name="twitter:description" content="Harshit Tiwari is a postdoctoral researcher at New York University working on turbulent flows, scientific computing, and quantum computing for fluid dynamics.
 ">
   
@@ -72,7 +72,7 @@
         "@type": "BlogPosting",
         "description": "Harshit Tiwari is a postdoctoral researcher at New York University working on turbulent flows, scientific computing, and quantum computing for fluid dynamics.
 ",
-        "headline": "Blog - page 2",
+        "headline": "Notes - page 2",
         
         "sameAs": ["https://scholar.google.com/citations?user=pZsezWMAAAAJ","https://github.com/harshitiwari","https://www.linkedin.com/in/harshit-tiwari-6989b216b","https://www.researchgate.net/profile/Harshit-Tiwari-7/","https://youtube.com/@UCxZ6-66yuMBDBP5fJDoMlKg",null],
         
@@ -191,7 +191,7 @@
   </div>
 </div>
 
-<audio id="ambient-music" src="/assets/audio/mozart-piano-concerto-no-21.mp3" preload="metadata" loop></audio>
+<audio id="ambient-music" src="/assets/audio/mozart-piano-concerto-no-21.mp3" preload="metadata" autoplay loop></audio>
 
 
     <!-- Header -->
@@ -220,10 +220,6 @@
 
           <!-- Other pages -->
           
-          
-            
-          
-            
           
             
           
@@ -386,25 +382,28 @@
             
               
                 
-                <li class="nav-item ">
-                  <a class="nav-link" href="/repositories/">Repositories
-                    
-                  </a>
-                </li>
-              
-            
-          
-            
-          
-            
-              
                 
-                <li class="nav-item active">
-                  <a class="nav-link" href="/blog/">Blog
+                <li class="nav-item dropdown ">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-nav-dropdown-toggle="true" aria-haspopup="true" aria-expanded="false">Resources
                     
                   </a>
+                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                    
+                      
+                        <a class="dropdown-item " href="/repositories/">Repositories</a>
+                      
+                    
+                      
+                        <a class="dropdown-item " href="/blog/">Notes</a>
+                      
+                    
+                  </div>
                 </li>
               
+            
+          
+            
+          
             
           
             
@@ -893,23 +892,23 @@
       
         
           <li class="af-page-item ">
-            <a class="af-page-link" href="/blog/" title="Blog">1</a>
+            <a class="af-page-link" href="/blog/" title="Notes">1</a>
           </li>
         
           <li class="af-page-item active">
-            <a class="af-page-link" href="/blog/page/2/" title="Blog - page 2">2</a>
+            <a class="af-page-link" href="/blog/page/2/" title="Notes - page 2">2</a>
           </li>
         
           <li class="af-page-item ">
-            <a class="af-page-link" href="/blog/page/3/" title="Blog - page 3">3</a>
+            <a class="af-page-link" href="/blog/page/3/" title="Notes - page 3">3</a>
           </li>
         
           <li class="af-page-item ">
-            <a class="af-page-link" href="/blog/page/4/" title="Blog - page 4">4</a>
+            <a class="af-page-link" href="/blog/page/4/" title="Notes - page 4">4</a>
           </li>
         
           <li class="af-page-item ">
-            <a class="af-page-link" href="/blog/page/5/" title="Blog - page 5">5</a>
+            <a class="af-page-link" href="/blog/page/5/" title="Notes - page 5">5</a>
           </li>
         
       
@@ -1107,21 +1106,21 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/teaching/";
           },
-        },{id: "nav-repositories",
-          title: "Repositories",
-          description: "Open-source code and scientific-computing work on GitHub.",
-          section: "Navigation",
-          handler: () => {
-            window.location.href = "/repositories/";
-          },
-        },{id: "nav-blog",
-          title: "Blog",
-          description: "",
-          section: "Navigation",
-          handler: () => {
-            window.location.href = "/blog/";
-          },
-        },{id: "post-a-post-with-plotly-js",
+        },{id: "dropdown-repositories",
+              title: "Repositories",
+              description: "",
+              section: "Dropdown",
+              handler: () => {
+                window.location.href = "/repositories/";
+              },
+            },{id: "dropdown-notes",
+              title: "Notes",
+              description: "",
+              section: "Dropdown",
+              handler: () => {
+                window.location.href = "/blog/";
+              },
+            },{id: "post-a-post-with-plotly-js",
         
           title: "a post with plotly.js",
         
@@ -1273,17 +1272,6 @@ ninja.data = [{
         handler: () => {
           
             window.location.href = "/blog/2023/post-bibliography/";
-          
-        },
-      },{id: "post-a-post-with-jupyter-notebook",
-        
-          title: "a post with jupyter notebook",
-        
-        description: "an example of a blog post with jupyter notebook",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2023/jupyter-notebook/";
           
         },
       },{id: "post-a-post-with-custom-blockquotes",
@@ -1558,16 +1546,26 @@ ninja.data = [{
           description: "Heat transport and scaling laws at extreme Rayleigh numbers.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/compressible-convection/";
-            },},{id: "projects-dhara-pde-solver",
-          title: 'DHARA PDE Solver',
-          description: "A scalable Python solver for GPU-accelerated, distributed fluid simulations.",
+            },},{id: "projects-dhara",
+          title: 'DHARA',
+          description: "A scalable Python framework for solving nonlinear partial differential equations on CPUs and GPUs.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/dhara/";
+            },},{id: "projects-magnetic-field-evolution-in-neutron-stars",
+          title: 'Magnetic Field Evolution in Neutron Stars',
+          description: "Ohmic dissipation, Hall drift, and electron magnetohydrodynamics in neutron-star crusts.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/magnetic-field-neutron-stars/";
             },},{id: "projects-moist-turbulent-convection",
           title: 'Moist Turbulent Convection',
           description: "High-resolution simulations of conditionally unstable atmospheric convection.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/moist-convection/";
+            },},{id: "projects-renormalization-of-the-navier-stokes-equation",
+          title: 'Renormalization of the Navier–Stokes Equation',
+          description: "A renormalization-group view of scale-dependent transport in turbulence.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/navier-stokes-renormalization/";
             },},{id: "projects-quantum-computing-for-fluid-dynamics",
           title: 'Quantum Computing for Fluid Dynamics',
           description: "Developing quantum-computing approaches for fluid-dynamics problems at NYU.",
@@ -1672,7 +1670,7 @@ ninja.data = [{
 
 
     <script src="/assets/js/lorenz.js?v=ec35abf6416768b2c90cfd286d3ef016"></script>
-    <script src="/assets/js/ambient-controls.js?v=1056e7fe0010b3f011a1d23958db4f14"></script>
+    <script src="/assets/js/ambient-controls.js?v=9abd5f0d5cef307c32f8e76ca3ff441c"></script>
     <script src="/assets/js/seamless-navigation.js?v=c0b7ccf58054872bd7364cf9c3e404a8"></script>
   </body>
 </html>

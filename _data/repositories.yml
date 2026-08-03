@@ -3,4 +3,13 @@ github_users:
 
 repo_description_lines_max: 2
 
-github_repos: []
+github_repos:
+  - harshitiwari/mywebsite
+  - harshitiwari/htwebsite
+  - harshitiwari/icts_boundarylayers
+  - harshitiwari/our_wedding_website
+  - harshitiwari/asciitk
+  - harshitiwari/bib_maker
+  - harshitiwari/ai-science-training-series
+  - harshitiwari/dhara_beta
+  - harshitiwari/dhaara_taap_old

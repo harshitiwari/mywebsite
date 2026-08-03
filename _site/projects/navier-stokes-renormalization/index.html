@@ -1,0 +1,1235 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Head -->
+  <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <!-- Metadata, OpenGraph and Schema.org -->
+
+
+
+
+<!-- Standard metadata -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>
+  
+  
+    
+      Renormalization of the Navier–Stokes Equation | Harshit Tiwari
+    
+  
+</title>
+<meta name="author" content="Harshit Tiwari">
+<meta name="description" content="A renormalization-group view of scale-dependent transport in turbulence.">
+
+  <meta name="keywords" content="turbulence, fluid dynamics, compressible flows, scientific computing, high-performance computing, machine learning, quantum computing">
+
+
+
+
+
+
+  <!-- OpenGraph -->
+  <meta property="og:site_name" content="Harshit Tiwari">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Harshit Tiwari | Renormalization of the Navier–Stokes Equation">
+  <meta property="og:url" content="https://harshitiwari.site/projects/navier-stokes-renormalization/">
+  <meta property="og:description" content="A renormalization-group view of scale-dependent transport in turbulence.">
+  
+    <meta property="og:image" content="https://harshitiwari.site/assets/img/prof_pic_color.png">
+  
+  <meta property="og:locale" content="en">
+
+  <!-- Twitter card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Renormalization of the Navier–Stokes Equation">
+  <meta name="twitter:description" content="A renormalization-group view of scale-dependent transport in turbulence.">
+  
+    <meta name="twitter:image" content="https://harshitiwari.site/assets/img/prof_pic_color.png">
+  
+  
+
+
+
+  <!-- Schema.org -->
+  
+  
+  
+
+  <script type="application/ld+json">
+    {
+        "author":
+        {
+            "@type": "Person",
+            "name": "Harshit Tiwari"
+        },
+        "url": "https://harshitiwari.site/projects/navier-stokes-renormalization/",
+        "@type": "WebSite",
+        "description": "A renormalization-group view of scale-dependent transport in turbulence.",
+        "headline": "Renormalization of the Navier–Stokes Equation",
+        
+        "sameAs": ["https://scholar.google.com/citations?user=pZsezWMAAAAJ","https://github.com/harshitiwari","https://www.linkedin.com/in/harshit-tiwari-6989b216b","https://www.researchgate.net/profile/Harshit-Tiwari-7/","https://youtube.com/@UCxZ6-66yuMBDBP5fJDoMlKg",null],
+        
+        "name": "Harshit Tiwari",
+        "@context": "https://schema.org"
+    }
+  </script>
+
+
+
+<!-- Security: Content Security Policy -->
+<!-- Permissive CSP suitable for academic websites. Allows external images, videos, and common embed services. -->
+<!-- To customize for your needs, see: https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; media-src 'self' https:; frame-src 'self' https:; connect-src 'self' https:;">
+<style>
+  :root {
+    --max-content-width: 930px;
+  }
+</style>
+
+<!-- Tailwind-first core styles -->
+<link rel="stylesheet" href="/assets/css/tailwind.css?v=50c64c15cbb9fd1ce6056fdb8bcb4b62">
+
+
+
+
+
+
+
+<!-- Icons -->
+
+  
+<!-- Font Awesome -->
+<link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css" integrity="sha256-MVopmdyC2tYTiJ8wlktf0uh0v4NgT+vNdyVFepi7Q0c=" crossorigin="anonymous">
+
+<!-- Academicons -->
+<link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.5/css/academicons.min.css" integrity="sha256-SzrCOBJbGVFMahewkgjwnApaV2+av1DwMAA+/QGLyZw=" crossorigin="anonymous">
+
+<!-- Scholar Icons -->
+<link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/scholar-icons@1.0.3/css/scholar-icons.css" integrity="sha256-VY3hHVj/hNX3fYG6wtbA6TcKJQl7+FthzGSyIB64klY=" crossorigin="anonymous">
+
+
+
+<link defer rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons&amp;display=swap">
+
+<!-- Code Syntax Highlighting -->
+<link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-github.css?v=591dab5a4e56573bf4ef7fd332894c99" media="" id="highlight_theme_light">
+
+<!-- Styles -->
+
+
+
+
+  <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%E2%9A%9B%EF%B8%8F&lt;/text&gt;&lt;/svg&gt;">
+
+<link rel="stylesheet" href="/assets/css/main.css?v=f0b101217084a90093badfe99ff9a7d1">
+
+<link rel="canonical" href="https://harshitiwari.site/projects/navier-stokes-renormalization/">
+
+
+  <!-- Dark Mode -->
+  <script src="/assets/js/theme.js?v=7af685e2ba20b37fef545c97b8064050"></script>
+  <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-native.css?v=5847e5ed4a4568527aa6cfab446049ca" media="none" id="highlight_theme_dark">
+  <script>
+    initTheme();
+  </script>
+
+
+
+
+
+
+
+  <!-- Image Features -->
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+    <link rel="stylesheet" href="/assets/css/lorenz.css?v=459677220dfddf264f4779df4c33cf54">
+  </head>
+
+  <!-- Body -->
+  <body class="fixed-top-nav sticky-bottom-footer">
+    <canvas id="lorenz-canvas"></canvas>
+    <div id="ambient-controls" aria-label="Ambient display controls">
+  <button type="button" id="lorenz-toggle" class="ambient-control" aria-label="Turn Lorenz background off" aria-pressed="true" title="Turn Lorenz background off">
+    <i class="fa-solid fa-water" aria-hidden="true"></i>
+  </button>
+  <div id="music-player" class="music-player" aria-label="Classical music player">
+    <div class="music-player-main">
+      <button type="button" id="music-toggle" class="music-player-toggle" aria-label="Play Mozart Piano Concerto No. 21" aria-pressed="false" title="Play Mozart Piano Concerto No. 21">
+        <i class="fa-solid fa-play" aria-hidden="true"></i>
+      </button>
+      <div class="music-player-copy">
+        <span class="music-player-composer">Mozart</span>
+        <span class="music-player-title">Piano Concerto No. 21</span>
+      </div>
+      <button type="button" id="music-mute" class="music-player-volume" aria-label="Mute music" title="Mute music">
+        <i class="fa-solid fa-volume-high" aria-hidden="true"></i>
+      </button>
+    </div>
+    <div class="music-player-timeline">
+      <span id="music-current-time">0:00</span>
+      <input id="music-progress" type="range" min="0" max="100" value="0" step="0.1" aria-label="Music progress">
+      <span id="music-duration">–:––</span>
+    </div>
+  </div>
+</div>
+
+<audio id="ambient-music" src="/assets/audio/mozart-piano-concerto-no-21.mp3" preload="metadata" autoplay loop></audio>
+
+
+    <!-- Header -->
+    <header>
+  <!-- Nav Bar -->
+  <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top" role="navigation">
+    <div class="container">
+      
+        <a class="navbar-brand title font-weight-lighter" href="/">
+          Harshit Tiwari
+        </a>
+      
+      <!-- Navbar Toggle -->
+      <button class="navbar-toggler collapsed navbar-toggler-main" type="button" data-nav-toggle="navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar top-bar"></span>
+        <span class="icon-bar middle-bar"></span>
+        <span class="icon-bar bottom-bar"></span>
+      </button>
+
+      <div class="collapse navbar-collapse navbar-collapse-main" id="navbarNav">
+        <ul class="navbar-nav navbar-menu-list flex-nowrap">
+          
+
+
+
+          <!-- Other pages -->
+          
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+              
+                
+                <li class="nav-item ">
+                  <a class="nav-link" href="/publications/">Publications
+                    
+                  </a>
+                </li>
+              
+            
+          
+            
+              
+                
+                <li class="nav-item active">
+                  <a class="nav-link" href="/projects/">Projects
+                    
+                      <span class="sr-only">(current)</span>
+                    
+                  </a>
+                </li>
+              
+            
+          
+            
+              
+                
+                <li class="nav-item ">
+                  <a class="nav-link" href="/cv/">CV
+                    
+                  </a>
+                </li>
+              
+            
+          
+            
+              
+                
+                <li class="nav-item ">
+                  <a class="nav-link" href="/about-me/">About Me
+                    
+                  </a>
+                </li>
+              
+            
+          
+            
+              
+                
+                <li class="nav-item ">
+                  <a class="nav-link" href="/talks/">Talks
+                    
+                  </a>
+                </li>
+              
+            
+          
+            
+              
+                
+                <li class="nav-item ">
+                  <a class="nav-link" href="/teaching/">Teaching
+                    
+                  </a>
+                </li>
+              
+            
+          
+            
+              
+                
+                
+                <li class="nav-item dropdown ">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-nav-dropdown-toggle="true" aria-haspopup="true" aria-expanded="false">Resources
+                    
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                    
+                      
+                        <a class="dropdown-item " href="/repositories/">Repositories</a>
+                      
+                    
+                      
+                        <a class="dropdown-item " href="/blog/">Notes</a>
+                      
+                    
+                  </div>
+                </li>
+              
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+          
+            <!-- Search -->
+            <li class="nav-item">
+              <button id="search-toggle" type="button" title="Search" aria-label="Open search">
+                <span class="nav-link">ctrl k <i class="fa-solid fa-magnifying-glass"></i></span>
+              </button>
+            </li>
+          
+          
+            <!-- Toogle theme mode -->
+            <li class="toggle-container">
+              <button id="light-toggle" type="button" title="Change theme" aria-label="Change color theme">
+                <i class="fa-half-sun-moon" id="light-toggle-system"></i>
+                <i class="fa-solid fa-moon" id="light-toggle-dark"></i>
+                <i class="fa-solid fa-sun" id="light-toggle-light"></i>
+              </button>
+            </li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+    <!-- Scrolling Progress Bar -->
+    <progress id="progress" value="0">
+      <div class="progress-container">
+        <span class="progress-bar"></span>
+      </div>
+    </progress>
+  
+</header>
+
+
+    <!-- Content -->
+    <div class="container mt-5" role="main">
+      
+        
+
+<div class="post">
+  <header class="post-header">
+    <h1 class="post-title">Renormalization of the Navier–Stokes Equation</h1>
+    <p class="post-description">A renormalization-group view of scale-dependent transport in turbulence.</p>
+  </header>
+
+  <article>
+    <p>This project explored how a turbulent flow changes when progressively smaller Fourier modes are eliminated from the incompressible Navier–Stokes equations. The calculation provides a statistical-physics view of turbulence in which the influence of unresolved scales appears as an effective, scale-dependent viscosity.</p>
+
+<p><img src="/assets/img/projects/navier-stokes-renormalization.jpeg" alt="Multiscale structure used to represent coarse-graining in turbulence" class="img-fluid rounded z-depth-1"></p>
+
+<p><em>Renormalization follows how the effective dynamics change as successive bands of small-scale modes are removed.</em></p>
+
+<h2 id="shell-by-shell-coarse-graining">Shell-by-shell coarse-graining</h2>
+
+<p>Starting from the Fourier-space Navier–Stokes equation, the wavenumber domain is divided into shells. Modes in the highest-wavenumber shell are integrated out, and their leading-order effect is evaluated with a Green’s-function treatment. Repeating this procedure produces a recursion for the renormalized viscosity.</p>
+
+<p>The effective viscosity evolves with the coarse-graining scale and approaches a converged inertial-range form. This connects the nonlinear transfer of energy across scales with the transport coefficients that appear in reduced descriptions of turbulence.</p>
+
+<p><a href="/assets/pdf/projects/navier-stokes-renormalization.pdf" target="\_blank" rel="noopener noreferrer">Read the project report</a>.</p>
+
+  </article>
+
+  
+
+  
+    
+
+
+  
+</div>
+
+      
+    </div>
+
+    <!-- Footer -->
+    
+
+
+  <footer class="sticky-bottom mt-5" role="contentinfo">
+    
+
+    <div class="container">
+      
+  © Copyright 2026 Harshit Tiwari. Research, computation, and a little controlled chaos.
+  
+  
+    Last updated: August 03, 2026.
+  
+
+    </div>
+  </footer>
+
+
+
+    <!-- JavaScripts -->
+    <script>
+  window.alFolio = {
+    compatBootstrap: false
+  };
+</script>
+
+<!-- Core navigation/runtime scripts -->
+<script src="/assets/js/nav-toggle.js?v=141bd79a73ebc0f0b6ea58e440ae79fc"></script>
+
+
+
+  <!-- Masonry & imagesLoaded -->
+  <script defer src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script>
+  <script defer src="/assets/js/masonry.js?v=e49affc7bd2646f6acdad1dbe02c2359" type="text/javascript"></script>
+
+
+
+  <!-- Charts and Diagrams -->
+  
+
+
+
+
+
+
+
+  <!-- Math and Tikzjax -->
+  
+<script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js" integrity="sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI=" crossorigin="anonymous"></script>
+<script src="/assets/al_math/js/mathjax-setup.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6" crossorigin="anonymous"></script>
+
+
+
+
+
+<!-- Tooltips & popovers runtime -->
+<script src="/assets/js/tooltips-setup.js?v=fe487e99db6c43751e6e7bdb2d6a0611"></script>
+
+
+
+
+
+
+<!-- Load Common JS -->
+<script src="/assets/js/no_defer.js?v=53b1b1a645525975c963ce8bf8bfefcf"></script>
+<script defer src="/assets/js/common.js?v=87baac90f765f2f3362dcf6aaf312a8a"></script>
+<script defer src="/assets/js/copy_code.js?v=c8a01c11a92744d44b093fc3bda915df" type="text/javascript"></script>
+
+<!-- Jupyter Open External Links New Tab -->
+<script defer src="/assets/js/jupyter_new_tab.js?v=896d254890d9b47f0281f63bfccf0dee"></script>
+
+<!-- Badges -->
+
+  <script async src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script>
+
+
+  <script async src="https://badge.dimensions.ai/badge.js"></script>
+
+
+
+
+  <!-- Analytics -->
+  
+
+
+
+
+
+  <!-- Image Features -->
+  
+<!-- Medium Zoom JS -->
+<script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous"></script>
+<script defer src="/assets/al_img_tools/js/zoom.js"></script>
+
+
+
+
+
+  <!-- Scrolling Progress Bar -->
+  <script defer src="/assets/js/progress-bar.js?v=499464c5c63ced6cf7ad62509f1e2610" type="text/javascript"></script>
+
+
+
+
+
+  <!-- Back to Top -->
+  
+  
+  
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-back-to-top@7.2.1/dist/vanilla-back-to-top.min.js" integrity="sha256-uMJJ3EoTyfRBoTbR+lrfu1uRQ87RZG8AR3cVNuQVeFg=" crossorigin="anonymous"></script>
+  
+  <script>
+    addBackToTop();
+  </script>
+
+
+
+  <!-- Search -->
+  
+    
+<script type="module" src="/assets/al_search/js/search/ninja-keys.min.js"></script>
+<ninja-keys hidebreadcrumbs noautoloadmdicons placeholder="Type to start searching"></ninja-keys>
+<script src="/assets/al_search/js/search-setup.js"></script>
+<script>
+// get the ninja-keys element
+const ninja = document.querySelector('ninja-keys');
+
+// add the home and posts menu items
+ninja.data = [{
+    id: "nav-about",
+    title: "About",
+    section: "Navigation",
+    handler: () => {
+      window.location.href = "/";
+    },
+  },{id: "nav-publications",
+          title: "Publications",
+          description: "",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/publications/";
+          },
+        },{id: "nav-projects",
+          title: "Projects",
+          description: "Research and software projects in turbulent flows, scientific computing, and quantum algorithms.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/projects/";
+          },
+        },{id: "nav-cv",
+          title: "CV",
+          description: "Curriculum Vitae of Harshit Tiwari.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/cv/";
+          },
+        },{id: "nav-about-me",
+          title: "About Me",
+          description: "Life beyond research—mountains, movement, music, and games.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/about-me/";
+          },
+        },{id: "nav-talks-amp-presentations",
+          title: "Talks &amp; Presentations",
+          description: "Selected research talks, posters, workshops, and computational-science events.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/talks/";
+          },
+        },{id: "nav-teaching",
+          title: "Teaching",
+          description: "Teaching experience at the Indian Institute of Technology Kanpur.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/teaching/";
+          },
+        },{id: "dropdown-repositories",
+              title: "Repositories",
+              description: "",
+              section: "Dropdown",
+              handler: () => {
+                window.location.href = "/repositories/";
+              },
+            },{id: "dropdown-notes",
+              title: "Notes",
+              description: "",
+              section: "Dropdown",
+              handler: () => {
+                window.location.href = "/blog/";
+              },
+            },{id: "post-a-post-with-plotly-js",
+        
+          title: "a post with plotly.js",
+        
+        description: "this is what included plotly.js code could look like",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/plotly/";
+          
+        },
+      },{id: "post-a-post-with-image-galleries",
+        
+          title: "a post with image galleries",
+        
+        description: "this is what included image galleries could look like",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/photo-gallery/";
+          
+        },
+      },{id: "post-a-post-with-tabs",
+        
+          title: "a post with tabs",
+        
+        description: "this is what included tabs in a post could look like",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/tabs/";
+          
+        },
+      },{id: "post-a-post-with-typograms",
+        
+          title: "a post with typograms",
+        
+        description: "this is what included typograms code could look like",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/typograms/";
+          
+        },
+      },{id: "post-a-post-that-can-be-cited",
+        
+          title: "a post that can be cited",
+        
+        description: "this is what a post that can be cited looks like",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/post-citation/";
+          
+        },
+      },{id: "post-a-post-with-pseudo-code",
+        
+          title: "a post with pseudo code",
+        
+        description: "this is what included pseudo code could look like",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/pseudocode/";
+          
+        },
+      },{id: "post-a-post-with-code-diff",
+        
+          title: "a post with code diff",
+        
+        description: "this is how you can display code diffs",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/code-diff/";
+          
+        },
+      },{id: "post-a-post-with-advanced-image-components",
+        
+          title: "a post with advanced image components",
+        
+        description: "this is what advanced image components could look like",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/advanced-images/";
+          
+        },
+      },{id: "post-a-post-with-vega-lite",
+        
+          title: "a post with vega lite",
+        
+        description: "this is what included vega lite code could look like",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/vega-lite/";
+          
+        },
+      },{id: "post-a-post-with-geojson",
+        
+          title: "a post with geojson",
+        
+        description: "this is what included geojson code could look like",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/geojson-map/";
+          
+        },
+      },{id: "post-a-post-with-echarts",
+        
+          title: "a post with echarts",
+        
+        description: "this is what included echarts code could look like",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/echarts/";
+          
+        },
+      },{id: "post-a-post-with-chart-js",
+        
+          title: "a post with chart.js",
+        
+        description: "this is what included chart.js code could look like",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/chartjs/";
+          
+        },
+      },{id: "post-a-post-with-tikzjax",
+        
+          title: "a post with TikZJax",
+        
+        description: "this is what included TikZ code could look like",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2023/tikzjax/";
+          
+        },
+      },{id: "post-a-post-with-bibliography",
+        
+          title: "a post with bibliography",
+        
+        description: "an example of a blog post with bibliography",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2023/post-bibliography/";
+          
+        },
+      },{id: "post-a-post-with-custom-blockquotes",
+        
+          title: "a post with custom blockquotes",
+        
+        description: "an example of a blog post with custom blockquotes",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2023/custom-blockquotes/";
+          
+        },
+      },{id: "post-a-post-with-table-of-contents-on-a-sidebar",
+        
+          title: "a post with table of contents on a sidebar",
+        
+        description: "an example of a blog post with table of contents on a sidebar",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2023/sidebar-table-of-contents/";
+          
+        },
+      },{id: "post-a-post-with-audios",
+        
+          title: "a post with audios",
+        
+        description: "this is what included audios could look like",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2023/audios/";
+          
+        },
+      },{id: "post-a-post-with-videos",
+        
+          title: "a post with videos",
+        
+        description: "this is what included videos could look like",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2023/videos/";
+          
+        },
+      },{id: "post-displaying-beautiful-interactive-tables",
+        
+          title: "displaying beautiful interactive tables",
+        
+        description: "an example of how to use interactive tables in al-folio",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2023/tables/";
+          
+        },
+      },{id: "post-a-post-with-table-of-contents",
+        
+          title: "a post with table of contents",
+        
+        description: "an example of a blog post with table of contents",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2023/table-of-contents/";
+          
+        },
+      },{id: "post-a-post-with-giscus-comments",
+        
+          title: "a post with giscus comments",
+        
+        description: "an example of a blog post with giscus comments",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2022/giscus-comments/";
+          
+        },
+      },{id: "post-a-post-with-redirect",
+        
+          title: "a post with redirect",
+        
+        description: "you can also redirect to assets like pdf",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/assets/pdf/example_pdf.pdf";
+          
+        },
+      },{id: "post-a-post-with-diagrams",
+        
+          title: "a post with diagrams",
+        
+        description: "an example of a blog post with diagrams",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2021/diagrams/";
+          
+        },
+      },{id: "post-a-distill-style-blog-post",
+        
+          title: "a distill-style blog post",
+        
+        description: "an example of a distill-style blog post and main elements",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2021/distill/";
+          
+        },
+      },{id: "post-a-post-with-twitter",
+        
+          title: "a post with twitter",
+        
+        description: "an example of a blog post with twitter",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2020/twitter/";
+          
+        },
+      },{id: "post-a-post-with-disqus-comments",
+        
+          title: "a post with disqus comments",
+        
+        description: "an example of a blog post with disqus comments",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2015/disqus-comments/";
+          
+        },
+      },{id: "post-a-post-with-math",
+        
+          title: "a post with math",
+        
+        description: "an example of a blog post with some math",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2015/math/";
+          
+        },
+      },{id: "post-a-post-with-code",
+        
+          title: "a post with code",
+        
+        description: "an example of a blog post with some code",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2015/code/";
+          
+        },
+      },{id: "post-a-post-with-images",
+        
+          title: "a post with images",
+        
+        description: "this is what included images could look like",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2015/images/";
+          
+        },
+      },{id: "post-a-post-with-formatting-and-links",
+        
+          title: "a post with formatting and links",
+        
+        description: "march &amp; april, looking forward to summer",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2015/formatting-and-links/";
+          
+        },
+      },{id: "books-the-godfather",
+          title: 'The Godfather',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/the_godfather/";
+            },},{id: "news-secured-all-india-rank-74-in-iit-jam-and-all-india-rank-307-in-jest",
+          title: 'Secured All India Rank 74 in IIT JAM and All India Rank 307...',
+          description: "",
+          section: "News",},{id: "news-joined-the-m-sc-physics-program-at-iit-kanpur-awarded-the-merit-cum-means-scholarship",
+          title: 'Joined the M.Sc. Physics program at IIT Kanpur, awarded the Merit cum Means...',
+          description: "",
+          section: "News",},{id: "news-started-master-s-project-on-accretion-disk-oscillations-under-prof-pankaj-jain",
+          title: 'Started Master’s project on accretion disk oscillations under Prof. Pankaj Jain. 🌌',
+          description: "",
+          section: "News",},{id: "news-attended-the-icts-summer-school-on-gravitational-wave-astronomy",
+          title: 'Attended the ICTS Summer School on Gravitational-Wave Astronomy. 🔭',
+          description: "",
+          section: "News",},{id: "news-graduated-with-an-m-sc-in-physics-from-iit-kanpur",
+          title: 'Graduated with an M.Sc. in Physics from IIT Kanpur. 📜',
+          description: "",
+          section: "News",},{id: "news-commenced-my-ph-d-in-physics-as-a-graduate-researcher-at-iit-kanpur",
+          title: 'Commenced my Ph.D. in Physics as a Graduate Researcher at IIT Kanpur! 🎓...',
+          description: "",
+          section: "News",},{id: "news-served-as-the-hec-election-officer-for-hall-7-elections-at-iit-kanpur-️",
+          title: 'Served as the HEC Election Officer for Hall 7 elections at IIT Kanpur....',
+          description: "",
+          section: "News",},{id: "news-appointed-secretary-of-the-adventure-sports-club-at-iit-kanpur-2022-23",
+          title: 'Appointed Secretary of the Adventure Sports Club at IIT Kanpur (2022-23). 🚲',
+          description: "",
+          section: "News",},{id: "news-participated-in-the-nsm-gpu-hackathon-porting-our-gross-pitaevskii-solver-to-64-nvidia-a100-gpus",
+          title: 'Participated in the NSM GPU Hackathon, porting our Gross-Pitaevskii solver to 64 Nvidia...',
+          description: "",
+          section: "News",},{id: "news-attended-the-icts-program-on-turbulence-problems-at-the-interface-of-mathematics-and-physics",
+          title: 'Attended the ICTS program on Turbulence: Problems at the Interface of Mathematics and...',
+          description: "",
+          section: "News",},{id: "news-re-appointed-secretary-of-the-adventure-sports-club-at-iit-kanpur-2023-24",
+          title: 'Re-appointed Secretary of the Adventure Sports Club at IIT Kanpur (2023-24). 💪',
+          description: "",
+          section: "News",},{id: "news-attended-the-icts-program-on-field-theory-and-turbulence",
+          title: 'Attended the ICTS program on Field Theory and Turbulence. 📝',
+          description: "",
+          section: "News",},{id: "news-presented-our-work-on-compressible-turbulent-convection-at-the-iit-kanpur-physics-research-scholar-day-2024-️",
+          title: 'Presented our work on compressible turbulent convection at the IIT Kanpur Physics Research...',
+          description: "",
+          section: "News",},{id: "news-participated-in-the-frontier-hackathon-successfully-scaling-our-compressible-solver-dhara-on-frontier-to-8-192-amd-mi250x-gpus",
+          title: 'Participated in the Frontier Hackathon, successfully scaling our compressible solver DHARA on Frontier...',
+          description: "",
+          section: "News",},{id: "news-appointed-coordinator-of-the-adventure-sports-club-at-iit-kanpur-2024-25",
+          title: 'Appointed Coordinator of the Adventure Sports Club at IIT Kanpur (2024-25). 🥾 🏃...',
+          description: "",
+          section: "News",},{id: "news-presented-a-poster-on-our-high-performance-fluid-simulation-results-at-the-iit-kanpur-hpc-symposium",
+          title: 'Presented a poster on our high-performance fluid simulation results at the IIT Kanpur...',
+          description: "",
+          section: "News",},{id: "news-delivered-a-talk-at-the-icts-program-on-theoretical-and-practical-perspectives-in-geophysical-fluid-dynamics",
+          title: 'Delivered a talk at the ICTS program on Theoretical and Practical Perspectives in...',
+          description: "",
+          section: "News",},{id: "news-delivered-a-talk-on-classical-1-3-nusselt-scaling-at-the-1st-european-fluid-dynamics-conference-efdc1-in-aachen-germany",
+          title: 'Delivered a talk on “Classical 1/3 Nusselt Scaling” at the 1st European Fluid...',
+          description: "",
+          section: "News",},{id: "news-presented-a-poster-on-compressible-convection-at-the-variable-sun-past-present-and-future-conference-in-thiruvananthapuram",
+          title: 'Presented a poster on compressible convection at The Variable Sun: Past, Present, and...',
+          description: "",
+          section: "News",},{id: "news-chaired-a-session-and-presented-our-thermal-turbulence-research-at-the-aps-dfd-2025-meeting-in-houston-texas-supported-by-the-dfd-enabling-award",
+          title: 'Chaired a session and presented our thermal turbulence research at the APS DFD...',
+          description: "",
+          section: "News",},{id: "news-participated-in-the-indo-japanese-workshop-for-cfd-based-ai-and-hpc-2025-at-iit-kanpur",
+          title: 'Participated in the Indo-Japanese Workshop for CFD-based AI and HPC 2025 at IIT...',
+          description: "",
+          section: "News",},{id: "news-submitted-my-ph-d-thesis-and-started-as-a-fare-fellow-at-iit-kanpur",
+          title: 'Submitted my Ph.D. thesis and started as a FARE Fellow at IIT Kanpur!...',
+          description: "",
+          section: "News",},{id: "news-gave-a-talk-on-high-resolution-simulations-of-dry-and-moist-turbulent-convection-at-the-icts-moist-convective-dynamics-program",
+          title: 'Gave a talk on “High-resolution simulations of dry and moist turbulent convection” at...',
+          description: "",
+          section: "News",},{id: "news-visited-paris-france-to-participate-in-the-trimester-program-workshop-instabilities-and-transitions-in-geophysical-flows-at-institute-henri-poincaré-️",
+          title: 'Visited Paris, France to participate in the trimester program workshop “Instabilities and transitions...',
+          description: "",
+          section: "News",},{id: "news-successfully-defended-my-ph-d-thesis",
+          title: 'Successfully defended my Ph.D. thesis! 🎓 🎉',
+          description: "",
+          section: "News",},{id: "news-started-my-new-position-as-a-postdoctoral-associate-at-new-york-university-nyu",
+          title: 'Started my new position as a Postdoctoral Associate at New York University (NYU)!...',
+          description: "",
+          section: "News",},{id: "news-received-my-ph-d-in-physics-from-iit-kanpur-and-the-outstanding-phd-thesis-award",
+          title: 'Received my Ph.D. in Physics from IIT Kanpur and the Outstanding PhD Thesis...',
+          description: "",
+          section: "News",},{id: "projects-accretion-disk-oscillations",
+          title: 'Accretion Disk Oscillations',
+          description: "Theoretical modelling of acoustic modes around rotating black holes.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/accretion-disk-oscillations/";
+            },},{id: "projects-compressible-turbulent-convection",
+          title: 'Compressible Turbulent Convection',
+          description: "Heat transport and scaling laws at extreme Rayleigh numbers.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/compressible-convection/";
+            },},{id: "projects-dhara",
+          title: 'DHARA',
+          description: "A scalable Python framework for solving nonlinear partial differential equations on CPUs and GPUs.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/dhara/";
+            },},{id: "projects-magnetic-field-evolution-in-neutron-stars",
+          title: 'Magnetic Field Evolution in Neutron Stars',
+          description: "Ohmic dissipation, Hall drift, and electron magnetohydrodynamics in neutron-star crusts.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/magnetic-field-neutron-stars/";
+            },},{id: "projects-moist-turbulent-convection",
+          title: 'Moist Turbulent Convection',
+          description: "High-resolution simulations of conditionally unstable atmospheric convection.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/moist-convection/";
+            },},{id: "projects-renormalization-of-the-navier-stokes-equation",
+          title: 'Renormalization of the Navier–Stokes Equation',
+          description: "A renormalization-group view of scale-dependent transport in turbulence.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/navier-stokes-renormalization/";
+            },},{id: "projects-quantum-computing-for-fluid-dynamics",
+          title: 'Quantum Computing for Fluid Dynamics',
+          description: "Developing quantum-computing approaches for fluid-dynamics problems at NYU.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/quantum-computing-fluid-dynamics/";
+            },},{id: "projects-supersonic-turbulence",
+          title: 'Supersonic Turbulence',
+          description: "Energy spectra and fluxes from high-fidelity direct numerical simulations.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/supersonic-turbulence/";
+            },},{
+        id: 'social-email',
+        title: 'email',
+        section: 'Socials',
+        handler: () => {
+          window.open("mailto:%68%61%72%73%68%69%74.%74%69%77%61%72%69@%6E%79%75.%65%64%75", "_blank");
+        },
+      },{
+        id: 'social-scholar',
+        title: 'Google Scholar',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://scholar.google.com/citations?user=pZsezWMAAAAJ", "_blank");
+        },
+      },{
+        id: 'social-github',
+        title: 'GitHub',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://github.com/harshitiwari", "_blank");
+        },
+      },{
+        id: 'social-linkedin',
+        title: 'LinkedIn',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://www.linkedin.com/in/harshit-tiwari-6989b216b", "_blank");
+        },
+      },{
+        id: 'social-researchgate',
+        title: 'ResearchGate',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://www.researchgate.net/profile/Harshit-Tiwari-7/", "_blank");
+        },
+      },{
+        id: 'social-youtube',
+        title: 'YouTube',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://youtube.com/@UCxZ6-66yuMBDBP5fJDoMlKg", "_blank");
+        },
+      },{
+        id: 'social-cv',
+        title: 'CV',
+        section: 'Socials',
+        handler: () => {
+          window.open("/assets/pdf/cv.pdf", "_blank");
+        },
+      },{
+        id: 'social-rss',
+        title: 'RSS Feed',
+        section: 'Socials',
+        handler: () => {
+          window.open("/feed.xml", "_blank");
+        },
+      },{
+      id: 'light-theme',
+      title: 'Change theme to light',
+      description: 'Change the theme of the site to Light',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("light");
+      },
+    },
+    {
+      id: 'dark-theme',
+      title: 'Change theme to dark',
+      description: 'Change the theme of the site to Dark',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("dark");
+      },
+    },
+    {
+      id: 'system-theme',
+      title: 'Use system default theme',
+      description: 'Change the theme of the site to System Default',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("system");
+      },
+    },];
+
+</script>
+<script src="/assets/al_search/js/shortcut-key.js"></script>
+
+
+  
+
+
+
+
+    <script src="/assets/js/lorenz.js?v=ec35abf6416768b2c90cfd286d3ef016"></script>
+    <script src="/assets/js/ambient-controls.js?v=9abd5f0d5cef307c32f8e76ca3ff441c"></script>
+    <script src="/assets/js/seamless-navigation.js?v=c0b7ccf58054872bd7364cf9c3e404a8"></script>
+  </body>
+</html>

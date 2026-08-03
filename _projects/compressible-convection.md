@@ -4,14 +4,14 @@ title: Compressible Turbulent Convection
 description: Heat transport and scaling laws at extreme Rayleigh numbers.
 importance: 2
 category: research
-img: assets/img/publication_preview/tiwari-pnas-heat-flux.png
+img: assets/img/projects/compressible-convection.png
 ---
 
 My doctoral research investigated compressible turbulent convection at extreme Rayleigh numbers. We performed direct numerical simulations and compared compressible convection with Rayleigh–Bénard and periodic convection, reaching $Ra=10^{16}$ in two dimensions and $Ra=10^{13}$ in three dimensions.
 
-![Velocity, temperature, and vertical heat-flux fields from the convection study](/assets/img/publication_preview/tiwari-pnas-heat-flux.png){: .img-fluid .rounded .z-depth-1 }
+![Fully compressible turbulent convection in a rectangular domain](/assets/img/projects/compressible-convection.png){: .img-fluid .rounded .z-depth-1 }
 
-_Velocity, temperature, and vertical heat-flux fields for periodic, Rayleigh–Bénard, and compressible convection. Figure adapted from our PNAS paper._
+_A fully compressible turbulent-convection simulation from the original project gallery._
 
 ## What we did
 

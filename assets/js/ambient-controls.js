@@ -90,7 +90,8 @@
   }
 
   function updateTimeline() {
-    if (currentTimeLabel) currentTimeLabel.textContent = formatTime(music.currentTime);
+    if (currentTimeLabel)
+      currentTimeLabel.textContent = formatTime(music.currentTime);
     if (durationLabel) durationLabel.textContent = formatTime(music.duration);
     if (progress && Number.isFinite(music.duration) && music.duration > 0) {
       progress.value = String((music.currentTime / music.duration) * 100);
@@ -101,7 +102,10 @@
   function updateMuteButton() {
     if (!muteButton) return;
     const isMuted = music.muted;
-    muteButton.setAttribute("aria-label", isMuted ? "Unmute music" : "Mute music");
+    muteButton.setAttribute(
+      "aria-label",
+      isMuted ? "Unmute music" : "Mute music",
+    );
     muteButton.title = isMuted ? "Unmute music" : "Mute music";
     muteButton.innerHTML = isMuted
       ? '<i class="fa-solid fa-volume-xmark" aria-hidden="true"></i>'
@@ -111,8 +115,32 @@
   const savedMusicTime = Number(
     getStoredValue(sessionStorage, "ambient-music-time"),
   );
-  let resumeMusicOnNavigation =
-    getStoredValue(sessionStorage, "ambient-music-playing") === "true";
+  // Every fresh document requests playback by default. Seamless navigation
+  // keeps this audio element alive, so a manual pause remains respected while
+  // moving between the normal site pages.
+  let resumeMusicOnNavigation = true;
+
+  async function startMusicAfterInteraction() {
+    if (!resumeMusicOnNavigation || !music.paused) return;
+
+    try {
+      await music.play();
+    } catch {
+      updateMusicButton(false);
+    }
+  }
+
+  function armAutoplayFallback() {
+    const options = { capture: true, once: true };
+    document.addEventListener(
+      "pointerdown",
+      startMusicAfterInteraction,
+      options,
+    );
+    document.addEventListener("keydown", startMusicAfterInteraction, options);
+  }
+
+  armAutoplayFallback();
 
   function restoreMusicPosition() {
     if (
@@ -131,8 +159,9 @@
     try {
       await music.play();
     } catch {
-      // Some browsers still require one click after a full navigation.
+      // Audible autoplay is commonly blocked until the first user gesture.
       updateMusicButton(false);
+      armAutoplayFallback();
     }
   }
 

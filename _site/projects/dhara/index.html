@@ -1,9 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
-  <!-- Head -->
+<html>
   <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
     <!-- Metadata, OpenGraph and Schema.org -->
 
 
@@ -17,12 +15,12 @@
   
   
     
-      DHARA PDE Solver | Harshit Tiwari
+      DHARA | Harshit Tiwari
     
   
 </title>
 <meta name="author" content="Harshit Tiwari">
-<meta name="description" content="A scalable Python solver for GPU-accelerated, distributed fluid simulations.">
+<meta name="description" content="A scalable Python framework for solving nonlinear partial differential equations on CPUs and GPUs.">
 
   <meta name="keywords" content="turbulence, fluid dynamics, compressible flows, scientific computing, high-performance computing, machine learning, quantum computing">
 
@@ -34,9 +32,9 @@
   <!-- OpenGraph -->
   <meta property="og:site_name" content="Harshit Tiwari">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Harshit Tiwari | DHARA PDE Solver">
+  <meta property="og:title" content="Harshit Tiwari | DHARA">
   <meta property="og:url" content="https://harshitiwari.site/projects/dhara/">
-  <meta property="og:description" content="A scalable Python solver for GPU-accelerated, distributed fluid simulations.">
+  <meta property="og:description" content="A scalable Python framework for solving nonlinear partial differential equations on CPUs and GPUs.">
   
     <meta property="og:image" content="https://harshitiwari.site/assets/img/prof_pic_color.png">
   
@@ -44,8 +42,8 @@
 
   <!-- Twitter card -->
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="DHARA PDE Solver">
-  <meta name="twitter:description" content="A scalable Python solver for GPU-accelerated, distributed fluid simulations.">
+  <meta name="twitter:title" content="DHARA">
+  <meta name="twitter:description" content="A scalable Python framework for solving nonlinear partial differential equations on CPUs and GPUs.">
   
     <meta name="twitter:image" content="https://harshitiwari.site/assets/img/prof_pic_color.png">
   
@@ -67,8 +65,8 @@
         },
         "url": "https://harshitiwari.site/projects/dhara/",
         "@type": "WebSite",
-        "description": "A scalable Python solver for GPU-accelerated, distributed fluid simulations.",
-        "headline": "DHARA PDE Solver",
+        "description": "A scalable Python framework for solving nonlinear partial differential equations on CPUs and GPUs.",
+        "headline": "DHARA",
         
         "sameAs": ["https://scholar.google.com/citations?user=pZsezWMAAAAJ","https://github.com/harshitiwari","https://www.linkedin.com/in/harshit-tiwari-6989b216b","https://www.researchgate.net/profile/Harshit-Tiwari-7/","https://youtube.com/@UCxZ6-66yuMBDBP5fJDoMlKg",null],
         
@@ -156,40 +154,54 @@
 
 
 
-    <link rel="stylesheet" href="/assets/css/lorenz.css?v=459677220dfddf264f4779df4c33cf54">
+    <link rel="stylesheet" href="/assets/css/al-folio-distill.css?v=fb7196ec07cb5299d51b2cbdc69c23d7">
+
+    <!-- Distill js -->
+    <script src="/assets/js/distillpub/template.v2.js"></script>
+    <script src="/assets/js/distillpub/transforms.v2.js"></script>
+    
   </head>
 
-  <!-- Body -->
-  <body class="fixed-top-nav sticky-bottom-footer">
-    <canvas id="lorenz-canvas"></canvas>
-    <div id="ambient-controls" aria-label="Ambient display controls">
-  <button type="button" id="lorenz-toggle" class="ambient-control" aria-label="Turn Lorenz background off" aria-pressed="true" title="Turn Lorenz background off">
-    <i class="fa-solid fa-water" aria-hidden="true"></i>
-  </button>
-  <div id="music-player" class="music-player" aria-label="Classical music player">
-    <div class="music-player-main">
-      <button type="button" id="music-toggle" class="music-player-toggle" aria-label="Play Mozart Piano Concerto No. 21" aria-pressed="false" title="Play Mozart Piano Concerto No. 21">
-        <i class="fa-solid fa-play" aria-hidden="true"></i>
-      </button>
-      <div class="music-player-copy">
-        <span class="music-player-composer">Mozart</span>
-        <span class="music-player-title">Piano Concerto No. 21</span>
-      </div>
-      <button type="button" id="music-mute" class="music-player-volume" aria-label="Mute music" title="Mute music">
-        <i class="fa-solid fa-volume-high" aria-hidden="true"></i>
-      </button>
-    </div>
-    <div class="music-player-timeline">
-      <span id="music-current-time">0:00</span>
-      <input id="music-progress" type="range" min="0" max="100" value="0" step="0.1" aria-label="Music progress">
-      <span id="music-duration">–:––</span>
-    </div>
-  </div>
-</div>
+  <body>
+<d-front-matter>
+    <script async type="text/json">
+      {
+            "title": "DHARA",
+            "description": "A scalable Python framework for solving nonlinear partial differential equations on CPUs and GPUs.",
+            "published": "August 03, 2026",
+            "authors": [
+              
+              {
+                "author": "Harshit Tiwari",
+                "authorURL": "https://harshitiwari.site",
+                "affiliations": [
+                  {
+                    "name": "New York University",
+                    "url": "https://www.nyu.edu/"
+                  }
+                ]
+              }
+              
+            ],
+            "katex": {
+              "delimiters": [
+                {
+                  "left": "$",
+                  "right": "$",
+                  "display": false
+                },
+                {
+                  "left": "$$",
+                  "right": "$$",
+                  "display": true
+                }
+              ]
+            }
+          }
+    </script>
+  </d-front-matter>
 
-<audio id="ambient-music" src="/assets/audio/mozart-piano-concerto-no-21.mp3" preload="metadata" loop></audio>
-
-
+  
     <!-- Header -->
     <header>
   <!-- Nav Bar -->
@@ -216,10 +228,6 @@
 
           <!-- Other pages -->
           
-          
-            
-          
-            
           
             
           
@@ -382,25 +390,28 @@
             
               
                 
-                <li class="nav-item ">
-                  <a class="nav-link" href="/repositories/">Repositories
-                    
-                  </a>
-                </li>
-              
-            
-          
-            
-          
-            
-              
                 
-                <li class="nav-item ">
-                  <a class="nav-link" href="/blog/">Blog
+                <li class="nav-item dropdown ">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-nav-dropdown-toggle="true" aria-haspopup="true" aria-expanded="false">Resources
                     
                   </a>
+                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                    
+                      
+                        <a class="dropdown-item " href="/repositories/">Repositories</a>
+                      
+                    
+                      
+                        <a class="dropdown-item " href="/blog/">Notes</a>
+                      
+                    
+                  </div>
                 </li>
               
+            
+          
+            
+          
             
           
             
@@ -447,65 +458,306 @@
 
 
     <!-- Content -->
-    <div class="container mt-5" role="main">
+    <div class="post distill">
+      <d-title>
+        <h1>DHARA</h1>
+        <p>A scalable Python framework for solving nonlinear partial differential equations on CPUs and GPUs.</p>
+      </d-title>
       
+        <d-byline></d-byline>
+      
+
+      <d-article>
+        
+          <d-contents>
+            <nav class="l-text figcaption">
+              <h3>Contents</h3>
+              
+                <div>
+                  <a href="#abstract">Abstract</a>
+                </div>
+                
+              
+                <div>
+                  <a href="#governing-equations">Governing equations</a>
+                </div>
+                
+              
+                <div>
+                  <a href="#numerical-framework">Numerical framework</a>
+                </div>
+                
+                  <ul>
+                    
+                      <li>
+                        <a href="#compressible-flows">Compressible flows</a>
+                      </li>
+                    
+                      <li>
+                        <a href="#incompressible-flows">Incompressible flows</a>
+                      </li>
+                    
+                      <li>
+                        <a href="#quantum-fluids">Quantum fluids</a>
+                      </li>
+                    
+                  </ul>
+                
+              
+                <div>
+                  <a href="#software-architecture">Software architecture</a>
+                </div>
+                
+              
+                <div>
+                  <a href="#parallel-design">Parallel design</a>
+                </div>
+                
+              
+                <div>
+                  <a href="#performance-at-scale">Performance at scale</a>
+                </div>
+                
+              
+                <div>
+                  <a href="#representative-simulations">Representative simulations</a>
+                </div>
+                
+                  <ul>
+                    
+                      <li>
+                        <a href="#kelvin-helmholtz-instability">Kelvin–Helmholtz instability</a>
+                      </li>
+                    
+                      <li>
+                        <a href="#supersonic-turbulence">Supersonic turbulence</a>
+                      </li>
+                    
+                      <li>
+                        <a href="#compressible-convection">Compressible convection</a>
+                      </li>
+                    
+                  </ul>
+                
+              
+                <div>
+                  <a href="#scientific-scope">Scientific scope</a>
+                </div>
+                
+              
+                <div>
+                  <a href="#acknowledgements">Acknowledgements</a>
+                </div>
+                
+              
+            </nav>
+          </d-contents>
+
         
 
-<div class="post">
-  <header class="post-header">
-    <h1 class="post-title">DHARA PDE Solver</h1>
-    <p class="post-description">A scalable Python solver for GPU-accelerated, distributed fluid simulations.</p>
-  </header>
+        <h2 id="abstract">Abstract</h2>
 
-  <article>
-    <p>DHARA is a general partial-differential-equation solver that I developed for large-scale direct numerical simulations. It combines a Python-facing workflow with GPU acceleration and MPI-based distributed computing.</p>
+<p>DHARA is a general-purpose Python framework I developed for direct numerical simulation of nonlinear partial differential equations. It provides a common computational structure for compressible and incompressible flows, magnetohydrodynamics, moist convection, and quantum fluids. The same simulation code can run with NumPy on CPUs or CuPy on GPUs, while MPI distributes large domains across many nodes.</p>
 
-<p>I have used DHARA to simulate compressible convection, shocks, and turbulence. At the Frontier Hackathon, the solver was scaled to <strong>8,192 AMD MI250X GPUs</strong> on the Frontier supercomputer at Oak Ridge National Laboratory.</p>
+<p>The central design goal is to keep the physics readable without sacrificing performance. Governing equations, spatial discretizations, time integrators, boundary conditions, forcing, diagnostics, and data output are separate modules. This makes it possible to change a numerical scheme without rewriting the physical model—or to add a new equation set while retaining the parallel infrastructure.</p>
 
-<p><img src="/assets/img/publication_preview/tiwari-thesis-dhara.png" alt="Modular architecture of the DHARA solver" class="img-fluid rounded z-depth-1"></p>
+<figure style="max-width: 720px; margin: 2rem auto;">
+  <img src="/assets/img/publication_preview/tiwari-thesis-dhara.png" alt="Modular architecture of the DHARA solver" class="img-fluid rounded z-depth-1">
+  <figcaption>DHARA separates the physical model from numerical kernels, parallel decomposition, time integration, and data I/O.</figcaption>
+</figure>
 
-<p><em>DHARA separates grids, physics modules, numerical kernels, time integration, and data I/O so that new equation sets and schemes can share the same execution framework.</em></p>
+<h2 id="governing-equations">Governing equations</h2>
 
-<h2 id="what-we-built">What we built</h2>
-
-<p>DHARA advances systems of conservation laws of the form</p>
+<p>Many of the systems in DHARA can be expressed as conservation laws,</p>
 
 \[\frac{\partial \mathbf{q}}{\partial t}
 + \nabla\!\cdot\!\mathbf{F}(\mathbf{q})
 = \mathbf{S}(\mathbf{q}),\]
 
-<p>with interchangeable physics and numerical modules. It supports Euler and compressible-flow systems, turbulent convection, moist convection, magnetohydrodynamics, and quantum-fluid models.</p>
+<p>where $\mathbf{q}$ is the state vector, $\mathbf{F}$ contains advective and diffusive fluxes, and $\mathbf{S}$ represents forcing, gravity, rotation, or other physical source terms. DHARA constructs a spatial operator $\mathcal{L}$ from these components and advances the resulting system,</p>
 
-<h2 id="capabilities">Capabilities</h2>
+\[\frac{d\mathbf{q}}{dt}=\mathcal{L}(\mathbf{q}),\]
 
-<ul>
-  <li>GPU-accelerated numerical kernels</li>
-  <li>MPI-based multi-node scaling</li>
-  <li>WENO and TENO high-order shock-capturing reconstructions</li>
-  <li>Explicit SSP Runge–Kutta and implicit–explicit time integration</li>
-  <li>In-situ diagnostics and visualization-ready output</li>
-</ul>
+<p>with an interchangeable Runge–Kutta integrator. This separation is what allows one execution framework to support physically different problems.</p>
 
-<p>For three-dimensional decaying compressible turbulence, the measured timestep cost followed approximately</p>
+<h2 id="numerical-framework">Numerical framework</h2>
 
-\[t_{\mathrm{step}}\propto N_{\mathrm{nodes}}^{-1},\]
+<h3 id="compressible-flows">Compressible flows</h3>
 
-<p>showing strong scaling on both Frontier and Polaris, together with good weak scaling when the grid size and node count were increased proportionally.</p>
+<p>The compressible solver includes both finite-volume and finite-difference formulations. Shock-containing flows use the semi-discrete Kurganov–Tadmor central-upwind method together with linear, WENO, CWENO, or TENO reconstruction through seventh order. These schemes resolve smooth turbulent structure while remaining robust near discontinuities.</p>
 
-<p><a href="https://harshtiwari.notion.site/DHARA-A-general-PDE-solver-26d6da4c3d6080019eb2de57235cae2b" target="\_blank" rel="noopener noreferrer">Project overview</a>.</p>
+<p>For low-turbulent-Mach-number convection, DHARA also includes a TVD–MacCormack formulation designed to reduce numerical cost while preserving the large range of dynamically active scales. The framework supports two- and three-dimensional Euler flow, compressible magnetohydrodynamics, dry and moist convection, and more specialized compressible systems.</p>
 
-  </article>
+<h3 id="incompressible-flows">Incompressible flows</h3>
 
-  
+<p>The incompressible module uses finite differences and a projection method. A provisional velocity is advanced first; the pressure is then obtained from a Poisson problem and used to project the velocity onto a divergence-free field,</p>
 
-  
-    
+\[\nabla\!\cdot\!\mathbf{u}=0.\]
 
+<p>A multigrid solver handles the pressure Poisson equation, and standard Runge–Kutta schemes advance the remaining terms. This branch has been used for vortical flows, shear layers, and Rayleigh–Bénard convection in two and three dimensions.</p>
 
-  
+<h3 id="quantum-fluids">Quantum fluids</h3>
+
+<p>Quantum-fluid calculations solve the Gross–Pitaevskii equation,</p>
+
+\[i\hbar\frac{\partial\psi}{\partial t}
+=\left(-\frac{\hbar^2}{2m}\nabla^2+V+g|\psi|^2\right)\psi,\]
+
+<p>using pseudo-spectral and time-splitting spectral methods. These solvers are used to study Bose–Einstein condensates, quantized vortices, ground states, and quantum turbulence in two and three dimensions.</p>
+
+<h2 id="software-architecture">Software architecture</h2>
+
+<p>Each simulation begins with a problem class that owns the grid, state arrays, boundary conditions, forcing, and the coordination of physical operators. Flux objects such as <code class="language-plaintext highlighter-rouge">KTConvFlux</code> and <code class="language-plaintext highlighter-rouge">ViscousFlux</code> compute individual contributions, while reconstruction classes encapsulate the selected high-order method.</p>
+
+<p><code class="language-plaintext highlighter-rouge">TimeEvolution</code> provides schemes including eSSPRK2, eSSPRK3, and conventional Runge–Kutta methods through a common single-step interface. <code class="language-plaintext highlighter-rouge">DataIO</code> writes HDF5 output with h5py, supports parallel I/O, and collects global diagnostics. New equations or numerical methods can therefore be added as focused modules instead of changes spread throughout the solver.</p>
+
+<h2 id="parallel-design">Parallel design</h2>
+
+<p>DHARA uses a dual NumPy/CuPy backend: changing the array backend moves the same high-level program between CPUs and GPUs. Performance-critical GPU expressions use custom CuPy <code class="language-plaintext highlighter-rouge">ElementwiseKernel</code> kernels to reduce temporary arrays and memory traffic.</p>
+
+<p>MPI decomposes the physical domain across processes. Slab decomposition is sufficient for many finite-difference and finite-volume problems, while pencil decomposition supports larger three-dimensional workloads and spectral operations. Halo exchanges are localized within the spatial operators, keeping distributed-memory details out of the physics modules.</p>
+
+<h2 id="performance-at-scale">Performance at scale</h2>
+
+<p>On a single NVIDIA A100 GPU, DHARA achieved up to a <strong>200× speedup</strong> over one AMD EPYC 7763 CPU core in the reported benchmark. The same code has run on <strong>512 A100 GPUs</strong> on Polaris at the Argonne Leadership Computing Facility and on <strong>8,192 GPUs</strong> on Frontier at the Oak Ridge Leadership Computing Facility.</p>
+
+<p>The CPU implementation has also scaled to approximately <strong>800,000 cores</strong> on Shaheen III at KAUST. Across these machines, the aim is not only peak throughput but a portable programming model: scientists can develop and test a case locally, then move it to a leadership-scale system without maintaining a separate solver.</p>
+
+<h2 id="representative-simulations">Representative simulations</h2>
+
+<h3 id="kelvinhelmholtz-instability">Kelvin–Helmholtz instability</h3>
+
+<p>A two-dimensional Kelvin–Helmholtz calculation at $3072\times1920$ resolution demonstrates the interaction between high-order reconstruction and GPU execution. Seventh-order TENO captures the rolling shear layer and its secondary small-scale instabilities on a single A100 GPU.</p>
+
+<div style="width: 100%; margin-top: 1.5rem; margin-bottom: 2.5rem;">
+  <iframe src="https://www.youtube-nocookie.com/embed/rJSGPzf7D-Q" title="Kelvin–Helmholtz instability simulated with DHARA" style="width: 100%; aspect-ratio: 16 / 9; border: 0; border-radius: 8px;" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe>
 </div>
 
-      
+<h3 id="supersonic-turbulence">Supersonic turbulence</h3>
+
+<p>Forced turbulence at Mach 3 was simulated on a $1024^3$ grid using TENO7. The calculation used 128 A100 GPUs on Polaris and was evolved to a statistically stationary state. It tests the solver in a regime where shocks coexist with a broad hierarchy of turbulent eddies.</p>
+
+<div style="width: 100%; margin-top: 1.5rem; margin-bottom: 2.5rem;">
+  <iframe src="https://www.youtube-nocookie.com/embed/4TCjBgLVgOs" title="Forced supersonic turbulence at Mach 3 simulated with DHARA" style="width: 100%; aspect-ratio: 16 / 9; border: 0; border-radius: 8px;" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe>
+</div>
+
+<h3 id="compressible-convection">Compressible convection</h3>
+
+<p>DHARA has been used for two-dimensional compressible convection at Rayleigh number $Ra=10^{12}$ and three-dimensional convection at $Ra=10^8$, both in domains of aspect ratio four. These flows connect the numerical work to atmospheric and astrophysical settings, where stratification, compressibility, boundary layers, and turbulent heat transport interact across widely separated scales.</p>
+
+<div style="width: 100%; margin-top: 1.5rem; margin-bottom: 1rem;">
+  <iframe src="https://www.youtube-nocookie.com/embed/0Cxp_DymOVE" title="Two-dimensional compressible turbulent convection at Rayleigh number 10^12" style="width: 100%; aspect-ratio: 16 / 9; border: 0; border-radius: 8px;" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe>
+</div>
+
+<div style="width: 100%; margin-top: 1rem; margin-bottom: 2.5rem;">
+  <iframe src="https://www.youtube-nocookie.com/embed/QxhwKfrS98c" title="Three-dimensional compressible turbulent convection at Rayleigh number 10^8" style="width: 100%; aspect-ratio: 16 / 9; border: 0; border-radius: 8px;" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe>
+</div>
+
+<h2 id="scientific-scope">Scientific scope</h2>
+
+<p>DHARA is less a single-purpose application than a laboratory for computational physics. Its common abstractions make it possible to compare numerical methods across classical and quantum fluids, investigate turbulent transport in convection, explore shock-dominated regimes, and test algorithms from a workstation to the largest supercomputers.</p>
+
+<p>The project is closed source, but its scientific results, numerical methods, and scaling studies are documented through my <a href="/publications/">publications</a> and research projects.</p>
+
+<h2 id="acknowledgements">Acknowledgements</h2>
+
+<p>Computing time and technical support were provided by the Argonne Leadership Computing Facility, the Oak Ridge Leadership Computing Facility Director’s Discretionary Program, the KAUST Supercomputing Laboratory and Shaheen III, and the Kotak School of Sustainability HPC facility at IIT Kanpur.</p>
+
+      </d-article>
+
+      <d-appendix>
+        <d-footnote-list></d-footnote-list>
+        <d-citation-list></d-citation-list>
+      </d-appendix>
+
+      <d-bibliography src="/assets/bibliography/"></d-bibliography>
+
+      <d-article>
+        
+          
+            
+
+  
+
+  <h2 class="text-3xl font-semibold mb-4 mt-12">Enjoy Reading This Article?</h2>
+  <p class="mb-2">Here are some more articles you might like to read next:</p>
+
+  <ul class="list-disc pl-7 my-3 space-y-2 marker:text-[var(--global-theme-color)]">
+    
+      <li class="leading-relaxed">
+        
+          <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2025/plotly/">a post with plotly.js</a>
+        
+      </li>
+    
+      <li class="leading-relaxed">
+        
+          <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2024/photo-gallery/">a post with image galleries</a>
+        
+      </li>
+    
+      <li class="leading-relaxed">
+        
+          <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2024/tabs/">a post with tabs</a>
+        
+      </li>
+    
+      <li class="leading-relaxed">
+        
+          <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2024/typograms/">a post with typograms</a>
+        
+      </li>
+    
+      <li class="leading-relaxed">
+        
+          <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2024/post-citation/">a post that can be cited</a>
+        
+      </li>
+    
+      <li class="leading-relaxed">
+        
+          <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2024/pseudocode/">a post with pseudo code</a>
+        
+      </li>
+    
+      <li class="leading-relaxed">
+        
+          <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2024/code-diff/">a post with code diff</a>
+        
+      </li>
+    
+      <li class="leading-relaxed">
+        
+          <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2024/advanced-images/">a post with advanced image components</a>
+        
+      </li>
+    
+      <li class="leading-relaxed">
+        
+          <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2024/vega-lite/">a post with vega lite</a>
+        
+      </li>
+    
+      <li class="leading-relaxed">
+        
+          <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2024/geojson-map/">a post with geojson</a>
+        
+      </li>
+    
+  </ul>
+
+
+
+          
+        
+        <br>
+        <br>
+        
+          
+
+
+        
+      </d-article>
     </div>
 
     <!-- Footer -->
@@ -539,18 +791,12 @@
 <script src="/assets/js/nav-toggle.js?v=141bd79a73ebc0f0b6ea58e440ae79fc"></script>
 
 
-
-  <!-- Masonry & imagesLoaded -->
-  <script defer src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script>
-  <script defer src="/assets/js/masonry.js?v=e49affc7bd2646f6acdad1dbe02c2359" type="text/javascript"></script>
-
+<!-- Custom overrides -->
+<script src="/assets/js/distillpub/overrides.js"></script>
 
 
   <!-- Charts and Diagrams -->
   
-
-
 
 
 
@@ -571,9 +817,6 @@
 
 
 
-
-
-
 <!-- Load Common JS -->
 <script src="/assets/js/no_defer.js?v=53b1b1a645525975c963ce8bf8bfefcf"></script>
 <script defer src="/assets/js/common.js?v=87baac90f765f2f3362dcf6aaf312a8a"></script>
@@ -582,13 +825,7 @@
 <!-- Jupyter Open External Links New Tab -->
 <script defer src="/assets/js/jupyter_new_tab.js?v=896d254890d9b47f0281f63bfccf0dee"></script>
 
-<!-- Badges -->
-
-  <script async src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script>
-
-
-  <script async src="https://badge.dimensions.ai/badge.js"></script>
-
+<!-- Removed Badges -->
 
 
 
@@ -688,21 +925,21 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/teaching/";
           },
-        },{id: "nav-repositories",
-          title: "Repositories",
-          description: "Open-source code and scientific-computing work on GitHub.",
-          section: "Navigation",
-          handler: () => {
-            window.location.href = "/repositories/";
-          },
-        },{id: "nav-blog",
-          title: "Blog",
-          description: "",
-          section: "Navigation",
-          handler: () => {
-            window.location.href = "/blog/";
-          },
-        },{id: "post-a-post-with-plotly-js",
+        },{id: "dropdown-repositories",
+              title: "Repositories",
+              description: "",
+              section: "Dropdown",
+              handler: () => {
+                window.location.href = "/repositories/";
+              },
+            },{id: "dropdown-notes",
+              title: "Notes",
+              description: "",
+              section: "Dropdown",
+              handler: () => {
+                window.location.href = "/blog/";
+              },
+            },{id: "post-a-post-with-plotly-js",
         
           title: "a post with plotly.js",
         
@@ -854,17 +1091,6 @@ ninja.data = [{
         handler: () => {
           
             window.location.href = "/blog/2023/post-bibliography/";
-          
-        },
-      },{id: "post-a-post-with-jupyter-notebook",
-        
-          title: "a post with jupyter notebook",
-        
-        description: "an example of a blog post with jupyter notebook",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2023/jupyter-notebook/";
           
         },
       },{id: "post-a-post-with-custom-blockquotes",
@@ -1139,16 +1365,26 @@ ninja.data = [{
           description: "Heat transport and scaling laws at extreme Rayleigh numbers.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/compressible-convection/";
-            },},{id: "projects-dhara-pde-solver",
-          title: 'DHARA PDE Solver',
-          description: "A scalable Python solver for GPU-accelerated, distributed fluid simulations.",
+            },},{id: "projects-dhara",
+          title: 'DHARA',
+          description: "A scalable Python framework for solving nonlinear partial differential equations on CPUs and GPUs.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/dhara/";
+            },},{id: "projects-magnetic-field-evolution-in-neutron-stars",
+          title: 'Magnetic Field Evolution in Neutron Stars',
+          description: "Ohmic dissipation, Hall drift, and electron magnetohydrodynamics in neutron-star crusts.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/magnetic-field-neutron-stars/";
             },},{id: "projects-moist-turbulent-convection",
           title: 'Moist Turbulent Convection',
           description: "High-resolution simulations of conditionally unstable atmospheric convection.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/moist-convection/";
+            },},{id: "projects-renormalization-of-the-navier-stokes-equation",
+          title: 'Renormalization of the Navier–Stokes Equation',
+          description: "A renormalization-group view of scale-dependent transport in turbulence.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/navier-stokes-renormalization/";
             },},{id: "projects-quantum-computing-for-fluid-dynamics",
           title: 'Quantum Computing for Fluid Dynamics',
           description: "Developing quantum-computing approaches for fluid-dynamics problems at NYU.",
@@ -1250,10 +1486,6 @@ ninja.data = [{
   
 
 
-
-
-    <script src="/assets/js/lorenz.js?v=ec35abf6416768b2c90cfd286d3ef016"></script>
-    <script src="/assets/js/ambient-controls.js?v=1056e7fe0010b3f011a1d23958db4f14"></script>
-    <script src="/assets/js/seamless-navigation.js?v=c0b7ccf58054872bd7364cf9c3e404a8"></script>
-  </body>
+  
+</body>
 </html>
