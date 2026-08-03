@@ -1,6 +1,7 @@
 ---
 # Only the main Sass file needs front matter (the dashes are enough)
 ---
+
 @charset "utf-8";
 
 /* Built-in Sass modules you’ll likely use across partials */
@@ -10,7 +11,7 @@
 /* Configure your design tokens BEFORE loading any of your partials.
    Make sure `_sass/_variables.scss` declares `$max-content-width: 72rem !default;` */
 @use "variables" with (
-  $max-content-width: {{ site.max_width | default:  "930px" }}
+  $max-content-width: {{site.max_width | default: "930px"}}
 );
 
 /* Your project partials — convert these files to `@use "variables";`
@@ -32,19 +33,369 @@
 @use "teachings";
 @use "typograms";
 
-// Custom profile picture border matching theme Lorenz simulation colors
+// Keep the full desktop navigation on one line without stretching edge-to-edge.
+#navbar > .container {
+  width: calc(100% - 2.5rem);
+  max-width: 1320px;
+}
+
+@media (max-width: 575.98px) {
+  #navbar > .container {
+    width: calc(100% - 1.25rem);
+    max-width: none;
+  }
+
+  #navbar .navbar-collapse-main {
+    max-height: calc(100vh - 5rem);
+    overflow-y: auto;
+  }
+}
+
+// Between laptop and desktop widths, keep every destination visible while
+// compacting only the spacing. The hamburger is reserved for narrow screens.
+@media (min-width: 576px) and (max-width: 1240px) {
+  #navbar .navbar-brand.title {
+    margin-right: 0.6rem;
+    font-size: 0.98rem;
+  }
+
+  #navbar .nav-link {
+    padding-right: 0.32rem;
+    padding-left: 0.32rem;
+    font-size: 0.78rem;
+  }
+}
+
+// Custom profile picture border matching the computational-flow palette.
 .profile img.rounded-circle {
   outline: 2px solid #0f766e; // Light theme color (dark teal)
-  outline-offset: -2px;       // Inset stroke overlapping the image
+  outline-offset: -2px; // Inset stroke overlapping the image
   border: none;
   padding: 0;
 }
 
-html[data-theme='dark'] {
+html[data-theme="dark"] {
   .profile img.rounded-circle {
     outline-color: #2dd4bf; // Dark theme color (light teal)
   }
 }
 
+// Keep paper figures compact and legible beside each bibliography entry.
+.publications ol.bibliography li .abbr .preview {
+  display: block;
+  width: 100%;
+  max-width: 140px;
+  height: 96px;
+  margin-inline: auto;
+  padding: 0.2rem;
+  object-fit: contain;
+  background: #fff;
+}
 
+// Draft manuscripts keep their internal metadata year, but the public page
+// should not imply a publication date before acceptance.
+.publications .unpublished-bibliography h2.bibliography {
+  display: none;
+}
 
+// Give image-led project cards a consistent rhythm without cropping scientific figures.
+.projects .card-img-top {
+  width: 100%;
+  height: 190px;
+  padding: 0.5rem;
+  object-fit: contain;
+  background: var(--global-card-bg-color);
+}
+
+// Homepage: an editorial computational-physics hierarchy.
+.research-kicker {
+  margin: 0 0 0.45rem;
+  color: var(--global-theme-color);
+  font-family: var(--global-font-family, monospace);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin: 1.35rem 0 1.5rem;
+}
+
+.hero-action {
+  display: inline-flex;
+  gap: 0.45rem;
+  align-items: center;
+  padding: 0.52rem 0.82rem;
+  color: var(--global-text-color);
+  font-size: 0.86rem;
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+  border: 1px solid var(--global-divider-color);
+  border-radius: 999px;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+
+  &:hover {
+    color: var(--global-theme-color);
+    text-decoration: none;
+    border-color: var(--global-theme-color);
+    transform: translateY(-1px);
+  }
+}
+
+.hero-action-primary {
+  color: #fff;
+  background: var(--global-theme-color);
+  border-color: var(--global-theme-color);
+
+  &:hover {
+    color: #fff;
+    filter: brightness(1.08);
+  }
+}
+
+.achievement-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 1.4rem 0 2.2rem;
+  overflow: hidden;
+  background: color-mix(in srgb, var(--global-card-bg-color) 88%, transparent);
+  border: 1px solid var(--global-divider-color);
+  border-radius: 0.8rem;
+  backdrop-filter: blur(8px);
+}
+
+.achievement-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.12rem;
+  padding: 0.9rem 1rem;
+
+  & + & {
+    border-left: 1px solid var(--global-divider-color);
+  }
+
+  strong {
+    color: var(--global-theme-color);
+    font-size: 1.15rem;
+    line-height: 1.15;
+  }
+
+  span {
+    font-size: 0.76rem;
+    letter-spacing: 0.03em;
+  }
+}
+
+.research-grid,
+.interest-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.8rem;
+  margin: 1rem 0 1.6rem;
+}
+
+.research-card,
+.interest-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  min-height: 168px;
+  padding: 1rem;
+  color: var(--global-text-color);
+  text-decoration: none;
+  background: color-mix(in srgb, var(--global-card-bg-color) 90%, transparent);
+  border: 1px solid var(--global-divider-color);
+  border-radius: 0.75rem;
+  backdrop-filter: blur(8px);
+  transition:
+    border-color 0.2s ease,
+    transform 0.2s ease;
+
+  &:hover {
+    color: var(--global-text-color);
+    text-decoration: none;
+    border-color: var(--global-theme-color);
+    transform: translateY(-2px);
+  }
+
+  strong {
+    font-size: 1rem;
+    line-height: 1.28;
+  }
+
+  span:last-child {
+    font-size: 0.82rem;
+    line-height: 1.45;
+    opacity: 0.82;
+  }
+}
+
+.research-card-index {
+  color: var(--global-theme-color);
+  font-family: monospace;
+  font-size: 0.67rem !important;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+}
+
+.personal-invitation {
+  margin: 1.7rem 0 0;
+  padding-left: 0.9rem;
+  border-left: 2px solid var(--global-theme-color);
+}
+
+.interest-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.interest-card {
+  min-height: 145px;
+
+  i {
+    color: var(--global-theme-color);
+    font-size: 1.2rem;
+  }
+}
+
+.music-feature {
+  display: grid;
+  grid-template-columns: 116px 1fr;
+  gap: 1.25rem;
+  align-items: center;
+  margin: 1rem 0;
+  padding: 1.25rem;
+  background: linear-gradient(
+    135deg,
+    color-mix(
+      in srgb,
+      var(--global-theme-color) 12%,
+      var(--global-card-bg-color)
+    ),
+    var(--global-card-bg-color)
+  );
+  border: 1px solid var(--global-divider-color);
+  border-radius: 0.85rem;
+}
+
+.music-feature-mark {
+  display: grid;
+  width: 104px;
+  height: 104px;
+  place-items: center;
+  color: var(--global-card-bg-color);
+  font-family: monospace;
+  font-weight: 700;
+  background: var(--global-theme-color);
+  border-radius: 50%;
+}
+
+.talks-timeline {
+  margin: 1rem 0 2rem;
+  border-top: 1px solid var(--global-divider-color);
+}
+
+.talk-item {
+  display: grid;
+  grid-template-columns: 105px 1fr;
+  gap: 1rem;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid var(--global-divider-color);
+
+  time {
+    color: var(--global-theme-color);
+    font-family: monospace;
+    font-size: 0.75rem;
+    font-weight: 700;
+  }
+
+  div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  span {
+    font-size: 0.83rem;
+    opacity: 0.78;
+  }
+}
+
+.publications > h2 {
+  margin-top: 2rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid var(--global-divider-color);
+}
+
+// Ambient controls sit directly above the theme's back-to-top button.
+#ambient-controls {
+  position: fixed;
+  right: 30px;
+  bottom: 78px;
+  z-index: 11;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ambient-control {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  color: var(--global-back-to-top-text-color);
+  background: var(--global-back-to-top-bg-color);
+  border: 0;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease;
+
+  &:hover,
+  &:focus-visible {
+    background: var(--global-theme-color);
+    transform: translateY(-1px);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--global-theme-color);
+    outline-offset: 3px;
+  }
+
+  &:disabled {
+    cursor: wait;
+    opacity: 0.65;
+  }
+}
+
+html.lorenz-disabled #lorenz-canvas {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .achievement-strip,
+  .research-grid,
+  .interest-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .achievement-item + .achievement-item {
+    border-top: 1px solid var(--global-divider-color);
+    border-left: 0;
+  }
+
+  .music-feature {
+    grid-template-columns: 1fr;
+  }
+
+  .talk-item {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+  }
+}

@@ -1,0 +1,505 @@
+\documentclass[10pt,a4paper]{article}
+
+% --- Packages ---
+\usepackage[utf8]{inputenc}
+\usepackage[margin=0.6in,footskip=0.3in]{geometry}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{fontawesome5}
+\usepackage{parskip} % for nice paragraph spacing
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{fancyhdr}
+
+% --- Colors ---
+\definecolor{cvblue}{HTML}{1D63B8}
+\definecolor{cvdark}{HTML}{2C3E50}
+\definecolor{cvgray}{HTML}{7F8C8D}
+
+% --- Font Setting ---
+% Use a clean modern sans-serif font
+\renewcommand{\familydefault}{\sfdefault}
+\raggedbottom
+
+% --- Hyperref Setup ---
+\hypersetup{
+    colorlinks=true,
+    linkcolor=cvblue,
+    filecolor=cvblue,
+    urlcolor=cvblue,
+    pdfauthor={Harshit Tiwari},
+    pdftitle={Harshit Tiwari - Curriculum Vitae}
+}
+
+% --- Section Formatting ---
+\titleformat{\section}{\large\bfseries\color{cvblue}}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{9pt plus 1pt minus 1pt}{4pt plus 1pt minus 1pt}
+\titleformat{\subsection}{\bfseries\color{cvblue}}{}{0em}{}
+\titlespacing{\subsection}{0pt}{7pt plus 1pt minus 1pt}{3pt plus 1pt}
+
+% --- Footer ---
+\fancypagestyle{cvpages}{
+  \fancyhf{}
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0pt}
+  \fancyfoot[R]{\scriptsize\textcolor{cvgray}{\thepage}}
+}
+\fancypagestyle{firstpage}{
+  \fancyhf{}
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0pt}
+  \fancyfoot[L]{\scriptsize\textcolor{cvgray}{Last updated: August 2026}}
+  \fancyfoot[R]{\scriptsize\textcolor{cvgray}{\thepage}}
+}
+\pagestyle{cvpages}
+
+% --- Custom Commands for Entries ---
+\newcommand{\educationentry}[5]{
+  \noindent
+  \begin{minipage}[t]{0.04\textwidth}
+    \vspace{0.2ex}
+    \textcolor{cvblue}{\large\faGraduationCap}
+  \end{minipage}%
+  \begin{minipage}[t]{0.96\textwidth}
+    \textbf{#1} \hfill \textcolor{cvdark}{\textit{#2}} \\
+    \textit{#3} \hfill \textbf{\textit{#4}}
+    \ifx&#5&%
+    \else
+      \begin{itemize}[leftmargin=1.2em, nosep, topsep=2pt]
+        #5
+      \end{itemize}
+    \fi
+  \end{minipage}
+  \vspace{1.2ex}
+}
+
+\newcommand{\experienceentry}[5]{
+  \noindent
+  \begin{minipage}[t]{0.04\textwidth}
+    \vspace{0.2ex}
+    \textcolor{cvblue}{\large\faBookOpen}
+  \end{minipage}%
+  \begin{minipage}[t]{0.96\textwidth}
+    \textbf{#1} \hfill \textbf{\textit{#2}} \\
+    \textcolor{cvblue}{\textbf{#3}}
+    \ifx&#4&%
+    \else
+      \vspace{0.5ex} \\ #4
+    \fi
+    \ifx&#5&%
+    \else
+      \begin{itemize}[leftmargin=1.2em, nosep, topsep=3pt]
+        #5
+      \end{itemize}
+    \fi
+  \end{minipage}
+  \vspace{1.5ex}
+}
+
+\begin{document}
+\thispagestyle{firstpage}
+
+% --- Header ---
+\noindent
+\begin{minipage}[b]{0.55\textwidth}
+\setlength{\parindent}{0pt}%
+{\Huge\bfseries\color{cvblue}HARSHIT TIWARI}\par
+\vspace{0.5ex}
+{\large\bfseries\color{cvblue}Postdoctoral Associate, New York University}\par
+\vspace{1ex}
+\textcolor{cvdark}{1217, 370 Jay Street}\par
+\textcolor{cvdark}{NYU Tandon School of Engineering}\par
+\textcolor{cvdark}{Brooklyn, New York 11201, US}
+\end{minipage}%
+\begin{minipage}[b]{0.45\textwidth}
+\setlength{\parindent}{0pt}%
+\raggedleft
+\href{https://harshitiwari.site}{\texttt{harshitiwari.site} \textcolor{cvblue}{\faGlobe}}\par
+\vspace{0.5ex}
+\href{mailto:harshit.tiwari@nyu.edu}{\texttt{harshit.tiwari@nyu.edu} \textcolor{cvblue}{\faEnvelope}}\par
+\vspace{0.5ex}
+\href{tel:+13477603015}{\texttt{+1 (347) 760-3015} \textcolor{cvblue}{\faPhone}}\par
+\vspace{1ex}
+\href{https://scholar.google.com/citations?user=pZsezWMAAAAJ}{\textcolor{cvblue}{\Large\faGraduationCap}} \quad
+\href{https://www.researchgate.net/profile/Harshit-Tiwari-7/}{\textcolor{cvblue}{\Large\faResearchgate}} \quad
+\href{https://orcid.org/0009-0002-0116-9476}{\textcolor{cvblue}{\Large\faOrcid}} \quad
+\href{https://www.linkedin.com/in/harshit-tiwari-6989b216b}{\textcolor{cvblue}{\Large\faLinkedin}}
+\end{minipage}
+
+\vspace{1ex}
+
+% --- Research Interests ---
+\section{RESEARCH INTERESTS}
+Turbulent convection, atmospheric and astrophysical flows, compressible flows, high-performance computing (HPC), machine learning, quantum computing, quantum turbulence, and nonlinear dynamics.
+
+% --- Education ---
+\section{EDUCATION}
+
+\educationentry
+  {Indian Institute of Technology Kanpur}
+  {Kanpur, India}
+  {Doctor of Philosophy in Physics}
+  {August 2021 - February 2026}
+  {
+    \item Courses on Field Theory, Physics of Turbulence, High-Performance Computing and Advanced Statistical Physics.
+    \item Cumulative Performance Index: 9.56/10
+  }
+
+\educationentry
+  {Indian Institute of Technology Kanpur}
+  {Kanpur, India}
+  {Master of Science in Physics}
+  {July 2019 - July 2021}
+  {
+    \item Courses on High Energy Astrophysics, Nuclear and Particle Physics and Quantum Field Theory.
+    \item Cumulative Performance Index: 8.30/10
+  }
+
+\educationentry
+  {Kumaun University}
+  {Nainital, India}
+  {Bachelor of Science}
+  {July 2016 - June 2019}
+  {
+    \item Subjects: Physics, Mathematics, Chemistry
+    \item Percentage: 66.4\%, First Class
+  }
+
+% --- Research Experience ---
+\section{RESEARCH EXPERIENCE}
+
+\experienceentry
+  {Postdoctoral Associate}
+  {July 2026 - Present}
+  {Department of Mechanical and Aerospace Engineering \\
+  Tandon School of Engineering, New York University}
+  {
+    Supervisor: Prof. Katepalli R. Sreenivasan, New York University \\
+    Project: \textcolor{cvblue}{\textbf{Quantum Computing for Fluid Dynamics (QCFD)}}
+  }
+  {}
+
+\experienceentry
+  {Fellowship for Academic and Research Excellence (FARE)}
+  {March 2026 - June 2026}
+  {Department of Physics, Indian Institute of Technology Kanpur}
+  {}
+  {
+    \item High-resolution simulations of moist turbulent convection in Earth's troposphere.
+    \item Thermalisation in quantum and classical Euler turbulence.
+    \item Transients in thermal convection and energy distribution among various scales.
+  }
+
+\experienceentry
+  {Graduate Researcher}
+  {August 2021 - February 2026}
+  {Department of Physics, Indian Institute of Technology Kanpur}
+  {
+    Supervisor: Prof. Mahendra Verma, Department of Physics, IIT Kanpur \\
+    Co-supervisor: Prof. Rajesh Ranjan, Department of Aerospace Engineering, IIT Kanpur \\
+    Thesis Title: \textcolor{cvblue}{\textbf{Compressible Turbulent Convection at Extreme Rayleigh Numbers}}
+  }
+  {
+    \item Simulated turbulent compressible convection at extreme Rayleigh numbers, revealing classical heat transport scaling laws.
+    \item Developed a scalable Python PDE solver with GPU and MPI support for high-performance simulations.
+    \item Applied advanced numerical methods to study shocks, turbulence, and compressible flows in astrophysics and atmosphere.
+  }
+
+\experienceentry
+  {Master's Student}
+  {August 2020 - May 2021}
+  {Department of Physics, Indian Institute of Technology Kanpur}
+  {
+    Supervisor: Prof. Pankaj Jain, Department of Physics, IIT Kanpur \\
+    Co-supervisor: Prof. J.S. Yadav, Department of Physics, IIT Kanpur \\
+    Project: \textcolor{cvblue}{\textbf{Theoretical Modelling of Accretion Disk Oscillations}}
+  }
+  {
+    \item Studied acoustic normal modes in thin accretion disks using an effective Kerr potential.
+    \item Derived a dispersion relation valid over a range of black hole spin parameters.
+  }
+
+% --- Publications ---
+\section{PUBLICATIONS}
+
+\subsection*{Published}
+\begin{enumerate}[leftmargin=1.5em, itemsep=3pt, parsep=0pt]
+  \item A. Pandey, \textbf{H. Tiwari}, and K. R. Sreenivasan, Thermal convection in 1, 2, 3 and 4 dimensions, \textit{Journal of Fluid Mechanics} (in press, 2026).
+  \item D. Singh, \textbf{H. Tiwari}, L. Sharma, and M. K. Verma, Scale-by-Scale Energy Transfers and Fluxes in Compressible Turbulence, \textit{Europhysics Letters}, \underline{154 53001} (2026).
+  \item \textbf{H. Tiwari}, L. Sharma, and M. K. Verma, On the absence of the ultimate regime in turbulent thermal convection, \textit{The Proceedings of the National Academy of Sciences}, \underline{122 (44) e2513474122} (2025).
+  \item \textbf{H. Tiwari}, L. Sharma, and M. K. Verma, Compressible turbulent convection at very high Rayleigh numbers, \textit{International Journal of Heat and Mass Transfer}, \underline{242, 126821} (2025).
+  \item D. Singh, \textbf{H. Tiwari}, L. Sharma, and M. K. Verma, Mathematical formulation of mode-to-mode energy transfers and energy fluxes in compressible turbulence, \textit{Physical Review Fluids}, \underline{10, 114609} (2025).
+  \item L. Sharma, M. Pathak, \textbf{H. Tiwari}, and M. K. Verma, Effect of Prandtl number on turbulent compressible convection, \textit{Physical Review Fluids}, \underline{10, 114611} (2025).
+  \item L. Sharma, M. Pathak, \textbf{H. Tiwari}, and M. K. Verma, Variation of convective heat flux imbalance with Prandtl number, \textit{Center for Turbulence Research Annual Reports Briefs 2025}.
+\end{enumerate}
+
+\subsection*{Under Review}
+\begin{enumerate}[leftmargin=1.5em, itemsep=3pt, parsep=0pt]
+  \item \textbf{H. Tiwari}, D. Singh, M. K. Verma, and R. Ranjan, Scaling in supersonic turbulence: Energy spectra and fluxes using high-fidelity direct numerical simulations, \textit{Physical Review E}.
+  \item M. Pathak, L. Sharma, \textbf{H. Tiwari}, S. Aseeri, D. Keyes, and M. K. Verma, Prandtl-number dependence of positive and negative heat fluxes in turbulent compressible convection, \textit{Phys. Rev. Fluids}.
+\end{enumerate}
+
+\subsection*{Under Preparation}
+\begin{enumerate}[leftmargin=1.5em, itemsep=3pt, parsep=0pt]
+  \item \textbf{H. Tiwari}, N. Kumar, M. K. Verma, and S. Ravichandran, Direct numerical simulations of moist turbulent compressible convection.
+  \item \textbf{H. Tiwari}, A. Pandey, K. R. Sreenivasan, Scaling laws in four-dimensional turbulent convection.
+  \item D. Singh, \textbf{H. Tiwari}, and M. K. Verma, Thermalization in compressible Euler and quantum turbulence.
+  \item N. Kumar, \textbf{H. Tiwari}, M. K. Verma, and S. Ravichandran, Intermittency in conditionally unstable moist convection.
+\end{enumerate}
+
+% --- Conferences & Workshops ---
+\section{CONFERENCES AND WORKSHOPS}
+\begin{itemize}[leftmargin=1.5em, itemsep=6pt, parsep=0pt]
+  \item \begin{minipage}[t]{0.80\linewidth}
+          Workshop on ``Instabilities and transitions in geophysical flows'' \newline
+          \textbf{Mathematical Developments in Geophysical Fluid Dynamics trimester program} \newline
+          \textit{Institut Henri Poincaré, Paris, France}
+        \end{minipage}%
+        \begin{minipage}[t]{0.20\linewidth}
+          \raggedleft
+          May 2026
+        \end{minipage}
+
+  \item \begin{minipage}[t]{0.80\linewidth}
+          ``High-resolution simulations of dry and moist turbulent convection'' (Oral) \newline
+          \textbf{Moist Convective Dynamics of Monsoon II} \newline
+          \textit{International Centre for Theoretical Sciences, Bengaluru, India}
+        \end{minipage}%
+        \begin{minipage}[t]{0.20\linewidth}
+          \raggedleft
+          May 2026
+        \end{minipage}
+
+  \item \begin{minipage}[t]{0.80\linewidth}
+          \textbf{Indo-Japanese Workshop for CFD-based AI and HPC} \newline
+          \textit{Indian Institute of Technology Kanpur, India}
+        \end{minipage}%
+        \begin{minipage}[t]{0.20\linewidth}
+          \raggedleft
+          December 2025
+        \end{minipage}
+
+  \item \begin{minipage}[t]{0.80\linewidth}
+          ``Compressible turbulent convection at very high Rayleigh numbers'' (Oral) \newline
+          \textbf{APS Division of Fluid Dynamics Annual Meeting} \newline
+          \textit{Houston, Texas, USA}
+        \end{minipage}%
+        \begin{minipage}[t]{0.20\linewidth}
+          \raggedleft
+          November 2025
+        \end{minipage}
+
+  \item \begin{minipage}[t]{0.80\linewidth}
+          ``Compressible turbulent convection at extreme Rayleigh numbers'' (Poster) \newline
+          \textbf{The Variable Sun: Past, Present, and Future Perspectives} \newline
+          \textit{Thiruvananthapuram, India}
+        \end{minipage}%
+        \begin{minipage}[t]{0.20\linewidth}
+          \raggedleft
+          October 2025
+        \end{minipage}
+
+  \item \begin{minipage}[t]{0.80\linewidth}
+          ``Classical 1/3 Nusselt Scaling in Compressible Convection'' (Oral) \newline
+          \textbf{1st European Fluid Dynamics Conference (EFDC1)} \newline
+          \textit{Aachen, Germany}
+        \end{minipage}%
+        \begin{minipage}[t]{0.20\linewidth}
+          \raggedleft
+          September 2024
+        \end{minipage}
+
+  \item \begin{minipage}[t]{0.80\linewidth}
+          ``Classical 1/3 Nusselt Scaling in Compressible Convection at Extreme Ra'' (Oral) \newline
+          \textbf{Theoretical and Practical Perspectives in Geophysical Fluid Dynamics} \newline
+          \textit{International Centre for Theoretical Sciences, Bengaluru, India}
+        \end{minipage}%
+        \begin{minipage}[t]{0.20\linewidth}
+          \raggedleft
+          June 2024
+        \end{minipage}
+
+  \item \begin{minipage}[t]{0.80\linewidth}
+          ``Classical Nusselt 1/3 scaling up to Ra = $10^{16}$ in turbulent compressible convection'' (Poster) \newline
+          \textbf{HPC Symposium} \newline
+          \textit{Indian Institute of Technology Kanpur, India}
+        \end{minipage}%
+        \begin{minipage}[t]{0.20\linewidth}
+          \raggedleft
+          March 2024
+        \end{minipage}
+
+  \item \begin{minipage}[t]{0.80\linewidth}
+          ``Compressible turbulent convection'' (Oral) \newline
+          \textbf{Research Scholar Day} \newline
+          \textit{Department of Physics, Indian Institute of Technology Kanpur, India}
+        \end{minipage}%
+        \begin{minipage}[t]{0.20\linewidth}
+          \raggedleft
+          February 2024
+        \end{minipage}
+
+  \item \begin{minipage}[t]{0.80\linewidth}
+          Scaling the Dhara solver on Frontier up to 8192 GPUs \newline
+          \textbf{Frontier Hackathon} \newline
+          \textit{Oak Ridge National Laboratory, USA}
+        \end{minipage}%
+        \begin{minipage}[t]{0.20\linewidth}
+          \raggedleft
+          March 2024
+        \end{minipage}
+
+  \item \begin{minipage}[t]{0.80\linewidth}
+          \textbf{Field Theory and Turbulence} \newline
+          \textit{International Centre for Theoretical Sciences, Bengaluru, India}
+        \end{minipage}%
+        \begin{minipage}[t]{0.20\linewidth}
+          \raggedleft
+          December 2023
+        \end{minipage}
+
+  \item \begin{minipage}[t]{0.80\linewidth}
+          \textbf{Turbulence: Problems at the interface of Mathematics and Physics} \newline
+          \textit{International Centre for Theoretical Sciences, Bengaluru, India}
+        \end{minipage}%
+        \begin{minipage}[t]{0.20\linewidth}
+          \raggedleft
+          October 2023
+        \end{minipage}
+
+  \item \begin{minipage}[t]{0.80\linewidth}
+          Porting Gross--Pitaevskii solver to 64 Nvidia A100 GPUs \newline
+          \textbf{NSM GPU Hackathon} \newline
+          \textit{India}
+        \end{minipage}%
+        \begin{minipage}[t]{0.20\linewidth}
+          \raggedleft
+          November 2022
+        \end{minipage}
+
+  \item \begin{minipage}[t]{0.80\linewidth}
+          \textbf{Summer School on Gravitational-Wave Astronomy} \newline
+          \textit{International Centre for Theoretical Sciences, Bengaluru, India}
+        \end{minipage}%
+        \begin{minipage}[t]{0.20\linewidth}
+          \raggedleft
+          June 2021
+        \end{minipage}
+\end{itemize}
+
+% --- Teaching Experience ---
+\section{TEACHING EXPERIENCE}
+I have assisted in the following courses at IIT Kanpur:
+
+\begin{itemize}[leftmargin=1.5em, itemsep=3.5pt, parsep=0pt]
+  \item \begin{minipage}[t]{0.80\linewidth}
+          PHY111A: Undergraduate Lab
+        \end{minipage}%
+        \begin{minipage}[t]{0.20\linewidth}
+          \raggedleft
+          Aug 2025 -- Nov 2025
+        \end{minipage}
+
+  \item \begin{minipage}[t]{0.80\linewidth}
+          PHY461A/462A: Experimental Physics I/II
+        \end{minipage}%
+        \begin{minipage}[t]{0.20\linewidth}
+          \raggedleft
+          Jan 2024 -- May 2025
+        \end{minipage}
+
+  \item \begin{minipage}[t]{0.80\linewidth}
+          NPTEL: Tapestry of Field Theory: Classical Quantum, Equilibrium, Nonequilibrium Perspectives
+        \end{minipage}%
+        \begin{minipage}[t]{0.20\linewidth}
+          \raggedleft
+          Jan 2024 -- Jan 2025
+        \end{minipage}
+
+  \item \begin{minipage}[t]{0.80\linewidth}
+          NPTEL: Scientific Computing using Python
+        \end{minipage}%
+        \begin{minipage}[t]{0.20\linewidth}
+          \raggedleft
+          Jun 2023 -- Nov 2023
+        \end{minipage}
+
+  \item \begin{minipage}[t]{0.80\linewidth}
+          PHY113A: Classical Electrodynamics
+        \end{minipage}%
+        \begin{minipage}[t]{0.20\linewidth}
+          \raggedleft
+          Mar 2023 -- Nov 2023
+        \end{minipage}
+
+  \item \begin{minipage}[t]{0.80\linewidth}
+          PHY473A: Computational Physics
+        \end{minipage}%
+        \begin{minipage}[t]{0.20\linewidth}
+          \raggedleft
+          Aug 2022 -- Nov 2022
+        \end{minipage}
+
+  \item \begin{minipage}[t]{0.80\linewidth}
+          PHY441A: Electronics
+        \end{minipage}%
+        \begin{minipage}[t]{0.20\linewidth}
+          \raggedleft
+          Aug 2021 -- May 2022
+        \end{minipage}
+\end{itemize}
+
+% --- Computational Skills ---
+\section{COMPUTATIONAL SKILLS}
+\begin{itemize}[leftmargin=1.5em, itemsep=1.5pt, parsep=0pt]
+  \item \textbf{Advanced:} Python, parallel programming, Numba, Paraview
+  \item \textbf{Intermediate:} Matlab, Mathematica, CUDA
+  \item \textbf{Basic:} C++, Julia, Fortran, R
+\end{itemize}
+
+% --- Grants & Awards ---
+\section{GRANTS AND AWARDS}
+\begin{itemize}[leftmargin=1.5em, itemsep=1pt, parsep=0pt]
+  \item Recipient of the \textbf{Outstanding PhD Thesis Award} from IIT Kanpur, 2026.
+  \item Recipient of the \textbf{2025 Division of Fluid Dynamics Enabling Award}, American Physical Society, supporting attendance at the 2025 DFD Annual Meeting, Nov 2025.
+  \item Session chair for ``Convection and Buoyancy-Driven Flows: Heat Transfer, Instabilities \& Turbulence'' at \textbf{APS Division of Fluid Dynamics Annual Meeting 2025} in \textit{Houston, Texas, USA}.
+  \item Secured an \textbf{All India Rank 74} among 15,000 applicants in the \textbf{IIT Joint Admission Test (JAM) 2019}, for admission to the M.Sc. program at the Indian Institute of Technology Kanpur.
+  \item Recipient of \textbf{Merit cum Means Scholarship} at Indian Institute of Technology Kanpur, Aug 2019 - May 2021.
+  \item Secured \textbf{All India Rank 307} in \textbf{Joint Entrance Screening Test (JEST) 2019}.
+  \item Qualified \textbf{National Defence Academy (NDA)} entrance exam in 2016.
+\end{itemize}
+
+% --- Other Experiences ---
+\section{OTHER EXPERIENCES}
+\begin{enumerate}[leftmargin=1.5em, itemsep=1.5pt, parsep=0pt]
+  \item \textbf{Coordinator, Adventure Sports Club, IIT Kanpur (2024--25)}
+    \begin{itemize}[leftmargin=1em, nosep, label=\textbullet]
+      \item Led club activities, organizing fitness programs, treks, runs, and yoga, boosting participation and visibility.
+    \end{itemize}
+  \item \textbf{Secretary, Adventure Sports Club, IIT Kanpur (2022--23, 2023--24)}
+    \begin{itemize}[leftmargin=1em, nosep, label=\textbullet]
+      \item Assisted in organising events and managing logistics for outdoor activities and training sessions.
+    \end{itemize}
+  \item \textbf{Election Officer, Hall 7, HEC Elections 2022}
+    \begin{itemize}[leftmargin=1em, nosep, label=\textbullet]
+      \item Managed smooth conduct of hostel elections with a voter turnout of $\sim$85\%.
+    \end{itemize}
+\end{enumerate}
+
+% --- References ---
+\section{REFERENCES}
+\begin{enumerate}[leftmargin=1.5em, itemsep=0.5pt, parsep=0pt]
+  \item \textbf{Prof. Katepalli R. Sreenivasan} \\
+    Professor of Physics, Mathematical Sciences, and Engineering, New York University, USA. \\
+    \href{mailto:katepalli.sreenivasan@nyu.edu}{\faEnvelope\ \texttt{katepalli.sreenivasan@nyu.edu}}
+  \item \textbf{Prof. Mahendra K. Verma} \\
+    Department of Physics, IIT Kanpur, India. \\
+    \href{mailto:mkv@iitk.ac.in}{\faEnvelope\ \texttt{mkv@iitk.ac.in}}
+  \item \textbf{Prof. Rajesh Ranjan} \\
+    Department of Aerospace Engineering, IIT Kanpur, India. \\
+    \href{mailto:rajeshr@iitk.ac.in}{\faEnvelope\ \texttt{rajeshr@iitk.ac.in}}
+\end{enumerate}
+
+\end{document}

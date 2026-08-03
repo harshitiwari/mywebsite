@@ -1,128 +1,310 @@
 (function () {
   const canvas = document.getElementById("lorenz-canvas");
   if (!canvas) return;
+  canvas.setAttribute("aria-hidden", "true");
+
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  if (reducedMotion.matches) return;
 
   const ctx = canvas.getContext("2d");
-  let animationFrameId;
-
-  // System parameters mimicking fluid chaotic convection
-  const sigma = 10.0;
-  const rho = 28.0;
-  const beta = 8.0 / 3.0;
-  const dt = 0.0025; // Timestep for smooth high-speed animation
-
-  const numParticles = 50;
-  const maxHistory = 50; // Length of the short path trace segment
+  const sigma = 10;
+  const rho = 28;
+  const beta = 8 / 3;
+  const dt = 0.0025;
+  const particleCount = window.innerWidth < 768 ? 18 : 30;
+  const trailLength = window.innerWidth < 768 ? 40 : 64;
+  const stateKey = "lorenz-continuity-v1";
   const particles = [];
+  const referenceOrbit = [];
 
+  let width = 0;
+  let height = 0;
   let isDark = false;
+  let isRunning = true;
+  let animationFrameId;
+  let rotation = 0;
+  let previousTimestamp;
 
-  function updateThemeColors() {
-    const theme = document.documentElement.getAttribute("data-theme") || "light";
-    isDark = theme === "dark";
+  function updateTheme() {
+    isDark = document.documentElement.getAttribute("data-theme") === "dark";
   }
 
-  // Actively watch the html data-theme attribute for theme switching
-  const observer = new MutationObserver(updateThemeColors);
-  observer.observe(document.documentElement, {
+  const themeObserver = new MutationObserver(updateTheme);
+  themeObserver.observe(document.documentElement, {
     attributes: true,
     attributeFilter: ["data-theme", "class"],
   });
-  updateThemeColors();
+  updateTheme();
 
-  // Initialize particles with tiny random variations and path histories
-  for (let i = 0; i < numParticles; i++) {
-    particles.push({
-      x: (Math.random() - 0.5) * 20,
-      y: (Math.random() - 0.5) * 20,
-      z: 20 + (Math.random() - 0.5) * 10,
-      history: [], // Stores the recent coordinate path segment
-    });
+  function resetParticle(particle) {
+    particle.x = (Math.random() - 0.5) * 20;
+    particle.y = (Math.random() - 0.5) * 20;
+    particle.z = 20 + (Math.random() - 0.5) * 10;
+    particle.history = [];
   }
 
   function resizeCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    width = window.innerWidth;
+    height = window.innerHeight;
+    const pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
+    canvas.width = Math.round(width * pixelRatio);
+    canvas.height = Math.round(height * pixelRatio);
+    canvas.style.width = `${width}px`;
+    canvas.style.height = `${height}px`;
+    ctx.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
   }
-  window.addEventListener("resize", resizeCanvas);
-  resizeCanvas();
 
-  function animate() {
-    // Clear the canvas completely so there is NO history/accumulation on the background
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+  function stepParticle(particle) {
+    const dx = sigma * (particle.y - particle.x) * dt;
+    const dy = (particle.x * (rho - particle.z) - particle.y) * dt;
+    const dz = (particle.x * particle.y - beta * particle.z) * dt;
+    particle.x += dx;
+    particle.y += dy;
+    particle.z += dz;
+  }
 
-    // Slow rotation angle for 3D depth effect
-    const angle = Date.now() * 0.00005;
-    const cosA = Math.cos(angle);
-    const sinA = Math.sin(angle);
+  function createParticle(index) {
+    const particle = {};
+    resetParticle(particle);
+    // Stagger the trajectories so the attractor is composed on a first visit.
+    for (let warmup = 0; warmup < 420 + index * 9; warmup += 1) {
+      stepParticle(particle);
+    }
+    return particle;
+  }
 
-    const scale = Math.min(canvas.width, canvas.height) * 0.016;
-    const centerX = canvas.width / 2;
-    const centerY = canvas.height / 2;
-
-    for (let i = 0; i < numParticles; i++) {
-      const p = particles[i];
-
-      // Lorenz Attractor equations
-      const dx = sigma * (p.y - p.x) * dt;
-      const dy = (p.x * (rho - p.z) - p.y) * dt;
-      const dz = (p.x * p.y - beta * p.z) * dt;
-
-      p.x += dx;
-      p.y += dy;
-      p.z += dz;
-
-      // Project 3D coordinates with Y-axis rotation
-      const rx = p.x * cosA - (p.z - 25) * sinA;
-      const ry = p.y;
-
-      const screenX = centerX + rx * scale;
-      const screenY = centerY - ry * scale; // Invert Y for Cartesian mapping
-
-      // Add current position to path history
-      p.history.push({ x: screenX, y: screenY });
-
-      // Keep only the most recent steps for a short path segment
-      if (p.history.length > maxHistory) {
-        p.history.shift();
+  function restoreState() {
+    try {
+      let serialized;
+      if (typeof window.sessionStorage !== "undefined") {
+        serialized = window.sessionStorage.getItem(stateKey);
+      }
+      if (!serialized && window.name.startsWith(`${stateKey}:`)) {
+        serialized = window.name.slice(stateKey.length + 1);
       }
 
-      // Draw the short fading path (segment-by-segment opacity gradient)
-      if (p.history.length > 1) {
-        for (let j = 1; j < p.history.length; j++) {
-          const p1 = p.history[j - 1];
-          const p2 = p.history[j];
+      const saved = JSON.parse(serialized);
+      if (!saved || !Array.isArray(saved.particles)) return false;
 
-          // Skip drawing if lines are artificially stretched (during a reset)
-          const dist = Math.hypot(p2.x - p1.x, p2.y - p1.y);
-          if (dist < 100) {
-            ctx.beginPath();
-            ctx.moveTo(p1.x, p1.y);
-            ctx.lineTo(p2.x, p2.y);
-
-            // Opacity scales up towards the front of the path
-            const ratio = j / p.history.length;
-            const opacity = ratio * (isDark ? 0.8 : 0.9);
-
-            ctx.strokeStyle = isDark ? `rgba(45, 212, 191, ${opacity})` : `rgba(15, 118, 110, ${opacity})`;
-            ctx.lineWidth = 1.6 * ratio; // Taper line slightly towards the tail
-            ctx.stroke();
-          }
+      rotation = Number.isFinite(saved.rotation) ? saved.rotation : 0;
+      saved.particles.slice(0, particleCount).forEach((savedParticle) => {
+        if (
+          !Number.isFinite(savedParticle.x) ||
+          !Number.isFinite(savedParticle.y) ||
+          !Number.isFinite(savedParticle.z)
+        ) {
+          return;
         }
-      }
 
-      // Reset if particle wanders off (numerical safety)
-      if (isNaN(p.x) || Math.abs(p.x) > 100) {
-        p.x = (Math.random() - 0.5) * 10;
-        p.y = (Math.random() - 0.5) * 10;
-        p.z = 20 + (Math.random() - 0.5) * 10;
-        p.history = [];
+        particles.push({
+          x: savedParticle.x,
+          y: savedParticle.y,
+          z: savedParticle.z,
+          history: Array.isArray(savedParticle.history)
+            ? savedParticle.history.slice(-trailLength)
+            : [],
+        });
+      });
+      return particles.length > 0;
+    } catch (_) {
+      return false;
+    }
+  }
+
+  function persistState() {
+    try {
+      const serialized = JSON.stringify({
+        rotation,
+        particles: particles.map(({ x, y, z, history }) => ({
+          x,
+          y,
+          z,
+          history: history.slice(-trailLength),
+        })),
+      });
+
+      if (typeof window.sessionStorage !== "undefined") {
+        window.sessionStorage.setItem(stateKey, serialized);
+      } else if (!window.name || window.name.startsWith(`${stateKey}:`)) {
+        // window.name persists for the life of a tab and covers privacy modes
+        // that disable Web Storage without changing site behavior.
+        window.name = `${stateKey}:${serialized}`;
       }
+    } catch (_) {
+      // The animation remains usable if storage is unavailable or full.
+    }
+  }
+
+  function buildReferenceOrbit() {
+    const state = { x: 0.1, y: 0, z: 0 };
+    for (let warmup = 0; warmup < 2200; warmup += 1) stepParticle(state);
+    for (let index = 0; index < 2600; index += 1) {
+      stepParticle(state);
+      referenceOrbit.push({ x: state.x, y: state.y, z: state.z });
+    }
+  }
+
+  function drawReferenceOrbit(rotation, scale, centerX, centerY) {
+    const cosine = Math.cos(rotation);
+    const sine = Math.sin(rotation);
+    let previous;
+
+    ctx.beginPath();
+    referenceOrbit.forEach((point) => {
+      const rotatedX = point.x * cosine - (point.z - 25) * sine;
+      const projected = {
+        x: centerX + rotatedX * scale,
+        y: centerY - point.y * scale,
+      };
+      const distance = previous
+        ? Math.hypot(projected.x - previous.x, projected.y - previous.y)
+        : Infinity;
+
+      if (!previous || distance > 90) ctx.moveTo(projected.x, projected.y);
+      else ctx.lineTo(projected.x, projected.y);
+      previous = projected;
+    });
+    ctx.strokeStyle = isDark
+      ? "rgba(45, 212, 191, 0.16)"
+      : "rgba(15, 118, 110, 0.12)";
+    ctx.lineWidth = 1.05;
+    ctx.stroke();
+  }
+
+  function projectPoint(point, cosine, sine, scale, centerX, centerY) {
+    const rotatedX = point.x * cosine - (point.z - 25) * sine;
+    return {
+      x: centerX + rotatedX * scale,
+      y: centerY - point.y * scale,
+      depth: (point.z - 5) / 45,
+    };
+  }
+
+  function drawTrail(particle, cosine, sine, scale, centerX, centerY) {
+    if (particle.history.length < 2) return;
+
+    for (let index = 1; index < particle.history.length; index += 1) {
+      const start = projectPoint(
+        particle.history[index - 1],
+        cosine,
+        sine,
+        scale,
+        centerX,
+        centerY,
+      );
+      const end = projectPoint(
+        particle.history[index],
+        cosine,
+        sine,
+        scale,
+        centerX,
+        centerY,
+      );
+      const distance = Math.hypot(end.x - start.x, end.y - start.y);
+      if (distance > 90) continue;
+
+      const progress = index / particle.history.length;
+      const depth = Math.max(0, Math.min(1, end.depth));
+      const hue = 173 + depth * 18;
+      const saturation = isDark ? 72 : 68;
+      const lightness = isDark ? 58 + depth * 8 : 31 + depth * 7;
+      const alpha = progress * (0.48 + depth * 0.4);
+
+      ctx.beginPath();
+      ctx.moveTo(start.x, start.y);
+      ctx.lineTo(end.x, end.y);
+      ctx.strokeStyle = `hsla(${hue}, ${saturation}%, ${lightness}%, ${alpha})`;
+      ctx.lineWidth = 0.675 + 1.725 * progress;
+      ctx.stroke();
+    }
+  }
+
+  function softenBehindContent() {
+    if (width < 900) return;
+
+    const corridorWidth = Math.min(980, width * 0.64);
+    const left = (width - corridorWidth) / 2;
+    const fade = ctx.createLinearGradient(left, 0, left + corridorWidth, 0);
+    fade.addColorStop(0, "rgba(0, 0, 0, 0)");
+    fade.addColorStop(0.16, "rgba(0, 0, 0, 0.18)");
+    fade.addColorStop(0.5, "rgba(0, 0, 0, 0.34)");
+    fade.addColorStop(0.84, "rgba(0, 0, 0, 0.18)");
+    fade.addColorStop(1, "rgba(0, 0, 0, 0)");
+
+    ctx.save();
+    ctx.globalCompositeOperation = "destination-out";
+    ctx.fillStyle = fade;
+    ctx.fillRect(left, 0, corridorWidth, height);
+    ctx.restore();
+  }
+
+  function animate(timestamp) {
+    if (!isRunning) {
+      animationFrameId = undefined;
+      return;
     }
 
+    ctx.clearRect(0, 0, width, height);
+    const elapsed = previousTimestamp
+      ? Math.min(timestamp - previousTimestamp, 50)
+      : 16;
+    previousTimestamp = timestamp;
+    rotation += elapsed * 0.00005;
+    const cosine = Math.cos(rotation);
+    const sine = Math.sin(rotation);
+    const scale = Math.min(width, height) * 0.016;
+    const centerX = width / 2;
+    const centerY = height / 2;
+
+    drawReferenceOrbit(rotation, scale, centerX, centerY);
+
+    particles.forEach((particle) => {
+      stepParticle(particle);
+
+      if (
+        !Number.isFinite(particle.x) ||
+        !Number.isFinite(particle.y) ||
+        !Number.isFinite(particle.z) ||
+        Math.abs(particle.x) > 100
+      ) {
+        resetParticle(particle);
+        return;
+      }
+
+      particle.history.push({ x: particle.x, y: particle.y, z: particle.z });
+      if (particle.history.length > trailLength) particle.history.shift();
+      drawTrail(particle, cosine, sine, scale, centerX, centerY);
+    });
+
+    softenBehindContent();
     animationFrameId = requestAnimationFrame(animate);
   }
 
-  // Start the loop
-  animate();
+  window.addEventListener("resize", resizeCanvas);
+  window.addEventListener("pagehide", persistState);
+  window.addEventListener("lorenz-toggle", (event) => {
+    const enabled = event.detail?.enabled !== false;
+
+    if (!enabled) {
+      isRunning = false;
+      if (animationFrameId) cancelAnimationFrame(animationFrameId);
+      animationFrameId = undefined;
+      ctx.clearRect(0, 0, width, height);
+      return;
+    }
+
+    if (!isRunning || !animationFrameId) {
+      isRunning = true;
+      previousTimestamp = undefined;
+      animationFrameId = requestAnimationFrame(animate);
+    }
+  });
+
+  resizeCanvas();
+  canvas.dataset.continuity = restoreState() ? "restored" : "new";
+  while (particles.length < particleCount) {
+    particles.push(createParticle(particles.length));
+  }
+  buildReferenceOrbit();
+  animationFrameId = requestAnimationFrame(animate);
 })();

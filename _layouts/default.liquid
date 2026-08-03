@@ -19,6 +19,7 @@
   <!-- Body -->
   <body class="{% if site.navbar_fixed %}fixed-top-nav{% endif %} {% unless site.footer_fixed %}sticky-bottom-footer{% endunless %}">
     <canvas id="lorenz-canvas"></canvas>
+    {% include ambient-controls.liquid %}
 
     <!-- Header -->
     {% include header.liquid %}
@@ -60,5 +61,6 @@
     <!-- JavaScripts -->
     {% include scripts.liquid %}
     <script src="{{ '/assets/js/lorenz.js' | relative_url | bust_file_cache }}"></script>
+    <script src="{{ '/assets/js/ambient-controls.js' | relative_url | bust_file_cache }}"></script>
   </body>
 </html>

@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Receiving my Ph.D. degree from IIT Kanpur along with the **Outstanding PhD Thesis Award** on July 15! 🎓 🏆
+Received my Ph.D. in Physics from IIT Kanpur and the **Outstanding PhD Thesis Award**! 🎓 🏆

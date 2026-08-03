@@ -2,14 +2,21 @@
 layout: page
 permalink: /teaching/
 title: Teaching
-description: Course materials, schedules, and resources for classes taught.
+description: Teaching experience at the Indian Institute of Technology Kanpur.
 nav: true
 nav_order: 6
-calendar: true
 ---
 
-This page displays a collection of courses with detailed schedules, materials, and resources. You can organize your courses by years, terms, or topics.
+I served as a graduate teaching assistant for undergraduate laboratories, computational physics, electrodynamics, electronics, and two NPTEL courses at IIT Kanpur.
 
-{% include calendar.liquid calendar_id='test@gmail.com' timezone='Asia/Shanghai' %}
+| Course                                                                                            | Term                |
+| ------------------------------------------------------------------------------------------------- | ------------------- |
+| **PHY111A:** Undergraduate Lab                                                                    | Aug 2025 - Nov 2025 |
+| **PHY461A/462A:** Experimental Physics I/II                                                       | Jan 2024 - May 2025 |
+| **NPTEL:** Tapestry of Field Theory: Classical, Quantum, Equilibrium, Nonequilibrium Perspectives | Jan 2024 - Jan 2025 |
+| **NPTEL:** Scientific Computing using Python                                                      | Jun 2023 - Nov 2023 |
+| **PHY113A:** Classical Electrodynamics                                                            | Mar 2023 - Nov 2023 |
+| **PHY473A:** Computational Physics                                                                | Aug 2022 - Nov 2022 |
+| **PHY441A:** Electronics                                                                          | Aug 2021 - May 2022 |
 
-{% include courses.liquid %}
+My teaching has centered on helping students connect mathematical ideas with experiments and computational practice.

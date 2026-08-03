@@ -1,0 +1,29 @@
+<div id="ambient-controls" aria-label="Ambient display controls">
+  <button
+    type="button"
+    id="lorenz-toggle"
+    class="ambient-control"
+    aria-label="Turn Lorenz background off"
+    aria-pressed="true"
+    title="Turn Lorenz background off"
+  >
+    <i class="fa-solid fa-water" aria-hidden="true"></i>
+  </button>
+  <button
+    type="button"
+    id="music-toggle"
+    class="ambient-control"
+    aria-label="Play Mozart Piano Concerto No. 21"
+    aria-pressed="false"
+    title="Play Mozart Piano Concerto No. 21"
+  >
+    <i class="fa-solid fa-music" aria-hidden="true"></i>
+  </button>
+</div>
+
+<audio
+  id="ambient-music"
+  src="{{ '/assets/audio/mozart-piano-concerto-no-21.mp3' | relative_url }}"
+  preload="metadata"
+  loop
+></audio>
