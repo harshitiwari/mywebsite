@@ -70,7 +70,7 @@
         "description": "this is what included tabs in a post could look like",
         "headline": "a post with tabs",
         
-        "sameAs": ["https://scholar.google.com/citations?user=pZsezWMAAAAJ","https://github.com/harshitiwari","https://www.linkedin.com/in/harshit-tiwari-6989b216b","https://www.researchgate.net/profile/Harshit-Tiwari-7/","https://youtube.com/@UCxZ6-66yuMBDBP5fJDoMlKg",null],
+        "sameAs": ["https://scholar.google.com/citations?user=pZsezWMAAAAJ","https://github.com/harshitiwari","https://www.linkedin.com/in/harshit-tiwari-6989b216b","https://www.researchgate.net/profile/Harshit-Tiwari-7/","https://www.youtube.com/channel/UCxZ6-66yuMBDBP5fJDoMlKg",null],
         
         "name": "Harshit Tiwari",
         "@context": "https://schema.org"
@@ -161,6 +161,21 @@
 
   <!-- Body -->
   <body class="fixed-top-nav sticky-bottom-footer">
+    <style>
+      /* Critical positioning stays fresh during local preview even when the
+         compiled theme stylesheet is cached by the browser. */
+      @media (min-width: 992px) {
+        #music-player.music-player {
+          bottom: 10px;
+          left: 10px;
+          width: 260px;
+          transform: none;
+        }
+      }
+      .post .social .contact-icons { font-size: 2rem; }
+      .post .social .contact-icons a img { width: 1.6rem; height: 1.6rem; margin-bottom: .5rem; }
+      .post .social .contact-icons a svg { width: 1.75rem; height: 2rem; margin-bottom: .25rem; }
+    </style>
     <canvas id="lorenz-canvas"></canvas>
     <div id="ambient-controls" aria-label="Ambient display controls">
   <button type="button" id="lorenz-toggle" class="ambient-control" aria-label="Turn Lorenz background off" aria-pressed="true" title="Turn Lorenz background off">
@@ -524,7 +539,7 @@ Content 2
 
 <p>With this you can generate visualizations like:</p>
 
-<ul id="log" class="tab" data-tab="c0d3c8e1-4c74-4e4b-9d67-90f5b5394c14" data-name="log">
+<ul id="log" class="tab" data-tab="aa517d51-42c9-47ed-8601-36a7620d4e67" data-name="log">
   
       <li class="active" id="log-php">
           <a href="#">php </a>
@@ -539,7 +554,7 @@ Content 2
       </li>
   
 </ul>
-<ul class="tab-content" id="c0d3c8e1-4c74-4e4b-9d67-90f5b5394c14" data-name="log">
+<ul class="tab-content" id="aa517d51-42c9-47ed-8601-36a7620d4e67" data-name="log">
   
       <li class="active">
 <div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">var_dump</span><span class="p">(</span><span class="s1">'hello'</span><span class="p">);</span>
@@ -563,7 +578,7 @@ Content 2
 
 <h2 id="another-example">Another example</h2>
 
-<ul id="data-struct" class="tab" data-tab="cc96b1be-94fd-4296-90c8-9fc3374a9b46" data-name="data-struct">
+<ul id="data-struct" class="tab" data-tab="d745a216-a66e-44b2-a12d-e8142af5b186" data-name="data-struct">
   
       <li class="active" id="data-struct-yaml">
           <a href="#">yaml </a>
@@ -574,7 +589,7 @@ Content 2
       </li>
   
 </ul>
-<ul class="tab-content" id="cc96b1be-94fd-4296-90c8-9fc3374a9b46" data-name="data-struct">
+<ul class="tab-content" id="d745a216-a66e-44b2-a12d-e8142af5b186" data-name="data-struct">
   
       <li class="active">
 <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">hello</span><span class="pi">:</span>
@@ -596,7 +611,7 @@ Content 2
 
 <h2 id="tabs-for-something-else">Tabs for something else</h2>
 
-<ul id="something-else" class="tab" data-tab="afd3cd1f-905a-4ab7-b64e-0278f97877b5" data-name="something-else">
+<ul id="something-else" class="tab" data-tab="5004b1d3-397b-4e39-a833-54e32b8abbbd" data-name="something-else">
   
       <li class="active" id="something-else-text">
           <a href="#">text </a>
@@ -611,7 +626,7 @@ Content 2
       </li>
   
 </ul>
-<ul class="tab-content" id="afd3cd1f-905a-4ab7-b64e-0278f97877b5" data-name="something-else">
+<ul class="tab-content" id="5004b1d3-397b-4e39-a833-54e32b8abbbd" data-name="something-else">
   
       <li class="active">
 <p>Regular text</p>
@@ -748,10 +763,9 @@ Content 2
 
     <div class="container">
       
-  © Copyright 2026 Harshit Tiwari. Research, computation, and a little controlled chaos.
-  
-  
-    Last updated: August 03, 2026.
+  <span class="footer-line">
+    © Copyright 2026 Harshit Tiwari. Last updated: August 03, 2026.
+  </span>
   
 
     </div>
@@ -849,16 +863,6 @@ Content 2
   <script src="/assets/js/tabs.js?v=6c399c7e9ab4c6ef34b5f0592d46a93d"></script>
 
 
-
-  <!-- Back to Top -->
-  
-  
-  
-    <script src="https://cdn.jsdelivr.net/npm/vanilla-back-to-top@7.2.1/dist/vanilla-back-to-top.min.js" integrity="sha256-uMJJ3EoTyfRBoTbR+lrfu1uRQ87RZG8AR3cVNuQVeFg=" crossorigin="anonymous"></script>
-  
-  <script>
-    addBackToTop();
-  </script>
 
 
 
@@ -1428,11 +1432,11 @@ ninja.data = [{
           window.open("https://www.researchgate.net/profile/Harshit-Tiwari-7/", "_blank");
         },
       },{
-        id: 'social-youtube',
-        title: 'YouTube',
+        id: 'social-youtube_channel',
+        title: 'Youtube_channel',
         section: 'Socials',
         handler: () => {
-          window.open("https://youtube.com/@UCxZ6-66yuMBDBP5fJDoMlKg", "_blank");
+          window.open("https://www.youtube.com/channel/UCxZ6-66yuMBDBP5fJDoMlKg", "_blank");
         },
       },{
         id: 'social-cv',

@@ -74,7 +74,7 @@
 ",
         "headline": "Adventure Club Sec Term2",
         
-        "sameAs": ["https://scholar.google.com/citations?user=pZsezWMAAAAJ","https://github.com/harshitiwari","https://www.linkedin.com/in/harshit-tiwari-6989b216b","https://www.researchgate.net/profile/Harshit-Tiwari-7/","https://youtube.com/@UCxZ6-66yuMBDBP5fJDoMlKg",null],
+        "sameAs": ["https://scholar.google.com/citations?user=pZsezWMAAAAJ","https://github.com/harshitiwari","https://www.linkedin.com/in/harshit-tiwari-6989b216b","https://www.researchgate.net/profile/Harshit-Tiwari-7/","https://www.youtube.com/channel/UCxZ6-66yuMBDBP5fJDoMlKg",null],
         
         "name": "Harshit Tiwari",
         "@context": "https://schema.org"
@@ -165,6 +165,21 @@
 
   <!-- Body -->
   <body class="fixed-top-nav sticky-bottom-footer">
+    <style>
+      /* Critical positioning stays fresh during local preview even when the
+         compiled theme stylesheet is cached by the browser. */
+      @media (min-width: 992px) {
+        #music-player.music-player {
+          bottom: 10px;
+          left: 10px;
+          width: 260px;
+          transform: none;
+        }
+      }
+      .post .social .contact-icons { font-size: 2rem; }
+      .post .social .contact-icons a img { width: 1.6rem; height: 1.6rem; margin-bottom: .5rem; }
+      .post .social .contact-icons a svg { width: 1.75rem; height: 2rem; margin-bottom: .25rem; }
+    </style>
     <canvas id="lorenz-canvas"></canvas>
     <div id="ambient-controls" aria-label="Ambient display controls">
   <button type="button" id="lorenz-toggle" class="ambient-control" aria-label="Turn Lorenz background off" aria-pressed="true" title="Turn Lorenz background off">
@@ -512,10 +527,9 @@
 
     <div class="container">
       
-  © Copyright 2026 Harshit Tiwari. Research, computation, and a little controlled chaos.
-  
-  
-    Last updated: August 03, 2026.
+  <span class="footer-line">
+    © Copyright 2026 Harshit Tiwari. Last updated: August 03, 2026.
+  </span>
   
 
     </div>
@@ -610,16 +624,6 @@
 
 
 
-
-  <!-- Back to Top -->
-  
-  
-  
-    <script src="https://cdn.jsdelivr.net/npm/vanilla-back-to-top@7.2.1/dist/vanilla-back-to-top.min.js" integrity="sha256-uMJJ3EoTyfRBoTbR+lrfu1uRQ87RZG8AR3cVNuQVeFg=" crossorigin="anonymous"></script>
-  
-  <script>
-    addBackToTop();
-  </script>
 
 
 
@@ -1189,11 +1193,11 @@ ninja.data = [{
           window.open("https://www.researchgate.net/profile/Harshit-Tiwari-7/", "_blank");
         },
       },{
-        id: 'social-youtube',
-        title: 'YouTube',
+        id: 'social-youtube_channel',
+        title: 'Youtube_channel',
         section: 'Socials',
         handler: () => {
-          window.open("https://youtube.com/@UCxZ6-66yuMBDBP5fJDoMlKg", "_blank");
+          window.open("https://www.youtube.com/channel/UCxZ6-66yuMBDBP5fJDoMlKg", "_blank");
         },
       },{
         id: 'social-cv',

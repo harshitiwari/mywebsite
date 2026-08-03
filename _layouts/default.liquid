@@ -18,6 +18,21 @@
 
   <!-- Body -->
   <body class="{% if site.navbar_fixed %}fixed-top-nav{% endif %} {% unless site.footer_fixed %}sticky-bottom-footer{% endunless %}">
+    <style>
+      /* Critical positioning stays fresh during local preview even when the
+         compiled theme stylesheet is cached by the browser. */
+      @media (min-width: 992px) {
+        #music-player.music-player {
+          bottom: 10px;
+          left: 10px;
+          width: 260px;
+          transform: none;
+        }
+      }
+      .post .social .contact-icons { font-size: 2rem; }
+      .post .social .contact-icons a img { width: 1.6rem; height: 1.6rem; margin-bottom: .5rem; }
+      .post .social .contact-icons a svg { width: 1.75rem; height: 2rem; margin-bottom: .25rem; }
+    </style>
     <canvas id="lorenz-canvas"></canvas>
     {% include ambient-controls.liquid %}
 
