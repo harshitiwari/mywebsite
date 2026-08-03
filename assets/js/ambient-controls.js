@@ -3,6 +3,10 @@
   const canvas = document.getElementById("lorenz-canvas");
   const lorenzButton = document.getElementById("lorenz-toggle");
   const musicButton = document.getElementById("music-toggle");
+  const muteButton = document.getElementById("music-mute");
+  const progress = document.getElementById("music-progress");
+  const currentTimeLabel = document.getElementById("music-current-time");
+  const durationLabel = document.getElementById("music-duration");
   const music = document.getElementById("ambient-music");
 
   if (!lorenzButton || !musicButton || !music) return;
@@ -73,7 +77,39 @@
       : "Play Mozart Piano Concerto No. 21";
     musicButton.innerHTML = isPlaying
       ? '<i class="fa-solid fa-pause" aria-hidden="true"></i>'
-      : '<i class="fa-solid fa-music" aria-hidden="true"></i>';
+      : '<i class="fa-solid fa-play" aria-hidden="true"></i>';
+  }
+
+  function formatTime(value) {
+    if (!Number.isFinite(value) || value < 0) return "–:––";
+    const minutes = Math.floor(value / 60);
+    const seconds = Math.floor(value % 60)
+      .toString()
+      .padStart(2, "0");
+    return `${minutes}:${seconds}`;
+  }
+
+  function updateTimeline() {
+    if (currentTimeLabel) {
+      currentTimeLabel.textContent = formatTime(music.currentTime);
+    }
+    if (durationLabel) {
+      durationLabel.textContent = formatTime(music.duration);
+    }
+    if (progress && Number.isFinite(music.duration) && music.duration > 0) {
+      progress.value = String((music.currentTime / music.duration) * 100);
+      progress.style.setProperty("--music-progress", `${progress.value}%`);
+    }
+  }
+
+  function updateMuteButton() {
+    if (!muteButton) return;
+    const isMuted = music.muted;
+    muteButton.setAttribute("aria-label", isMuted ? "Unmute music" : "Mute music");
+    muteButton.title = isMuted ? "Unmute music" : "Mute music";
+    muteButton.innerHTML = isMuted
+      ? '<i class="fa-solid fa-volume-xmark" aria-hidden="true"></i>'
+      : '<i class="fa-solid fa-volume-high" aria-hidden="true"></i>';
   }
 
   const savedMusicTime = Number(
@@ -139,8 +175,29 @@
   });
   music.addEventListener("pause", () => updateMusicButton(false));
 
+  music.addEventListener("loadedmetadata", updateTimeline);
+
+  if (progress) {
+    progress.addEventListener("input", () => {
+      if (!Number.isFinite(music.duration) || music.duration <= 0) return;
+      music.currentTime = (Number(progress.value) / 100) * music.duration;
+      updateTimeline();
+    });
+  }
+
+  if (muteButton) {
+    muteButton.addEventListener("click", () => {
+      music.muted = !music.muted;
+      updateMuteButton();
+    });
+  }
+
+  updateMuteButton();
+  updateTimeline();
+
   let lastSavedSecond = -1;
   music.addEventListener("timeupdate", () => {
+    updateTimeline();
     const currentSecond = Math.floor(music.currentTime);
     if (currentSecond !== lastSavedSecond) {
       lastSavedSecond = currentSecond;

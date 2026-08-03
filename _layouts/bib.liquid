@@ -190,7 +190,7 @@
     <!-- Links/Buttons -->
     <div class="links">
       {% if entry.award %}
-        <a class="award btn btn-sm z-depth-0" role="button">
+        <a class="btn btn-sm z-depth-0" role="button">
           {%- if entry.award_name %}{{ entry.award_name }}{% else %}Awarded{% endif -%}
         </a>
       {% endif %}
@@ -208,13 +208,6 @@
       {% endif %}
       {% if entry.bibtex_show %}
         <a class="bibtex btn btn-sm z-depth-0" role="button">Bib</a>
-      {% endif %}
-      {% if entry.html %}
-        {% if entry.html contains '://' %}
-          <a href="{{ entry.html }}" class="btn btn-sm z-depth-0" role="button" target="_blank" rel="noopener noreferrer">HTML</a>
-        {% else %}
-          <a href="{{ entry.html | prepend: '/assets/html/' | relative_url }}" class="btn btn-sm z-depth-0" role="button" target="_blank" rel="noopener noreferrer">HTML</a>
-        {% endif %}
       {% endif %}
       {% if entry.pdf %}
         {% if entry.pdf contains '://' %}

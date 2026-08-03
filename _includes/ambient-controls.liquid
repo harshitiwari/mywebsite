@@ -9,16 +9,46 @@
   >
     <i class="fa-solid fa-water" aria-hidden="true"></i>
   </button>
-  <button
-    type="button"
-    id="music-toggle"
-    class="ambient-control"
-    aria-label="Play Mozart Piano Concerto No. 21"
-    aria-pressed="false"
-    title="Play Mozart Piano Concerto No. 21"
-  >
-    <i class="fa-solid fa-music" aria-hidden="true"></i>
-  </button>
+  <div id="music-player" class="music-player" aria-label="Classical music player">
+    <div class="music-player-main">
+      <button
+        type="button"
+        id="music-toggle"
+        class="music-player-toggle"
+        aria-label="Play Mozart Piano Concerto No. 21"
+        aria-pressed="false"
+        title="Play Mozart Piano Concerto No. 21"
+      >
+        <i class="fa-solid fa-play" aria-hidden="true"></i>
+      </button>
+      <div class="music-player-copy">
+        <span class="music-player-composer">Mozart</span>
+        <span class="music-player-title">Piano Concerto No. 21</span>
+      </div>
+      <button
+        type="button"
+        id="music-mute"
+        class="music-player-volume"
+        aria-label="Mute music"
+        title="Mute music"
+      >
+        <i class="fa-solid fa-volume-high" aria-hidden="true"></i>
+      </button>
+    </div>
+    <div class="music-player-timeline">
+      <span id="music-current-time">0:00</span>
+      <input
+        id="music-progress"
+        type="range"
+        min="0"
+        max="100"
+        value="0"
+        step="0.1"
+        aria-label="Music progress"
+      >
+      <span id="music-duration">–:––</span>
+    </div>
+  </div>
 </div>
 
 <audio

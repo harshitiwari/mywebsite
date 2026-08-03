@@ -11,11 +11,10 @@
   const rho = 28;
   const beta = 8 / 3;
   const dt = 0.0025;
-  const particleCount = window.innerWidth < 768 ? 18 : 30;
+  const particleCount = window.innerWidth < 768 ? 24 : 42;
   const trailLength = window.innerWidth < 768 ? 40 : 64;
   const stateKey = "lorenz-continuity-v1";
   const particles = [];
-  const referenceOrbit = [];
 
   let width = 0;
   let height = 0;
@@ -135,42 +134,6 @@
     }
   }
 
-  function buildReferenceOrbit() {
-    const state = { x: 0.1, y: 0, z: 0 };
-    for (let warmup = 0; warmup < 2200; warmup += 1) stepParticle(state);
-    for (let index = 0; index < 2600; index += 1) {
-      stepParticle(state);
-      referenceOrbit.push({ x: state.x, y: state.y, z: state.z });
-    }
-  }
-
-  function drawReferenceOrbit(rotation, scale, centerX, centerY) {
-    const cosine = Math.cos(rotation);
-    const sine = Math.sin(rotation);
-    let previous;
-
-    ctx.beginPath();
-    referenceOrbit.forEach((point) => {
-      const rotatedX = point.x * cosine - (point.z - 25) * sine;
-      const projected = {
-        x: centerX + rotatedX * scale,
-        y: centerY - point.y * scale,
-      };
-      const distance = previous
-        ? Math.hypot(projected.x - previous.x, projected.y - previous.y)
-        : Infinity;
-
-      if (!previous || distance > 90) ctx.moveTo(projected.x, projected.y);
-      else ctx.lineTo(projected.x, projected.y);
-      previous = projected;
-    });
-    ctx.strokeStyle = isDark
-      ? "rgba(45, 212, 191, 0.16)"
-      : "rgba(15, 118, 110, 0.12)";
-    ctx.lineWidth = 1.05;
-    ctx.stroke();
-  }
-
   function projectPoint(point, cosine, sine, scale, centerX, centerY) {
     const rotatedX = point.x * cosine - (point.z - 25) * sine;
     return {
@@ -256,8 +219,6 @@
     const centerX = width / 2;
     const centerY = height / 2;
 
-    drawReferenceOrbit(rotation, scale, centerX, centerY);
-
     particles.forEach((particle) => {
       stepParticle(particle);
 
@@ -305,6 +266,5 @@
   while (particles.length < particleCount) {
     particles.push(createParticle(particles.length));
   }
-  buildReferenceOrbit();
   animationFrameId = requestAnimationFrame(animate);
 })();

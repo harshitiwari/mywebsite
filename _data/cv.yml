@@ -4,7 +4,7 @@ cv:
   email: harshit.tiwari@nyu.edu
   phone: "+1 (347) 760-3015"
   website: https://harshitiwari.site
-  location: Brooklyn, New York, USA
+  location: New York, USA
   image: prof_pic.png
   summary: >-
     Postdoctoral Associate at New York University working on quantum computing for fluid dynamics,
@@ -67,7 +67,7 @@ cv:
     Experience:
       - company: Department of Mechanical and Aerospace Engineering, NYU Tandon School of Engineering
         position: Postdoctoral Associate
-        location: Brooklyn, New York, USA
+        location: New York, USA
         start_date: Jul 2026
         end_date: Present
         summary: "Supervisor: Prof. Katepalli R. Sreenivasan"

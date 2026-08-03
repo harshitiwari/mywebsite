@@ -9,10 +9,10 @@ profile:
   image: prof_pic.png
   image_circular: true # crops the image to make it circular
   more_info: >
-    <div style="font-size: 0.82rem; line-height: 1.45;">
+    <div class="profile-contact">
       <p>NYU Tandon School of Engineering</p>
-      <p>Brooklyn, New York</p>
-      <p><a href="mailto:harshit.tiwari@nyu.edu">harshit.tiwari@nyu.edu</a></p>
+      <p>New York, USA</p>
+      <p class="profile-email"><a href="mailto:harshit.tiwari@nyu.edu">harshit.tiwari@nyu.edu</a></p>
     </div>
 
 selected_papers: true # includes a list of papers marked as "selected={true}"
@@ -31,7 +31,7 @@ latest_posts:
 
 <p class="research-kicker">COMPUTATION × TURBULENCE × PHYSICS</p>
 
-I am a Postdoctoral Associate at New York University, working with [Prof. Katepalli R. Sreenivasan](https://as.nyu.edu/faculty/katepalli-sreenivasan.html) on **quantum computing for fluid dynamics**. I use theory, direct numerical simulation, machine learning, and high-performance computing to understand how complex flows organize across scales.
+I am a physicist and Postdoctoral Associate at New York University, working with [Prof. Katepalli R. Sreenivasan](https://krsreenivasan.com/) on **turbulence and quantum computing for fluid dynamics (QCFD)**. I study complex nonlinear systems, from turbulent flows in atmospheres, stellar interiors, and the early universe to quantum turbulence and Bose–Einstein condensates. I combine theory with direct numerical simulation, machine learning, and high-performance computing.
 
 I received my Ph.D. in Physics from IIT Kanpur in 2026. My thesis, _Compressible turbulent convection at extreme Rayleigh numbers_, received the **Outstanding PhD Thesis Award**. Before joining NYU, I held a Fellowship for Academic and Research Excellence at IIT Kanpur.
 
@@ -42,10 +42,9 @@ I received my Ph.D. in Physics from IIT Kanpur in 2026. My thesis, _Compressible
   <a class="hero-action" href="mailto:harshit.tiwari@nyu.edu">Email me</a>
 </div>
 
-<div class="achievement-strip" aria-label="Research highlights">
-  <div class="achievement-item"><strong>Outstanding</strong><span>PhD Thesis Award</span></div>
-  <div class="achievement-item"><strong>1024<sup>3</sup></strong><span>DNS resolution</span></div>
-  <div class="achievement-item"><strong>8,192</strong><span>GPUs on Frontier</span></div>
+<div class="research-interests-strip" aria-label="Research interests">
+  <strong>Research interests</strong>
+  <span>Turbulence · Thermal convection · Machine learning · High-performance computing · Atmospheric &amp; astrophysical flows · Quantum computing · Quantum fluids</span>
 </div>
 
 ## Research at a glance
