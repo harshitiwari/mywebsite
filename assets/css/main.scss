@@ -321,6 +321,11 @@ html[data-theme="dark"] {
   letter-spacing: 0.09em;
 }
 
+.research-card {
+  min-height: 145px;
+  padding-bottom: 0.8rem;
+}
+
 .personal-invitation {
   margin: 1.7rem 0 0;
   padding-left: 0.9rem;
@@ -422,7 +427,7 @@ html[data-theme="dark"] {
 
 .music-player {
   position: fixed;
-  bottom: 78px;
+  bottom: 64px;
   left: 30px;
   width: 282px;
   padding: 0.65rem 0.72rem 0.55rem;
