@@ -45,6 +45,14 @@ docker compose logs --tail=80
 docker compose down
 ```
 
+## Site-specific CV rule
+
+- Keep the canonical PDF filename as `cv.pdf` everywhere.
+- Treat `/Users/harshit/Documents/my_documents/my_cv/cv.tex` as the canonical CV source.
+- After every CV edit, compile the source and overwrite `/Users/harshit/Documents/my_documents/my_cv/cv.pdf`.
+- Copy that same build to `assets/pdf/cv.pdf` and `output/pdf/cv.pdf` in this repository.
+- Verify the three PDF files have identical SHA-256 hashes before considering the CV update complete.
+
 Docker note: v1 uses `/srv/jekyll/bin/entry_point.sh` and serves from container-local `/tmp/_site` to avoid host bind-mount write deadlocks.
 
 ## Agent Routing Rules

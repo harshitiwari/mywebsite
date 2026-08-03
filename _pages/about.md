@@ -31,7 +31,7 @@ latest_posts:
 
 <p class="research-kicker">COMPUTATION × TURBULENCE × PHYSICS</p>
 
-I am a physicist and Postdoctoral Associate at New York University, working with [Prof. Katepalli R. Sreenivasan](https://krsreenivasan.com/) on **turbulence and quantum computing for fluid dynamics (QCFD)**. I study complex nonlinear systems, from turbulent flows in atmospheres, stellar interiors, and the early universe to quantum turbulence and Bose–Einstein condensates. I combine theory with direct numerical simulation, machine learning, and high-performance computing.
+I am a physicist and Postdoctoral Associate at New York University, working with [Prof. Katepalli R. Sreenivasan](https://krsreenivasan.com/) on **turbulence and quantum computing for fluid dynamics (QCFD)**. I study complex nonlinear systems, from turbulent flows in atmospheres and stellar interiors to quantum turbulence and Bose–Einstein condensates. I combine theory with direct numerical simulation, machine learning, and high-performance computing.
 
 I received my Ph.D. in Physics from IIT Kanpur in 2026. My thesis, _Compressible turbulent convection at extreme Rayleigh numbers_, received the **Outstanding PhD Thesis Award**. Before joining NYU, I held a Fellowship for Academic and Research Excellence at IIT Kanpur.
 

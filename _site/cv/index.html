@@ -24,14 +24,58 @@
 <meta name="author" content="Harshit Tiwari">
 <meta name="description" content="Curriculum Vitae of Harshit Tiwari.">
 
-  <meta name="keywords" content="jekyll, jekyll-theme, academic-website, portfolio-website">
+  <meta name="keywords" content="turbulence, fluid dynamics, compressible flows, scientific computing, high-performance computing, machine learning, quantum computing">
 
 
 
 
 
 
+  <!-- OpenGraph -->
+  <meta property="og:site_name" content="Harshit Tiwari">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Harshit Tiwari | CV">
+  <meta property="og:url" content="https://harshitiwari.site/cv/">
+  <meta property="og:description" content="Curriculum Vitae of Harshit Tiwari.">
+  
+    <meta property="og:image" content="https://harshitiwari.site/assets/img/prof_pic_color.png">
+  
+  <meta property="og:locale" content="en">
 
+  <!-- Twitter card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="CV">
+  <meta name="twitter:description" content="Curriculum Vitae of Harshit Tiwari.">
+  
+    <meta name="twitter:image" content="https://harshitiwari.site/assets/img/prof_pic_color.png">
+  
+  
+
+
+
+  <!-- Schema.org -->
+  
+  
+  
+
+  <script type="application/ld+json">
+    {
+        "author":
+        {
+            "@type": "Person",
+            "name": "Harshit Tiwari"
+        },
+        "url": "https://harshitiwari.site/cv/",
+        "@type": "WebSite",
+        "description": "Curriculum Vitae of Harshit Tiwari.",
+        "headline": "CV",
+        
+        "sameAs": ["https://scholar.google.com/citations?user=pZsezWMAAAAJ","https://github.com/harshitiwari","https://www.linkedin.com/in/harshit-tiwari-6989b216b","https://www.researchgate.net/profile/Harshit-Tiwari-7/","https://youtube.com/@UCxZ6-66yuMBDBP5fJDoMlKg",null],
+        
+        "name": "Harshit Tiwari",
+        "@context": "https://schema.org"
+    }
+  </script>
 
 
 
@@ -87,7 +131,7 @@
 
   <link rel="stylesheet" href="/assets/css/al-folio-cv.css?v=734ded6bdb6d549b12085aded7cf1c5e">
 
-<link rel="canonical" href="http://localhost:4000/cv/">
+<link rel="canonical" href="https://harshitiwari.site/cv/">
 
 
   <!-- Dark Mode -->
@@ -117,12 +161,39 @@
 
 
 
-    <link rel="stylesheet" href="/assets/css/lorenz.css?v=90402585c323a0ddceb48bebbae1009e">
+    <link rel="stylesheet" href="/assets/css/lorenz.css?v=459677220dfddf264f4779df4c33cf54">
   </head>
 
   <!-- Body -->
   <body class="fixed-top-nav sticky-bottom-footer">
     <canvas id="lorenz-canvas"></canvas>
+    <div id="ambient-controls" aria-label="Ambient display controls">
+  <button type="button" id="lorenz-toggle" class="ambient-control" aria-label="Turn Lorenz background off" aria-pressed="true" title="Turn Lorenz background off">
+    <i class="fa-solid fa-water" aria-hidden="true"></i>
+  </button>
+  <div id="music-player" class="music-player" aria-label="Classical music player">
+    <div class="music-player-main">
+      <button type="button" id="music-toggle" class="music-player-toggle" aria-label="Play Mozart Piano Concerto No. 21" aria-pressed="false" title="Play Mozart Piano Concerto No. 21">
+        <i class="fa-solid fa-play" aria-hidden="true"></i>
+      </button>
+      <div class="music-player-copy">
+        <span class="music-player-composer">Mozart</span>
+        <span class="music-player-title">Piano Concerto No. 21</span>
+      </div>
+      <button type="button" id="music-mute" class="music-player-volume" aria-label="Mute music" title="Mute music">
+        <i class="fa-solid fa-volume-high" aria-hidden="true"></i>
+      </button>
+    </div>
+    <div class="music-player-timeline">
+      <span id="music-current-time">0:00</span>
+      <input id="music-progress" type="range" min="0" max="100" value="0" step="0.1" aria-label="Music progress">
+      <span id="music-duration">–:––</span>
+    </div>
+  </div>
+</div>
+
+<audio id="ambient-music" src="/assets/audio/mozart-piano-concerto-no-21.mp3" preload="metadata" loop></audio>
+
 
     <!-- Header -->
     <header>
@@ -246,37 +317,6 @@
             
           
             
-          
-            
-          
-            
-          
-            
-          
-            
-          
-            
-          
-            
-          
-            
-          
-            
-          
-            
-              
-                
-                <li class="nav-item ">
-                  <a class="nav-link" href="/blog/">Blog
-                    
-                  </a>
-                </li>
-              
-            
-          
-            
-          
-            
               
                 
                 <li class="nav-item ">
@@ -288,27 +328,10 @@
             
           
             
-          
-            
-          
-            
-          
-            
               
                 
                 <li class="nav-item ">
                   <a class="nav-link" href="/projects/">Projects
-                    
-                  </a>
-                </li>
-              
-            
-          
-            
-              
-                
-                <li class="nav-item ">
-                  <a class="nav-link" href="/repositories/">Repositories
                     
                   </a>
                 </li>
@@ -332,6 +355,28 @@
               
                 
                 <li class="nav-item ">
+                  <a class="nav-link" href="/about-me/">About Me
+                    
+                  </a>
+                </li>
+              
+            
+          
+            
+              
+                
+                <li class="nav-item ">
+                  <a class="nav-link" href="/talks/">Talks
+                    
+                  </a>
+                </li>
+              
+            
+          
+            
+              
+                
+                <li class="nav-item ">
                   <a class="nav-link" href="/teaching/">Teaching
                     
                   </a>
@@ -343,11 +388,34 @@
               
                 
                 <li class="nav-item ">
-                  <a class="nav-link" href="/people/">People
+                  <a class="nav-link" href="/repositories/">Repositories
                     
                   </a>
                 </li>
               
+            
+          
+            
+          
+            
+              
+                
+                <li class="nav-item ">
+                  <a class="nav-link" href="/blog/">Blog
+                    
+                  </a>
+                </li>
+              
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
             
           
           
@@ -428,7 +496,7 @@
 
         <!-- Header/Contact Information -->
         
-          <div class="card mt-3 p-3">
+          <div class="card mt-3 p-3 cv-contact-card">
             <h3 class="card-title font-weight-medium">Contact Information</h3>
             <table class="table table-cv table-sm table-borderless">
               
@@ -437,6 +505,11 @@
                   <td class="p-1 pl-2 font-weight-light">Harshit Tiwari</td>
                 </tr>
               
+              
+                <tr>
+                  <td class="p-1 pr-2 font-weight-bold" style="width: 15%; min-width: 120px;"><b>Professional Title</b></td>
+                  <td class="p-1 pl-2 font-weight-light">Postdoctoral Associate, New York University</td>
+                </tr>
               
               
                 <tr>
@@ -453,14 +526,16 @@
               
                 <tr>
                   <td class="p-1 pr-2 font-weight-bold" style="width: 15%; min-width: 120px;"><b>Location</b></td>
-                  <td class="p-1 pl-2 font-weight-light">
-                    370 Jay Street, NYU Tandon School of Engineering, 
-                    Brooklyn, 
-                    New York 
-                    11201
-                  </td>
+                  <td class="p-1 pl-2 font-weight-light">New York, USA</td>
                 </tr>
               
+              
+                <tr>
+                  <td class="p-1 pr-2 font-weight-bold" style="width: 15%; min-width: 120px;"><b>Website</b></td>
+                  <td class="p-1 pl-2 font-weight-light">
+                    <a href="https://harshitiwari.site" target="_blank">https://harshitiwari.site</a>
+                  </td>
+                </tr>
               
             </table>
           </div>
@@ -470,7 +545,7 @@
         
           <div class="card mt-3 p-3">
             <h3 class="card-title font-weight-medium">Professional Summary</h3>
-            <p>Postdoctoral Associate at New York University working on quantum computing for fluid dynamics, turbulent convection, compressible flows, and high-performance computing.
+            <p>Postdoctoral Associate at New York University working on quantum computing for fluid dynamics, turbulent convection, compressible flows, and high-performance scientific computing. Recipient of the 2026 Outstanding PhD Thesis Award from IIT Kanpur.
 </p>
           </div>
         
@@ -513,7 +588,7 @@
               <p class="location mb-0 text-center">
                 <i class="fa-solid fa-location-dot iconlocation"></i>
                 
-            Brooklyn, NY, USA
+            New York, USA
           
               </p>
             
@@ -537,11 +612,20 @@
 
           
             <h6 class="ml-1 ml-md-4" style="font-size: 0.95rem; font-style: italic">
-              Supervisor: Prof. Katepalli R. Sreenivasan.<br>Project: Quantum computing for fluid dynamics (QCFD).
+              Supervisor: Prof. Katepalli R. Sreenivasan
 
             </h6>
           
 
+          
+            <ul class="items">
+              
+                <li>
+                  <span class="item">Quantum computing for fluid dynamics (QCFD)
+</span>
+                </li>
+              
+            </ul>
           
         </div>
       </div>
@@ -587,17 +671,31 @@
           
           
             <h6 class="ml-1 ml-md-4" style="font-size: 0.95rem">
-            Department of Physics, IIT Kanpur
+            Department of Physics, Indian Institute of Technology Kanpur
           </h6>
           
 
           
-            <h6 class="ml-1 ml-md-4" style="font-size: 0.95rem; font-style: italic">
-              Mentor: Prof. Mahendra K. Verma
 
-            </h6>
           
-
+            <ul class="items">
+              
+                <li>
+                  <span class="item">High-resolution simulations of moist turbulent convection in Earth’s troposphere
+</span>
+                </li>
+              
+                <li>
+                  <span class="item">Thermalisation in quantum and classical Euler turbulence
+</span>
+                </li>
+              
+                <li>
+                  <span class="item">Transients in thermal convection and energy distribution across scales
+</span>
+                </li>
+              
+            </ul>
           
         </div>
       </div>
@@ -643,17 +741,36 @@
           
           
             <h6 class="ml-1 ml-md-4" style="font-size: 0.95rem">
-            Department of Physics, IIT Kanpur
+            Department of Physics, Indian Institute of Technology Kanpur
           </h6>
           
 
           
             <h6 class="ml-1 ml-md-4" style="font-size: 0.95rem; font-style: italic">
-              Supervisor: Prof. Mahendra K. Verma, Co-supervisor: Prof. Rajesh Ranjan.<br>Thesis: Compressible turbulent convection at extreme Rayleigh numbers.
+              Supervisor: Prof. Mahendra K. Verma; Co-supervisor: Prof. Rajesh Ranjan
 
             </h6>
           
 
+          
+            <ul class="items">
+              
+                <li>
+                  <span class="item">Simulated turbulent compressible convection at extreme Rayleigh numbers, revealing classical heat-transport scaling laws
+</span>
+                </li>
+              
+                <li>
+                  <span class="item">Developed a scalable Python PDE solver with GPU and MPI support for high-performance simulations
+</span>
+                </li>
+              
+                <li>
+                  <span class="item">Applied advanced numerical methods to shocks, turbulence, and compressible astrophysical and atmospheric flows
+</span>
+                </li>
+              
+            </ul>
           
         </div>
       </div>
@@ -699,17 +816,31 @@
           
           
             <h6 class="ml-1 ml-md-4" style="font-size: 0.95rem">
-            Department of Physics, IIT Kanpur
+            Department of Physics, Indian Institute of Technology Kanpur
           </h6>
           
 
           
             <h6 class="ml-1 ml-md-4" style="font-size: 0.95rem; font-style: italic">
-              Supervisor: Prof. Pankaj Jain, Co-supervisor: Prof. J.S. Yadav.<br>Project: Theoretical Modelling of Accretion Disk Oscillations.
+              Supervisor: Prof. Pankaj Jain; Co-supervisor: Prof. J. S. Yadav
 
             </h6>
           
 
+          
+            <ul class="items">
+              
+                <li>
+                  <span class="item">Studied acoustic normal modes in thin accretion disks using an effective Kerr potential
+</span>
+                </li>
+              
+                <li>
+                  <span class="item">Derived a dispersion relation valid over a range of black-hole spin parameters
+</span>
+                </li>
+              
+            </ul>
           
         </div>
       </div>
@@ -722,6 +853,74 @@
         
 
         
+        
+          
+          
+
+          
+          
+
+          <a class="anchor" id="academic-interests"></a>
+          <div class="card mt-3 p-3">
+            <h3 class="card-title font-weight-medium">Academic Interests</h3>
+            <div>
+              
+                
+                
+
+<div class="card-text font-weight-light">
+  
+    <div class="interest-item">
+      
+      <strong>Research:</strong>
+      
+        
+          
+            Turbulent convection,
+          
+        
+          
+            Atmospheric and astrophysical flows,
+          
+        
+          
+            Compressible and supersonic flows,
+          
+        
+          
+            High-performance computing,
+          
+        
+          
+            Machine learning,
+          
+        
+          
+            Quantum computing for fluid dynamics,
+          
+        
+          
+            Quantum turbulence,
+          
+        
+          
+            Nonlinear dynamics
+          
+        
+      
+    </div>
+  
+</div>
+
+<style>
+  .interest-item {
+    padding: 0.5rem 0;
+  }
+</style>
+
+              
+            </div>
+          </div>
         
           
           
@@ -752,9 +951,9 @@
           <div class="d-flex flex-column align-items-center justify-content-center" style="gap: 4px;">
             
               <span class="badge font-weight-bold danger-color-dark text-uppercase align-middle" style="min-width: 75px;">
-            2021
+            Aug 2021
            - 
-            2026
+            Feb 2026
           </span>
             
             
@@ -777,11 +976,31 @@
           
 
           
-            <h6 class="ml-1 ml-md-4" style="font-size: 0.95rem">Indian Institute of Technology Kanpur (CPI: 9.56/10)</h6>
+            <h6 class="ml-1 ml-md-4" style="font-size: 0.95rem">Indian Institute of Technology Kanpur</h6>
           
 
           
 
+          
+            <ul class="items">
+              
+              
+                <li>
+                  <span class="item">Thesis: <em>Compressible turbulent convection at extreme Rayleigh numbers</em>
+</span>
+                </li>
+              
+                <li>
+                  <span class="item">Cumulative Performance Index: 9.56/10
+</span>
+                </li>
+              
+                <li>
+                  <span class="item">Coursework: Field Theory, Physics of Turbulence, High-Performance Computing, and Advanced Statistical Physics
+</span>
+                </li>
+              
+            </ul>
           
         </div>
       </div>
@@ -800,9 +1019,9 @@
           <div class="d-flex flex-column align-items-center justify-content-center" style="gap: 4px;">
             
               <span class="badge font-weight-bold danger-color-dark text-uppercase align-middle" style="min-width: 75px;">
-            2019
+            Jul 2019
            - 
-            2021
+            Jul 2021
           </span>
             
             
@@ -825,11 +1044,26 @@
           
 
           
-            <h6 class="ml-1 ml-md-4" style="font-size: 0.95rem">Indian Institute of Technology Kanpur (CPI: 8.30/10)</h6>
+            <h6 class="ml-1 ml-md-4" style="font-size: 0.95rem">Indian Institute of Technology Kanpur</h6>
           
 
           
 
+          
+            <ul class="items">
+              
+              
+                <li>
+                  <span class="item">Cumulative Performance Index: 8.30/10
+</span>
+                </li>
+              
+                <li>
+                  <span class="item">Coursework: High Energy Astrophysics, Nuclear and Particle Physics, and Quantum Field Theory
+</span>
+                </li>
+              
+            </ul>
           
         </div>
       </div>
@@ -848,9 +1082,9 @@
           <div class="d-flex flex-column align-items-center justify-content-center" style="gap: 4px;">
             
               <span class="badge font-weight-bold danger-color-dark text-uppercase align-middle" style="min-width: 75px;">
-            2016
+            Jul 2016
            - 
-            2019
+            Jun 2019
           </span>
             
             
@@ -873,11 +1107,26 @@
           
 
           
-            <h6 class="ml-1 ml-md-4" style="font-size: 0.95rem">Kumaun University (Percentage: 66.4%, First Class)</h6>
+            <h6 class="ml-1 ml-md-4" style="font-size: 0.95rem">Kumaun University</h6>
           
 
           
 
+          
+            <ul class="items">
+              
+              
+                <li>
+                  <span class="item">Subjects: Physics, Mathematics, and Chemistry
+</span>
+                </li>
+              
+                <li>
+                  <span class="item">Percentage: 66.4%, First Class
+</span>
+                </li>
+              
+            </ul>
           
         </div>
       </div>
@@ -901,100 +1150,91 @@
           
           
 
-          <a class="anchor" id="teaching-experience"></a>
+          <a class="anchor" id="skills"></a>
           <div class="card mt-3 p-3">
-            <h3 class="card-title font-weight-medium">Teaching Experience</h3>
+            <h3 class="card-title font-weight-medium">Skills</h3>
             <div>
               
                 
                 
 
-<ul class="card-text font-weight-light list-group list-group-flush">
+<div class="card-text font-weight-light">
   
-    <li class="list-group-item py-4" style="list-style: none;">
-      <div class="row">
-        <div class="col-12 col-sm-2 text-center date-column mt-3 mt-sm-0">
+    <div class="skill-item">
+      
+      <strong>Advanced:</strong>
+      
+        
           
+            Python,
           
-
+        
           
-
+            Parallel programming,
           
-
-          <div class="d-flex flex-column align-items-center justify-content-center" style="gap: 4px;">
-            
-              <span class="badge font-weight-bold danger-color-dark text-uppercase align-middle" style="min-width: 75px;">
-            2021
-           - 
-            2026
-          </span>
-            
-            
-          </div>
-        </div>
-        <div class="col-12 col-sm-10 mt-0 mt-sm-0">
+        
           
-
+            Numba,
           
-            <h6 class="title font-weight-bold ml-1 ml-md-4">
-            Graduate Teaching Assistant
-          </h6>
+        
           
-
+            ParaView
           
-          
-            <h6 class="ml-1 ml-md-4" style="font-size: 0.95rem">
-            IIT Kanpur
-          </h6>
-          
-
-          
-
-          
-            <ul class="items">
-              
-                <li>
-                  <span class="item">PHY441A: Electronics (Aug 2021 - May 2022)
-</span>
-                </li>
-              
-                <li>
-                  <span class="item">PHY473A: Computational Physics (Aug 2022 - Nov 2022)
-</span>
-                </li>
-              
-                <li>
-                  <span class="item">PHY113A: Classical Electrodynamics (Mar 2023 - Nov 2023)
-</span>
-                </li>
-              
-                <li>
-                  <span class="item">NPTEL: Scientific Computing using Python (Jun 2023 - Nov 2023)
-</span>
-                </li>
-              
-                <li>
-                  <span class="item">NPTEL: Tapestry of Field Theory (Jan 2024 - Jan 2025)
-</span>
-                </li>
-              
-                <li>
-                  <span class="item">PHY461A/462A: Experimental Physics I/II (Jan 2024 - May 2025)
-</span>
-                </li>
-              
-                <li>
-                  <span class="item">PHY111A: Undergraduate Lab (Aug 2025 - Aug 2026)
-</span>
-                </li>
-              
-            </ul>
-          
-        </div>
-      </div>
-    </li>
+        
+      
+    </div>
   
-</ul>
+    <div class="skill-item">
+      
+      <strong>Intermediate:</strong>
+      
+        
+          
+            MATLAB,
+          
+        
+          
+            Mathematica,
+          
+        
+          
+            CUDA
+          
+        
+      
+    </div>
+  
+    <div class="skill-item">
+      
+      <strong>Working knowledge:</strong>
+      
+        
+          
+            C++,
+          
+        
+          
+            Julia,
+          
+        
+          
+            Fortran,
+          
+        
+          
+            R
+          
+        
+      
+    </div>
+  
+</div>
+
+<style>
+  .skill-item {
+    padding: 0.5rem 0;
+  }
+</style>
 
               
             </div>
@@ -1037,11 +1277,11 @@
             
 
             
-              <h6 class="ml-1 ml-md-4" style="font-size: 0.95rem">IIT Kanpur</h6>
+              <h6 class="ml-1 ml-md-4" style="font-size: 0.95rem">Indian Institute of Technology Kanpur</h6>
             
 
             
-              <p class="ml-1 ml-md-4">Received the Outstanding PhD Thesis Award from IIT Kanpur.
+              <p class="ml-1 ml-md-4">Awarded for the thesis <em>Compressible turbulent convection at extreme Rayleigh numbers</em>.
 </p>
             
           </div>
@@ -1074,7 +1314,40 @@
             
 
             
-              <p class="ml-1 ml-md-4">Supported attendance at the 2025 DFD Annual Meeting.
+              <p class="ml-1 ml-md-4">Supported attendance at the 2025 APS DFD Annual Meeting.
+</p>
+            
+          </div>
+        
+      </div>
+    </li>
+  
+    <li class="list-group-item py-4" style="list-style: none;">
+      <div class="row">
+        
+
+        
+          
+          <div class="col-12 col-sm-2 text-center date-column mt-3 mt-sm-0">
+            <div class="d-flex flex-column align-items-center justify-content-center" style="gap: 4px;">
+              <span class="badge font-weight-bold danger-color-dark text-uppercase align-middle" style="min-width: 75px">
+                
+          2025
+        
+              </span>
+            </div>
+          </div>
+          <div class="col-12 col-sm-10 mt-0 mt-sm-0">
+            
+              <h6 class="title font-weight-bold ml-1 ml-md-4">APS DFD Session Chair</h6>
+            
+
+            
+              <h6 class="ml-1 ml-md-4" style="font-size: 0.95rem">American Physical Society</h6>
+            
+
+            
+              <p class="ml-1 ml-md-4">Chaired Convection and Buoyancy-Driven Flows: Heat Transfer, Instabilities &amp; Turbulence.
 </p>
             
           </div>
@@ -1103,11 +1376,11 @@
             
 
             
-              <h6 class="ml-1 ml-md-4" style="font-size: 0.95rem">IIT JAM</h6>
+              <h6 class="ml-1 ml-md-4" style="font-size: 0.95rem">IIT Joint Admission Test</h6>
             
 
             
-              <p class="ml-1 ml-md-4">Secured AIR 74 among 15,000 applicants.
+              <p class="ml-1 ml-md-4">Ranked 74th among 15,000 applicants.
 </p>
             
           </div>
@@ -1136,11 +1409,11 @@
             
 
             
-              <h6 class="ml-1 ml-md-4" style="font-size: 0.95rem">IIT Kanpur</h6>
+              <h6 class="ml-1 ml-md-4" style="font-size: 0.95rem">Indian Institute of Technology Kanpur</h6>
             
 
             
-              <p class="ml-1 ml-md-4">Aug 2019 - May 2021
+              <p class="ml-1 ml-md-4">Awarded from Aug 2019 to May 2021.
 </p>
             
           </div>
@@ -1169,12 +1442,9 @@
             
 
             
-              <h6 class="ml-1 ml-md-4" style="font-size: 0.95rem">JEST</h6>
+              <h6 class="ml-1 ml-md-4" style="font-size: 0.95rem">Joint Entrance Screening Test</h6>
             
 
-            
-              <p class="ml-1 ml-md-4">Secured AIR 307 in the Joint Entrance Screening Test.
-</p>
             
           </div>
         
@@ -1198,7 +1468,7 @@
           </div>
           <div class="col-12 col-sm-10 mt-0 mt-sm-0">
             
-              <h6 class="title font-weight-bold ml-1 ml-md-4">Qualified NDA Entrance Exam</h6>
+              <h6 class="title font-weight-bold ml-1 ml-md-4">Qualified National Defence Academy Entrance Exam</h6>
             
 
             
@@ -1206,55 +1476,9 @@
             
 
             
-              <p class="ml-1 ml-md-4">Qualified the National Defence Academy (NDA) entrance exam.
-</p>
-            
           </div>
         
       </div>
-    </li>
-  
-</ul>
-
-              
-            </div>
-          </div>
-        
-          
-          
-
-          
-          
-
-          <a class="anchor" id="references"></a>
-          <div class="card mt-3 p-3">
-            <h3 class="card-title font-weight-medium">References</h3>
-            <div>
-              
-                
-                
-
-<ul class="card-text font-weight-light list-group list-group-flush">
-  
-    <li class="list-group-item">
-      
-      <strong>Prof. Katepalli R. Sreenivasan</strong>
-      <p>Professor of Physics, NYU, USA (katepalli.sreenivasan@nyu.edu)
-</p>
-    </li>
-  
-    <li class="list-group-item">
-      
-      <strong>Prof. Mahendra K. Verma</strong>
-      <p>Department of Physics, IIT Kanpur, India (mkv@iitk.ac.in)
-</p>
-    </li>
-  
-    <li class="list-group-item">
-      
-      <strong>Prof. Rajesh Ranjan</strong>
-      <p>Department of Aerospace Engineering, IIT Kanpur, India (rajeshr@iitk.ac.in)
-</p>
     </li>
   
 </ul>
@@ -1286,8 +1510,10 @@
 
     <div class="container">
       
-  © Copyright 2026 Harshit Tiwari. Powered by <a href="https://jekyllrb.com/" target="_blank" rel="external nofollow noopener">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio" rel="external nofollow noopener" target="_blank">al-folio</a> theme.
+  © Copyright 2026 Harshit Tiwari. Research, computation, and a little controlled chaos.
   
+  
+    Last updated: August 03, 2026.
   
 
     </div>
@@ -1416,14 +1642,7 @@ ninja.data = [{
     handler: () => {
       window.location.href = "/";
     },
-  },{id: "nav-blog",
-          title: "Blog",
-          description: "",
-          section: "Navigation",
-          handler: () => {
-            window.location.href = "/blog/";
-          },
-        },{id: "nav-publications",
+  },{id: "nav-publications",
           title: "Publications",
           description: "",
           section: "Navigation",
@@ -1432,17 +1651,10 @@ ninja.data = [{
           },
         },{id: "nav-projects",
           title: "Projects",
-          description: "A growing collection of your cool projects.",
+          description: "Research and software projects in turbulent flows, scientific computing, and quantum algorithms.",
           section: "Navigation",
           handler: () => {
             window.location.href = "/projects/";
-          },
-        },{id: "nav-repositories",
-          title: "Repositories",
-          description: "Edit the `_data/repositories.yml` and change the `github_users` and `github_repos` lists to include your own GitHub profile and repositories.",
-          section: "Navigation",
-          handler: () => {
-            window.location.href = "/repositories/";
           },
         },{id: "nav-cv",
           title: "CV",
@@ -1451,19 +1663,40 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/cv/";
           },
+        },{id: "nav-about-me",
+          title: "About Me",
+          description: "Life beyond research—mountains, movement, music, and games.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/about-me/";
+          },
+        },{id: "nav-talks-amp-presentations",
+          title: "Talks &amp; Presentations",
+          description: "Selected research talks, posters, workshops, and computational-science events.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/talks/";
+          },
         },{id: "nav-teaching",
           title: "Teaching",
-          description: "Course materials, schedules, and resources for classes taught.",
+          description: "Teaching experience at the Indian Institute of Technology Kanpur.",
           section: "Navigation",
           handler: () => {
             window.location.href = "/teaching/";
           },
-        },{id: "nav-people",
-          title: "People",
-          description: "members of the lab or group",
+        },{id: "nav-repositories",
+          title: "Repositories",
+          description: "Open-source code and scientific-computing work on GitHub.",
           section: "Navigation",
           handler: () => {
-            window.location.href = "/people/";
+            window.location.href = "/repositories/";
+          },
+        },{id: "nav-blog",
+          title: "Blog",
+          description: "",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/blog/";
           },
         },{id: "post-a-post-with-plotly-js",
         
@@ -1485,17 +1718,6 @@ ninja.data = [{
         handler: () => {
           
             window.location.href = "/blog/2024/photo-gallery/";
-          
-        },
-      },{id: "post-google-gemini-updates-flash-1-5-gemma-2-and-project-astra",
-        
-          title: 'Google Gemini updates: Flash 1.5, Gemma 2 and Project Astra <svg width="1.2rem" height="1.2rem" top=".5rem" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M17 13.5v6H5v-12h6m3-3h6v6m0-6-9 9" class="icon_svg-stroke" stroke="#999" stroke-width="1.5" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path></svg>',
-        
-        description: "We’re sharing updates across our Gemini family of models and a glimpse of Project Astra, our vision for the future of AI assistants.",
-        section: "Posts",
-        handler: () => {
-          
-            window.open("https://blog.google/technology/ai/google-gemini-update-flash-ai-assistant-io-2024/", "_blank");
           
         },
       },{id: "post-a-post-with-tabs",
@@ -1718,17 +1940,6 @@ ninja.data = [{
             window.location.href = "/blog/2022/giscus-comments/";
           
         },
-      },{id: "post-displaying-external-posts-on-your-al-folio-blog",
-        
-          title: 'Displaying External Posts on Your al-folio Blog <svg width="1.2rem" height="1.2rem" top=".5rem" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M17 13.5v6H5v-12h6m3-3h6v6m0-6-9 9" class="icon_svg-stroke" stroke="#999" stroke-width="1.5" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path></svg>',
-        
-        description: "",
-        section: "Posts",
-        handler: () => {
-          
-            window.open("https://medium.com/@al-folio/displaying-external-posts-on-your-al-folio-blog-b60a1d241a0a?source=rss-17feae71c3c4------2", "_blank");
-          
-        },
       },{id: "post-a-post-with-redirect",
         
           title: "a post with redirect",
@@ -1872,6 +2083,9 @@ ninja.data = [{
           section: "News",},{id: "news-presented-our-work-on-compressible-turbulent-convection-at-the-iit-kanpur-physics-research-scholar-day-2024-️",
           title: 'Presented our work on compressible turbulent convection at the IIT Kanpur Physics Research...',
           description: "",
+          section: "News",},{id: "news-participated-in-the-frontier-hackathon-successfully-scaling-our-compressible-solver-dhara-on-frontier-to-8-192-amd-mi250x-gpus",
+          title: 'Participated in the Frontier Hackathon, successfully scaling our compressible solver DHARA on Frontier...',
+          description: "",
           section: "News",},{id: "news-appointed-coordinator-of-the-adventure-sports-club-at-iit-kanpur-2024-25",
           title: 'Appointed Coordinator of the Adventure Sports Club at IIT Kanpur (2024-25). 🥾 🏃...',
           description: "",
@@ -1896,9 +2110,6 @@ ninja.data = [{
           section: "News",},{id: "news-submitted-my-ph-d-thesis-and-started-as-a-fare-fellow-at-iit-kanpur",
           title: 'Submitted my Ph.D. thesis and started as a FARE Fellow at IIT Kanpur!...',
           description: "",
-          section: "News",},{id: "news-participated-in-the-frontier-hackathon-successfully-scaling-our-compressible-solver-dhara-on-frontier-to-8-192-amd-mi250x-gpus",
-          title: 'Participated in the Frontier Hackathon, successfully scaling our compressible solver DHARA on Frontier...',
-          description: "",
           section: "News",},{id: "news-gave-a-talk-on-high-resolution-simulations-of-dry-and-moist-turbulent-convection-at-the-icts-moist-convective-dynamics-program",
           title: 'Gave a talk on “High-resolution simulations of dry and moist turbulent convection” at...',
           description: "",
@@ -1911,64 +2122,39 @@ ninja.data = [{
           section: "News",},{id: "news-started-my-new-position-as-a-postdoctoral-associate-at-new-york-university-nyu",
           title: 'Started my new position as a Postdoctoral Associate at New York University (NYU)!...',
           description: "",
-          section: "News",},{id: "news-receiving-my-ph-d-degree-from-iit-kanpur-along-with-the-outstanding-phd-thesis-award-on-july-15",
-          title: 'Receiving my Ph.D. degree from IIT Kanpur along with the Outstanding PhD Thesis...',
+          section: "News",},{id: "news-received-my-ph-d-in-physics-from-iit-kanpur-and-the-outstanding-phd-thesis-award",
+          title: 'Received my Ph.D. in Physics from IIT Kanpur and the Outstanding PhD Thesis...',
           description: "",
-          section: "News",},{id: "projects-project-1",
-          title: 'project 1',
-          description: "with background image",
+          section: "News",},{id: "projects-accretion-disk-oscillations",
+          title: 'Accretion Disk Oscillations',
+          description: "Theoretical modelling of acoustic modes around rotating black holes.",
           section: "Projects",handler: () => {
-              window.location.href = "/projects/1_project/";
-            },},{id: "projects-project-2",
-          title: 'project 2',
-          description: "a project with a background image and giscus comments",
+              window.location.href = "/projects/accretion-disk-oscillations/";
+            },},{id: "projects-compressible-turbulent-convection",
+          title: 'Compressible Turbulent Convection',
+          description: "Heat transport and scaling laws at extreme Rayleigh numbers.",
           section: "Projects",handler: () => {
-              window.location.href = "/projects/2_project/";
-            },},{id: "projects-project-3-with-very-long-name",
-          title: 'project 3 with very long name',
-          description: "a project that redirects to another website",
+              window.location.href = "/projects/compressible-convection/";
+            },},{id: "projects-dhara-pde-solver",
+          title: 'DHARA PDE Solver',
+          description: "A scalable Python solver for GPU-accelerated, distributed fluid simulations.",
           section: "Projects",handler: () => {
-              window.location.href = "/projects/3_project/";
-            },},{id: "projects-project-4",
-          title: 'project 4',
-          description: "another without an image",
+              window.location.href = "/projects/dhara/";
+            },},{id: "projects-moist-turbulent-convection",
+          title: 'Moist Turbulent Convection',
+          description: "High-resolution simulations of conditionally unstable atmospheric convection.",
           section: "Projects",handler: () => {
-              window.location.href = "/projects/4_project/";
-            },},{id: "projects-project-5",
-          title: 'project 5',
-          description: "a project with a background image",
+              window.location.href = "/projects/moist-convection/";
+            },},{id: "projects-quantum-computing-for-fluid-dynamics",
+          title: 'Quantum Computing for Fluid Dynamics',
+          description: "Developing quantum-computing approaches for fluid-dynamics problems at NYU.",
           section: "Projects",handler: () => {
-              window.location.href = "/projects/5_project/";
-            },},{id: "projects-project-6",
-          title: 'project 6',
-          description: "a project with no image",
+              window.location.href = "/projects/quantum-computing-fluid-dynamics/";
+            },},{id: "projects-supersonic-turbulence",
+          title: 'Supersonic Turbulence',
+          description: "Energy spectra and fluxes from high-fidelity direct numerical simulations.",
           section: "Projects",handler: () => {
-              window.location.href = "/projects/6_project/";
-            },},{id: "projects-project-7",
-          title: 'project 7',
-          description: "with background image",
-          section: "Projects",handler: () => {
-              window.location.href = "/projects/7_project/";
-            },},{id: "projects-project-8",
-          title: 'project 8',
-          description: "an other project with a background image and giscus comments",
-          section: "Projects",handler: () => {
-              window.location.href = "/projects/8_project/";
-            },},{id: "projects-project-9",
-          title: 'project 9',
-          description: "another project with an image 🎉",
-          section: "Projects",handler: () => {
-              window.location.href = "/projects/9_project/";
-            },},{id: "teachings-data-science-fundamentals",
-          title: 'Data Science Fundamentals',
-          description: "This course covers the foundational aspects of data science, including data collection, cleaning, analysis, and visualization. Students will learn practical skills for working with real-world datasets.",
-          section: "Teachings",handler: () => {
-              window.location.href = "/teachings/data-science-fundamentals/";
-            },},{id: "teachings-introduction-to-machine-learning",
-          title: 'Introduction to Machine Learning',
-          description: "This course provides an introduction to machine learning concepts, algorithms, and applications. Students will learn about supervised and unsupervised learning, model evaluation, and practical implementations.",
-          section: "Teachings",handler: () => {
-              window.location.href = "/teachings/introduction-to-machine-learning/";
+              window.location.href = "/projects/supersonic-turbulence/";
             },},{
         id: 'social-email',
         title: 'email',
@@ -2062,6 +2248,8 @@ ninja.data = [{
 
 
 
-    <script src="/assets/js/lorenz.js?v=d654da071145b99fc443ecc161748fb4"></script>
+    <script src="/assets/js/lorenz.js?v=ec35abf6416768b2c90cfd286d3ef016"></script>
+    <script src="/assets/js/ambient-controls.js?v=1056e7fe0010b3f011a1d23958db4f14"></script>
+    <script src="/assets/js/seamless-navigation.js?v=c0b7ccf58054872bd7364cf9c3e404a8"></script>
   </body>
 </html>

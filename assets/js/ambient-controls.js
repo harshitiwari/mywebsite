@@ -90,12 +90,8 @@
   }
 
   function updateTimeline() {
-    if (currentTimeLabel) {
-      currentTimeLabel.textContent = formatTime(music.currentTime);
-    }
-    if (durationLabel) {
-      durationLabel.textContent = formatTime(music.duration);
-    }
+    if (currentTimeLabel) currentTimeLabel.textContent = formatTime(music.currentTime);
+    if (durationLabel) durationLabel.textContent = formatTime(music.duration);
     if (progress && Number.isFinite(music.duration) && music.duration > 0) {
       progress.value = String((music.currentTime / music.duration) * 100);
       progress.style.setProperty("--music-progress", `${progress.value}%`);

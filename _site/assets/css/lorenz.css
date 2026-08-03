@@ -26,5 +26,11 @@ html[data-theme="dark"] {
   height: 100vh;
   z-index: -1;
   pointer-events: none;
-  opacity: 0.85;
+  opacity: 0.5;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #lorenz-canvas {
+    display: none;
+  }
 }
