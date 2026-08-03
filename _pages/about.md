@@ -2,7 +2,7 @@
 layout: about
 title: About
 permalink: /
-subtitle: Postdoctoral Associate · Turbulence · Scientific Computing
+subtitle: Postdoctoral Associate · New York University
 
 profile:
   align: right

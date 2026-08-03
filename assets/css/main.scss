@@ -664,6 +664,91 @@ html.lorenz-disabled #lorenz-canvas {
   display: none;
 }
 
+// Phones in landscape and compact tablets should retain the small right-side
+// control stack rather than switching to the desktop music player.
+@media (max-width: 991.98px) {
+  #ambient-controls {
+    right: 16px;
+    bottom: 64px;
+  }
+
+  .music-player {
+    position: static;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    backdrop-filter: none;
+  }
+
+  .music-player-main {
+    display: block;
+  }
+
+  .music-player-copy,
+  .music-player-volume,
+  .music-player-timeline {
+    display: none;
+  }
+
+  .music-player-toggle {
+    width: 40px;
+    height: 40px;
+    color: var(--global-back-to-top-text-color);
+    background: var(--global-back-to-top-bg-color);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+  }
+
+  #back-to-top {
+    right: 16px !important;
+    bottom: 16px !important;
+    width: 40px !important;
+    height: 40px !important;
+    padding: 0 !important;
+    font-size: 1rem !important;
+    line-height: 40px !important;
+    color: var(--global-back-to-top-text-color) !important;
+    background: var(--global-back-to-top-bg-color) !important;
+    border: 0 !important;
+    border-radius: 50% !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18) !important;
+    opacity: 1 !important;
+    display: grid !important;
+    place-items: center !important;
+  }
+}
+
+@media (max-width: 575.98px) {
+  #navbar .nav-item.dropdown {
+    width: 100%;
+  }
+
+  #navbar .nav-item.dropdown > .dropdown-toggle {
+    width: 100%;
+    text-align: left;
+  }
+
+  #navbar .nav-item.dropdown > .dropdown-menu {
+    position: static !important;
+    float: none !important;
+    width: 100%;
+    min-width: 0;
+    margin: 0.2rem 0 0;
+    padding: 0.15rem 0 0.2rem 0.75rem;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    transform: none !important;
+  }
+
+  #navbar .nav-item.dropdown > .dropdown-menu .dropdown-item {
+    padding: 0.42rem 0.5rem;
+    font-size: 0.9rem;
+  }
+}
+
 @media (max-width: 767px) {
   .repository-grid {
     grid-template-columns: 1fr;
