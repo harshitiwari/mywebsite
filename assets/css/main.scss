@@ -98,15 +98,17 @@ html.seamless-loading body > .container[role="main"] {
 
 // al_search's shortcut-key.js (gem-owned) rewrites this button's text to a
 // platform hotkey hint ("⌘ k" on Mac) after the page loads, overriding
-// whatever markup this template renders. `visibility` (not font-size/display)
-// hides the text without touching line-height or box size, so the icon stays
-// exactly where normal layout would put it regardless of what that script
-// injects or when it runs.
+// whatever markup this template renders. font-size: 0 collapses the text
+// run to zero width so it doesn't reserve layout space next to the icon
+// (visibility: hidden would hide it but still leave that gap). line-height
+// is pinned to an absolute unit so the box doesn't collapse with it, which
+// is what knocked the icon out of vertical alignment last time.
 #search-toggle .nav-link {
-  visibility: hidden;
+  font-size: 0;
+  line-height: 1rem;
 
   i {
-    visibility: visible;
+    font-size: 1rem;
   }
 }
 
