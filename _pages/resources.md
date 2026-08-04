@@ -7,6 +7,6 @@ dropdown: true
 children:
   - title: Repositories
     permalink: /repositories/
-  - title: Notes
-    permalink: /blog/
+  - title: Blogs
+    permalink: /blogs/
 ---
