@@ -38,7 +38,7 @@
   <meta property="og:url" content="http://localhost:4000/blog/2024/tabs/">
   <meta property="og:description" content="this is what included tabs in a post could look like">
   
-    <meta property="og:image" content="https://harshitiwari.site/assets/img/prof_pic_color.png">
+    <meta property="og:image" content="https://harshitiwari.site/assets/img/og-image.jpg">
   
   <meta property="og:locale" content="en">
 
@@ -47,7 +47,7 @@
   <meta name="twitter:title" content="a post with tabs">
   <meta name="twitter:description" content="this is what included tabs in a post could look like">
   
-    <meta name="twitter:image" content="https://harshitiwari.site/assets/img/prof_pic_color.png">
+    <meta name="twitter:image" content="https://harshitiwari.site/assets/img/og-image.jpg">
   
   
 
@@ -339,8 +339,6 @@
             
           
             
-          
-            
               
                 
                 <li class="nav-item ">
@@ -388,11 +386,13 @@
               
                 
                 <li class="nav-item ">
-                  <a class="nav-link" href="/talks/">Talks
+                  <a class="nav-link" href="/blogs/">Blogs
                     
                   </a>
                 </li>
               
+            
+          
             
           
             
@@ -421,11 +421,11 @@
                       
                     
                       
-                        <a class="dropdown-item " href="/blogs/">Blogs</a>
+                        <a class="dropdown-item " href="/blog/">Notes</a>
                       
                     
                       
-                        <a class="dropdown-item " href="/blog/">Notes</a>
+                        <a class="dropdown-item " href="/talks/">Talks</a>
                       
                     
                   </div>
@@ -563,7 +563,7 @@ Content 2
 
 <p>With this you can generate visualizations like:</p>
 
-<ul id="log" class="tab" data-tab="9483dde5-2d07-40f4-ad98-3d5416458b7a" data-name="log">
+<ul id="log" class="tab" data-tab="aae71b5c-c06e-4361-bdc5-c4347b8570ef" data-name="log">
   
       <li class="active" id="log-php">
           <a href="#">php </a>
@@ -578,7 +578,7 @@ Content 2
       </li>
   
 </ul>
-<ul class="tab-content" id="9483dde5-2d07-40f4-ad98-3d5416458b7a" data-name="log">
+<ul class="tab-content" id="aae71b5c-c06e-4361-bdc5-c4347b8570ef" data-name="log">
   
       <li class="active">
 <div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">var_dump</span><span class="p">(</span><span class="s1">'hello'</span><span class="p">);</span>
@@ -602,7 +602,7 @@ Content 2
 
 <h2 id="another-example">Another example</h2>
 
-<ul id="data-struct" class="tab" data-tab="9d90872d-2719-4ded-86ea-2644a8af240d" data-name="data-struct">
+<ul id="data-struct" class="tab" data-tab="5ab4e043-5c6a-4618-9484-66f840956394" data-name="data-struct">
   
       <li class="active" id="data-struct-yaml">
           <a href="#">yaml </a>
@@ -613,7 +613,7 @@ Content 2
       </li>
   
 </ul>
-<ul class="tab-content" id="9d90872d-2719-4ded-86ea-2644a8af240d" data-name="data-struct">
+<ul class="tab-content" id="5ab4e043-5c6a-4618-9484-66f840956394" data-name="data-struct">
   
       <li class="active">
 <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">hello</span><span class="pi">:</span>
@@ -635,7 +635,7 @@ Content 2
 
 <h2 id="tabs-for-something-else">Tabs for something else</h2>
 
-<ul id="something-else" class="tab" data-tab="4bab93cc-42cf-446e-81a0-a73f9436dadb" data-name="something-else">
+<ul id="something-else" class="tab" data-tab="2b173574-f8a5-42f3-b9ae-d398fbcbdfe8" data-name="something-else">
   
       <li class="active" id="something-else-text">
           <a href="#">text </a>
@@ -650,7 +650,7 @@ Content 2
       </li>
   
 </ul>
-<ul class="tab-content" id="4bab93cc-42cf-446e-81a0-a73f9436dadb" data-name="something-else">
+<ul class="tab-content" id="2b173574-f8a5-42f3-b9ae-d398fbcbdfe8" data-name="something-else">
   
       <li class="active">
 <p>Regular text</p>
@@ -936,12 +936,12 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/about-me/";
           },
-        },{id: "nav-talks-amp-presentations",
-          title: "Talks &amp; Presentations",
-          description: "Selected research talks, posters, workshops, and computational-science events.",
+        },{id: "nav-blogs",
+          title: "Blogs",
+          description: "",
           section: "Navigation",
           handler: () => {
-            window.location.href = "/talks/";
+            window.location.href = "/blogs/";
           },
         },{id: "nav-teaching",
           title: "Teaching",
@@ -957,19 +957,19 @@ ninja.data = [{
               handler: () => {
                 window.location.href = "/repositories/";
               },
-            },{id: "dropdown-blogs",
-              title: "Blogs",
-              description: "",
-              section: "Dropdown",
-              handler: () => {
-                window.location.href = "/blogs/";
-              },
             },{id: "dropdown-notes",
               title: "Notes",
               description: "",
               section: "Dropdown",
               handler: () => {
                 window.location.href = "/blog/";
+              },
+            },{id: "dropdown-talks",
+              title: "Talks",
+              description: "",
+              section: "Dropdown",
+              handler: () => {
+                window.location.href = "/talks/";
               },
             },{id: "post-self-learning-in-the-age-of-ai",
         

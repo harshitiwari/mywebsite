@@ -36,7 +36,7 @@
   <meta property="og:url" content="http://localhost:4000/blog/2021/distill/">
   <meta property="og:description" content="an example of a distill-style blog post and main elements">
   
-    <meta property="og:image" content="https://harshitiwari.site/assets/img/prof_pic_color.png">
+    <meta property="og:image" content="https://harshitiwari.site/assets/img/og-image.jpg">
   
   <meta property="og:locale" content="en">
 
@@ -45,7 +45,7 @@
   <meta name="twitter:title" content="a distill-style blog post">
   <meta name="twitter:description" content="an example of a distill-style blog post and main elements">
   
-    <meta name="twitter:image" content="https://harshitiwari.site/assets/img/prof_pic_color.png">
+    <meta name="twitter:image" content="https://harshitiwari.site/assets/img/og-image.jpg">
   
   
 
@@ -384,8 +384,6 @@
             
           
             
-          
-            
               
                 
                 <li class="nav-item ">
@@ -433,11 +431,13 @@
               
                 
                 <li class="nav-item ">
-                  <a class="nav-link" href="/talks/">Talks
+                  <a class="nav-link" href="/blogs/">Blogs
                     
                   </a>
                 </li>
               
+            
+          
             
           
             
@@ -466,11 +466,11 @@
                       
                     
                       
-                        <a class="dropdown-item " href="/blogs/">Blogs</a>
+                        <a class="dropdown-item " href="/blog/">Notes</a>
                       
                     
                       
-                        <a class="dropdown-item " href="/blog/">Notes</a>
+                        <a class="dropdown-item " href="/talks/">Talks</a>
                       
                     
                   </div>
@@ -2329,12 +2329,12 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/about-me/";
           },
-        },{id: "nav-talks-amp-presentations",
-          title: "Talks &amp; Presentations",
-          description: "Selected research talks, posters, workshops, and computational-science events.",
+        },{id: "nav-blogs",
+          title: "Blogs",
+          description: "",
           section: "Navigation",
           handler: () => {
-            window.location.href = "/talks/";
+            window.location.href = "/blogs/";
           },
         },{id: "nav-teaching",
           title: "Teaching",
@@ -2350,19 +2350,19 @@ ninja.data = [{
               handler: () => {
                 window.location.href = "/repositories/";
               },
-            },{id: "dropdown-blogs",
-              title: "Blogs",
-              description: "",
-              section: "Dropdown",
-              handler: () => {
-                window.location.href = "/blogs/";
-              },
             },{id: "dropdown-notes",
               title: "Notes",
               description: "",
               section: "Dropdown",
               handler: () => {
                 window.location.href = "/blog/";
+              },
+            },{id: "dropdown-talks",
+              title: "Talks",
+              description: "",
+              section: "Dropdown",
+              handler: () => {
+                window.location.href = "/talks/";
               },
             },{id: "post-self-learning-in-the-age-of-ai",
         
