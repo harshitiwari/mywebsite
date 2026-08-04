@@ -4,6 +4,8 @@ title: Self-Learning in the Age of AI
 date: 2026-08-04 10:00:00+0530
 description: A broadband connection in 2017, a pile of books, and years of getting stuck alone. What I think was actually missing.
 meta: 7 min read
+thumbnail: assets/img/byrne-euclid-card.jpg
+og_image: https://harshitiwari.site/assets/img/byrne-euclid-card.jpg
 tags: learning self-study physics education
 categories: blogs
 giscus_comments: false
@@ -17,6 +19,12 @@ I did okay in school by memorising. Good enough marks that everyone assumed I un
 I didn't. The mathematics I "did" was a set of algorithms I could execute — push symbols through algebra, get the right answer out. Ask me *why* and there was nothing there. I don't blame my school; plenty of classmates came out of the same rooms thinking perfectly well. The shortcut was there and it worked, so I took it every time.
 
 Then school ended, I looked properly, and there wasn't much inside.
+
+{% include figure.liquid path="assets/img/byrne-euclid.jpg" class="img-fluid rounded" zoomable=true alt="A page from Oliver Byrne's 1847 edition of Euclid's Elements, proving the Pythagorean theorem with coloured shapes in place of lettered labels." %}
+
+<div class="caption">
+  Oliver Byrne's 1847 edition of Euclid's <em>Elements</em> replaced lettered labels with colour, so a proof could be followed by looking at it. Public domain, via <a href="https://commons.wikimedia.org/wiki/Category:Byrne's_Euclid">Wikimedia Commons</a>.
+</div>
 
 ## Starting over, alone
 

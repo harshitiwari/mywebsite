@@ -1,9 +1,27 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2026-08-04T03:36:54-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Harshit Tiwari</title><subtitle>Harshit Tiwari is a postdoctoral researcher at New York University working on turbulent flows, scientific computing, and quantum computing for fluid dynamics.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2026-08-04T03:48:39-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Harshit Tiwari</title><subtitle>Harshit Tiwari is a postdoctoral researcher at New York University working on turbulent flows, scientific computing, and quantum computing for fluid dynamics.
 </subtitle><entry><title type="html">Self-Learning in the Age of AI</title><link href="http://localhost:4000/blog/2026/self-learning-in-the-age-of-ai/" rel="alternate" type="text/html" title="Self-Learning in the Age of AI" /><published>2026-08-04T00:30:00-04:00</published><updated>2026-08-04T00:30:00-04:00</updated><id>http://localhost:4000/blog/2026/self-learning-in-the-age-of-ai</id><content type="html" xml:base="http://localhost:4000/blog/2026/self-learning-in-the-age-of-ai/"><![CDATA[<p>I did okay in school by memorising. Good enough marks that everyone assumed I understood what I was doing.</p>
 
 <p>I didn’t. The mathematics I “did” was a set of algorithms I could execute — push symbols through algebra, get the right answer out. Ask me <em>why</em> and there was nothing there. I don’t blame my school; plenty of classmates came out of the same rooms thinking perfectly well. The shortcut was there and it worked, so I took it every time.</p>
 
 <p>Then school ended, I looked properly, and there wasn’t much inside.</p>
+
+<figure>
+  <picture>
+    <!-- Auto scaling with imagemagick -->
+    <!--
+      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
+    -->
+    
+    <img src="/assets/img/byrne-euclid.jpg" class="img-fluid rounded" width="100%" height="auto" alt="A page from Oliver Byrne's 1847 edition of Euclid's Elements, proving the Pythagorean theorem with coloured shapes in place of lettered labels." data-zoomable="" loading="lazy" onerror="this.onerror=null; document.querySelectorAll('.responsive-img-srcset').forEach(function (n) { n.remove(); });" />
+  </picture>
+
+  
+</figure>
+
+<div class="caption">
+  Oliver Byrne's 1847 edition of Euclid's <em>Elements</em> replaced lettered labels with colour, so a proof could be followed by looking at it. Public domain, via <a href="https://commons.wikimedia.org/wiki/Category:Byrne's_Euclid">Wikimedia Commons</a>.
+</div>
 
 <h2 id="starting-over-alone">Starting over, alone</h2>
 
@@ -257,7 +275,7 @@ Content 2
 
 <p>With this you can generate visualizations like:</p>
 
-<ul id="log" class="tab" data-tab="28d98424-6a75-409e-98b9-fbeb1a17fe9b" data-name="log">
+<ul id="log" class="tab" data-tab="05e91611-cfb4-4cea-869e-2d1788dda0c5" data-name="log">
   
       <li class="active" id="log-php">
           <a href="#">php </a>
@@ -272,7 +290,7 @@ Content 2
       </li>
   
 </ul>
-<ul class="tab-content" id="28d98424-6a75-409e-98b9-fbeb1a17fe9b" data-name="log">
+<ul class="tab-content" id="05e91611-cfb4-4cea-869e-2d1788dda0c5" data-name="log">
   
       <li class="active">
 <div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">var_dump</span><span class="p">(</span><span class="s1">'hello'</span><span class="p">);</span>
@@ -296,7 +314,7 @@ Content 2
 
 <h2 id="another-example">Another example</h2>
 
-<ul id="data-struct" class="tab" data-tab="e3743333-1f2f-4b80-ad5e-8746ade2119c" data-name="data-struct">
+<ul id="data-struct" class="tab" data-tab="ee6b6b52-5943-4c98-b459-5d894d316942" data-name="data-struct">
   
       <li class="active" id="data-struct-yaml">
           <a href="#">yaml </a>
@@ -307,7 +325,7 @@ Content 2
       </li>
   
 </ul>
-<ul class="tab-content" id="e3743333-1f2f-4b80-ad5e-8746ade2119c" data-name="data-struct">
+<ul class="tab-content" id="ee6b6b52-5943-4c98-b459-5d894d316942" data-name="data-struct">
   
       <li class="active">
 <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">hello</span><span class="pi">:</span>
@@ -329,7 +347,7 @@ Content 2
 
 <h2 id="tabs-for-something-else">Tabs for something else</h2>
 
-<ul id="something-else" class="tab" data-tab="eb746494-e5d6-4b46-ae67-3d4abd117536" data-name="something-else">
+<ul id="something-else" class="tab" data-tab="7befbf7f-f193-4947-b553-4c316b62f26c" data-name="something-else">
   
       <li class="active" id="something-else-text">
           <a href="#">text </a>
@@ -344,7 +362,7 @@ Content 2
       </li>
   
 </ul>
-<ul class="tab-content" id="eb746494-e5d6-4b46-ae67-3d4abd117536" data-name="something-else">
+<ul class="tab-content" id="7befbf7f-f193-4947-b553-4c316b62f26c" data-name="something-else">
   
       <li class="active">
 <p>Regular text</p>
