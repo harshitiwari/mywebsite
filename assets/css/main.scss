@@ -96,16 +96,36 @@ html.seamless-loading body > .container[role="main"] {
   }
 }
 
+// The gem centers #light-toggle with a fixed-size flex box (width/height:
+// 2rem, inline-flex, align-items: center) but never gave #search-toggle the
+// same treatment — it was always relying on default inline-flow centering,
+// which is fragile and is what let the fixes below knock it out of
+// alignment. Matching light-toggle's box here makes the icon centered
+// regardless of what's inside it.
+#search-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+}
+
+// The gem nudges #light-toggle down 4px at this breakpoint (see _navbar.scss)
+// to line it up with the rest of the nav row, but never gave #search-toggle
+// the same nudge, leaving it 4px higher than every icon next to it.
+@media (min-width: 576px) {
+  #search-toggle {
+    transform: translateY(4px);
+  }
+}
+
 // al_search's shortcut-key.js (gem-owned) rewrites this button's text to a
 // platform hotkey hint ("⌘ k" on Mac) after the page loads, overriding
 // whatever markup this template renders. font-size: 0 collapses the text
 // run to zero width so it doesn't reserve layout space next to the icon
-// (visibility: hidden would hide it but still leave that gap). line-height
-// is pinned to an absolute unit so the box doesn't collapse with it, which
-// is what knocked the icon out of vertical alignment last time.
+// (visibility: hidden would hide it but still leave that gap).
 #search-toggle .nav-link {
   font-size: 0;
-  line-height: 1rem;
 
   i {
     font-size: 1rem;
