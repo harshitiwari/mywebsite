@@ -90,7 +90,7 @@ posts_in_search: true
 bib_search: true
 
 # Dimensions
-max_width: 884px # 5% narrower than the previous 930px
+max_width: 840px # narrowed from the original 930px for a shorter line length
 
 # -----------------------------------------------------------------------------
 # Open Graph & Schema.org
