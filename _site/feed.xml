@@ -1,5 +1,77 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://harshitiwari.site/feed.xml" rel="self" type="application/atom+xml" /><link href="https://harshitiwari.site/" rel="alternate" type="text/html" hreflang="en" /><updated>2026-08-03T14:31:33-04:00</updated><id>https://harshitiwari.site/feed.xml</id><title type="html">Harshit Tiwari</title><subtitle>Harshit Tiwari is a postdoctoral researcher at New York University working on turbulent flows, scientific computing, and quantum computing for fluid dynamics.
-</subtitle><entry><title type="html">a post with plotly.js</title><link href="https://harshitiwari.site/blog/2025/plotly/" rel="alternate" type="text/html" title="a post with plotly.js" /><published>2025-03-26T10:24:00-04:00</published><updated>2025-03-26T10:24:00-04:00</updated><id>https://harshitiwari.site/blog/2025/plotly</id><content type="html" xml:base="https://harshitiwari.site/blog/2025/plotly/"><![CDATA[<p>This is an example post with some <a href="https://plotly.com/javascript/">plotly</a> code.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2026-08-04T03:25:31-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Harshit Tiwari</title><subtitle>Harshit Tiwari is a postdoctoral researcher at New York University working on turbulent flows, scientific computing, and quantum computing for fluid dynamics.
+</subtitle><entry><title type="html">Self-Learning in the Age of AI</title><link href="http://localhost:4000/blog/2026/self-learning-in-the-age-of-ai/" rel="alternate" type="text/html" title="Self-Learning in the Age of AI" /><published>2026-08-04T00:30:00-04:00</published><updated>2026-08-04T00:30:00-04:00</updated><id>http://localhost:4000/blog/2026/self-learning-in-the-age-of-ai</id><content type="html" xml:base="http://localhost:4000/blog/2026/self-learning-in-the-age-of-ai/"><![CDATA[<p>I did okay in school by memorising. Good enough marks that everyone assumed I understood what I was doing.</p>
+
+<p>I didn’t. The mathematics I “did” was a set of algorithms I could execute — push symbols through algebra, get the right answer out. Ask me <em>why</em> and there was nothing there. I don’t blame my school; plenty of classmates came out of the same rooms thinking perfectly well. The shortcut was there and it worked, so I took it every time.</p>
+
+<p>Then school ended, I looked properly, and there wasn’t much inside.</p>
+
+<h2 id="starting-over-alone">Starting over, alone</h2>
+
+<p>I took a break after school and joined a local college for a Bachelor of Science, five minutes from home. Classes were irregular and I wasn’t showing up either, but it gave me the thing I’d never had: unstructured time. Luck, not merit.</p>
+
+<p>By the second year — 2017 — I decided to start from zero, and asked my parents for a broadband connection. I’d had a phone for years, so what changed wasn’t access. It was that I finally <em>wanted</em> something from it.</p>
+
+<p>I found the <a href="https://www.ocf.berkeley.edu/~abhishek/chicmath.htm">Chicago undergraduate mathematics bibliography</a>, which tells you book by book what’s worth reading and why. After that, my pocket money each month became one classic, or printouts of something I couldn’t afford. The rest I pirated. And I went back to the beginning — algebra, geometry, Euclid, then physics, working problems in order for the first time in my life.</p>
+
+<p>The lectures mattered just as much. <a href="https://ocw.mit.edu/">MIT OpenCourseWare</a>, <a href="https://oyc.yale.edu/">Open Yale Courses</a>, <a href="https://nptel.ac.in/">NPTEL</a> — whole courses, taught properly, sitting there for free. Watching someone good work through a derivation on a blackboard, changing their mind mid-way, was the closest thing to a classroom I’d ever had. I still don’t think people appreciate what those projects did, or how quietly they did it.</p>
+
+<p>What got me most, though, wasn’t the formulas. It was the stories: people struggling with one idea for a century, getting it wrong in interesting ways, until someone finally saw it. It had never occurred to me that mathematics had a plot.</p>
+
+<p>That was the happiest I’ve been about learning.</p>
+
+<h2 id="where-i-got-stuck">Where I got stuck</h2>
+
+<p>It didn’t last, and the reasons are mostly about me. My gaps were large and I couldn’t tell which ones were missing, so easy problems stopped me dead. Spivak’s chapter on limits took me apart — not “this is difficult,” more like “maybe I’m not built for this.”</p>
+
+<p>There was nobody to ask. Stack Exchange helped more than I can say, but it isn’t a <em>conversation</em>. You can’t say “wait, go back, why is that step allowed” four times in a row, or admit at 2am that you don’t understand what a limit is <em>for</em>.</p>
+
+<p>I never finished those books. Not one, I think. The self-study did get me into an MSc at IIT Kanpur, where a year went past too fast for me to account for — my gaps, not the institute’s fault.</p>
+
+<h2 id="the-phd-and-a-laboratory">The PhD, and a laboratory</h2>
+
+<p>The story gets better, so I should say so. Nobody was going to examine me next Tuesday, so I could read one book slowly and finish it. I was never incapable of reading properly; I’d only ever tried while being timed.</p>
+
+<p>The bigger part was computation. I work on turbulence, so most of what I do is simulation, and at some point it stopped being a way to get numbers and became a <strong>laboratory</strong>. Switch off gravity. Hold everything still and watch one mode grow. Drop a term and see what breaks. For someone who has to <em>see</em> a mechanism before symbols mean anything, that was the instrument I’d been missing my whole life.</p>
+
+<p>It also killed an assumption I’d carried since school: that understanding is one object, the picture the textbook points at, which you either have or don’t. We write it down the same way, and that shared notation is what lets us check each other — but what happens in your head when you read it is yours. Some see pictures, some see algebra moving, some hear a story. The written form is public; the perception is always subjective.</p>
+
+<p>So “I’m not good at this” is usually a mistranslation. The idea hasn’t been put into the dialect that person thinks in, and I spent years reading that mismatch as a verdict on me.</p>
+
+<p>None of which is a new thought — good teachers have known it forever. I’m writing it down because of what changed next.</p>
+
+<h2 id="the-asking-got-cheap">The asking got cheap</h2>
+
+<p>What I needed in 2017 and couldn’t get was someone patient to ask. That’s now available to almost anyone with a connection, at any hour, free or close to it.</p>
+
+<p>I can ask stupid questions. I can say “explain this like someone who thinks in pictures,” then “no, try a physical example,” and go round again. A book can’t do that, and neither can a lecture, however good — both have committed to one way of explaining, and if that way doesn’t fit your head you’re on your own. Though all of it is made out of books and lectures, so I should be careful calling it better than them. What’s new isn’t the knowledge; it’s that the knowledge answers back.</p>
+
+<p>And what matters to me isn’t how capable these things are. It’s the price. Someone in a town with no good college can ask about school algebra or graduate physics at 2am and get a patient answer. In 2017 that cost me a broadband connection and a lot of luck.</p>
+
+<h2 id="but-teachers-matter-more-than-any-of-this">But teachers matter more than any of this</h2>
+
+<p>It would be easy to write a triumphant paragraph here and be wrong. This worked for me because I already wanted it badly and knew roughly what to look for. A patient answering machine is useless to someone who doesn’t yet know what to want, and the wanting is almost always put there by a person.</p>
+
+<p>I’ve never seen software make anyone care about something. I’ve seen teachers do it constantly. Someone who notices you’ve gone quiet. Someone who says <em>try the harder problem</em>, and means it, and is right. Someone whose standards you take on as your own without noticing. That isn’t information transfer — it’s a relationship, and it works because there’s a person on the other end whose regard you want.</p>
+
+<p>So as information gets cheap, teachers get <em>more</em> important, not less. Supplying answers used to be the job; now what’s scarce is judgment, attention, and someone who knows <em>you</em>. And this isn’t only about physics or mathematics. We aren’t brains being loaded with content, and most of what carries a person through years of difficulty is other people.</p>
+
+<h2 id="so-the-structure-has-to-change">So the structure has to change</h2>
+
+<p>If explanation is cheap and abundant, organising education around delivering explanations is a strange use of scarce human hours. I don’t have a proposal — I’m suspicious of anyone who does this early — but the questions seem unavoidable. What is a lecture for now? What is an exam measuring, when the answer is a sentence away? If teachers no longer spend most of their hours on delivery, the best use of those hours is probably noticing individual people: the thing they’ve never had time for and nothing else can do.</p>
+
+<p>Research too. A PhD used to be paid for largely in time — finding what’s known, writing the code, grinding the derivation. As that gets cheaper, what’s left is taste: asking a question worth asking, sensing when a result smells wrong. We’ve never really taught that. You absorb it from an advisor, if you’re lucky in who you get.</p>
+
+<p>I should admit a bias here. Pedagogy is a large part of why I wanted to be in research at all — not only the physics, but the question of how a person actually comes to understand something. That has always looked to me like one of the most interesting problems there is, and right now it also looks like an open one.</p>
+
+<p>So I’d argue this gets rethought deliberately, by people who actually teach, rather than drifting into whatever shape it takes by default.</p>
+
+<h2 id="where-i-am">Where I am</h2>
+
+<p>I still don’t understand very much — the longer you do this, the more precisely you see the shape of what you don’t know. What I have back is the excitement. I get to be the person from 2017 again, except now when I get stuck I don’t have to stay stuck for three weeks and quietly close the book.</p>
+
+<p>If any of this reaches someone stuck where I was at nineteen: the wall is probably not you. Find someone to ask — a person if you can, and there’s now something patient for 2am when there’s nobody. The second is not a replacement for the first.</p>
+
+<p>Understanding the fundamental laws of the universe, and the abstract things that are beautiful for no practical reason at all, I used to file under “for other people.” I don’t think it belongs there.</p>]]></content><author><name></name></author><category term="blogs" /><category term="learning" /><category term="self-study" /><category term="physics" /><category term="education" /><summary type="html"><![CDATA[A broadband connection in 2017, a pile of books, and years of getting stuck alone. What I think was actually missing.]]></summary></entry><entry><title type="html">a post with plotly.js</title><link href="http://localhost:4000/blog/2025/plotly/" rel="alternate" type="text/html" title="a post with plotly.js" /><published>2025-03-26T10:24:00-04:00</published><updated>2025-03-26T10:24:00-04:00</updated><id>http://localhost:4000/blog/2025/plotly</id><content type="html" xml:base="http://localhost:4000/blog/2025/plotly/"><![CDATA[<p>This is an example post with some <a href="https://plotly.com/javascript/">plotly</a> code.</p>
 
 <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">```</span><span class="nl">plotly
 </span><span class="sb">{
@@ -93,7 +165,7 @@
     }
   }
 }
-</code></pre>]]></content><author><name></name></author><category term="sample-posts" /><category term="formatting" /><category term="charts" /><summary type="html"><![CDATA[this is what included plotly.js code could look like]]></summary></entry><entry><title type="html">a post with image galleries</title><link href="https://harshitiwari.site/blog/2024/photo-gallery/" rel="alternate" type="text/html" title="a post with image galleries" /><published>2024-12-03T20:59:00-05:00</published><updated>2024-12-03T20:59:00-05:00</updated><id>https://harshitiwari.site/blog/2024/photo-gallery</id><content type="html" xml:base="https://harshitiwari.site/blog/2024/photo-gallery/"><![CDATA[<p>The images in this post are all zoomable, arranged into different mini-galleries using different libraries.</p>
+</code></pre>]]></content><author><name></name></author><category term="sample-posts" /><category term="formatting" /><category term="charts" /><summary type="html"><![CDATA[this is what included plotly.js code could look like]]></summary></entry><entry><title type="html">a post with image galleries</title><link href="http://localhost:4000/blog/2024/photo-gallery/" rel="alternate" type="text/html" title="a post with image galleries" /><published>2024-12-03T20:59:00-05:00</published><updated>2024-12-03T20:59:00-05:00</updated><id>http://localhost:4000/blog/2024/photo-gallery</id><content type="html" xml:base="http://localhost:4000/blog/2024/photo-gallery/"><![CDATA[<p>The images in this post are all zoomable, arranged into different mini-galleries using different libraries.</p>
 
 <h2 id="lightbox2">Lightbox2</h2>
 
@@ -160,7 +232,7 @@
 
 <p><a class="venobox" data-gall="myGallery" href="https://cdn.photoswipe.com/photoswipe-demo-images/photos/1/img-2500.jpg"><img src="https://cdn.photoswipe.com/photoswipe-demo-images/photos/1/img-200.jpg" /></a>
 <a class="venobox" data-gall="myGallery" href="https://cdn.photoswipe.com/photoswipe-demo-images/photos/2/img-2500.jpg"><img src="https://cdn.photoswipe.com/photoswipe-demo-images/photos/2/img-200.jpg" /></a>
-<a class="venobox" data-gall="myGallery" href="https://cdn.photoswipe.com/photoswipe-demo-images/photos/3/img-2500.jpg"><img src="https://cdn.photoswipe.com/photoswipe-demo-images/photos/3/img-200.jpg" /></a></p>]]></content><author><name></name></author><category term="sample-posts" /><category term="formatting" /><category term="images" /><summary type="html"><![CDATA[this is what included image galleries could look like]]></summary></entry><entry><title type="html">a post with tabs</title><link href="https://harshitiwari.site/blog/2024/tabs/" rel="alternate" type="text/html" title="a post with tabs" /><published>2024-04-30T20:32:13-04:00</published><updated>2024-04-30T20:32:13-04:00</updated><id>https://harshitiwari.site/blog/2024/tabs</id><content type="html" xml:base="https://harshitiwari.site/blog/2024/tabs/"><![CDATA[<p>This is how a post with <a href="https://github.com/Ovski4/jekyll-tabs">tabs</a> looks like. Note that the tabs could be used for different purposes, not only for code.</p>
+<a class="venobox" data-gall="myGallery" href="https://cdn.photoswipe.com/photoswipe-demo-images/photos/3/img-2500.jpg"><img src="https://cdn.photoswipe.com/photoswipe-demo-images/photos/3/img-200.jpg" /></a></p>]]></content><author><name></name></author><category term="sample-posts" /><category term="formatting" /><category term="images" /><summary type="html"><![CDATA[this is what included image galleries could look like]]></summary></entry><entry><title type="html">a post with tabs</title><link href="http://localhost:4000/blog/2024/tabs/" rel="alternate" type="text/html" title="a post with tabs" /><published>2024-04-30T20:32:13-04:00</published><updated>2024-04-30T20:32:13-04:00</updated><id>http://localhost:4000/blog/2024/tabs</id><content type="html" xml:base="http://localhost:4000/blog/2024/tabs/"><![CDATA[<p>This is how a post with <a href="https://github.com/Ovski4/jekyll-tabs">tabs</a> looks like. Note that the tabs could be used for different purposes, not only for code.</p>
 
 <h2 id="first-tabs">First tabs</h2>
 
@@ -185,7 +257,7 @@ Content 2
 
 <p>With this you can generate visualizations like:</p>
 
-<ul id="log" class="tab" data-tab="576334d5-de2b-4633-ba9b-02f98968979f" data-name="log">
+<ul id="log" class="tab" data-tab="76d1a1f2-f3e6-40c2-bd22-7d874127eecb" data-name="log">
   
       <li class="active" id="log-php">
           <a href="#">php </a>
@@ -200,7 +272,7 @@ Content 2
       </li>
   
 </ul>
-<ul class="tab-content" id="576334d5-de2b-4633-ba9b-02f98968979f" data-name="log">
+<ul class="tab-content" id="76d1a1f2-f3e6-40c2-bd22-7d874127eecb" data-name="log">
   
       <li class="active">
 <div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">var_dump</span><span class="p">(</span><span class="s1">'hello'</span><span class="p">);</span>
@@ -224,7 +296,7 @@ Content 2
 
 <h2 id="another-example">Another example</h2>
 
-<ul id="data-struct" class="tab" data-tab="9e4a2a2d-57a1-48dd-aae5-6d297162e240" data-name="data-struct">
+<ul id="data-struct" class="tab" data-tab="04cb4d46-168c-4429-bb89-a5fc372c1746" data-name="data-struct">
   
       <li class="active" id="data-struct-yaml">
           <a href="#">yaml </a>
@@ -235,7 +307,7 @@ Content 2
       </li>
   
 </ul>
-<ul class="tab-content" id="9e4a2a2d-57a1-48dd-aae5-6d297162e240" data-name="data-struct">
+<ul class="tab-content" id="04cb4d46-168c-4429-bb89-a5fc372c1746" data-name="data-struct">
   
       <li class="active">
 <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">hello</span><span class="pi">:</span>
@@ -257,7 +329,7 @@ Content 2
 
 <h2 id="tabs-for-something-else">Tabs for something else</h2>
 
-<ul id="something-else" class="tab" data-tab="413dcab2-89d5-4be7-9e1e-c928b4ef33b5" data-name="something-else">
+<ul id="something-else" class="tab" data-tab="1a07a422-6ef2-4fa3-8454-3fccfb3a5866" data-name="something-else">
   
       <li class="active" id="something-else-text">
           <a href="#">text </a>
@@ -272,7 +344,7 @@ Content 2
       </li>
   
 </ul>
-<ul class="tab-content" id="413dcab2-89d5-4be7-9e1e-c928b4ef33b5" data-name="something-else">
+<ul class="tab-content" id="1a07a422-6ef2-4fa3-8454-3fccfb3a5866" data-name="something-else">
   
       <li class="active">
 <p>Regular text</p>
@@ -298,7 +370,7 @@ Content 2
 
 </li>
   
-</ul>]]></content><author><name></name></author><category term="sample-posts" /><category term="formatting" /><category term="code" /><summary type="html"><![CDATA[this is what included tabs in a post could look like]]></summary></entry><entry><title type="html">a post with typograms</title><link href="https://harshitiwari.site/blog/2024/typograms/" rel="alternate" type="text/html" title="a post with typograms" /><published>2024-04-29T19:36:10-04:00</published><updated>2024-04-29T19:36:10-04:00</updated><id>https://harshitiwari.site/blog/2024/typograms</id><content type="html" xml:base="https://harshitiwari.site/blog/2024/typograms/"><![CDATA[<p>This is an example post with some <a href="https://github.com/google/typograms/">typograms</a> code.</p>
+</ul>]]></content><author><name></name></author><category term="sample-posts" /><category term="formatting" /><category term="code" /><summary type="html"><![CDATA[this is what included tabs in a post could look like]]></summary></entry><entry><title type="html">a post with typograms</title><link href="http://localhost:4000/blog/2024/typograms/" rel="alternate" type="text/html" title="a post with typograms" /><published>2024-04-29T19:36:10-04:00</published><updated>2024-04-29T19:36:10-04:00</updated><id>http://localhost:4000/blog/2024/typograms</id><content type="html" xml:base="http://localhost:4000/blog/2024/typograms/"><![CDATA[<p>This is an example post with some <a href="https://github.com/google/typograms/">typograms</a> code.</p>
 
 <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">```</span><span class="nl">typograms
 </span><span class="sb">+----+
@@ -368,7 +440,7 @@ Content 2
 .------------------------.
 </code></pre>
 
-<p>For more examples, check out the <a href="https://google.github.io/typograms/#examples">typograms documentation</a>.</p>]]></content><author><name></name></author><category term="sample-posts" /><category term="formatting" /><category term="diagrams" /><summary type="html"><![CDATA[this is what included typograms code could look like]]></summary></entry><entry><title type="html">a post that can be cited</title><link href="https://harshitiwari.site/blog/2024/post-citation/" rel="alternate" type="text/html" title="a post that can be cited" /><published>2024-04-28T11:06:00-04:00</published><updated>2024-04-28T11:06:00-04:00</updated><id>https://harshitiwari.site/blog/2024/post-citation</id><content type="html" xml:base="https://harshitiwari.site/blog/2024/post-citation/"><![CDATA[<p>This is an example post that can be cited. The content of the post ends here, while the citation information is automatically provided below. The only thing needed is for you to set the <code class="language-plaintext highlighter-rouge">citation</code> key in the front matter to <code class="language-plaintext highlighter-rouge">true</code>.</p>]]></content><author><name></name></author><category term="sample-posts" /><category term="formatting" /><category term="citation" /><summary type="html"><![CDATA[this is what a post that can be cited looks like]]></summary></entry><entry><title type="html">a post with pseudo code</title><link href="https://harshitiwari.site/blog/2024/pseudocode/" rel="alternate" type="text/html" title="a post with pseudo code" /><published>2024-04-14T20:01:00-04:00</published><updated>2024-04-14T20:01:00-04:00</updated><id>https://harshitiwari.site/blog/2024/pseudocode</id><content type="html" xml:base="https://harshitiwari.site/blog/2024/pseudocode/"><![CDATA[<p>This is an example post with some pseudo code rendered by <a href="https://github.com/SaswatPadhi/pseudocode.js">pseudocode</a>. The example presented here is the same as the one in the <a href="https://saswat.padhi.me/pseudocode.js/">pseudocode.js</a> documentation, with only one simple but important change: everytime you would use <code class="language-plaintext highlighter-rouge">$</code>, you should use <code class="language-plaintext highlighter-rouge">$$</code> instead. Also, note that the <code class="language-plaintext highlighter-rouge">pseudocode</code> key in the front matter is set to <code class="language-plaintext highlighter-rouge">true</code> to enable the rendering of pseudo code. As an example, using this code:</p>
+<p>For more examples, check out the <a href="https://google.github.io/typograms/#examples">typograms documentation</a>.</p>]]></content><author><name></name></author><category term="sample-posts" /><category term="formatting" /><category term="diagrams" /><summary type="html"><![CDATA[this is what included typograms code could look like]]></summary></entry><entry><title type="html">a post that can be cited</title><link href="http://localhost:4000/blog/2024/post-citation/" rel="alternate" type="text/html" title="a post that can be cited" /><published>2024-04-28T11:06:00-04:00</published><updated>2024-04-28T11:06:00-04:00</updated><id>http://localhost:4000/blog/2024/post-citation</id><content type="html" xml:base="http://localhost:4000/blog/2024/post-citation/"><![CDATA[<p>This is an example post that can be cited. The content of the post ends here, while the citation information is automatically provided below. The only thing needed is for you to set the <code class="language-plaintext highlighter-rouge">citation</code> key in the front matter to <code class="language-plaintext highlighter-rouge">true</code>.</p>]]></content><author><name></name></author><category term="sample-posts" /><category term="formatting" /><category term="citation" /><summary type="html"><![CDATA[this is what a post that can be cited looks like]]></summary></entry><entry><title type="html">a post with pseudo code</title><link href="http://localhost:4000/blog/2024/pseudocode/" rel="alternate" type="text/html" title="a post with pseudo code" /><published>2024-04-14T20:01:00-04:00</published><updated>2024-04-14T20:01:00-04:00</updated><id>http://localhost:4000/blog/2024/pseudocode</id><content type="html" xml:base="http://localhost:4000/blog/2024/pseudocode/"><![CDATA[<p>This is an example post with some pseudo code rendered by <a href="https://github.com/SaswatPadhi/pseudocode.js">pseudocode</a>. The example presented here is the same as the one in the <a href="https://saswat.padhi.me/pseudocode.js/">pseudocode.js</a> documentation, with only one simple but important change: everytime you would use <code class="language-plaintext highlighter-rouge">$</code>, you should use <code class="language-plaintext highlighter-rouge">$$</code> instead. Also, note that the <code class="language-plaintext highlighter-rouge">pseudocode</code> key in the front matter is set to <code class="language-plaintext highlighter-rouge">true</code> to enable the rendering of pseudo code. As an example, using this code:</p>
 
 <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">```</span><span class="nl">pseudocode
 </span><span class="sb">% This quicksort algorithm is extracted from Chapter 7, Introduction to Algorithms (3rd edition)
@@ -426,7 +498,7 @@ Content 2
 \ENDPROCEDURE
 \end{algorithmic}
 \end{algorithm}
-</code></pre>]]></content><author><name></name></author><category term="sample-posts" /><category term="formatting" /><category term="code" /><summary type="html"><![CDATA[this is what included pseudo code could look like]]></summary></entry><entry><title type="html">a post with code diff</title><link href="https://harshitiwari.site/blog/2024/code-diff/" rel="alternate" type="text/html" title="a post with code diff" /><published>2024-01-27T14:22:00-05:00</published><updated>2024-01-27T14:22:00-05:00</updated><id>https://harshitiwari.site/blog/2024/code-diff</id><content type="html" xml:base="https://harshitiwari.site/blog/2024/code-diff/"><![CDATA[<p>You can display diff code by using the regular markdown syntax:</p>
+</code></pre>]]></content><author><name></name></author><category term="sample-posts" /><category term="formatting" /><category term="code" /><summary type="html"><![CDATA[this is what included pseudo code could look like]]></summary></entry><entry><title type="html">a post with code diff</title><link href="http://localhost:4000/blog/2024/code-diff/" rel="alternate" type="text/html" title="a post with code diff" /><published>2024-01-27T14:22:00-05:00</published><updated>2024-01-27T14:22:00-05:00</updated><id>http://localhost:4000/blog/2024/code-diff</id><content type="html" xml:base="http://localhost:4000/blog/2024/code-diff/"><![CDATA[<p>You can display diff code by using the regular markdown syntax:</p>
 
 <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">```</span><span class="nl">diff
 </span><span class="gh">diff --git a/sample.js b/sample.js
@@ -884,7 +956,7 @@ index 3bb754ac..a34839c0 100644
 +    });
    });
  });
-</code></pre>]]></content><author><name></name></author><category term="sample-posts" /><category term="formatting" /><category term="code" /><summary type="html"><![CDATA[this is how you can display code diffs]]></summary></entry><entry><title type="html">a post with advanced image components</title><link href="https://harshitiwari.site/blog/2024/advanced-images/" rel="alternate" type="text/html" title="a post with advanced image components" /><published>2024-01-27T06:46:00-05:00</published><updated>2024-01-27T06:46:00-05:00</updated><id>https://harshitiwari.site/blog/2024/advanced-images</id><content type="html" xml:base="https://harshitiwari.site/blog/2024/advanced-images/"><![CDATA[<p>This is an example post with advanced image components.</p>
+</code></pre>]]></content><author><name></name></author><category term="sample-posts" /><category term="formatting" /><category term="code" /><summary type="html"><![CDATA[this is how you can display code diffs]]></summary></entry><entry><title type="html">a post with advanced image components</title><link href="http://localhost:4000/blog/2024/advanced-images/" rel="alternate" type="text/html" title="a post with advanced image components" /><published>2024-01-27T06:46:00-05:00</published><updated>2024-01-27T06:46:00-05:00</updated><id>http://localhost:4000/blog/2024/advanced-images</id><content type="html" xml:base="http://localhost:4000/blog/2024/advanced-images/"><![CDATA[<p>This is an example post with advanced image components.</p>
 
 <h2 id="image-slider">Image Slider</h2>
 
@@ -1024,7 +1096,7 @@ index 3bb754ac..a34839c0 100644
   
 </figure>
 
-</img-comparison-slider>]]></content><author><name></name></author><category term="sample-posts" /><category term="formatting" /><category term="images" /><summary type="html"><![CDATA[this is what advanced image components could look like]]></summary></entry><entry><title type="html">a post with vega lite</title><link href="https://harshitiwari.site/blog/2024/vega-lite/" rel="alternate" type="text/html" title="a post with vega lite" /><published>2024-01-26T19:20:00-05:00</published><updated>2024-04-14T00:30:00-04:00</updated><id>https://harshitiwari.site/blog/2024/vega-lite</id><content type="html" xml:base="https://harshitiwari.site/blog/2024/vega-lite/"><![CDATA[<p>This is an example post with some <a href="https://vega.github.io/vega-lite/">vega lite</a> code.</p>
+</img-comparison-slider>]]></content><author><name></name></author><category term="sample-posts" /><category term="formatting" /><category term="images" /><summary type="html"><![CDATA[this is what advanced image components could look like]]></summary></entry><entry><title type="html">a post with vega lite</title><link href="http://localhost:4000/blog/2024/vega-lite/" rel="alternate" type="text/html" title="a post with vega lite" /><published>2024-01-26T19:20:00-05:00</published><updated>2024-04-14T00:30:00-04:00</updated><id>http://localhost:4000/blog/2024/vega-lite</id><content type="html" xml:base="http://localhost:4000/blog/2024/vega-lite/"><![CDATA[<p>This is an example post with some <a href="https://vega.github.io/vega-lite/">vega lite</a> code.</p>
 
 <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">```</span><span class="nl">vega_lite
 </span><span class="sb">{
@@ -1114,84 +1186,4 @@ index 3bb754ac..a34839c0 100644
 }
 </code></pre>
 
-<p>This plot supports both light and dark themes.</p>]]></content><author><name></name></author><category term="sample-posts" /><category term="formatting" /><category term="charts" /><summary type="html"><![CDATA[this is what included vega lite code could look like]]></summary></entry><entry><title type="html">a post with geojson</title><link href="https://harshitiwari.site/blog/2024/geojson-map/" rel="alternate" type="text/html" title="a post with geojson" /><published>2024-01-26T12:57:00-05:00</published><updated>2024-01-26T12:57:00-05:00</updated><id>https://harshitiwari.site/blog/2024/geojson-map</id><content type="html" xml:base="https://harshitiwari.site/blog/2024/geojson-map/"><![CDATA[<p>This is an example post with some <a href="https://geojson.org/">geojson</a> code. The support is provided thanks to <a href="https://leafletjs.com/">Leaflet</a>. To create your own visualization, go to <a href="https://geojson.io/">geojson.io</a>.</p>
-
-<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">```</span><span class="nl">geojson
-</span><span class="sb">{
-  "type": "FeatureCollection",
-  "features": [
-    {
-      "type": "Feature",
-      "properties": {},
-      "geometry": {
-        "coordinates": [
-          [
-            [
-              -60.11363029935569,
-              -2.904625022183211
-            ],
-            [
-              -60.11363029935569,
-              -3.162613728707967
-            ],
-            [
-              -59.820894493858034,
-              -3.162613728707967
-            ],
-            [
-              -59.820894493858034,
-              -2.904625022183211
-            ],
-            [
-              -60.11363029935569,
-              -2.904625022183211
-            ]
-          ]
-        ],
-        "type": "Polygon"
-      }
-    }
-  ]
-}</span>
-<span class="p">```</span>
-</code></pre></div></div>
-
-<p>Which generates:</p>
-
-<pre><code class="language-geojson">{
-  "type": "FeatureCollection",
-  "features": [
-    {
-      "type": "Feature",
-      "properties": {},
-      "geometry": {
-        "coordinates": [
-          [
-            [
-              -60.11363029935569,
-              -2.904625022183211
-            ],
-            [
-              -60.11363029935569,
-              -3.162613728707967
-            ],
-            [
-              -59.820894493858034,
-              -3.162613728707967
-            ],
-            [
-              -59.820894493858034,
-              -2.904625022183211
-            ],
-            [
-              -60.11363029935569,
-              -2.904625022183211
-            ]
-          ]
-        ],
-        "type": "Polygon"
-      }
-    }
-  ]
-}
-</code></pre>]]></content><author><name></name></author><category term="sample-posts" /><category term="formatting" /><category term="charts" /><category term="maps" /><summary type="html"><![CDATA[this is what included geojson code could look like]]></summary></entry></feed>
+<p>This plot supports both light and dark themes.</p>]]></content><author><name></name></author><category term="sample-posts" /><category term="formatting" /><category term="charts" /><summary type="html"><![CDATA[this is what included vega lite code could look like]]></summary></entry></feed>

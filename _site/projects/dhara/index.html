@@ -33,7 +33,7 @@
   <meta property="og:site_name" content="Harshit Tiwari">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Harshit Tiwari | DHARA">
-  <meta property="og:url" content="https://harshitiwari.site/projects/dhara/">
+  <meta property="og:url" content="http://localhost:4000/projects/dhara/">
   <meta property="og:description" content="A scalable Python framework for solving nonlinear partial differential equations on CPUs and GPUs.">
   
     <meta property="og:image" content="https://harshitiwari.site/assets/img/prof_pic_color.png">
@@ -63,7 +63,7 @@
             "@type": "Person",
             "name": "Harshit Tiwari"
         },
-        "url": "https://harshitiwari.site/projects/dhara/",
+        "url": "http://localhost:4000/projects/dhara/",
         "@type": "WebSite",
         "description": "A scalable Python framework for solving nonlinear partial differential equations on CPUs and GPUs.",
         "headline": "DHARA",
@@ -124,7 +124,7 @@
 
 <link rel="stylesheet" href="/assets/css/main.css?v=f0b101217084a90093badfe99ff9a7d1">
 
-<link rel="canonical" href="https://harshitiwari.site/projects/dhara/">
+<link rel="canonical" href="http://localhost:4000/projects/dhara/">
 
 
   <!-- Dark Mode -->
@@ -320,6 +320,24 @@
             
           
             
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
               
                 
                 <li class="nav-item ">
@@ -402,12 +420,18 @@
                       
                     
                       
+                        <a class="dropdown-item " href="/blogs/">Blogs</a>
+                      
+                    
+                      
                         <a class="dropdown-item " href="/blog/">Notes</a>
                       
                     
                   </div>
                 </li>
               
+            
+          
             
           
             
@@ -686,6 +710,12 @@
     
       <li class="leading-relaxed">
         
+          <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2026/self-learning-in-the-age-of-ai/">Self-Learning in the Age of AI</a>
+        
+      </li>
+    
+      <li class="leading-relaxed">
+        
           <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2025/plotly/">a post with plotly.js</a>
         
       </li>
@@ -738,12 +768,6 @@
         
       </li>
     
-      <li class="leading-relaxed">
-        
-          <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2024/geojson-map/">a post with geojson</a>
-        
-      </li>
-    
   </ul>
 
 
@@ -770,7 +794,7 @@
     <div class="container">
       
   <span class="footer-line">
-    © Copyright 2026 Harshit Tiwari. Last updated: August 03, 2026.
+    © Copyright 2026 Harshit Tiwari. Last updated: August 04, 2026.
   </span>
   
 
@@ -921,6 +945,13 @@ ninja.data = [{
               handler: () => {
                 window.location.href = "/repositories/";
               },
+            },{id: "dropdown-blogs",
+              title: "Blogs",
+              description: "",
+              section: "Dropdown",
+              handler: () => {
+                window.location.href = "/blogs/";
+              },
             },{id: "dropdown-notes",
               title: "Notes",
               description: "",
@@ -928,7 +959,18 @@ ninja.data = [{
               handler: () => {
                 window.location.href = "/blog/";
               },
-            },{id: "post-a-post-with-plotly-js",
+            },{id: "post-self-learning-in-the-age-of-ai",
+        
+          title: "Self-Learning in the Age of AI",
+        
+        description: "A broadband connection in 2017, a pile of books, and years of getting stuck alone. What I think was actually missing.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/self-learning-in-the-age-of-ai/";
+          
+        },
+      },{id: "post-a-post-with-plotly-js",
         
           title: "a post with plotly.js",
         
@@ -1080,6 +1122,17 @@ ninja.data = [{
         handler: () => {
           
             window.location.href = "/blog/2023/post-bibliography/";
+          
+        },
+      },{id: "post-a-post-with-jupyter-notebook",
+        
+          title: "a post with jupyter notebook",
+        
+        description: "an example of a blog post with jupyter notebook",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2023/jupyter-notebook/";
           
         },
       },{id: "post-a-post-with-custom-blockquotes",

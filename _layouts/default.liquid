@@ -1,5 +1,17 @@
 <!doctype html>
-<html lang="{{ site.lang }}">
+{% comment %}
+  Blog pages start with the Lorenz background off so long prose stays readable.
+  Rendering the class here (rather than waiting for ambient-controls.js) avoids
+  a flash of the animation on a cold load. The reader can still switch it on,
+  and ambient-controls.js re-applies this per URL during seamless navigation.
+{% endcomment %}
+{% assign reading_page = false %}
+{% if page.layout == 'post' or page.layout == 'distill' %}
+  {% assign reading_page = true %}
+{% elsif page.url contains '/blog' %}
+  {% assign reading_page = true %}
+{% endif %}
+<html lang="{{ site.lang }}" class="{% if reading_page %}lorenz-disabled{% endif %}">
   <!-- Head -->
   <head>
     {% if page.redirect %}

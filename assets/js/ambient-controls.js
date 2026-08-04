@@ -52,10 +52,33 @@
     );
   }
 
-  const savedLorenzPreference =
-    getStoredValue(localStorage, "flow-background-enabled") ??
-    getStoredValue(localStorage, "lorenz-enabled");
-  setLorenzEnabled(savedLorenzPreference !== "false", false);
+  // Matches /blog, /blogs and anything under them, with or without a baseurl.
+  const READING_PATH = /(^|\/)blogs?(\/|$)/;
+
+  function prefersLorenz() {
+    const saved =
+      getStoredValue(localStorage, "flow-background-enabled") ??
+      getStoredValue(localStorage, "lorenz-enabled");
+    return saved !== "false";
+  }
+
+  // Blog pages start with the background off so it does not move while you
+  // read. This never writes to the stored preference, so the reader's choice
+  // still applies on the rest of the site.
+  function applyLorenzForPath(pathname) {
+    const enabled = READING_PATH.test(pathname) ? false : prefersLorenz();
+    setLorenzEnabled(enabled, false);
+  }
+
+  applyLorenzForPath(window.location.pathname);
+
+  document.addEventListener("seamless:load", (event) => {
+    const href = event.detail?.url;
+    const pathname = href
+      ? new URL(href, window.location.origin).pathname
+      : window.location.pathname;
+    applyLorenzForPath(pathname);
+  });
 
   lorenzButton.addEventListener("click", () => {
     const isEnabled = lorenzButton.getAttribute("aria-pressed") === "true";

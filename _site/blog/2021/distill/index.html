@@ -33,7 +33,7 @@
   <meta property="og:site_name" content="Harshit Tiwari">
   <meta property="og:type" content="article">
   <meta property="og:title" content="Harshit Tiwari | a distill-style blog post">
-  <meta property="og:url" content="https://harshitiwari.site/blog/2021/distill/">
+  <meta property="og:url" content="http://localhost:4000/blog/2021/distill/">
   <meta property="og:description" content="an example of a distill-style blog post and main elements">
   
     <meta property="og:image" content="https://harshitiwari.site/assets/img/prof_pic_color.png">
@@ -63,7 +63,7 @@
             "@type": "Person",
             "name": "Harshit Tiwari"
         },
-        "url": "https://harshitiwari.site/blog/2021/distill/",
+        "url": "http://localhost:4000/blog/2021/distill/",
         "@type": "BlogPosting",
         "description": "an example of a distill-style blog post and main elements",
         "headline": "a distill-style blog post",
@@ -124,7 +124,7 @@
 
 <link rel="stylesheet" href="/assets/css/main.css?v=f0b101217084a90093badfe99ff9a7d1">
 
-<link rel="canonical" href="https://harshitiwari.site/blog/2021/distill/">
+<link rel="canonical" href="http://localhost:4000/blog/2021/distill/">
 
 
   <!-- Dark Mode -->
@@ -368,6 +368,24 @@
             
           
             
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
               
                 
                 <li class="nav-item ">
@@ -448,12 +466,18 @@
                       
                     
                       
+                        <a class="dropdown-item " href="/blogs/">Blogs</a>
+                      
+                    
+                      
                         <a class="dropdown-item " href="/blog/">Notes</a>
                       
                     
                   </div>
                 </li>
               
+            
+          
             
           
             
@@ -2066,6 +2090,12 @@ This line is only separated by a single newline, so it’s a separate line in th
     
       <li class="leading-relaxed">
         
+          <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2026/self-learning-in-the-age-of-ai/">Self-Learning in the Age of AI</a>
+        
+      </li>
+    
+      <li class="leading-relaxed">
+        
           <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2025/plotly/">a post with plotly.js</a>
         
       </li>
@@ -2118,12 +2148,6 @@ This line is only separated by a single newline, so it’s a separate line in th
         
       </li>
     
-      <li class="leading-relaxed">
-        
-          <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2024/geojson-map/">a post with geojson</a>
-        
-      </li>
-    
   </ul>
 
 
@@ -2156,7 +2180,7 @@ This line is only separated by a single newline, so it’s a separate line in th
     <div class="container">
       
   <span class="footer-line">
-    © Copyright 2026 Harshit Tiwari. Last updated: August 03, 2026.
+    © Copyright 2026 Harshit Tiwari. Last updated: August 04, 2026.
   </span>
   
 
@@ -2326,6 +2350,13 @@ ninja.data = [{
               handler: () => {
                 window.location.href = "/repositories/";
               },
+            },{id: "dropdown-blogs",
+              title: "Blogs",
+              description: "",
+              section: "Dropdown",
+              handler: () => {
+                window.location.href = "/blogs/";
+              },
             },{id: "dropdown-notes",
               title: "Notes",
               description: "",
@@ -2333,7 +2364,18 @@ ninja.data = [{
               handler: () => {
                 window.location.href = "/blog/";
               },
-            },{id: "post-a-post-with-plotly-js",
+            },{id: "post-self-learning-in-the-age-of-ai",
+        
+          title: "Self-Learning in the Age of AI",
+        
+        description: "A broadband connection in 2017, a pile of books, and years of getting stuck alone. What I think was actually missing.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/self-learning-in-the-age-of-ai/";
+          
+        },
+      },{id: "post-a-post-with-plotly-js",
         
           title: "a post with plotly.js",
         
@@ -2485,6 +2527,17 @@ ninja.data = [{
         handler: () => {
           
             window.location.href = "/blog/2023/post-bibliography/";
+          
+        },
+      },{id: "post-a-post-with-jupyter-notebook",
+        
+          title: "a post with jupyter notebook",
+        
+        description: "an example of a blog post with jupyter notebook",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2023/jupyter-notebook/";
           
         },
       },{id: "post-a-post-with-custom-blockquotes",

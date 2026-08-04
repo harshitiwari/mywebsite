@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="">
   <!-- Head -->
   <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -36,7 +36,7 @@
   <meta property="og:site_name" content="Harshit Tiwari">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Harshit Tiwari | News">
-  <meta property="og:url" content="https://harshitiwari.site/news/">
+  <meta property="og:url" content="http://localhost:4000/news/">
   <meta property="og:description" content="Harshit Tiwari is a postdoctoral researcher at New York University working on turbulent flows, scientific computing, and quantum computing for fluid dynamics.
 ">
   
@@ -68,7 +68,7 @@
             "@type": "Person",
             "name": "Harshit Tiwari"
         },
-        "url": "https://harshitiwari.site/news/",
+        "url": "http://localhost:4000/news/",
         "@type": "WebSite",
         "description": "Harshit Tiwari is a postdoctoral researcher at New York University working on turbulent flows, scientific computing, and quantum computing for fluid dynamics.
 ",
@@ -133,7 +133,7 @@
 
 <link rel="stylesheet" href="/assets/css/main.css?v=f0b101217084a90093badfe99ff9a7d1">
 
-<link rel="canonical" href="https://harshitiwari.site/news/">
+<link rel="canonical" href="http://localhost:4000/news/">
 
 
   <!-- Dark Mode -->
@@ -175,7 +175,7 @@
         #music-player.music-player {
           bottom: 10px;
           left: 10px;
-          width: 234px;
+          width: 246px;
           transform: none;
         }
       }
@@ -238,6 +238,24 @@
 
           <!-- Other pages -->
           
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
           
             
           
@@ -412,12 +430,18 @@
                       
                     
                       
+                        <a class="dropdown-item " href="/blogs/">Blogs</a>
+                      
+                    
+                      
                         <a class="dropdown-item " href="/blog/">Notes</a>
                       
                     
                   </div>
                 </li>
               
+            
+          
             
           
             
@@ -849,7 +873,7 @@
     <div class="container">
       
   <span class="footer-line">
-    © Copyright 2026 Harshit Tiwari. Last updated: August 03, 2026.
+    © Copyright 2026 Harshit Tiwari. Last updated: August 04, 2026.
   </span>
   
 
@@ -1018,6 +1042,13 @@ ninja.data = [{
               handler: () => {
                 window.location.href = "/repositories/";
               },
+            },{id: "dropdown-blogs",
+              title: "Blogs",
+              description: "",
+              section: "Dropdown",
+              handler: () => {
+                window.location.href = "/blogs/";
+              },
             },{id: "dropdown-notes",
               title: "Notes",
               description: "",
@@ -1025,7 +1056,18 @@ ninja.data = [{
               handler: () => {
                 window.location.href = "/blog/";
               },
-            },{id: "post-a-post-with-plotly-js",
+            },{id: "post-self-learning-in-the-age-of-ai",
+        
+          title: "Self-Learning in the Age of AI",
+        
+        description: "A broadband connection in 2017, a pile of books, and years of getting stuck alone. What I think was actually missing.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/self-learning-in-the-age-of-ai/";
+          
+        },
+      },{id: "post-a-post-with-plotly-js",
         
           title: "a post with plotly.js",
         
@@ -1177,6 +1219,17 @@ ninja.data = [{
         handler: () => {
           
             window.location.href = "/blog/2023/post-bibliography/";
+          
+        },
+      },{id: "post-a-post-with-jupyter-notebook",
+        
+          title: "a post with jupyter notebook",
+        
+        description: "an example of a blog post with jupyter notebook",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2023/jupyter-notebook/";
           
         },
       },{id: "post-a-post-with-custom-blockquotes",
@@ -1575,7 +1628,7 @@ ninja.data = [{
 
 
     <script src="/assets/js/lorenz.js?v=ec35abf6416768b2c90cfd286d3ef016"></script>
-    <script src="/assets/js/ambient-controls.js?v=b9dcc70156c0a1ef40b123a601dfb75d"></script>
+    <script src="/assets/js/ambient-controls.js?v=f8f3b5526ee15b3497f454ccd4b60e74"></script>
     <script src="/assets/js/seamless-navigation.js?v=c0b7ccf58054872bd7364cf9c3e404a8"></script>
   </body>
 </html>

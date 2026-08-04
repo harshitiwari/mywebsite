@@ -1,0 +1,1432 @@
+<!DOCTYPE html>
+<html lang="en" class="lorenz-disabled">
+  <!-- Head -->
+  <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <!-- Metadata, OpenGraph and Schema.org -->
+
+
+
+
+<!-- Standard metadata -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>
+  
+  
+    
+      Self-Learning in the Age of AI | Harshit Tiwari
+    
+  
+</title>
+<meta name="author" content="Harshit Tiwari">
+<meta name="description" content="A broadband connection in 2017, a pile of books, and years of getting stuck alone. What I think was actually missing.">
+
+  <meta name="keywords" content="turbulence, fluid dynamics, compressible flows, scientific computing, high-performance computing, machine learning, quantum computing">
+
+
+
+
+
+
+  <!-- OpenGraph -->
+  <meta property="og:site_name" content="Harshit Tiwari">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Harshit Tiwari | Self-Learning in the Age of AI">
+  <meta property="og:url" content="http://localhost:4000/blog/2026/self-learning-in-the-age-of-ai/">
+  <meta property="og:description" content="A broadband connection in 2017, a pile of books, and years of getting stuck alone. What I think was actually missing.">
+  
+    <meta property="og:image" content="https://harshitiwari.site/assets/img/prof_pic_color.png">
+  
+  <meta property="og:locale" content="en">
+
+  <!-- Twitter card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Self-Learning in the Age of AI">
+  <meta name="twitter:description" content="A broadband connection in 2017, a pile of books, and years of getting stuck alone. What I think was actually missing.">
+  
+    <meta name="twitter:image" content="https://harshitiwari.site/assets/img/prof_pic_color.png">
+  
+  
+
+
+
+  <!-- Schema.org -->
+  
+  
+  
+
+  <script type="application/ld+json">
+    {
+        "author":
+        {
+            "@type": "Person",
+            "name": "Harshit Tiwari"
+        },
+        "url": "http://localhost:4000/blog/2026/self-learning-in-the-age-of-ai/",
+        "@type": "BlogPosting",
+        "description": "A broadband connection in 2017, a pile of books, and years of getting stuck alone. What I think was actually missing.",
+        "headline": "Self-Learning in the Age of AI",
+        
+        "sameAs": ["https://scholar.google.com/citations?user=pZsezWMAAAAJ","https://github.com/harshitiwari","https://www.linkedin.com/in/harshit-tiwari-6989b216b","https://www.researchgate.net/profile/Harshit-Tiwari-7/","https://www.youtube.com/channel/UCxZ6-66yuMBDBP5fJDoMlKg",null],
+        
+        "name": "Harshit Tiwari",
+        "@context": "https://schema.org"
+    }
+  </script>
+
+
+
+<!-- Security: Content Security Policy -->
+<!-- Permissive CSP suitable for academic websites. Allows external images, videos, and common embed services. -->
+<!-- To customize for your needs, see: https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; media-src 'self' https:; frame-src 'self' https:; connect-src 'self' https:;">
+<style>
+  :root {
+    --max-content-width: 930px;
+  }
+</style>
+
+<!-- Tailwind-first core styles -->
+<link rel="stylesheet" href="/assets/css/tailwind.css?v=50c64c15cbb9fd1ce6056fdb8bcb4b62">
+
+
+
+
+
+
+  <!-- Tocbot -->
+  <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tocbot@4.36.4/dist/tocbot.css" integrity="sha256-zTN0r+0OKaIv2xqeNNIYxNk0pWJ6+IqPGc1iDgVzWF0=" crossorigin="anonymous">
+
+
+<!-- Icons -->
+
+  
+<!-- Font Awesome -->
+<link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css" integrity="sha256-MVopmdyC2tYTiJ8wlktf0uh0v4NgT+vNdyVFepi7Q0c=" crossorigin="anonymous">
+
+<!-- Academicons -->
+<link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.5/css/academicons.min.css" integrity="sha256-SzrCOBJbGVFMahewkgjwnApaV2+av1DwMAA+/QGLyZw=" crossorigin="anonymous">
+
+<!-- Scholar Icons -->
+<link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/scholar-icons@1.0.3/css/scholar-icons.css" integrity="sha256-VY3hHVj/hNX3fYG6wtbA6TcKJQl7+FthzGSyIB64klY=" crossorigin="anonymous">
+
+
+
+<link defer rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons&amp;display=swap">
+
+<!-- Code Syntax Highlighting -->
+<link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-github.css?v=591dab5a4e56573bf4ef7fd332894c99" media="" id="highlight_theme_light">
+
+<!-- Styles -->
+
+
+
+
+  <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%E2%9A%9B%EF%B8%8F&lt;/text&gt;&lt;/svg&gt;">
+
+<link rel="stylesheet" href="/assets/css/main.css?v=f0b101217084a90093badfe99ff9a7d1">
+
+<link rel="canonical" href="http://localhost:4000/blog/2026/self-learning-in-the-age-of-ai/">
+
+
+  <!-- Dark Mode -->
+  <script src="/assets/js/theme.js?v=7af685e2ba20b37fef545c97b8064050"></script>
+  <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-native.css?v=5847e5ed4a4568527aa6cfab446049ca" media="none" id="highlight_theme_dark">
+  <script>
+    initTheme();
+  </script>
+
+
+
+
+
+
+
+  <!-- Image Features -->
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+    <link rel="stylesheet" href="/assets/css/lorenz.css?v=459677220dfddf264f4779df4c33cf54">
+  </head>
+
+  <!-- Body -->
+  <body class="fixed-top-nav sticky-bottom-footer">
+    <style>
+      /* Critical positioning stays fresh during local preview even when the
+         compiled theme stylesheet is cached by the browser. */
+      @media (min-width: 992px) {
+        #music-player.music-player {
+          bottom: 10px;
+          left: 10px;
+          width: 246px;
+          transform: none;
+        }
+      }
+      .post .social .contact-icons { font-size: 2rem; }
+      .post .social .contact-icons a img { width: 1.6rem; height: 1.6rem; margin-bottom: .5rem; }
+      .post .social .contact-icons a svg { width: 1.75rem; height: 2rem; margin-bottom: .25rem; }
+    </style>
+    <canvas id="lorenz-canvas"></canvas>
+    <div id="ambient-controls" aria-label="Ambient display controls">
+  <button type="button" id="lorenz-toggle" class="ambient-control" aria-label="Turn Lorenz background off" aria-pressed="true" title="Turn Lorenz background off">
+    <i class="fa-solid fa-water" aria-hidden="true"></i>
+  </button>
+  <div id="music-player" class="music-player" aria-label="Classical music player">
+    <div class="music-player-main">
+      <button type="button" id="music-toggle" class="music-player-toggle" aria-label="Play Mozart Piano Concerto No. 21" aria-pressed="false" title="Play Mozart Piano Concerto No. 21">
+        <i class="fa-solid fa-play" aria-hidden="true"></i>
+      </button>
+      <div class="music-player-copy">
+        <span class="music-player-composer">Mozart</span>
+        <span class="music-player-title">Piano Concerto No. 21</span>
+      </div>
+      <button type="button" id="music-mute" class="music-player-volume" aria-label="Mute music" title="Mute music">
+        <i class="fa-solid fa-volume-high" aria-hidden="true"></i>
+      </button>
+    </div>
+    <div class="music-player-timeline">
+      <span id="music-current-time">0:00</span>
+      <input id="music-progress" type="range" min="0" max="100" value="0" step="0.1" aria-label="Music progress">
+      <span id="music-duration">–:––</span>
+    </div>
+  </div>
+</div>
+
+<audio id="ambient-music" src="/assets/audio/mozart-piano-concerto-no-21.mp3" preload="metadata" loop></audio>
+
+
+    <!-- Header -->
+    <header>
+  <!-- Nav Bar -->
+  <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top" role="navigation">
+    <div class="container">
+      
+        <a class="navbar-brand title font-weight-lighter" href="/">
+          Harshit Tiwari
+        </a>
+      
+      <!-- Navbar Toggle -->
+      <button class="navbar-toggler collapsed navbar-toggler-main" type="button" data-nav-toggle="navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar top-bar"></span>
+        <span class="icon-bar middle-bar"></span>
+        <span class="icon-bar bottom-bar"></span>
+      </button>
+
+      <div class="collapse navbar-collapse navbar-collapse-main" id="navbarNav">
+        <ul class="navbar-nav navbar-menu-list flex-nowrap">
+          
+
+
+
+          <!-- Other pages -->
+          
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+              
+                
+                <li class="nav-item ">
+                  <a class="nav-link" href="/publications/">Publications
+                    
+                  </a>
+                </li>
+              
+            
+          
+            
+              
+                
+                <li class="nav-item ">
+                  <a class="nav-link" href="/projects/">Projects
+                    
+                  </a>
+                </li>
+              
+            
+          
+            
+              
+                
+                <li class="nav-item ">
+                  <a class="nav-link" href="/cv/">CV
+                    
+                  </a>
+                </li>
+              
+            
+          
+            
+              
+                
+                <li class="nav-item ">
+                  <a class="nav-link" href="/about-me/">About Me
+                    
+                  </a>
+                </li>
+              
+            
+          
+            
+              
+                
+                <li class="nav-item ">
+                  <a class="nav-link" href="/talks/">Talks
+                    
+                  </a>
+                </li>
+              
+            
+          
+            
+              
+                
+                <li class="nav-item ">
+                  <a class="nav-link" href="/teaching/">Teaching
+                    
+                  </a>
+                </li>
+              
+            
+          
+            
+              
+                
+                
+                <li class="nav-item dropdown ">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-nav-dropdown-toggle="true" aria-haspopup="true" aria-expanded="false">Resources
+                    
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                    
+                      
+                        <a class="dropdown-item " href="/repositories/">Repositories</a>
+                      
+                    
+                      
+                        <a class="dropdown-item " href="/blogs/">Blogs</a>
+                      
+                    
+                      
+                        <a class="dropdown-item " href="/blog/">Notes</a>
+                      
+                    
+                  </div>
+                </li>
+              
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+          
+            <!-- Search -->
+            <li class="nav-item">
+              <button id="search-toggle" type="button" title="Search" aria-label="Open search">
+                <span class="nav-link">ctrl k <i class="fa-solid fa-magnifying-glass"></i></span>
+              </button>
+            </li>
+          
+          
+            <!-- Toogle theme mode -->
+            <li class="toggle-container">
+              <button id="light-toggle" type="button" title="Change theme" aria-label="Change color theme">
+                <i class="fa-half-sun-moon" id="light-toggle-system"></i>
+                <i class="fa-solid fa-moon" id="light-toggle-dark"></i>
+                <i class="fa-solid fa-sun" id="light-toggle-light"></i>
+              </button>
+            </li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+    <!-- Scrolling Progress Bar -->
+    <progress id="progress" value="0">
+      <div class="progress-container">
+        <span class="progress-bar"></span>
+      </div>
+    </progress>
+  
+</header>
+
+
+    <!-- Content -->
+    <div class="container mt-5" role="main">
+      
+        
+          <div class="row">
+            <!-- sidebar, table of contents -->
+            <div class="col-sm-3">
+              <nav id="toc-sidebar" class="sticky-top"></nav>
+            </div>
+            <!-- main content area -->
+            <div class="col-sm-9">
+              
+
+
+
+
+
+
+<div class="post">
+  <header class="post-header">
+    <h1 class="post-title">Self-Learning in the Age of AI</h1>
+    <p class="post-meta">
+      Created on August 04, 2026
+      
+      
+      
+      • 7 min read
+    </p>
+    <p class="post-tags">
+      
+        <a href="/blog/2026"> <i class="fa-solid fa-calendar fa-sm"></i> 2026 </a>
+      
+      
+          ·  
+        
+          
+            <a href="/blog/tag/learning"> <i class="fa-solid fa-hashtag fa-sm"></i> learning</a>
+          
+          
+             
+          
+        
+          
+            <a href="/blog/tag/self-study"> <i class="fa-solid fa-hashtag fa-sm"></i> self-study</a>
+          
+          
+             
+          
+        
+          
+            <a href="/blog/tag/physics"> <i class="fa-solid fa-hashtag fa-sm"></i> physics</a>
+          
+          
+             
+          
+        
+          
+            <a href="/blog/tag/education"> <i class="fa-solid fa-hashtag fa-sm"></i> education</a>
+          
+          
+        
+      
+
+      
+          ·  
+        
+          
+            <a href="/blog/category/blogs"> <i class="fa-solid fa-tag fa-sm"></i> blogs</a>
+          
+          
+        
+      
+    </p>
+  </header>
+
+  <article class="post-content">
+    
+    <div id="markdown-content">
+      <p>I did okay in school by memorising. Good enough marks that everyone assumed I understood what I was doing.</p>
+
+<p>I didn’t. The mathematics I “did” was a set of algorithms I could execute — push symbols through algebra, get the right answer out. Ask me <em>why</em> and there was nothing there. I don’t blame my school; plenty of classmates came out of the same rooms thinking perfectly well. The shortcut was there and it worked, so I took it every time.</p>
+
+<p>Then school ended, I looked properly, and there wasn’t much inside.</p>
+
+<h2 id="starting-over-alone">Starting over, alone</h2>
+
+<p>I took a break after school and joined a local college for a Bachelor of Science, five minutes from home. Classes were irregular and I wasn’t showing up either, but it gave me the thing I’d never had: unstructured time. Luck, not merit.</p>
+
+<p>By the second year — 2017 — I decided to start from zero, and asked my parents for a broadband connection. I’d had a phone for years, so what changed wasn’t access. It was that I finally <em>wanted</em> something from it.</p>
+
+<p>I found the <a href="https://www.ocf.berkeley.edu/~abhishek/chicmath.htm" rel="external nofollow noopener" target="_blank">Chicago undergraduate mathematics bibliography</a>, which tells you book by book what’s worth reading and why. After that, my pocket money each month became one classic, or printouts of something I couldn’t afford. The rest I pirated. And I went back to the beginning — algebra, geometry, Euclid, then physics, working problems in order for the first time in my life.</p>
+
+<p>The lectures mattered just as much. <a href="https://ocw.mit.edu/" rel="external nofollow noopener" target="_blank">MIT OpenCourseWare</a>, <a href="https://oyc.yale.edu/" rel="external nofollow noopener" target="_blank">Open Yale Courses</a>, <a href="https://nptel.ac.in/" rel="external nofollow noopener" target="_blank">NPTEL</a> — whole courses, taught properly, sitting there for free. Watching someone good work through a derivation on a blackboard, changing their mind mid-way, was the closest thing to a classroom I’d ever had. I still don’t think people appreciate what those projects did, or how quietly they did it.</p>
+
+<p>What got me most, though, wasn’t the formulas. It was the stories: people struggling with one idea for a century, getting it wrong in interesting ways, until someone finally saw it. It had never occurred to me that mathematics had a plot.</p>
+
+<p>That was the happiest I’ve been about learning.</p>
+
+<h2 id="where-i-got-stuck">Where I got stuck</h2>
+
+<p>It didn’t last, and the reasons are mostly about me. My gaps were large and I couldn’t tell which ones were missing, so easy problems stopped me dead. Spivak’s chapter on limits took me apart — not “this is difficult,” more like “maybe I’m not built for this.”</p>
+
+<p>There was nobody to ask. Stack Exchange helped more than I can say, but it isn’t a <em>conversation</em>. You can’t say “wait, go back, why is that step allowed” four times in a row, or admit at 2am that you don’t understand what a limit is <em>for</em>.</p>
+
+<p>I never finished those books. Not one, I think. The self-study did get me into an MSc at IIT Kanpur, where a year went past too fast for me to account for — my gaps, not the institute’s fault.</p>
+
+<h2 id="the-phd-and-a-laboratory">The PhD, and a laboratory</h2>
+
+<p>The story gets better, so I should say so. Nobody was going to examine me next Tuesday, so I could read one book slowly and finish it. I was never incapable of reading properly; I’d only ever tried while being timed.</p>
+
+<p>The bigger part was computation. I work on turbulence, so most of what I do is simulation, and at some point it stopped being a way to get numbers and became a <strong>laboratory</strong>. Switch off gravity. Hold everything still and watch one mode grow. Drop a term and see what breaks. For someone who has to <em>see</em> a mechanism before symbols mean anything, that was the instrument I’d been missing my whole life.</p>
+
+<p>It also killed an assumption I’d carried since school: that understanding is one object, the picture the textbook points at, which you either have or don’t. We write it down the same way, and that shared notation is what lets us check each other — but what happens in your head when you read it is yours. Some see pictures, some see algebra moving, some hear a story. The written form is public; the perception is always subjective.</p>
+
+<p>So “I’m not good at this” is usually a mistranslation. The idea hasn’t been put into the dialect that person thinks in, and I spent years reading that mismatch as a verdict on me.</p>
+
+<p>None of which is a new thought — good teachers have known it forever. I’m writing it down because of what changed next.</p>
+
+<h2 id="the-asking-got-cheap">The asking got cheap</h2>
+
+<p>What I needed in 2017 and couldn’t get was someone patient to ask. That’s now available to almost anyone with a connection, at any hour, free or close to it.</p>
+
+<p>I can ask stupid questions. I can say “explain this like someone who thinks in pictures,” then “no, try a physical example,” and go round again. A book can’t do that, and neither can a lecture, however good — both have committed to one way of explaining, and if that way doesn’t fit your head you’re on your own. Though all of it is made out of books and lectures, so I should be careful calling it better than them. What’s new isn’t the knowledge; it’s that the knowledge answers back.</p>
+
+<p>And what matters to me isn’t how capable these things are. It’s the price. Someone in a town with no good college can ask about school algebra or graduate physics at 2am and get a patient answer. In 2017 that cost me a broadband connection and a lot of luck.</p>
+
+<h2 id="but-teachers-matter-more-than-any-of-this">But teachers matter more than any of this</h2>
+
+<p>It would be easy to write a triumphant paragraph here and be wrong. This worked for me because I already wanted it badly and knew roughly what to look for. A patient answering machine is useless to someone who doesn’t yet know what to want, and the wanting is almost always put there by a person.</p>
+
+<p>I’ve never seen software make anyone care about something. I’ve seen teachers do it constantly. Someone who notices you’ve gone quiet. Someone who says <em>try the harder problem</em>, and means it, and is right. Someone whose standards you take on as your own without noticing. That isn’t information transfer — it’s a relationship, and it works because there’s a person on the other end whose regard you want.</p>
+
+<p>So as information gets cheap, teachers get <em>more</em> important, not less. Supplying answers used to be the job; now what’s scarce is judgment, attention, and someone who knows <em>you</em>. And this isn’t only about physics or mathematics. We aren’t brains being loaded with content, and most of what carries a person through years of difficulty is other people.</p>
+
+<h2 id="so-the-structure-has-to-change">So the structure has to change</h2>
+
+<p>If explanation is cheap and abundant, organising education around delivering explanations is a strange use of scarce human hours. I don’t have a proposal — I’m suspicious of anyone who does this early — but the questions seem unavoidable. What is a lecture for now? What is an exam measuring, when the answer is a sentence away? If teachers no longer spend most of their hours on delivery, the best use of those hours is probably noticing individual people: the thing they’ve never had time for and nothing else can do.</p>
+
+<p>Research too. A PhD used to be paid for largely in time — finding what’s known, writing the code, grinding the derivation. As that gets cheaper, what’s left is taste: asking a question worth asking, sensing when a result smells wrong. We’ve never really taught that. You absorb it from an advisor, if you’re lucky in who you get.</p>
+
+<p>I should admit a bias here. Pedagogy is a large part of why I wanted to be in research at all — not only the physics, but the question of how a person actually comes to understand something. That has always looked to me like one of the most interesting problems there is, and right now it also looks like an open one.</p>
+
+<p>So I’d argue this gets rethought deliberately, by people who actually teach, rather than drifting into whatever shape it takes by default.</p>
+
+<h2 id="where-i-am">Where I am</h2>
+
+<p>I still don’t understand very much — the longer you do this, the more precisely you see the shape of what you don’t know. What I have back is the excitement. I get to be the person from 2017 again, except now when I get stuck I don’t have to stay stuck for three weeks and quietly close the book.</p>
+
+<p>If any of this reaches someone stuck where I was at nineteen: the wall is probably not you. Find someone to ask — a person if you can, and there’s now something patient for 2am when there’s nobody. The second is not a replacement for the first.</p>
+
+<p>Understanding the fundamental laws of the universe, and the abstract things that are beautiful for no practical reason at all, I used to file under “for other people.” I don’t think it belongs there.</p>
+
+    </div>
+  </article>
+
+  
+
+  
+
+  
+    
+  
+
+  
+    
+
+
+  
+</div>
+
+            </div>
+          </div>
+        
+      
+    </div>
+
+    <!-- Footer -->
+    
+
+
+  <footer class="sticky-bottom mt-5" role="contentinfo">
+    
+
+    <div class="container">
+      
+  <span class="footer-line">
+    © Copyright 2026 Harshit Tiwari. Last updated: August 04, 2026.
+  </span>
+  
+
+    </div>
+  </footer>
+
+
+
+    <!-- JavaScripts -->
+    <script>
+  window.alFolio = {
+    compatBootstrap: false
+  };
+</script>
+
+<!-- Core navigation/runtime scripts -->
+<script src="/assets/js/nav-toggle.js?v=141bd79a73ebc0f0b6ea58e440ae79fc"></script>
+
+
+
+  <!-- Masonry & imagesLoaded -->
+  <script defer src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script>
+  <script defer src="/assets/js/masonry.js?v=e49affc7bd2646f6acdad1dbe02c2359" type="text/javascript"></script>
+
+
+
+  <!-- Charts and Diagrams -->
+  
+
+
+
+
+
+
+
+  <!-- Math and Tikzjax -->
+  
+<script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js" integrity="sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI=" crossorigin="anonymous"></script>
+<script src="/assets/al_math/js/mathjax-setup.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6" crossorigin="anonymous"></script>
+
+
+
+
+
+<!-- Tooltips & popovers runtime -->
+<script src="/assets/js/tooltips-setup.js?v=fe487e99db6c43751e6e7bdb2d6a0611"></script>
+
+
+
+
+
+  <!-- Tocbot -->
+  <script defer src="https://cdn.jsdelivr.net/npm/tocbot@4.36.4/dist/tocbot.min.js" integrity="sha256-lo/r+jQ81wWrxdIiiiEEd538z4+dTJTt+leOuAS7GCw=" crossorigin="anonymous"></script>
+
+
+<!-- Load Common JS -->
+<script src="/assets/js/no_defer.js?v=53b1b1a645525975c963ce8bf8bfefcf"></script>
+<script defer src="/assets/js/common.js?v=87baac90f765f2f3362dcf6aaf312a8a"></script>
+<script defer src="/assets/js/copy_code.js?v=c8a01c11a92744d44b093fc3bda915df" type="text/javascript"></script>
+
+<!-- Jupyter Open External Links New Tab -->
+<script defer src="/assets/js/jupyter_new_tab.js?v=896d254890d9b47f0281f63bfccf0dee"></script>
+
+<!-- Badges -->
+
+  <script async src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script>
+
+
+  <script async src="https://badge.dimensions.ai/badge.js"></script>
+
+
+
+
+  <!-- Analytics -->
+  
+
+
+
+
+
+  <!-- Image Features -->
+  
+<!-- Medium Zoom JS -->
+<script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous"></script>
+<script defer src="/assets/al_img_tools/js/zoom.js"></script>
+
+
+
+
+
+  <!-- Scrolling Progress Bar -->
+  <script defer src="/assets/js/progress-bar.js?v=499464c5c63ced6cf7ad62509f1e2610" type="text/javascript"></script>
+
+
+
+
+
+
+
+  <!-- Search -->
+  
+    
+<script type="module" src="/assets/al_search/js/search/ninja-keys.min.js"></script>
+<ninja-keys hidebreadcrumbs noautoloadmdicons placeholder="Type to start searching"></ninja-keys>
+<script src="/assets/al_search/js/search-setup.js"></script>
+<script>
+// get the ninja-keys element
+const ninja = document.querySelector('ninja-keys');
+
+// add the home and posts menu items
+ninja.data = [{
+    id: "nav-about",
+    title: "About",
+    section: "Navigation",
+    handler: () => {
+      window.location.href = "/";
+    },
+  },{id: "nav-publications",
+          title: "Publications",
+          description: "",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/publications/";
+          },
+        },{id: "nav-projects",
+          title: "Projects",
+          description: "Research and software projects in turbulent flows, scientific computing, and quantum algorithms.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/projects/";
+          },
+        },{id: "nav-cv",
+          title: "CV",
+          description: "Curriculum Vitae of Harshit Tiwari.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/cv/";
+          },
+        },{id: "nav-about-me",
+          title: "About Me",
+          description: "Life beyond research—mountains, movement, music, and games.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/about-me/";
+          },
+        },{id: "nav-talks-amp-presentations",
+          title: "Talks &amp; Presentations",
+          description: "Selected research talks, posters, workshops, and computational-science events.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/talks/";
+          },
+        },{id: "nav-teaching",
+          title: "Teaching",
+          description: "Teaching experience at the Indian Institute of Technology Kanpur.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/teaching/";
+          },
+        },{id: "dropdown-repositories",
+              title: "Repositories",
+              description: "",
+              section: "Dropdown",
+              handler: () => {
+                window.location.href = "/repositories/";
+              },
+            },{id: "dropdown-blogs",
+              title: "Blogs",
+              description: "",
+              section: "Dropdown",
+              handler: () => {
+                window.location.href = "/blogs/";
+              },
+            },{id: "dropdown-notes",
+              title: "Notes",
+              description: "",
+              section: "Dropdown",
+              handler: () => {
+                window.location.href = "/blog/";
+              },
+            },{id: "post-self-learning-in-the-age-of-ai",
+        
+          title: "Self-Learning in the Age of AI",
+        
+        description: "A broadband connection in 2017, a pile of books, and years of getting stuck alone. What I think was actually missing.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/self-learning-in-the-age-of-ai/";
+          
+        },
+      },{id: "post-a-post-with-plotly-js",
+        
+          title: "a post with plotly.js",
+        
+        description: "this is what included plotly.js code could look like",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/plotly/";
+          
+        },
+      },{id: "post-a-post-with-image-galleries",
+        
+          title: "a post with image galleries",
+        
+        description: "this is what included image galleries could look like",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/photo-gallery/";
+          
+        },
+      },{id: "post-a-post-with-tabs",
+        
+          title: "a post with tabs",
+        
+        description: "this is what included tabs in a post could look like",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/tabs/";
+          
+        },
+      },{id: "post-a-post-with-typograms",
+        
+          title: "a post with typograms",
+        
+        description: "this is what included typograms code could look like",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/typograms/";
+          
+        },
+      },{id: "post-a-post-that-can-be-cited",
+        
+          title: "a post that can be cited",
+        
+        description: "this is what a post that can be cited looks like",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/post-citation/";
+          
+        },
+      },{id: "post-a-post-with-pseudo-code",
+        
+          title: "a post with pseudo code",
+        
+        description: "this is what included pseudo code could look like",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/pseudocode/";
+          
+        },
+      },{id: "post-a-post-with-code-diff",
+        
+          title: "a post with code diff",
+        
+        description: "this is how you can display code diffs",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/code-diff/";
+          
+        },
+      },{id: "post-a-post-with-advanced-image-components",
+        
+          title: "a post with advanced image components",
+        
+        description: "this is what advanced image components could look like",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/advanced-images/";
+          
+        },
+      },{id: "post-a-post-with-vega-lite",
+        
+          title: "a post with vega lite",
+        
+        description: "this is what included vega lite code could look like",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/vega-lite/";
+          
+        },
+      },{id: "post-a-post-with-geojson",
+        
+          title: "a post with geojson",
+        
+        description: "this is what included geojson code could look like",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/geojson-map/";
+          
+        },
+      },{id: "post-a-post-with-echarts",
+        
+          title: "a post with echarts",
+        
+        description: "this is what included echarts code could look like",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/echarts/";
+          
+        },
+      },{id: "post-a-post-with-chart-js",
+        
+          title: "a post with chart.js",
+        
+        description: "this is what included chart.js code could look like",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/chartjs/";
+          
+        },
+      },{id: "post-a-post-with-tikzjax",
+        
+          title: "a post with TikZJax",
+        
+        description: "this is what included TikZ code could look like",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2023/tikzjax/";
+          
+        },
+      },{id: "post-a-post-with-bibliography",
+        
+          title: "a post with bibliography",
+        
+        description: "an example of a blog post with bibliography",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2023/post-bibliography/";
+          
+        },
+      },{id: "post-a-post-with-jupyter-notebook",
+        
+          title: "a post with jupyter notebook",
+        
+        description: "an example of a blog post with jupyter notebook",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2023/jupyter-notebook/";
+          
+        },
+      },{id: "post-a-post-with-custom-blockquotes",
+        
+          title: "a post with custom blockquotes",
+        
+        description: "an example of a blog post with custom blockquotes",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2023/custom-blockquotes/";
+          
+        },
+      },{id: "post-a-post-with-table-of-contents-on-a-sidebar",
+        
+          title: "a post with table of contents on a sidebar",
+        
+        description: "an example of a blog post with table of contents on a sidebar",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2023/sidebar-table-of-contents/";
+          
+        },
+      },{id: "post-a-post-with-audios",
+        
+          title: "a post with audios",
+        
+        description: "this is what included audios could look like",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2023/audios/";
+          
+        },
+      },{id: "post-a-post-with-videos",
+        
+          title: "a post with videos",
+        
+        description: "this is what included videos could look like",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2023/videos/";
+          
+        },
+      },{id: "post-displaying-beautiful-interactive-tables",
+        
+          title: "displaying beautiful interactive tables",
+        
+        description: "an example of how to use interactive tables in al-folio",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2023/tables/";
+          
+        },
+      },{id: "post-a-post-with-table-of-contents",
+        
+          title: "a post with table of contents",
+        
+        description: "an example of a blog post with table of contents",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2023/table-of-contents/";
+          
+        },
+      },{id: "post-a-post-with-giscus-comments",
+        
+          title: "a post with giscus comments",
+        
+        description: "an example of a blog post with giscus comments",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2022/giscus-comments/";
+          
+        },
+      },{id: "post-a-post-with-redirect",
+        
+          title: "a post with redirect",
+        
+        description: "you can also redirect to assets like pdf",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/assets/pdf/example_pdf.pdf";
+          
+        },
+      },{id: "post-a-post-with-diagrams",
+        
+          title: "a post with diagrams",
+        
+        description: "an example of a blog post with diagrams",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2021/diagrams/";
+          
+        },
+      },{id: "post-a-distill-style-blog-post",
+        
+          title: "a distill-style blog post",
+        
+        description: "an example of a distill-style blog post and main elements",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2021/distill/";
+          
+        },
+      },{id: "post-a-post-with-twitter",
+        
+          title: "a post with twitter",
+        
+        description: "an example of a blog post with twitter",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2020/twitter/";
+          
+        },
+      },{id: "post-a-post-with-disqus-comments",
+        
+          title: "a post with disqus comments",
+        
+        description: "an example of a blog post with disqus comments",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2015/disqus-comments/";
+          
+        },
+      },{id: "post-a-post-with-math",
+        
+          title: "a post with math",
+        
+        description: "an example of a blog post with some math",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2015/math/";
+          
+        },
+      },{id: "post-a-post-with-code",
+        
+          title: "a post with code",
+        
+        description: "an example of a blog post with some code",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2015/code/";
+          
+        },
+      },{id: "post-a-post-with-images",
+        
+          title: "a post with images",
+        
+        description: "this is what included images could look like",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2015/images/";
+          
+        },
+      },{id: "post-a-post-with-formatting-and-links",
+        
+          title: "a post with formatting and links",
+        
+        description: "march &amp; april, looking forward to summer",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2015/formatting-and-links/";
+          
+        },
+      },{id: "books-the-godfather",
+          title: 'The Godfather',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/the_godfather/";
+            },},{id: "news-secured-all-india-rank-74-in-iit-jam-and-all-india-rank-307-in-jest",
+          title: 'Secured **All India Rank 74** in IIT JAM and **All India Rank 307**...',
+          description: "",
+          section: "News",},{id: "news-joined-the-m-sc-physics-program-at-iit-kanpur-awarded-the-merit-cum-means-scholarship",
+          title: 'Joined the M.Sc. Physics program at IIT Kanpur, awarded the **Merit cum Means...',
+          description: "",
+          section: "News",},{id: "news-started-master-39-s-project-on-accretion-disk-oscillations-under-prof-pankaj-jain",
+          title: 'Started Master&amp;#39;s project on accretion disk oscillations under Prof. Pankaj Jain. 🌌',
+          description: "",
+          section: "News",},{id: "news-attended-the-icts-summer-school-on-gravitational-wave-astronomy",
+          title: 'Attended the ICTS Summer School on *Gravitational-Wave Astronomy*. 🔭',
+          description: "",
+          section: "News",},{id: "news-graduated-with-an-m-sc-in-physics-from-iit-kanpur",
+          title: 'Graduated with an M.Sc. in Physics from IIT Kanpur. 📜',
+          description: "",
+          section: "News",},{id: "news-commenced-my-ph-d-in-physics-as-a-graduate-researcher-at-iit-kanpur",
+          title: 'Commenced my Ph.D. in Physics as a Graduate Researcher at IIT Kanpur! 🎓...',
+          description: "",
+          section: "News",},{id: "news-served-as-the-hec-election-officer-for-hall-7-elections-at-iit-kanpur-️",
+          title: 'Served as the HEC Election Officer for Hall 7 elections at IIT Kanpur....',
+          description: "",
+          section: "News",},{id: "news-appointed-secretary-of-the-adventure-sports-club-at-iit-kanpur-2022-23",
+          title: 'Appointed Secretary of the **Adventure Sports Club** at IIT Kanpur (2022-23). 🚲',
+          description: "",
+          section: "News",},{id: "news-participated-in-the-nsm-gpu-hackathon-porting-our-gross-pitaevskii-solver-to-64-nvidia-a100-gpus",
+          title: 'Participated in the NSM GPU Hackathon, porting our Gross-Pitaevskii solver to 64 Nvidia...',
+          description: "",
+          section: "News",},{id: "news-attended-the-icts-program-on-turbulence-problems-at-the-interface-of-mathematics-and-physics",
+          title: 'Attended the ICTS program on *Turbulence: Problems at the Interface of Mathematics and...',
+          description: "",
+          section: "News",},{id: "news-re-appointed-secretary-of-the-adventure-sports-club-at-iit-kanpur-2023-24",
+          title: 'Re-appointed Secretary of the **Adventure Sports Club** at IIT Kanpur (2023-24). 💪',
+          description: "",
+          section: "News",},{id: "news-attended-the-icts-program-on-field-theory-and-turbulence",
+          title: 'Attended the ICTS program on *Field Theory and Turbulence*. 📝',
+          description: "",
+          section: "News",},{id: "news-presented-our-work-on-compressible-turbulent-convection-at-the-iit-kanpur-physics-research-scholar-day-2024-️",
+          title: 'Presented our work on compressible turbulent convection at the IIT Kanpur Physics Research...',
+          description: "",
+          section: "News",},{id: "news-participated-in-the-frontier-hackathon-successfully-scaling-our-compressible-solver-dhara-on-frontier-to-8-192-amd-mi250x-gpus",
+          title: 'Participated in the Frontier Hackathon, successfully scaling our compressible solver **DHARA** on Frontier...',
+          description: "",
+          section: "News",},{id: "news-appointed-coordinator-of-the-adventure-sports-club-at-iit-kanpur-2024-25",
+          title: 'Appointed Coordinator of the **Adventure Sports Club** at IIT Kanpur (2024-25). 🥾 🏃...',
+          description: "",
+          section: "News",},{id: "news-presented-a-poster-on-our-high-performance-fluid-simulation-results-at-the-iit-kanpur-hpc-symposium",
+          title: 'Presented a poster on our high-performance fluid simulation results at the IIT Kanpur...',
+          description: "",
+          section: "News",},{id: "news-delivered-a-talk-at-the-icts-program-on-theoretical-and-practical-perspectives-in-geophysical-fluid-dynamics",
+          title: 'Delivered a talk at the ICTS program on *Theoretical and Practical Perspectives in...',
+          description: "",
+          section: "News",},{id: "news-delivered-a-talk-on-quot-classical-1-3-nusselt-scaling-quot-at-the-1st-european-fluid-dynamics-conference-efdc1-in-aachen-germany",
+          title: 'Delivered a talk on *&amp;quot;Classical 1/3 Nusselt Scaling&amp;quot;* at the **1st European Fluid...',
+          description: "",
+          section: "News",},{id: "news-presented-a-poster-on-compressible-convection-at-the-variable-sun-past-present-and-future-conference-in-thiruvananthapuram",
+          title: 'Presented a poster on compressible convection at *The Variable Sun: Past, Present, and...',
+          description: "",
+          section: "News",},{id: "news-chaired-a-session-and-presented-our-thermal-turbulence-research-at-the-aps-dfd-2025-meeting-in-houston-texas-supported-by-the-dfd-enabling-award",
+          title: 'Chaired a session and presented our thermal turbulence research at the **APS DFD...',
+          description: "",
+          section: "News",},{id: "news-participated-in-the-indo-japanese-workshop-for-cfd-based-ai-and-hpc-2025-at-iit-kanpur",
+          title: 'Participated in the *Indo-Japanese Workshop for CFD-based AI and HPC 2025* at IIT...',
+          description: "",
+          section: "News",},{id: "news-submitted-my-ph-d-thesis-and-started-as-a-fare-fellow-at-iit-kanpur",
+          title: 'Submitted my Ph.D. thesis and started as a **FARE Fellow** at IIT Kanpur!...',
+          description: "",
+          section: "News",},{id: "news-gave-a-talk-on-quot-high-resolution-simulations-of-dry-and-moist-turbulent-convection-quot-at-the-icts-moist-convective-dynamics-program",
+          title: 'Gave a talk on *&amp;quot;High-resolution simulations of dry and moist turbulent convection&amp;quot;* at...',
+          description: "",
+          section: "News",},{id: "news-visited-paris-france-to-participate-in-the-trimester-program-workshop-quot-instabilities-and-transitions-in-geophysical-flows-quot-at-institute-henri-poincaré-️",
+          title: 'Visited Paris, France to participate in the trimester program workshop *&amp;quot;Instabilities and transitions...',
+          description: "",
+          section: "News",},{id: "news-successfully-defended-my-ph-d-thesis",
+          title: 'Successfully defended my Ph.D. thesis! 🎓 🎉',
+          description: "",
+          section: "News",},{id: "news-started-my-new-position-as-a-postdoctoral-associate-at-new-york-university-nyu",
+          title: 'Started my new position as a **Postdoctoral Associate** at New York University (NYU)!...',
+          description: "",
+          section: "News",},{id: "news-received-my-ph-d-in-physics-from-iit-kanpur-and-the-outstanding-phd-thesis-award",
+          title: 'Received my Ph.D. in Physics from IIT Kanpur and the **Outstanding PhD Thesis...',
+          description: "",
+          section: "News",},{id: "projects-accretion-disk-oscillations",
+          title: 'Accretion Disk Oscillations',
+          description: "Theoretical modelling of acoustic modes around rotating black holes.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/accretion-disk-oscillations/";
+            },},{id: "projects-compressible-turbulent-convection",
+          title: 'Compressible Turbulent Convection',
+          description: "Heat transport and scaling laws at extreme Rayleigh numbers.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/compressible-convection/";
+            },},{id: "projects-dhara",
+          title: 'DHARA',
+          description: "A scalable Python framework for solving nonlinear partial differential equations on CPUs and GPUs.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/dhara/";
+            },},{id: "projects-magnetic-field-evolution-in-neutron-stars",
+          title: 'Magnetic Field Evolution in Neutron Stars',
+          description: "Ohmic dissipation, Hall drift, and electron magnetohydrodynamics in neutron-star crusts.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/magnetic-field-neutron-stars/";
+            },},{id: "projects-moist-turbulent-convection",
+          title: 'Moist Turbulent Convection',
+          description: "High-resolution simulations of conditionally unstable atmospheric convection.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/moist-convection/";
+            },},{id: "projects-renormalization-of-the-navier-stokes-equation",
+          title: 'Renormalization of the Navier–Stokes Equation',
+          description: "A renormalization-group view of scale-dependent transport in turbulence.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/navier-stokes-renormalization/";
+            },},{id: "projects-quantum-computing-for-fluid-dynamics",
+          title: 'Quantum Computing for Fluid Dynamics',
+          description: "Developing quantum-computing approaches for fluid-dynamics problems at NYU.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/quantum-computing-fluid-dynamics/";
+            },},{id: "projects-supersonic-turbulence",
+          title: 'Supersonic Turbulence',
+          description: "Energy spectra and fluxes from high-fidelity direct numerical simulations.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/supersonic-turbulence/";
+            },},{
+        id: 'social-email',
+        title: 'email',
+        section: 'Socials',
+        handler: () => {
+          window.open("mailto:%68%61%72%73%68%69%74.%74%69%77%61%72%69@%6E%79%75.%65%64%75", "_blank");
+        },
+      },{
+        id: 'social-scholar',
+        title: 'Google Scholar',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://scholar.google.com/citations?user=pZsezWMAAAAJ", "_blank");
+        },
+      },{
+        id: 'social-github',
+        title: 'GitHub',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://github.com/harshitiwari", "_blank");
+        },
+      },{
+        id: 'social-linkedin',
+        title: 'LinkedIn',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://www.linkedin.com/in/harshit-tiwari-6989b216b", "_blank");
+        },
+      },{
+        id: 'social-researchgate',
+        title: 'ResearchGate',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://www.researchgate.net/profile/Harshit-Tiwari-7/", "_blank");
+        },
+      },{
+        id: 'social-youtube_channel',
+        title: 'Youtube_channel',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://www.youtube.com/channel/UCxZ6-66yuMBDBP5fJDoMlKg", "_blank");
+        },
+      },{
+        id: 'social-cv',
+        title: 'CV',
+        section: 'Socials',
+        handler: () => {
+          window.open("/assets/pdf/cv.pdf", "_blank");
+        },
+      },{
+        id: 'social-rss',
+        title: 'RSS Feed',
+        section: 'Socials',
+        handler: () => {
+          window.open("/feed.xml", "_blank");
+        },
+      },{
+      id: 'light-theme',
+      title: 'Change theme to light',
+      description: 'Change the theme of the site to Light',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("light");
+      },
+    },
+    {
+      id: 'dark-theme',
+      title: 'Change theme to dark',
+      description: 'Change the theme of the site to Dark',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("dark");
+      },
+    },
+    {
+      id: 'system-theme',
+      title: 'Use system default theme',
+      description: 'Change the theme of the site to System Default',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("system");
+      },
+    },];
+
+</script>
+<script src="/assets/al_search/js/shortcut-key.js"></script>
+
+
+  
+
+
+
+
+    <script src="/assets/js/lorenz.js?v=ec35abf6416768b2c90cfd286d3ef016"></script>
+    <script src="/assets/js/ambient-controls.js?v=f8f3b5526ee15b3497f454ccd4b60e74"></script>
+    <script src="/assets/js/seamless-navigation.js?v=c0b7ccf58054872bd7364cf9c3e404a8"></script>
+  </body>
+</html>
