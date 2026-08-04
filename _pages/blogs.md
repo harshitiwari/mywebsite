@@ -2,7 +2,8 @@
 layout: default
 permalink: /blogs/
 title: Blogs
-nav: false
+nav: true
+nav_order: 5
 ---
 
 <div class="post">

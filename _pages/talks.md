@@ -4,7 +4,7 @@ title: Talks & Presentations
 nav_title: Talks
 permalink: /talks/
 description: Selected research talks, posters, workshops, and computational-science events.
-nav: true
+nav: false
 nav_order: 5
 ---
 
