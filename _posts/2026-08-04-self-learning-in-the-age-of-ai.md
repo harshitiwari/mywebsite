@@ -46,7 +46,7 @@ It didn't last, and the reasons are mostly about me. My gaps were large and I co
 
 There was nobody to ask. Stack Exchange helped more than I can say, but it isn't a *conversation*. You can't say "wait, go back, why is that step allowed" four times in a row, or admit at 2am that you don't understand what a limit is *for*.
 
-I never finished those books. Not one, I think. The self-study did get me into an MSc at IIT Kanpur, where a year went past too fast for me to account for — my gaps, not the institute's fault.
+I never finished those books. Not one, I think. The self-study did get me into a Master of Science at IIT Kanpur, where a year went past too fast for me to account for — my gaps, not the institute's fault.
 
 ## The PhD, and a laboratory
 

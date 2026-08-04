@@ -99,7 +99,7 @@ max_width: 840px # narrowed from the original 930px for a shorter line length
 # see https://schema.org/docs/faq.html for more information
 serve_og_meta: true # Include Open Graph meta tags in the HTML head
 serve_schema_org: true # Include Schema.org in the HTML head
-og_image: https://harshitiwari.site/assets/img/prof_pic_color.png # Site-wide social sharing image
+og_image: https://harshitiwari.site/assets/img/og-image.jpg # Site-wide social sharing image (1200x630)
 
 # -----------------------------------------------------------------------------
 # Analytics and search engine verification
