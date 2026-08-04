@@ -1,8 +1,8 @@
 ---
 layout: default
 permalink: /blog/
-title: Blogs
-nav: true
+title: Notes
+nav: false
 nav_order: 8
 pagination:
   enabled: true
@@ -110,6 +110,7 @@ pagination:
     {% endif %}
 
     {% for post in postlist %}
+    {% unless post.categories contains "blogs" %}
 
     {% if post.external_source == blank %}
       {% assign read_time = post.content | number_of_words | divided_by: 180 | plus: 1 %}
@@ -185,6 +186,7 @@ pagination:
 {% endif %}
     </li>
 
+    {% endunless %}
     {% endfor %}
 
   </ul>

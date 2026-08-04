@@ -96,6 +96,21 @@ html.seamless-loading body > .container[role="main"] {
   }
 }
 
+// The gem's default active dropdown-item style fills the whole row with
+// --global-hover-color, which reads as a solid block against this site's
+// otherwise flat nav. Match the top-level nav-link active state instead:
+// coloured text only, no background fill.
+#navbar .dropdown-item.active,
+#navbar .dropdown-item:active {
+  background-color: transparent;
+  color: var(--global-theme-color) !important;
+  font-weight: bolder;
+
+  &:hover {
+    color: var(--global-hover-color) !important;
+  }
+}
+
 // Custom profile picture border matching the computational-flow palette.
 .profile img.rounded-circle {
   outline: 2px solid #0f766e; // Light theme color (dark teal)

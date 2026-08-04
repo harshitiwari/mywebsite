@@ -3,16 +3,6 @@ layout: default
 permalink: /blogs/
 title: Blogs
 nav: false
-pagination:
-  enabled: true
-  collection: posts
-  permalink: /blogs/page/:num/
-  per_page: 10
-  sort_field: date
-  sort_reverse: true
-  trail:
-    before: 1
-    after: 3
 ---
 
 <div class="post">
@@ -24,17 +14,11 @@ pagination:
 
   <ul class="post-list">
 
-    {% if page.pagination.enabled %}
-      {% assign postlist = paginator.posts %}
-    {% else %}
-      {% assign postlist = site.posts %}
-    {% endif %}
+    {% assign blog_posts = site.posts | where_exp: "post", "post.categories contains 'blogs'" %}
 
-    {% for post in postlist %}
+    {% for post in blog_posts %}
 
-    {% if post.categories contains "blogs" %}
-
-      {% assign read_time = post.content | number_of_words | divided_by: 180 | plus: 1 %}
+      {% assign read_time = post.content | number_of_words | divided_by: 240 | plus: 1 %}
 
       <li>
         <h3>
@@ -47,14 +31,8 @@ pagination:
         </p>
       </li>
 
-    {% endif %}
-
     {% endfor %}
 
   </ul>
-
-{% if page.pagination.enabled %}
-{% include pagination.liquid %}
-{% endif %}
 
 </div>
