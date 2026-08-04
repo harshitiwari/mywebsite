@@ -69,7 +69,17 @@ html.seamless-loading body > .container[role="main"] {
   }
 }
 
-@media (max-width: 575.98px) {
+// The full-size nav row (all top-level items + Resources + search/theme
+// icons, at their normal font size) needs ~886px of container width to
+// avoid overlapping the site title on non-home pages — measured directly
+// rather than assumed. The gem's own navbar-expand-sm utility only ships a
+// single hardcoded breakpoint (576px; there is no lg/md/xl variant anywhere
+// in al_folio_core's source), so instead of shrinking text to fit narrower
+// widths, override its "always expand at 576px" behavior: stay collapsed
+// (hamburger) up to 991.98px, matching Bootstrap's lg step, and only expand
+// to the horizontal row at 992px+, where it fits at full size with room to
+// spare.
+@media (max-width: 991.98px) {
   #navbar > .container {
     width: calc(100% - 1.25rem);
     max-width: none;
@@ -81,18 +91,27 @@ html.seamless-loading body > .container[role="main"] {
   }
 }
 
-// Between laptop and desktop widths, keep every destination visible while
-// compacting only the spacing. The hamburger is reserved for narrow screens.
-@media (min-width: 576px) and (max-width: 1240px) {
-  #navbar .navbar-brand.title {
-    margin-right: 0.6rem;
-    font-size: 0.98rem;
+// Tailwind ships `.navbar-expand-sm .navbar-collapse { display: flex !important }`
+// inside a named `@layer`. Per the CSS Cascade Layers spec, layered
+// !important declarations beat *unlayered* !important declarations
+// regardless of specificity — the opposite of the normal-priority cascade —
+// so overriding `display` directly here always loses silently. height +
+// overflow aren't set by that gem rule at all, so there's nothing to fight:
+// collapsing the box that way hides the panel just as effectively without
+// needing to win a losing battle over `display`.
+@media (min-width: 576px) and (max-width: 991.98px) {
+  #navbar.navbar-expand-sm .navbar-collapse {
+    height: 0 !important;
+    overflow: hidden !important;
   }
 
-  #navbar .nav-link {
-    padding-right: 0.32rem;
-    padding-left: 0.32rem;
-    font-size: 0.78rem;
+  #navbar.navbar-expand-sm .navbar-collapse.show {
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  #navbar.navbar-expand-sm .navbar-toggler-main {
+    display: block !important;
   }
 }
 
@@ -809,7 +828,10 @@ html.lorenz-disabled #lorenz-canvas {
   }
 }
 
-@media (max-width: 575.98px) {
+// Matches the collapsed-nav range above (max-width: 991.98px) so the
+// Resources dropdown stacks in place within the vertical menu whenever the
+// navbar is actually collapsed, not just below the old 576px mobile cutoff.
+@media (max-width: 991.98px) {
   #navbar .nav-item.dropdown {
     width: 100%;
   }
