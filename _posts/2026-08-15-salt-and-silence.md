@@ -28,7 +28,7 @@ toc:
 
 If you close your eyes, you can feel the morning chill off the river.
 
-It is the edge of dawn on the banks of the Sabarmati. Thousands of people are standing along the water, packed shoulder to shoulder in the grey light, but nobody is shouting. The only sound is the wind in the dry reeds and the steady, hollow *thump, thump* of a bamboo staff striking the hard-baked earth.
+It is the edge of dawn on the banks of the Sabarmati. Thousands of people are standing along the water, packed shoulder to shoulder in the grey light, but nobody is shouting. The only sound is the wind in the dry reeds and the steady strike of a bamboo staff against the hard-baked earth.
 
 He is sixty-one years old. He wears a single length of coarse white cloth, and a cheap pocket watch hangs by a safety pin from his waist. He does not turn around to check if anyone is following him. He simply begins to walk south.
 
@@ -63,9 +63,7 @@ Ahead of the line, Pandit Khare sings into the morning wind:
 
 The man in front never slows down. His ribs show through his skin, his back is bent, but his stride has an uncanny, mechanical rhythm that wears out men half his age.
 
-At dusk, when the camp stops in a village schoolhouse and everyone collapses onto straw mats, you hear a soft, rhythmic sound in the dark.
-
-*Whir-whir. Whir-whir.*
+At dusk, when the camp stops in a village schoolhouse and everyone collapses onto straw mats, you hear the quiet, rhythmic sound of a spinning wheel in the dark.
 
 Under the shadow of a banyan tree, by the yellow light of a hurricane lantern, he is sitting cross-legged with a small wooden folding box on the floor. Before he can sleep, he must spin his two hundred yards of cotton thread. While the governors in New Delhi write letters home laughing at the absurdity of a rebellion on foot, the old man sits in the dirt, turning a wooden wheel, listening to the thread tighten.
 
