@@ -1,0 +1,1555 @@
+<!DOCTYPE html>
+<html lang="en" class="lorenz-disabled">
+  <!-- Head -->
+  <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <!-- Metadata, OpenGraph and Schema.org -->
+
+
+
+
+<!-- Standard metadata -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>
+  
+  
+    
+      Salt and Silence | Harshit Tiwari
+    
+  
+</title>
+<meta name="author" content="Harshit Tiwari">
+<meta name="description" content="Why the heaviest chains are broken by the lightest things.">
+
+  <meta name="keywords" content="turbulence, fluid dynamics, compressible flows, scientific computing, high-performance computing, machine learning, quantum computing">
+
+
+
+
+
+
+  <!-- OpenGraph -->
+  <meta property="og:site_name" content="Harshit Tiwari">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Harshit Tiwari | Salt and Silence">
+  <meta property="og:url" content="http://localhost:4000/blog/2026/salt-and-silence/">
+  <meta property="og:description" content="Why the heaviest chains are broken by the lightest things.">
+  
+    <meta property="og:image" content="https://harshitiwari.site/assets/img/dandi-1930.jpg">
+  
+  <meta property="og:locale" content="en">
+
+  <!-- Twitter card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Salt and Silence">
+  <meta name="twitter:description" content="Why the heaviest chains are broken by the lightest things.">
+  
+    <meta name="twitter:image" content="https://harshitiwari.site/assets/img/dandi-1930.jpg">
+  
+  
+
+
+
+  <!-- Schema.org -->
+  
+  
+  
+
+  <script type="application/ld+json">
+    {
+        "author":
+        {
+            "@type": "Person",
+            "name": "Harshit Tiwari"
+        },
+        "url": "http://localhost:4000/blog/2026/salt-and-silence/",
+        "@type": "BlogPosting",
+        "description": "Why the heaviest chains are broken by the lightest things.",
+        "headline": "Salt and Silence",
+        
+        "sameAs": ["https://scholar.google.com/citations?user=pZsezWMAAAAJ","https://github.com/harshitiwari","https://www.linkedin.com/in/harshit-tiwari-6989b216b","https://www.researchgate.net/profile/Harshit-Tiwari-7/","https://www.youtube.com/channel/UCxZ6-66yuMBDBP5fJDoMlKg",null],
+        
+        "name": "Harshit Tiwari",
+        "@context": "https://schema.org"
+    }
+  </script>
+
+
+
+<!-- Security: Content Security Policy -->
+<!-- Permissive CSP suitable for academic websites. Allows external images, videos, and common embed services. -->
+<!-- To customize for your needs, see: https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; media-src 'self' https:; frame-src 'self' https:; connect-src 'self' https:;">
+<style>
+  :root {
+    --max-content-width: 840px;
+  }
+</style>
+
+<!-- Tailwind-first core styles -->
+<link rel="stylesheet" href="/assets/css/tailwind.css?v=50c64c15cbb9fd1ce6056fdb8bcb4b62">
+
+
+
+
+
+
+  <!-- Tocbot -->
+  <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tocbot@4.36.4/dist/tocbot.css" integrity="sha256-zTN0r+0OKaIv2xqeNNIYxNk0pWJ6+IqPGc1iDgVzWF0=" crossorigin="anonymous">
+
+
+<!-- Icons -->
+
+  
+<!-- Font Awesome -->
+<link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css" integrity="sha256-MVopmdyC2tYTiJ8wlktf0uh0v4NgT+vNdyVFepi7Q0c=" crossorigin="anonymous">
+
+<!-- Academicons -->
+<link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.5/css/academicons.min.css" integrity="sha256-SzrCOBJbGVFMahewkgjwnApaV2+av1DwMAA+/QGLyZw=" crossorigin="anonymous">
+
+<!-- Scholar Icons -->
+<link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/scholar-icons@1.0.3/css/scholar-icons.css" integrity="sha256-VY3hHVj/hNX3fYG6wtbA6TcKJQl7+FthzGSyIB64klY=" crossorigin="anonymous">
+
+
+
+<link defer rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons&amp;display=swap">
+
+<!-- Code Syntax Highlighting -->
+<link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-github.css?v=591dab5a4e56573bf4ef7fd332894c99" media="" id="highlight_theme_light">
+
+<!-- Styles -->
+
+
+
+
+  <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%E2%99%BE%EF%B8%8F&lt;/text&gt;&lt;/svg&gt;">
+
+<link rel="stylesheet" href="/assets/css/main.css?v=f0b101217084a90093badfe99ff9a7d1">
+
+<link rel="canonical" href="http://localhost:4000/blog/2026/salt-and-silence/">
+
+
+  <!-- Dark Mode -->
+  <script src="/assets/js/theme.js?v=7af685e2ba20b37fef545c97b8064050"></script>
+  <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-native.css?v=5847e5ed4a4568527aa6cfab446049ca" media="none" id="highlight_theme_dark">
+  <script>
+    initTheme();
+  </script>
+
+
+
+
+
+
+
+  <!-- Image Features -->
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+    <link rel="stylesheet" href="/assets/css/lorenz.css?v=459677220dfddf264f4779df4c33cf54">
+  </head>
+
+  <!-- Body -->
+  <body class="fixed-top-nav sticky-bottom-footer">
+    <style>
+      /* Critical positioning stays fresh during local preview even when the
+         compiled theme stylesheet is cached by the browser. */
+      @media (min-width: 992px) {
+        #music-player.music-player {
+          bottom: 10px;
+          left: 10px;
+          width: 246px;
+          transform: none;
+        }
+      }
+      .post .social .contact-icons { font-size: 2rem; }
+      .post .social .contact-icons a img { width: 1.6rem; height: 1.6rem; margin-bottom: .5rem; }
+      .post .social .contact-icons a svg { width: 1.75rem; height: 2rem; margin-bottom: .25rem; }
+    </style>
+    <canvas id="lorenz-canvas"></canvas>
+    <div id="ambient-controls" aria-label="Ambient display controls">
+  <button type="button" id="lorenz-toggle" class="ambient-control" aria-label="Turn Lorenz background off" aria-pressed="true" title="Turn Lorenz background off">
+    <i class="fa-solid fa-water" aria-hidden="true"></i>
+  </button>
+  <div id="music-player" class="music-player" aria-label="Classical music player">
+    <div class="music-player-main">
+      <button type="button" id="music-toggle" class="music-player-toggle" aria-label="Play Mozart Piano Concerto No. 21" aria-pressed="false" title="Play Mozart Piano Concerto No. 21">
+        <i class="fa-solid fa-play" aria-hidden="true"></i>
+      </button>
+      <div class="music-player-copy">
+        <span class="music-player-composer">Mozart</span>
+        <span class="music-player-title">Piano Concerto No. 21</span>
+      </div>
+      <button type="button" id="music-mute" class="music-player-volume" aria-label="Mute music" title="Mute music">
+        <i class="fa-solid fa-volume-high" aria-hidden="true"></i>
+      </button>
+    </div>
+    <div class="music-player-timeline">
+      <span id="music-current-time">0:00</span>
+      <input id="music-progress" type="range" min="0" max="100" value="0" step="0.1" aria-label="Music progress">
+      <span id="music-duration">–:––</span>
+    </div>
+  </div>
+</div>
+
+<audio id="ambient-music" src="/assets/audio/mozart-piano-concerto-no-21.mp3" preload="metadata" loop></audio>
+
+
+    <!-- Header -->
+    <header>
+  <!-- Nav Bar -->
+  <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top" role="navigation">
+    <div class="container">
+      
+        <a class="navbar-brand title font-weight-lighter" href="/">
+          Harshit Tiwari
+        </a>
+      
+      <!-- Navbar Toggle -->
+      <button class="navbar-toggler collapsed navbar-toggler-main" type="button" data-nav-toggle="navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar top-bar"></span>
+        <span class="icon-bar middle-bar"></span>
+        <span class="icon-bar bottom-bar"></span>
+      </button>
+
+      <div class="collapse navbar-collapse navbar-collapse-main" id="navbarNav">
+        <ul class="navbar-nav navbar-menu-list flex-nowrap">
+          
+
+
+
+          <!-- Other pages -->
+          
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+              
+                
+                <li class="nav-item ">
+                  <a class="nav-link" href="/publications/">Publications
+                    
+                  </a>
+                </li>
+              
+            
+          
+            
+              
+                
+                <li class="nav-item ">
+                  <a class="nav-link" href="/projects/">Projects
+                    
+                  </a>
+                </li>
+              
+            
+          
+            
+              
+                
+                <li class="nav-item ">
+                  <a class="nav-link" href="/cv/">CV
+                    
+                  </a>
+                </li>
+              
+            
+          
+            
+              
+                
+                <li class="nav-item ">
+                  <a class="nav-link" href="/about-me/">About Me
+                    
+                  </a>
+                </li>
+              
+            
+          
+            
+              
+                
+                <li class="nav-item ">
+                  <a class="nav-link" href="/blogs/">Blogs
+                    
+                  </a>
+                </li>
+              
+            
+          
+            
+          
+            
+              
+                
+                <li class="nav-item ">
+                  <a class="nav-link" href="/teaching/">Teaching
+                    
+                  </a>
+                </li>
+              
+            
+          
+            
+              
+                
+                
+                <li class="nav-item dropdown ">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-nav-dropdown-toggle="true" aria-haspopup="true" aria-expanded="false">Resources
+                    
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                    
+                      
+                        <a class="dropdown-item " href="/repositories/">Repositories</a>
+                      
+                    
+                      
+                        <a class="dropdown-item " href="/blog/">Notes</a>
+                      
+                    
+                      
+                        <a class="dropdown-item " href="/talks/">Talks</a>
+                      
+                    
+                  </div>
+                </li>
+              
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+          
+            <!-- Search -->
+            <li class="nav-item">
+              <button id="search-toggle" type="button" title="Search" aria-label="Open search">
+                <span class="nav-link"><i class="fa-solid fa-magnifying-glass"></i></span>
+              </button>
+            </li>
+          
+          
+            <!-- Toogle theme mode -->
+            <li class="toggle-container">
+              <button id="light-toggle" type="button" title="Change theme" aria-label="Change color theme">
+                <i class="fa-half-sun-moon" id="light-toggle-system"></i>
+                <i class="fa-solid fa-moon" id="light-toggle-dark"></i>
+                <i class="fa-solid fa-sun" id="light-toggle-light"></i>
+              </button>
+            </li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+    <!-- Scrolling Progress Bar -->
+    <progress id="progress" value="0">
+      <div class="progress-container">
+        <span class="progress-bar"></span>
+      </div>
+    </progress>
+  
+</header>
+
+
+    <!-- Content -->
+    <div class="container mt-5" role="main">
+      
+        
+          <div class="row">
+            <!-- sidebar, table of contents -->
+            <div class="col-sm-3">
+              <nav id="toc-sidebar" class="sticky-top"></nav>
+            </div>
+            <!-- main content area -->
+            <div class="col-sm-9">
+              
+
+
+
+
+
+
+<div class="post">
+  <header class="post-header">
+    <h1 class="post-title">Salt and Silence</h1>
+    <p class="post-meta">
+      Created on August 15, 2026
+      
+      
+      
+      • 7 min read
+    </p>
+    <p class="post-tags">
+      
+        <a href="/blog/2026"> <i class="fa-solid fa-calendar fa-sm"></i> 2026 </a>
+      
+      
+          ·  
+        
+          
+            <a href="/blog/tag/history"> <i class="fa-solid fa-hashtag fa-sm"></i> history</a>
+          
+          
+             
+          
+        
+          
+            <a href="/blog/tag/india"> <i class="fa-solid fa-hashtag fa-sm"></i> india</a>
+          
+          
+             
+          
+        
+          
+            <a href="/blog/tag/nonviolence"> <i class="fa-solid fa-hashtag fa-sm"></i> nonviolence</a>
+          
+          
+             
+          
+        
+          
+            <a href="/blog/tag/power"> <i class="fa-solid fa-hashtag fa-sm"></i> power</a>
+          
+          
+        
+      
+
+      
+          ·  
+        
+          
+            <a href="/blog/category/blogs"> <i class="fa-solid fa-tag fa-sm"></i> blogs</a>
+          
+          
+        
+      
+    </p>
+  </header>
+
+  <article class="post-content">
+    
+    <div id="markdown-content">
+      
+<figure>
+  <picture>
+    <!-- Auto scaling with imagemagick -->
+    <!--
+      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
+    -->
+    
+    <img src="/assets/img/dandi-1930.jpg" class="img-fluid rounded" width="100%" height="auto" alt="Gandhi walking at the head of the column of marchers, staff in hand, on the road to Dandi, 1930." data-zoomable="" loading="lazy" onerror="this.onerror=null; document.querySelectorAll('.responsive-img-srcset').forEach(function (n) { n.remove(); });">
+  </picture>
+
+  
+</figure>
+
+<div class="caption">
+  On the road to Dandi, March 1930. Photographer unknown; public domain, via <a href="https://commons.wikimedia.org/wiki/Category:Salt_March" rel="external nofollow noopener" target="_blank">Wikimedia Commons</a>.
+</div>
+
+<div style="display: flex; justify-content: flex-end; margin-bottom: 1.5rem;">
+  <a href="/blog/2026/salt-and-silence-hindi/" style="padding: 0.35rem 1rem; border-radius: 999px; border: 1px solid currentColor; font-size: 0.85rem; text-decoration: none; color: inherit;">
+    हिंदी में पढ़ें
+  </a>
+</div>
+
+<p>The chill comes off the river before the light does.</p>
+
+<p>It is the edge of dawn on the banks of the Sabarmati. Thousands are standing along the water in the grey, shoulder to shoulder, and nobody is shouting. There is wind in the dry reeds, and the hollow knock of a bamboo staff against baked earth.</p>
+
+<p>The man holding the staff is sixty years old. One length of coarse white cloth, and a cheap pocket watch hanging from his waist on a safety pin. He does not turn to check whether anyone is behind him. He starts walking south.</p>
+
+<p>You look down at your bare feet on the cool sand, pull your shoulder cloth tight, and step into the dust after him.</p>
+
+<p>You are one of the seventy-eight.</p>
+
+<p>Ten days ago he wrote to the Viceroy to tell him this was going to happen.</p>
+
+<p>Not a threat. A letter that opens by apologising for the trouble it is about to cause, lists eleven things that would call it all off, and names the law he means to break. The Viceroy did not answer. A secretary confirmed the letter had arrived. <em>On bended knees I asked for bread, and I have received stone instead.</em></p>
+
+<p>Nobody on this road is hiding from anybody. It will take you the length of the walk to understand that this is not innocence. It is the design.</p>
+
+<h2 id="the-seed-crystal">The seed crystal</h2>
+
+<p>London and Delhi were braced for a riot. Ten thousand angry men at the gates of a government building, because that is the only shape power knows how to see.</p>
+
+<p>He took seventy-eight.</p>
+
+<p>Look down the line as it thins out across the plain. A weaver of eighteen from Kutch. A Sanskrit scholar. Farmers from Kerala, from Bengal. One man who came the entire way from Nepal for this. Titus from Travancore, twenty-five, a Syrian Christian who keeps the dairy back at the ashram. Every one of you has promised that when the steel-tipped lathi comes down on your collarbone, you will not lift a hand to stop it.</p>
+
+<p>I work on fluids, so this is the picture I reach for, and I want to be careful with it, because the usual telling has it backwards.</p>
+
+<p>Cool water slowly, keep it very clean, do not jostle it, and it will sit far below freezing and stay liquid, looking like nothing at all. Then drop in one grain of ice. The whole vessel goes solid faster than your eye can follow.</p>
+
+<p>It is tempting to hand the grain the credit. The grain did almost nothing. Drop it into water at room temperature and it melts and the afternoon goes on. Everything that happened was already inside the water, waiting for somewhere to start.</p>
+
+<p>You have been supercooled for ten years. Non-cooperation, and the shame of it being called off. Bardoli, where the refusal held and the government blinked first. Lahore in December, where the word became <em>complete independence</em> and not one person could say by what method.</p>
+
+<p>The country is not calm. The country is only still.</p>
+
+<p>Seventy-eight men were never going to free anything. Seventy-eight men are enough to be a place where something can begin.</p>
+
+<h2 id="the-dust-and-the-wheel">The dust and the wheel</h2>
+
+<p>By the second week the soles of your feet are blistered, and the blisters tear and pack with fine Gujarat dust.</p>
+
+<p>The heat comes down like a flat sheet of brass through the middle of the day. Nobody applauds. But at the edge of every village women stand in the dust with brass pots of well water, and they say nothing at all, they only tip the water onto the road ahead so the ground will not burn your feet, and scatter neem leaves where you are about to step.</p>
+
+<p>Near the front, Narayan Khare, who teaches music at the ashram, sings into the wind.</p>
+
+<blockquote style="font-size: 1.15em; font-style: italic;">
+  <p><em>Vaishnava jana to tene kahiye je peed parayi jaane re</em></p>
+
+  <p>Call him a man of God who feels another’s pain as his own.</p>
+</blockquote>
+
+<p>The old man ahead of you never slows. His ribs show through his skin, his back is bent, and his stride has an even mechanical patience that is quietly finishing off men half his age.</p>
+
+<p>At dusk the column stops at a schoolhouse and everyone goes down onto the straw. In the dark you hear the small wooden creak of a spinning wheel.</p>
+
+<p>Under a banyan tree, by the light of a hurricane lamp, he sits cross-legged with a small folding wooden box open on the ground. Before he sleeps he has thread to spin, and he will spin it. Somewhere in New Delhi, men are writing home about the comedy of a rebellion conducted on foot.</p>
+
+<p>Three hundred and eighty-six kilometres. Sixteen a day, twenty-four days, forty villages.</p>
+
+<p>He did not have to do any of it. There is salt water an hour from Ahmedabad. He could have broken the law before lunch on the first morning and been in a cell by dark, and the whole affair would have been four lines on an inside page.</p>
+
+<p>The slowness is the instrument. Every newspaper in the country is now obliged to file something about a sixty-year-old man walking, every day, for three weeks, and there is nothing the government can do, because walking is not a crime. Conspiracy needs surprise. This needs the opposite, and the opposite cannot be arrested.</p>
+
+<p>Something else is happening while you walk, and it makes no sound. The headmen, the village accountants, all the small salaried men through whom an empire actually touches the ground, are resigning as the column passes. By the time you can smell salt in the air, a hundred and forty are gone in Surat district alone. Ten days later it will be two hundred and twenty-seven.</p>
+
+<h2 id="the-universal-mineral">The universal mineral</h2>
+
+<p>Why salt?</p>
+
+<p>His own people could not follow it. Nehru was polite and unconvinced. Patel thought a land revenue boycott made far better sense. A Calcutta paper wrote that it was difficult not to laugh.</p>
+
+<p>Salt is the taste of your own sweat after eight hours behind a plough. It is what is in the eye when a mother weeps. It is the pinch of grey crystal dropped into a clay pot of boiling lentils by a family with nothing else to put in it. The prince eating off silver and the beggar scraping his bowl in the road carry the identical mineral on the tongue.</p>
+
+<p>Under an act of 1882 the Crown owns it. Not the trade in it. The thing itself. It is a criminal offence to walk down to the sea and pick up what the sun has already left drying on the rock. That tax is near a twelfth of the government’s revenue, and it is paid by people who pay nothing else at all.</p>
+
+<p>This is the part I keep turning over, because I think it is the whole trick.</p>
+
+<p>A government can defend an income tax out loud, in one sentence, and still sound like a government. Now say the salt law out loud. Try it. Every honest way of putting it comes out either ridiculous or cruel, and there is no third way.</p>
+
+<p>He was not hunting for the law that hurt the most. He was hunting for the one that could not survive being described.</p>
+
+<h2 id="the-hand-in-the-silt">The hand in the silt</h2>
+
+<p>Twenty-four nights on schoolhouse straw, and then the air changes. The dry heat of the plains gives way to something damp and saline that tastes of kelp and old water.</p>
+
+<p>You come into Dandi on the evening of the fifth of April. That night the seventy-eight sit out under open stars beside the noise of the Arabian Sea, and almost nobody sleeps, because when the sun comes up you will step over a line that has no way back across it.</p>
+
+<p>Dawn is grey and quiet. The tide has gone out and left wide ribbed flats of cold shining mud.</p>
+
+<p>At half past eight he walks into the sea and bathes. He comes out with the wet cloth clinging to his legs and squelches over the grey mud to a shallow pit where the sun has dried a crust of raw salt.</p>
+
+<p>He kneels. His bare fingers go into the silt.</p>
+
+<p>He lifts a handful of dirty glistening mud into the morning light.</p>
+
+<blockquote style="font-size: 1.15em; font-style: italic;">
+  <p>With this, I am shaking the foundations of the British Empire.</p>
+</blockquote>
+
+<p>Beside him Sarojini Naidu calls out over the wind. <em>Hail, Deliverer.</em></p>
+
+<p>Twenty-three grams of wet grey salt. It will be auctioned later to a mill owner for five hundred and twenty-five rupees, about a clerk’s pay for a year. It was worth nothing whatever until it became illegal to hold.</p>
+
+<h2 id="the-spring-uncoiled">The spring uncoiled</h2>
+
+<p>What follows is not an explosion. It is the thing an empire fears more, which is a change of state.</p>
+
+<p>The law does not break. It evaporates.</p>
+
+<p>On balconies in Bombay, women set brass vessels of seawater over coal. On the beaches near Madras, fishermen scrape dried salt off rock and press it into the hands of strangers. Out of the marshes of Bengal, peasants carry clay jars of brine into the bazaars. By the end of the month sixty thousand people are in prison. At midnight on the fourth of May they come for him.</p>
+
+<p>In Peshawar they arrest Ghaffar Khan, and his people fill the Qissa Khwani bazaar unarmed, having given the same promise you gave. Armoured cars are driven into the crowd at speed. Then the machine guns. It goes on six hours.</p>
+
+<p>And two platoons of the Garhwal Rifles refuse to board the buses that are to carry them there. They are court-martialled and given eight years.</p>
+
+<p>If you want to know what actually happened in 1930, it is not a speech and it is not a handful of mud. It is soldiers standing beside a bus they will not get on.</p>
+
+<p>In May they walk on the salt works at Dharasana, in columns, told they will be beaten and must not raise a hand. An American reporter named Webb Miller is there with a notebook. He writes that not one of them raised an arm. That they went down like ten-pins. That from where he stood he could hear the clubs landing on unprotected skulls.</p>
+
+<p>His dispatch runs in thirteen hundred and fifty newspapers and is read aloud into the record of the United States Senate.</p>
+
+<h2 id="the-lightest-truth">The lightest truth</h2>
+
+<p>The treaty that follows is thin. Prisoners released, and people on the coast allowed to make salt for their own pots. The tax itself stands until 1946. Freedom, when it comes in 1947, comes cut in half, with a number of dead that makes the arithmetic of this morning look small. None of that was settled here, on this beach, in one morning, and it would be too easy to pretend otherwise.</p>
+
+<p>But look at the shape of what was settled.</p>
+
+<p>An empire that counted itself in battalions and battleships and artillery, that had put down mutinies and annexed kingdoms and drawn the borders of half the world, was answered by twenty-three grams of wet mud drying in an old man’s open hand.</p>
+
+<p>And it had nothing to answer with. Every instrument it owned was built to meet force, and force was the one thing that never arrived. You can shell an army. You can starve a city. What do you do when three hundred million people get up one morning, take a pinch of dirt off the ground, and stop asking permission to be alive?</p>
+
+<p>It arrested ninety thousand. The stations filled, the magistrates ran out of paper, and every arrest made the arresting look worse.</p>
+
+<p>The guns stayed in their racks. The battalions stayed in barracks. Nobody stormed anything. And the thing that had held a subcontinent still for two hundred years, which was never the artillery but the belief that resistance was unthinkable, went in the quietest way imaginable, like a dry twig.</p>
+
+<p>That is what power forgets, in every century, and it will forget it again. It prepares for a heavier hammer. It is never ready for a lighter one.</p>
+
+<p>You do not bring down a mountain of fear by piling up a mountain of anger. You find the one small true thing that belongs to everybody equally, and you touch it, and you let the rest of the world wake up on its own.</p>
+
+<p>He only chose the place to put his finger.</p>
+
+<p>The rest of it was you.</p>
+
+    </div>
+  </article>
+
+  
+
+  
+
+  
+    
+  
+
+  
+    
+
+
+  
+</div>
+
+            </div>
+          </div>
+        
+      
+    </div>
+
+    <!-- Footer -->
+    
+
+
+  <footer class="sticky-bottom mt-5" role="contentinfo">
+    
+
+    <div class="container">
+      
+  <span class="footer-line">
+    © Copyright 2026 Harshit Tiwari. Last updated: August 15, 2026.
+  </span>
+  
+
+    </div>
+  </footer>
+
+
+
+    <!-- JavaScripts -->
+    <script>
+  window.alFolio = {
+    compatBootstrap: false
+  };
+</script>
+
+<!-- Core navigation/runtime scripts -->
+<script src="/assets/js/nav-toggle.js?v=141bd79a73ebc0f0b6ea58e440ae79fc"></script>
+
+
+
+  <!-- Masonry & imagesLoaded -->
+  <script defer src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script>
+  <script defer src="/assets/js/masonry.js?v=e49affc7bd2646f6acdad1dbe02c2359" type="text/javascript"></script>
+
+
+
+  <!-- Charts and Diagrams -->
+  
+
+
+
+
+
+
+
+  <!-- Math and Tikzjax -->
+  
+<script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js" integrity="sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI=" crossorigin="anonymous"></script>
+<script src="/assets/al_math/js/mathjax-setup.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6" crossorigin="anonymous"></script>
+
+
+
+
+
+<!-- Tooltips & popovers runtime -->
+<script src="/assets/js/tooltips-setup.js?v=fe487e99db6c43751e6e7bdb2d6a0611"></script>
+
+
+
+
+
+  <!-- Tocbot -->
+  <script defer src="https://cdn.jsdelivr.net/npm/tocbot@4.36.4/dist/tocbot.min.js" integrity="sha256-lo/r+jQ81wWrxdIiiiEEd538z4+dTJTt+leOuAS7GCw=" crossorigin="anonymous"></script>
+
+
+<!-- Load Common JS -->
+<script src="/assets/js/no_defer.js?v=53b1b1a645525975c963ce8bf8bfefcf"></script>
+<script defer src="/assets/js/common.js?v=87baac90f765f2f3362dcf6aaf312a8a"></script>
+<script defer src="/assets/js/copy_code.js?v=c8a01c11a92744d44b093fc3bda915df" type="text/javascript"></script>
+
+<!-- Jupyter Open External Links New Tab -->
+<script defer src="/assets/js/jupyter_new_tab.js?v=896d254890d9b47f0281f63bfccf0dee"></script>
+
+<!-- Badges -->
+
+  <script async src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script>
+
+
+  <script async src="https://badge.dimensions.ai/badge.js"></script>
+
+
+
+
+  <!-- Analytics -->
+  
+
+
+
+
+
+  <!-- Image Features -->
+  
+<!-- Medium Zoom JS -->
+<script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous"></script>
+<script defer src="/assets/al_img_tools/js/zoom.js"></script>
+
+
+
+
+
+  <!-- Scrolling Progress Bar -->
+  <script defer src="/assets/js/progress-bar.js?v=499464c5c63ced6cf7ad62509f1e2610" type="text/javascript"></script>
+
+
+
+
+
+
+
+  <!-- Search -->
+  
+    
+<script type="module" src="/assets/al_search/js/search/ninja-keys.min.js"></script>
+<ninja-keys hidebreadcrumbs noautoloadmdicons placeholder="Type to start searching"></ninja-keys>
+<script src="/assets/al_search/js/search-setup.js"></script>
+<script>
+// get the ninja-keys element
+const ninja = document.querySelector('ninja-keys');
+
+// add the home and posts menu items
+ninja.data = [{
+    id: "nav-about",
+    title: "About",
+    section: "Navigation",
+    handler: () => {
+      window.location.href = "/";
+    },
+  },{id: "nav-publications",
+          title: "Publications",
+          description: "",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/publications/";
+          },
+        },{id: "nav-projects",
+          title: "Projects",
+          description: "Research and software projects in turbulent flows, scientific computing, and quantum algorithms.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/projects/";
+          },
+        },{id: "nav-cv",
+          title: "CV",
+          description: "Curriculum Vitae of Harshit Tiwari.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/cv/";
+          },
+        },{id: "nav-about-me",
+          title: "About Me",
+          description: "Life beyond research—mountains, movement, music, and games.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/about-me/";
+          },
+        },{id: "nav-blogs",
+          title: "Blogs",
+          description: "",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/blogs/";
+          },
+        },{id: "nav-teaching",
+          title: "Teaching",
+          description: "Teaching experience at the Indian Institute of Technology Kanpur.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/teaching/";
+          },
+        },{id: "dropdown-repositories",
+              title: "Repositories",
+              description: "",
+              section: "Dropdown",
+              handler: () => {
+                window.location.href = "/repositories/";
+              },
+            },{id: "dropdown-notes",
+              title: "Notes",
+              description: "",
+              section: "Dropdown",
+              handler: () => {
+                window.location.href = "/blog/";
+              },
+            },{id: "dropdown-talks",
+              title: "Talks",
+              description: "",
+              section: "Dropdown",
+              handler: () => {
+                window.location.href = "/talks/";
+              },
+            },{id: "post-नमक-और-मौन",
+        
+          title: "नमक और मौन",
+        
+        description: "सबसे भारी ज़ंजीरें सबसे हल्की चीज़ों से क्यों टूटती हैं।",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/salt-and-silence-hindi/";
+          
+        },
+      },{id: "post-salt-and-silence",
+        
+          title: "Salt and Silence",
+        
+        description: "Why the heaviest chains are broken by the lightest things.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/salt-and-silence/";
+          
+        },
+      },{id: "post-self-learning-in-the-age-of-ai",
+        
+          title: "Self-Learning in the Age of AI",
+        
+        description: "A broadband connection in 2017, a pile of books, and years of getting stuck alone. What I think was actually missing.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/self-learning-in-the-age-of-ai/";
+          
+        },
+      },{id: "post-a-post-with-plotly-js",
+        
+          title: "a post with plotly.js",
+        
+        description: "this is what included plotly.js code could look like",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/plotly/";
+          
+        },
+      },{id: "post-a-post-with-image-galleries",
+        
+          title: "a post with image galleries",
+        
+        description: "this is what included image galleries could look like",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/photo-gallery/";
+          
+        },
+      },{id: "post-a-post-with-tabs",
+        
+          title: "a post with tabs",
+        
+        description: "this is what included tabs in a post could look like",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/tabs/";
+          
+        },
+      },{id: "post-a-post-with-typograms",
+        
+          title: "a post with typograms",
+        
+        description: "this is what included typograms code could look like",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/typograms/";
+          
+        },
+      },{id: "post-a-post-that-can-be-cited",
+        
+          title: "a post that can be cited",
+        
+        description: "this is what a post that can be cited looks like",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/post-citation/";
+          
+        },
+      },{id: "post-a-post-with-pseudo-code",
+        
+          title: "a post with pseudo code",
+        
+        description: "this is what included pseudo code could look like",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/pseudocode/";
+          
+        },
+      },{id: "post-a-post-with-code-diff",
+        
+          title: "a post with code diff",
+        
+        description: "this is how you can display code diffs",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/code-diff/";
+          
+        },
+      },{id: "post-a-post-with-advanced-image-components",
+        
+          title: "a post with advanced image components",
+        
+        description: "this is what advanced image components could look like",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/advanced-images/";
+          
+        },
+      },{id: "post-a-post-with-vega-lite",
+        
+          title: "a post with vega lite",
+        
+        description: "this is what included vega lite code could look like",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/vega-lite/";
+          
+        },
+      },{id: "post-a-post-with-geojson",
+        
+          title: "a post with geojson",
+        
+        description: "this is what included geojson code could look like",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/geojson-map/";
+          
+        },
+      },{id: "post-a-post-with-echarts",
+        
+          title: "a post with echarts",
+        
+        description: "this is what included echarts code could look like",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/echarts/";
+          
+        },
+      },{id: "post-a-post-with-chart-js",
+        
+          title: "a post with chart.js",
+        
+        description: "this is what included chart.js code could look like",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/chartjs/";
+          
+        },
+      },{id: "post-a-post-with-tikzjax",
+        
+          title: "a post with TikZJax",
+        
+        description: "this is what included TikZ code could look like",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2023/tikzjax/";
+          
+        },
+      },{id: "post-a-post-with-bibliography",
+        
+          title: "a post with bibliography",
+        
+        description: "an example of a blog post with bibliography",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2023/post-bibliography/";
+          
+        },
+      },{id: "post-a-post-with-jupyter-notebook",
+        
+          title: "a post with jupyter notebook",
+        
+        description: "an example of a blog post with jupyter notebook",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2023/jupyter-notebook/";
+          
+        },
+      },{id: "post-a-post-with-custom-blockquotes",
+        
+          title: "a post with custom blockquotes",
+        
+        description: "an example of a blog post with custom blockquotes",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2023/custom-blockquotes/";
+          
+        },
+      },{id: "post-a-post-with-table-of-contents-on-a-sidebar",
+        
+          title: "a post with table of contents on a sidebar",
+        
+        description: "an example of a blog post with table of contents on a sidebar",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2023/sidebar-table-of-contents/";
+          
+        },
+      },{id: "post-a-post-with-audios",
+        
+          title: "a post with audios",
+        
+        description: "this is what included audios could look like",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2023/audios/";
+          
+        },
+      },{id: "post-a-post-with-videos",
+        
+          title: "a post with videos",
+        
+        description: "this is what included videos could look like",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2023/videos/";
+          
+        },
+      },{id: "post-displaying-beautiful-interactive-tables",
+        
+          title: "displaying beautiful interactive tables",
+        
+        description: "an example of how to use interactive tables in al-folio",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2023/tables/";
+          
+        },
+      },{id: "post-a-post-with-table-of-contents",
+        
+          title: "a post with table of contents",
+        
+        description: "an example of a blog post with table of contents",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2023/table-of-contents/";
+          
+        },
+      },{id: "post-a-post-with-giscus-comments",
+        
+          title: "a post with giscus comments",
+        
+        description: "an example of a blog post with giscus comments",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2022/giscus-comments/";
+          
+        },
+      },{id: "post-a-post-with-redirect",
+        
+          title: "a post with redirect",
+        
+        description: "you can also redirect to assets like pdf",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/assets/pdf/example_pdf.pdf";
+          
+        },
+      },{id: "post-a-post-with-diagrams",
+        
+          title: "a post with diagrams",
+        
+        description: "an example of a blog post with diagrams",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2021/diagrams/";
+          
+        },
+      },{id: "post-a-distill-style-blog-post",
+        
+          title: "a distill-style blog post",
+        
+        description: "an example of a distill-style blog post and main elements",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2021/distill/";
+          
+        },
+      },{id: "post-a-post-with-twitter",
+        
+          title: "a post with twitter",
+        
+        description: "an example of a blog post with twitter",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2020/twitter/";
+          
+        },
+      },{id: "post-a-post-with-disqus-comments",
+        
+          title: "a post with disqus comments",
+        
+        description: "an example of a blog post with disqus comments",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2015/disqus-comments/";
+          
+        },
+      },{id: "post-a-post-with-math",
+        
+          title: "a post with math",
+        
+        description: "an example of a blog post with some math",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2015/math/";
+          
+        },
+      },{id: "post-a-post-with-code",
+        
+          title: "a post with code",
+        
+        description: "an example of a blog post with some code",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2015/code/";
+          
+        },
+      },{id: "post-a-post-with-images",
+        
+          title: "a post with images",
+        
+        description: "this is what included images could look like",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2015/images/";
+          
+        },
+      },{id: "post-a-post-with-formatting-and-links",
+        
+          title: "a post with formatting and links",
+        
+        description: "march &amp; april, looking forward to summer",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2015/formatting-and-links/";
+          
+        },
+      },{id: "books-the-godfather",
+          title: 'The Godfather',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/the_godfather/";
+            },},{id: "news-secured-all-india-rank-74-in-iit-jam-and-all-india-rank-307-in-jest",
+          title: 'Secured **All India Rank 74** in IIT JAM and **All India Rank 307**...',
+          description: "",
+          section: "News",},{id: "news-joined-the-m-sc-physics-program-at-iit-kanpur-awarded-the-merit-cum-means-scholarship",
+          title: 'Joined the M.Sc. Physics program at IIT Kanpur, awarded the **Merit cum Means...',
+          description: "",
+          section: "News",},{id: "news-started-master-39-s-project-on-accretion-disk-oscillations-under-prof-pankaj-jain",
+          title: 'Started Master&amp;#39;s project on accretion disk oscillations under Prof. Pankaj Jain. 🌌',
+          description: "",
+          section: "News",},{id: "news-attended-the-icts-summer-school-on-gravitational-wave-astronomy",
+          title: 'Attended the ICTS Summer School on *Gravitational-Wave Astronomy*. 🔭',
+          description: "",
+          section: "News",},{id: "news-graduated-with-an-m-sc-in-physics-from-iit-kanpur",
+          title: 'Graduated with an M.Sc. in Physics from IIT Kanpur. 📜',
+          description: "",
+          section: "News",},{id: "news-commenced-my-ph-d-in-physics-as-a-graduate-researcher-at-iit-kanpur",
+          title: 'Commenced my Ph.D. in Physics as a Graduate Researcher at IIT Kanpur! 🎓...',
+          description: "",
+          section: "News",},{id: "news-served-as-the-hec-election-officer-for-hall-7-elections-at-iit-kanpur-️",
+          title: 'Served as the HEC Election Officer for Hall 7 elections at IIT Kanpur....',
+          description: "",
+          section: "News",},{id: "news-appointed-secretary-of-the-adventure-sports-club-at-iit-kanpur-2022-23",
+          title: 'Appointed Secretary of the **Adventure Sports Club** at IIT Kanpur (2022-23). 🚲',
+          description: "",
+          section: "News",},{id: "news-participated-in-the-nsm-gpu-hackathon-porting-our-gross-pitaevskii-solver-to-64-nvidia-a100-gpus",
+          title: 'Participated in the NSM GPU Hackathon, porting our Gross-Pitaevskii solver to 64 Nvidia...',
+          description: "",
+          section: "News",},{id: "news-attended-the-icts-program-on-turbulence-problems-at-the-interface-of-mathematics-and-physics",
+          title: 'Attended the ICTS program on *Turbulence: Problems at the Interface of Mathematics and...',
+          description: "",
+          section: "News",},{id: "news-re-appointed-secretary-of-the-adventure-sports-club-at-iit-kanpur-2023-24",
+          title: 'Re-appointed Secretary of the **Adventure Sports Club** at IIT Kanpur (2023-24). 💪',
+          description: "",
+          section: "News",},{id: "news-attended-the-icts-program-on-field-theory-and-turbulence",
+          title: 'Attended the ICTS program on *Field Theory and Turbulence*. 📝',
+          description: "",
+          section: "News",},{id: "news-presented-our-work-on-compressible-turbulent-convection-at-the-iit-kanpur-physics-research-scholar-day-2024-️",
+          title: 'Presented our work on compressible turbulent convection at the IIT Kanpur Physics Research...',
+          description: "",
+          section: "News",},{id: "news-participated-in-the-frontier-hackathon-successfully-scaling-our-compressible-solver-dhara-on-frontier-to-8-192-amd-mi250x-gpus",
+          title: 'Participated in the Frontier Hackathon, successfully scaling our compressible solver **DHARA** on Frontier...',
+          description: "",
+          section: "News",},{id: "news-appointed-coordinator-of-the-adventure-sports-club-at-iit-kanpur-2024-25",
+          title: 'Appointed Coordinator of the **Adventure Sports Club** at IIT Kanpur (2024-25). 🥾 🏃...',
+          description: "",
+          section: "News",},{id: "news-presented-a-poster-on-our-high-performance-fluid-simulation-results-at-the-iit-kanpur-hpc-symposium",
+          title: 'Presented a poster on our high-performance fluid simulation results at the IIT Kanpur...',
+          description: "",
+          section: "News",},{id: "news-delivered-a-talk-at-the-icts-program-on-theoretical-and-practical-perspectives-in-geophysical-fluid-dynamics",
+          title: 'Delivered a talk at the ICTS program on *Theoretical and Practical Perspectives in...',
+          description: "",
+          section: "News",},{id: "news-delivered-a-talk-on-quot-classical-1-3-nusselt-scaling-quot-at-the-1st-european-fluid-dynamics-conference-efdc1-in-aachen-germany",
+          title: 'Delivered a talk on *&amp;quot;Classical 1/3 Nusselt Scaling&amp;quot;* at the **1st European Fluid...',
+          description: "",
+          section: "News",},{id: "news-presented-a-poster-on-compressible-convection-at-the-variable-sun-past-present-and-future-conference-in-thiruvananthapuram",
+          title: 'Presented a poster on compressible convection at *The Variable Sun: Past, Present, and...',
+          description: "",
+          section: "News",},{id: "news-chaired-a-session-and-presented-our-thermal-turbulence-research-at-the-aps-dfd-2025-meeting-in-houston-texas-supported-by-the-dfd-enabling-award",
+          title: 'Chaired a session and presented our thermal turbulence research at the **APS DFD...',
+          description: "",
+          section: "News",},{id: "news-participated-in-the-indo-japanese-workshop-for-cfd-based-ai-and-hpc-2025-at-iit-kanpur",
+          title: 'Participated in the *Indo-Japanese Workshop for CFD-based AI and HPC 2025* at IIT...',
+          description: "",
+          section: "News",},{id: "news-submitted-my-ph-d-thesis-and-started-as-a-fare-fellow-at-iit-kanpur",
+          title: 'Submitted my Ph.D. thesis and started as a **FARE Fellow** at IIT Kanpur!...',
+          description: "",
+          section: "News",},{id: "news-gave-a-talk-on-quot-high-resolution-simulations-of-dry-and-moist-turbulent-convection-quot-at-the-icts-moist-convective-dynamics-program",
+          title: 'Gave a talk on *&amp;quot;High-resolution simulations of dry and moist turbulent convection&amp;quot;* at...',
+          description: "",
+          section: "News",},{id: "news-visited-paris-france-to-participate-in-the-trimester-program-workshop-quot-instabilities-and-transitions-in-geophysical-flows-quot-at-institute-henri-poincaré-️",
+          title: 'Visited Paris, France to participate in the trimester program workshop *&amp;quot;Instabilities and transitions...',
+          description: "",
+          section: "News",},{id: "news-successfully-defended-my-ph-d-thesis",
+          title: 'Successfully defended my Ph.D. thesis! 🎓 🎉',
+          description: "",
+          section: "News",},{id: "news-started-my-new-position-as-a-postdoctoral-associate-at-new-york-university-nyu",
+          title: 'Started my new position as a **Postdoctoral Associate** at New York University (NYU)!...',
+          description: "",
+          section: "News",},{id: "news-received-my-ph-d-in-physics-from-iit-kanpur-and-the-outstanding-phd-thesis-award",
+          title: 'Received my Ph.D. in Physics from IIT Kanpur and the **Outstanding PhD Thesis...',
+          description: "",
+          section: "News",},{id: "projects-accretion-disk-oscillations",
+          title: 'Accretion Disk Oscillations',
+          description: "Theoretical modelling of acoustic modes around rotating black holes.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/accretion-disk-oscillations/";
+            },},{id: "projects-compressible-turbulent-convection",
+          title: 'Compressible Turbulent Convection',
+          description: "Heat transport and scaling laws at extreme Rayleigh numbers.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/compressible-convection/";
+            },},{id: "projects-dhara",
+          title: 'DHARA',
+          description: "A scalable Python framework for solving nonlinear partial differential equations on CPUs and GPUs.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/dhara/";
+            },},{id: "projects-magnetic-field-evolution-in-neutron-stars",
+          title: 'Magnetic Field Evolution in Neutron Stars',
+          description: "Ohmic dissipation, Hall drift, and electron magnetohydrodynamics in neutron-star crusts.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/magnetic-field-neutron-stars/";
+            },},{id: "projects-moist-turbulent-convection",
+          title: 'Moist Turbulent Convection',
+          description: "High-resolution simulations of conditionally unstable atmospheric convection.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/moist-convection/";
+            },},{id: "projects-renormalization-of-the-navier-stokes-equation",
+          title: 'Renormalization of the Navier–Stokes Equation',
+          description: "A renormalization-group view of scale-dependent transport in turbulence.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/navier-stokes-renormalization/";
+            },},{id: "projects-quantum-computing-for-fluid-dynamics",
+          title: 'Quantum Computing for Fluid Dynamics',
+          description: "Developing quantum-computing approaches for fluid-dynamics problems at NYU.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/quantum-computing-fluid-dynamics/";
+            },},{id: "projects-supersonic-turbulence",
+          title: 'Supersonic Turbulence',
+          description: "Energy spectra and fluxes from high-fidelity direct numerical simulations.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/supersonic-turbulence/";
+            },},{
+        id: 'social-email',
+        title: 'email',
+        section: 'Socials',
+        handler: () => {
+          window.open("mailto:%68%61%72%73%68%69%74.%74%69%77%61%72%69@%6E%79%75.%65%64%75", "_blank");
+        },
+      },{
+        id: 'social-scholar',
+        title: 'Google Scholar',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://scholar.google.com/citations?user=pZsezWMAAAAJ", "_blank");
+        },
+      },{
+        id: 'social-github',
+        title: 'GitHub',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://github.com/harshitiwari", "_blank");
+        },
+      },{
+        id: 'social-linkedin',
+        title: 'LinkedIn',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://www.linkedin.com/in/harshit-tiwari-6989b216b", "_blank");
+        },
+      },{
+        id: 'social-researchgate',
+        title: 'ResearchGate',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://www.researchgate.net/profile/Harshit-Tiwari-7/", "_blank");
+        },
+      },{
+        id: 'social-youtube_channel',
+        title: 'Youtube_channel',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://www.youtube.com/channel/UCxZ6-66yuMBDBP5fJDoMlKg", "_blank");
+        },
+      },{
+        id: 'social-cv',
+        title: 'CV',
+        section: 'Socials',
+        handler: () => {
+          window.open("/assets/pdf/cv.pdf", "_blank");
+        },
+      },{
+        id: 'social-rss',
+        title: 'RSS Feed',
+        section: 'Socials',
+        handler: () => {
+          window.open("/feed.xml", "_blank");
+        },
+      },{
+      id: 'light-theme',
+      title: 'Change theme to light',
+      description: 'Change the theme of the site to Light',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("light");
+      },
+    },
+    {
+      id: 'dark-theme',
+      title: 'Change theme to dark',
+      description: 'Change the theme of the site to Dark',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("dark");
+      },
+    },
+    {
+      id: 'system-theme',
+      title: 'Use system default theme',
+      description: 'Change the theme of the site to System Default',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("system");
+      },
+    },];
+
+</script>
+<script src="/assets/al_search/js/shortcut-key.js"></script>
+
+
+  
+
+
+
+
+    <script src="/assets/js/lorenz.js?v=ec35abf6416768b2c90cfd286d3ef016"></script>
+    <script src="/assets/js/ambient-controls.js?v=f8f3b5526ee15b3497f454ccd4b60e74"></script>
+    <script src="/assets/js/seamless-navigation.js?v=c0b7ccf58054872bd7364cf9c3e404a8"></script>
+  </body>
+</html>

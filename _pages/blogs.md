@@ -15,7 +15,7 @@ nav_order: 5
 
   <ul class="post-list">
 
-    {% assign blog_posts = site.posts | where_exp: "post", "post.categories contains 'blogs'" %}
+    {% assign blog_posts = site.posts | where_exp: "post", "post.categories contains 'blogs'" | where_exp: "post", "post.unlisted != true" %}
 
     {% for post in blog_posts %}
 
