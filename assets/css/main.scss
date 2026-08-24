@@ -164,20 +164,6 @@ html.seamless-loading body > .container[role="main"] {
   }
 }
 
-// Custom profile picture border matching the computational-flow palette.
-.profile img.rounded-circle {
-  outline: 2px solid #0f766e; // Light theme color (dark teal)
-  outline-offset: -2px; // Inset stroke overlapping the image
-  border: none;
-  padding: 0;
-}
-
-html[data-theme="dark"] {
-  .profile img.rounded-circle {
-    outline-color: #2dd4bf; // Dark theme color (light teal)
-  }
-}
-
 .profile .more-info .profile-contact {
   font-size: 0.82rem;
   line-height: 1.45;
@@ -312,8 +298,18 @@ html[data-theme="dark"] {
   }
 }
 
+// Align the profile photo column with the top of the name, not the top
+// of the article body (the name/subtitle live in a separate header block
+// above <article>, so the floated photo starts a full line lower by default).
+@media (min-width: 576px) {
+  .profile.float-right {
+    margin-top: -96px;
+  }
+}
+
 .research-interests-strip {
   display: flex;
+  clear: both;
   gap: 0.8rem;
   align-items: baseline;
   margin: 1.4rem 0 2.2rem;
