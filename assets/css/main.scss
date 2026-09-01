@@ -333,6 +333,13 @@ html.seamless-loading body > .container[role="main"] {
   }
 }
 
+// Keep the Term column of the teaching schedule on one line; let the
+// Course column (which has room to spare) absorb any width pressure.
+.teaching-schedule table th:last-child,
+.teaching-schedule table td:last-child {
+  white-space: nowrap;
+}
+
 .research-grid,
 .interest-grid {
   display: grid;

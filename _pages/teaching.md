@@ -9,6 +9,8 @@ nav_order: 6
 
 I served as a graduate teaching assistant for undergraduate laboratories, computational physics, electrodynamics, electronics, and two NPTEL courses at IIT Kanpur.
 
+<div class="teaching-schedule" markdown="1">
+
 | Course                                                                                            | Term                |
 | ------------------------------------------------------------------------------------------------- | ------------------- |
 | **PHY111A:** Undergraduate Lab                                                                    | Aug 2025 - Nov 2025 |
@@ -18,5 +20,7 @@ I served as a graduate teaching assistant for undergraduate laboratories, comput
 | **PHY113A:** Classical Electrodynamics                                                            | Mar 2023 - Nov 2023 |
 | **PHY473A:** Computational Physics                                                                | Aug 2022 - Nov 2022 |
 | **PHY441A:** Electronics                                                                          | Aug 2021 - May 2022 |
+
+</div>
 
 My teaching has centered on helping students connect mathematical ideas with experiments and computational practice.
