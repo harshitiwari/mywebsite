@@ -52,8 +52,9 @@
     );
   }
 
-  // Matches /blog, /blogs and anything under them, with or without a baseurl.
-  const READING_PATH = /(^|\/)blogs?(\/|$)/;
+  // Long-form blog and training pages start with a quiet background, with or
+  // without a baseurl. The on-page control can still enable it temporarily.
+  const QUIET_PATH = /(^|\/)(blogs?|training)(\/|$)/;
 
   function prefersLorenz() {
     const saved =
@@ -62,11 +63,10 @@
     return saved !== "false";
   }
 
-  // Blog pages start with the background off so it does not move while you
-  // read. This never writes to the stored preference, so the reader's choice
-  // still applies on the rest of the site.
+  // Quiet pages start with the background off. This never writes to the stored
+  // preference, so the reader's choice still applies on the rest of the site.
   function applyLorenzForPath(pathname) {
-    const enabled = READING_PATH.test(pathname) ? false : prefersLorenz();
+    const enabled = QUIET_PATH.test(pathname) ? false : prefersLorenz();
     setLorenzEnabled(enabled, false);
   }
 

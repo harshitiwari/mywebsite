@@ -11,4 +11,6 @@ children:
     permalink: /blog/
   - title: Talks
     permalink: /talks/
+  - title: Training
+    permalink: /training/
 ---

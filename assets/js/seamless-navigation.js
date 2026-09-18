@@ -29,6 +29,14 @@
     }
 
     const current = new URL(window.location.href);
+    // Training pages load their local-only dashboard runtime on a full page
+    // request so it is never injected into the rest of the portfolio.
+    if (
+      destination.pathname.startsWith("/training") ||
+      current.pathname.startsWith("/training")
+    ) {
+      return false;
+    }
     if (
       destination.pathname === current.pathname &&
       destination.search === current.search
