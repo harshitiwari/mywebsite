@@ -36,11 +36,11 @@ nav: false
       <div class="training-input-grid">
         <label>Cycle week
           <select id="training-cycle-week" name="cycle_week">
+            <option value="0">Week 0 · Deload</option>
             <option value="1">Week 1 · RPE 6</option>
             <option value="2">Week 2 · RPE 7</option>
             <option value="3">Week 3 · RPE 8</option>
             <option value="4">Week 4 · Peak</option>
-            <option value="5">Week 5 · Deload</option>
           </select>
         </label>
         <label>Session
@@ -51,6 +51,17 @@ nav: false
         </label>
         <label>Workout
           <select id="training-template" name="template"></select>
+        </label>
+        <label id="training-run-type-field" hidden>Run workout
+          <select id="training-run-type" name="run_type">
+            <option value="easy">Easy run</option>
+            <option value="fartlek">Fartlek</option>
+            <option value="intervals">Intervals</option>
+            <option value="tempo">Tempo run</option>
+            <option value="threshold">Threshold run</option>
+            <option value="long">Long run</option>
+            <option value="benchmark">5 km benchmark</option>
+          </select>
         </label>
         <label>Body weight <span>kg</span>
           <input id="training-body-weight" name="body_weight" type="number" min="40" max="200" step="0.1" inputmode="decimal" placeholder="80.0">
@@ -69,9 +80,23 @@ nav: false
         <strong id="training-cycle-title">Technique and repeatability</strong>
         <p id="training-cycle-copy">Leave four good reps available. Every repetition should look the same.</p>
       </div>
+      <div class="training-prep-checks" aria-label="Preparation checklist">
+        <label><input id="training-warmup-complete" name="warmup_complete" type="checkbox"> <span><strong>Warm-up completed</strong>Dynamic movement, then progressive ramp-up sets.</span></label>
+        <label><input id="training-cooldown-complete" name="cooldown_complete" type="checkbox"> <span><strong>Cooldown + stretch completed</strong>Easy downshift, then your mobility work.</span></label>
+      </div>
       <label class="training-plan-field">Today’s plan or focus
         <textarea id="training-plan" name="plan" rows="2" placeholder="Heavy but technically clean squats; stop if depth or bracing degrades."></textarea>
       </label>
+    </section>
+
+    <section class="training-panel training-dashboard-week-plan" aria-live="polite">
+      <div class="training-panel-heading">
+        <div><span>WEEK</span><h2>Your plan at a glance</h2></div>
+        <p>Strength, running, and recovery without leaving the dashboard.</p>
+      </div>
+      <p id="training-week-strength" class="training-week-strength"></p>
+      <p id="training-week-running" class="training-week-running"></p>
+      <div id="training-week-schedule" class="training-week-schedule"></div>
     </section>
 
     <section class="training-panel">
@@ -80,6 +105,16 @@ nav: false
         <p>The prescription changes with the selected cycle week.</p>
       </div>
       <div id="training-exercises" class="training-exercises"></div>
+      <div class="training-add-exercise">
+        <label>Add an extra
+          <select id="training-extra-exercise-mode" aria-label="Type of extra exercise">
+            <option value="strength">Strength exercise</option>
+            <option value="cardio">Cardio activity</option>
+            <option value="mobility">Mobility work</option>
+          </select>
+        </label>
+        <button id="training-add-exercise" type="button"><i class="fa-solid fa-plus" aria-hidden="true"></i> Add exercise</button>
+      </div>
     </section>
 
     <section class="training-panel">
