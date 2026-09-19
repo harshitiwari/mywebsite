@@ -15,6 +15,7 @@ nav: false
       <i class="fa-solid fa-lock" aria-hidden="true"></i>
       Open private dashboard
     </a>
+    <a class="training-secondary-action" href="/training/dashboard/#training-history">Saved sessions</a>
     <a class="training-secondary-action" href="#weekly-structure">View weekly structure</a>
   </div>
 </section>

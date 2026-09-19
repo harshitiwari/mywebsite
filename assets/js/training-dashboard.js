@@ -702,10 +702,13 @@
         return;
       }
 
-      showAllButton.hidden = sessions.length <= 6;
+      showAllButton.hidden = false;
+      showAllButton.disabled = sessions.length <= 6;
       showAllButton.textContent = showingAllSessions
         ? "Show recent sessions"
-        : `Show all ${sessions.length} sessions`;
+        : sessions.length <= 6
+          ? `Showing all ${sessions.length} sessions`
+          : `Show all ${sessions.length} sessions`;
       (showingAllSessions ? sessions : sessions.slice(0, 6)).forEach(
         (session) => {
           const item = document.createElement("article");
