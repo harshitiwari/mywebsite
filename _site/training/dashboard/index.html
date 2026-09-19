@@ -22,7 +22,7 @@
   
 </title>
 <meta name="author" content="Harshit Tiwari">
-<meta name="description" content="A private-on-this-device workout and recovery log.">
+<meta name="description" content="A private workout and recovery log.">
 
   <meta name="keywords" content="turbulence, fluid dynamics, compressible flows, scientific computing, high-performance computing, machine learning, quantum computing">
 
@@ -36,7 +36,7 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="Harshit Tiwari | Training Dashboard">
   <meta property="og:url" content="http://localhost:4000/training/dashboard/">
-  <meta property="og:description" content="A private-on-this-device workout and recovery log.">
+  <meta property="og:description" content="A private workout and recovery log.">
   
     <meta property="og:image" content="https://harshitiwari.site/assets/img/og-image.jpg">
   
@@ -45,7 +45,7 @@
   <!-- Twitter card -->
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Training Dashboard">
-  <meta name="twitter:description" content="A private-on-this-device workout and recovery log.">
+  <meta name="twitter:description" content="A private workout and recovery log.">
   
     <meta name="twitter:image" content="https://harshitiwari.site/assets/img/og-image.jpg">
   
@@ -67,7 +67,7 @@
         },
         "url": "http://localhost:4000/training/dashboard/",
         "@type": "WebSite",
-        "description": "A private-on-this-device workout and recovery log.",
+        "description": "A private workout and recovery log.",
         "headline": "Training Dashboard",
         
         "sameAs": ["https://scholar.google.com/citations?user=pZsezWMAAAAJ","https://github.com/harshitiwari","https://www.linkedin.com/in/harshit-tiwari-6989b216b","https://www.researchgate.net/profile/Harshit-Tiwari-7/","https://www.youtube.com/channel/UCxZ6-66yuMBDBP5fJDoMlKg",null],
@@ -503,17 +503,26 @@
     <!-- Content -->
     <div class="container mt-5" role="main">
       
-        <div id="training-dashboard" class="training-dashboard" data-storage-key="ht-training-sessions-v1">
+        <section id="training-private-access" class="training-private-access" aria-live="polite">
+  <div>
+    <p class="training-eyebrow">PRIVATE DASHBOARD</p>
+    <h1>Your training, protected.</h1>
+    <p id="training-private-message">Preparing private access…</p>
+  </div>
+  <div id="training-private-actions" class="training-private-actions"></div>
+</section>
+
+<div id="training-dashboard" class="training-dashboard" data-storage-key="ht-training-sessions-v1">
   <header class="training-dashboard-header">
     <div>
-      <p class="training-eyebrow">PRIVATE · ON THIS DEVICE</p>
+      <p class="training-eyebrow" id="training-privacy-label">PRIVATE · ON THIS DEVICE</p>
       <h1>Today’s training</h1>
       <p id="training-date" class="training-dashboard-date"></p>
     </div>
     <a class="training-back-link" href="/training/"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Public overview</a>
   </header>
 
-  <div class="training-local-notice" role="note">
+  <div class="training-local-notice" id="training-storage-notice" role="note">
     <i class="fa-solid fa-laptop" aria-hidden="true"></i>
     <div>
 <strong>Local private mode</strong><span>Your entries stay in this browser. They are not uploaded to the website or committed to GitHub.</span>
@@ -671,9 +680,16 @@
       <div>
 <span>05</span><h2>Coach</h2>
 </div>
-      <span class="training-coming-soon">NEXT PHASE</span>
+      <span id="training-coach-state" class="training-coming-soon">PRIVATE SETUP REQUIRED</span>
     </div>
-    <p>After the logger feels right, this panel can summarize training, suggest the next working weights, and review fatigue through a secure server connection. No API key will ever be placed in the browser.</p>
+    <p id="training-coach-copy">Once private cloud access is configured, your coach can review recent training and suggest the next session. Your OpenAI key remains server-side.</p>
+    <label class="training-coach-question" for="training-coach-question">Ask about your training
+      <textarea id="training-coach-question" rows="3" placeholder="How should I approach next Monday's squat session?" disabled></textarea>
+    </label>
+    <div class="training-form-actions">
+      <button id="training-coach-ask" type="button" disabled><i class="fa-solid fa-sparkles" aria-hidden="true"></i> Ask coach</button>
+      <span id="training-coach-response" class="training-save-status" role="status" aria-live="polite"></span>
+    </div>
   </section>
 </div>
 
@@ -1474,7 +1490,11 @@ ninja.data = [{
     <script src="/assets/js/ambient-controls.js?v=488a2a8648beda2625fdc1ddce55c038"></script>
     <script src="/assets/js/seamless-navigation.js?v=eeeb1f63dcca15c087d9651bc9a3c513"></script>
     
-      <script src="/assets/js/training-dashboard.js?v=b37b1698c03774d6244d1969643cb6e6"></script>
+      <script src="/assets/js/training-dashboard.js?v=0ddb6b626407b5dc1c834fdcf92cb7ba"></script>
+    
+    
+      <script src="/assets/js/training-cloud-config.js?v=4cc3d1b373311ff4b9742f437576d776"></script>
+      <script type="module" src="/assets/js/training-private.js?v=908e2db193fc055a88675def36b5304c"></script>
     
   </body>
 </html>

@@ -225,6 +225,7 @@ exclude:
   - purgecss.config.js
   - README.md
   - readme_preview/
+  - supabase/
   - gems/
   - migrations/
   - vendor

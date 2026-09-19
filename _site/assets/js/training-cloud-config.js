@@ -1,0 +1,1 @@
+window.trainingCloudConfig={supabaseUrl:"https://pssphpnkuzsltnrowzok.supabase.co",supabasePublishableKey:"sb_publishable_sFj7et1XH2-EZIItPMmu4w_QUUtCM2n",coachFunction:"training-coach"};

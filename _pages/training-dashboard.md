@@ -2,21 +2,30 @@
 layout: default
 title: Training Dashboard
 permalink: /training/dashboard/
-description: A private-on-this-device workout and recovery log.
+description: A private workout and recovery log.
 nav: false
 ---
+
+<section id="training-private-access" class="training-private-access" aria-live="polite">
+  <div>
+    <p class="training-eyebrow">PRIVATE DASHBOARD</p>
+    <h1>Your training, protected.</h1>
+    <p id="training-private-message">Preparing private access…</p>
+  </div>
+  <div id="training-private-actions" class="training-private-actions"></div>
+</section>
 
 <div id="training-dashboard" class="training-dashboard" data-storage-key="ht-training-sessions-v1">
   <header class="training-dashboard-header">
     <div>
-      <p class="training-eyebrow">PRIVATE · ON THIS DEVICE</p>
+      <p class="training-eyebrow" id="training-privacy-label">PRIVATE · ON THIS DEVICE</p>
       <h1>Today’s training</h1>
       <p id="training-date" class="training-dashboard-date"></p>
     </div>
     <a class="training-back-link" href="/training/"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Public overview</a>
   </header>
 
-  <div class="training-local-notice" role="note">
+  <div class="training-local-notice" id="training-storage-notice" role="note">
     <i class="fa-solid fa-laptop" aria-hidden="true"></i>
     <div><strong>Local private mode</strong><span>Your entries stay in this browser. They are not uploaded to the website or committed to GitHub.</span></div>
   </div>
@@ -155,8 +164,15 @@ nav: false
   <section class="training-panel training-coach-preview">
     <div class="training-panel-heading">
       <div><span>05</span><h2>Coach</h2></div>
-      <span class="training-coming-soon">NEXT PHASE</span>
+      <span id="training-coach-state" class="training-coming-soon">PRIVATE SETUP REQUIRED</span>
     </div>
-    <p>After the logger feels right, this panel can summarize training, suggest the next working weights, and review fatigue through a secure server connection. No API key will ever be placed in the browser.</p>
+    <p id="training-coach-copy">Once private cloud access is configured, your coach can review recent training and suggest the next session. Your OpenAI key remains server-side.</p>
+    <label class="training-coach-question" for="training-coach-question">Ask about your training
+      <textarea id="training-coach-question" rows="3" placeholder="How should I approach next Monday's squat session?" disabled></textarea>
+    </label>
+    <div class="training-form-actions">
+      <button id="training-coach-ask" type="button" disabled><i class="fa-solid fa-sparkles" aria-hidden="true"></i> Ask coach</button>
+      <span id="training-coach-response" class="training-save-status" role="status" aria-live="polite"></span>
+    </div>
   </section>
 </div>

@@ -763,6 +763,9 @@
       sessions.unshift(session);
       safeWrite(storageKey, sessions);
       saveStatus.textContent = "Workout saved on this device.";
+      window.dispatchEvent(
+        new CustomEvent("training:session-saved", { detail: session }),
+      );
       renderHistory();
     });
 
@@ -789,6 +792,7 @@
     renderWeeklyPlan();
     renderTemplate();
     renderHistory();
+    window.addEventListener("training:cloud-synced", renderHistory);
   }
 
   document.addEventListener("DOMContentLoaded", initDashboard);

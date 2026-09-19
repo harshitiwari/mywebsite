@@ -1622,6 +1622,70 @@ html.lorenz-disabled #lorenz-canvas {
   margin-inline: auto;
 }
 
+.training-dashboard-locked {
+  display: none;
+}
+
+.training-private-access {
+  display: flex;
+  max-width: 680px;
+  gap: 1.5rem;
+  align-items: end;
+  justify-content: space-between;
+  padding: 1.4rem;
+  margin: 2.25rem auto;
+  color: var(--section-metadata-color);
+  background: color-mix(in srgb, var(--global-theme-color) 6%, transparent);
+  border: 1px dashed var(--global-divider-color);
+  border-radius: 0.65rem;
+
+  h1 {
+    margin: 0;
+    color: var(--global-text-color);
+    font-size: clamp(1.5rem, 4vw, 2.15rem);
+    letter-spacing: -0.03em;
+  }
+
+  p:last-child {
+    max-width: 42ch;
+    margin: 0.55rem 0 0;
+    font-size: 0.82rem;
+    line-height: 1.55;
+  }
+}
+
+.training-private-access-hidden {
+  display: none;
+}
+
+.training-private-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  align-items: center;
+  justify-content: flex-end;
+
+  input {
+    width: 11.5rem;
+    min-height: 2.2rem;
+    padding: 0.35rem 0.55rem;
+    color: var(--global-text-color);
+    background: var(--global-bg-color);
+    border: 1px solid var(--global-divider-color);
+    border-radius: 0.35rem;
+    font-size: 0.78rem;
+  }
+
+  button {
+    padding: 0.45rem 0.65rem;
+    color: var(--global-theme-color);
+    background: transparent;
+    border: 1px solid var(--global-divider-color);
+    border-radius: 0.35rem;
+    font-size: 0.72rem;
+  }
+}
+
 .training-dashboard-header {
   display: flex;
   gap: 1rem;
@@ -2097,6 +2161,35 @@ html.lorenz-disabled #lorenz-canvas {
   }
 }
 
+.training-coach-question {
+  display: block;
+  max-width: 640px;
+  margin-top: 1rem;
+  color: var(--global-text-color);
+  font-size: 0.75rem;
+  font-weight: 600;
+
+  textarea {
+    display: block;
+    width: 100%;
+    margin-top: 0.4rem;
+    padding: 0.6rem;
+    color: var(--global-text-color);
+    background: var(--global-bg-color);
+    border: 1px solid var(--global-divider-color);
+    border-radius: 0.35rem;
+    font: inherit;
+    font-weight: 400;
+    line-height: 1.45;
+    resize: vertical;
+  }
+
+  textarea:disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
+  }
+}
+
 .training-coming-soon {
   padding: 0.25rem 0.45rem;
   background: color-mix(in srgb, var(--global-theme-color) 10%, transparent);
@@ -2173,6 +2266,10 @@ html.lorenz-disabled #lorenz-canvas {
     align-items: flex-start;
   }
 
+  .training-private-access {
+    align-items: flex-start;
+  }
+
   .training-summary-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
 
@@ -2210,6 +2307,16 @@ html.lorenz-disabled #lorenz-canvas {
   .training-dashboard-header,
   .training-panel-heading {
     flex-direction: column;
+  }
+
+  .training-private-access {
+    flex-direction: column;
+    gap: 1rem;
+    margin-block: 1.5rem;
+  }
+
+  .training-private-actions {
+    justify-content: flex-start;
   }
 
   .training-back-link {
