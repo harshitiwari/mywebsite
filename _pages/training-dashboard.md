@@ -154,6 +154,7 @@ nav: false
     <div class="training-panel-heading">
       <div><span>04</span><h2>Recent sessions</h2></div>
       <div class="training-data-actions">
+        <button id="training-show-all" type="button">Show all sessions</button>
         <button id="training-export" type="button">Export backup</button>
         <button id="training-clear" class="training-danger-button" type="button">Clear local data</button>
       </div>

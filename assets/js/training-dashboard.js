@@ -296,6 +296,8 @@
     const weekStrength = root.querySelector("#training-week-strength");
     const weekRunning = root.querySelector("#training-week-running");
     const weekSchedule = root.querySelector("#training-week-schedule");
+    const showAllButton = root.querySelector("#training-show-all");
+    let showingAllSessions = false;
 
     function populateTemplateOptions(period, selectedTemplate) {
       const availableTemplates = templatesByPeriod[period];
@@ -700,19 +702,25 @@
         return;
       }
 
-      sessions.slice(0, 6).forEach((session) => {
-        const item = document.createElement("article");
-        item.className = "training-history-item";
-        const setCount = session.exercises.reduce(
-          (sum, exercise) => sum + exercise.sets.length,
-          0,
-        );
-        item.innerHTML = `
+      showAllButton.hidden = sessions.length <= 6;
+      showAllButton.textContent = showingAllSessions
+        ? "Show recent sessions"
+        : `Show all ${sessions.length} sessions`;
+      (showingAllSessions ? sessions : sessions.slice(0, 6)).forEach(
+        (session) => {
+          const item = document.createElement("article");
+          item.className = "training-history-item";
+          const setCount = session.exercises.reduce(
+            (sum, exercise) => sum + exercise.sets.length,
+            0,
+          );
+          item.innerHTML = `
           <time>${formatDate(session.date)}</time>
           <div><strong>${session.template_label}</strong><span>${session.cycle_week !== undefined && session.cycle_week !== null ? `W${session.cycle_week} · ` : ""}${session.period ? `${session.period === "morning" ? "AM" : "PM"} · ` : ""}${session.exercises.length} activities · ${setCount} entries</span></div>
           <div class="training-history-metric"><strong>${Math.round(sessionVolume(session)).toLocaleString()}</strong><span>kg volume</span></div>`;
-        historyContainer.appendChild(item);
-      });
+          historyContainer.appendChild(item);
+        },
+      );
     }
 
     periodSelect.addEventListener("change", () => {
@@ -778,6 +786,11 @@
       link.download = `training-backup-${new Date().toISOString().slice(0, 10)}.json`;
       link.click();
       URL.revokeObjectURL(link.href);
+    });
+
+    showAllButton.addEventListener("click", () => {
+      showingAllSessions = !showingAllSessions;
+      renderHistory();
     });
 
     root.querySelector("#training-clear").addEventListener("click", () => {
