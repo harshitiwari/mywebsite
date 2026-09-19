@@ -19,12 +19,16 @@ The public `/training/` page remains public. The `/training/dashboard/` page can
 5. Deploy the site. Open the dashboard, sign in once through the email link, then choose **Enable Face ID / passkey**. Apple will handle the Face ID or device-passcode prompt.
 6. Set up the optional coach only after the logger is working:
    - deploy `supabase/functions/training-coach`;
-   - set `OPENAI_API_KEY` and `OPENAI_MODEL` as Supabase Edge Function secrets;
+   - set `OPENAI_API_KEY` as a Supabase Edge Function secret; it uses `gpt-5.6-luna` with low reasoning and a short response cap by default (set `OPENAI_MODEL` only to override it);
    - set an OpenAI project budget and rate limits before using it.
 
 ## Privacy boundaries
 
 A static website cannot hide the fact that a dashboard page exists. Authentication protects the actual workout data, cloud sync, and coach endpoint. The public workout template and plan remain readable by design. GitHub is source control, not a database and not the place to store workout data or API keys.
+
+## Owner-only access
+
+To allow only selected people to use the dashboard, run `supabase/owner-access.sql` in the SQL Editor. Then replace the final example email with the email you used for sign-in and run that one `insert` line. That email becomes the owner. Later, add a member with the same statement, changing the role to `member`. Every member has isolated training data by default.
 
 ## Before publishing
 

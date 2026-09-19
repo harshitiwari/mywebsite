@@ -164,6 +164,24 @@ async function showSignedIn() {
   }
 }
 
+function showAccessDenied() {
+  setDashboardLocked(true);
+  setCoach(false);
+  message.textContent = `Signed in as ${currentSession.user.email}, but this email has not been approved for the dashboard.`;
+  actions.replaceChildren(
+    actionButton("Sign out", () => supabase.auth.signOut()),
+  );
+}
+
+async function showSession() {
+  const { data, error } = await supabase.rpc("my_dashboard_access");
+  if (error || !data?.length) {
+    showAccessDenied();
+    return;
+  }
+  await showSignedIn();
+}
+
 function showSignedOut() {
   setDashboardLocked(true);
   setCoach(false);
@@ -216,11 +234,11 @@ async function init() {
   supabase = createClient(config.supabaseUrl, config.supabasePublishableKey);
   const { data } = await supabase.auth.getSession();
   currentSession = data.session;
-  if (currentSession) await showSignedIn();
+  if (currentSession) await showSession();
   else showSignedOut();
   supabase.auth.onAuthStateChange(async (_event, nextSession) => {
     currentSession = nextSession;
-    if (currentSession) await showSignedIn();
+    if (currentSession) await showSession();
     else showSignedOut();
   });
   window.addEventListener("training:session-saved", async (event) => {

@@ -30,8 +30,8 @@ Deno.serve(async (request) => {
   const supabaseUrl = Deno.env.get("SUPABASE_URL");
   const supabaseKey = Deno.env.get("SUPABASE_ANON_KEY");
   const openaiKey = Deno.env.get("OPENAI_API_KEY");
-  const model = Deno.env.get("OPENAI_MODEL");
-  if (!supabaseUrl || !supabaseKey || !openaiKey || !model) {
+  const model = Deno.env.get("OPENAI_MODEL") || "gpt-5.6-luna";
+  if (!supabaseUrl || !supabaseKey || !openaiKey) {
     return new Response("Coach is not configured yet", {
       status: 503,
       headers,
@@ -79,6 +79,8 @@ Deno.serve(async (request) => {
     },
     body: JSON.stringify({
       model,
+      reasoning: { effort: "low" },
+      max_output_tokens: 450,
       instructions:
         "You are a concise, cautious strength and running coach. Use SI units. Explain uncertainty and suggest conservative progression.",
       input: JSON.stringify(input),
