@@ -30,6 +30,10 @@ A static website cannot hide the fact that a dashboard page exists. Authenticati
 
 To allow only selected people to use the dashboard, run `supabase/owner-access.sql` in the SQL Editor. Then replace the final example email with the email you used for sign-in and run that one `insert` line. That email becomes the owner. Later, add a member with the same statement, changing the role to `member`. Every member has isolated training data by default.
 
+## Passkey / Face ID configuration
+
+In Supabase, go to **Authentication → Passkeys**, enable passkey authentication, and use `harshitiwari.site` as the Relying Party ID. Add `https://harshitiwari.site` as its Relying Party Origin. Register the passkey from the deployed `https://harshitiwari.site/training/dashboard/` page, not localhost: passkeys are cryptographically tied to their website domain.
+
 ## Before publishing
 
 - Test sign-in and passkey enrollment on your actual production domain; passkeys use the domain as their security boundary.

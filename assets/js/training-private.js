@@ -84,9 +84,7 @@ async function sendMagicLink() {
 async function enablePasskey() {
   message.textContent =
     "Opening your device’s secure Face ID / passkey prompt…";
-  const { error } = await supabase.auth.registerPasskey({
-    friendlyName: "Harshit’s training dashboard",
-  });
+  const { error } = await supabase.auth.registerPasskey();
   message.textContent = error
     ? `Passkey setup did not finish: ${error.message}`
     : "Face ID / passkey is ready for this device.";
@@ -94,8 +92,10 @@ async function enablePasskey() {
 
 async function signInWithPasskey() {
   const { error } = await supabase.auth.signInWithPasskey();
-  if (error)
-    message.textContent = `Passkey sign-in did not finish: ${error.message}`;
+  if (error) {
+    message.textContent =
+      "Face ID is not set up for this dashboard on this device yet. Sign in once by email, then choose Enable Face ID / passkey.";
+  }
 }
 
 async function syncLocalToCloud() {
@@ -196,7 +196,7 @@ function showSignedOut() {
   actions.append(
     input,
     actionButton("Email me a sign-in link", sendMagicLink),
-    actionButton("Use Face ID / passkey", signInWithPasskey),
+    actionButton("Use existing Face ID / passkey", signInWithPasskey),
   );
 }
 
@@ -231,7 +231,9 @@ async function init() {
     setCoach(false);
     return;
   }
-  supabase = createClient(config.supabaseUrl, config.supabasePublishableKey);
+  supabase = createClient(config.supabaseUrl, config.supabasePublishableKey, {
+    auth: { experimental: { passkey: true } },
+  });
   const { data } = await supabase.auth.getSession();
   currentSession = data.session;
   if (currentSession) await showSession();
