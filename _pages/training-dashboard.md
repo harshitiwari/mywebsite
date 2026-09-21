@@ -30,6 +30,17 @@ nav: false
     <div><strong>Local private mode</strong><span>Your entries stay in this browser. They are not uploaded to the website or committed to GitHub.</span></div>
   </div>
 
+  <aside class="training-unit-converter" aria-label="Weight converter">
+    <strong><i class="fa-solid fa-scale-balanced" aria-hidden="true"></i> Quick weight converter</strong>
+    <label>lb
+      <input id="training-pounds" type="number" min="0" step="0.1" inputmode="decimal" placeholder="lb">
+    </label>
+    <span>=</span>
+    <label>kg
+      <input id="training-kilograms" type="number" min="0" step="0.1" inputmode="decimal" placeholder="kg">
+    </label>
+  </aside>
+
   <section class="training-summary-grid" aria-label="Training summary">
     <article><span>Saved sessions</span><strong id="training-session-count">0</strong></article>
     <article><span>Seven-day volume</span><strong id="training-week-volume">0 kg</strong></article>
@@ -73,7 +84,7 @@ nav: false
           </select>
         </label>
         <label>Body weight <span>kg</span>
-          <input id="training-body-weight" name="body_weight" type="number" min="40" max="200" step="0.1" inputmode="decimal" placeholder="80.0">
+          <input id="training-body-weight" name="body_weight" type="number" min="40" max="200" step="0.1" inputmode="decimal" value="82">
         </label>
         <label>Sleep <span>hours</span>
           <input id="training-sleep" name="sleep" type="number" min="0" max="16" step="0.25" inputmode="decimal" placeholder="7.25">

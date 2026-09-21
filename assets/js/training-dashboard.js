@@ -180,6 +180,38 @@
     },
   };
 
+  // Calendar targets from the public September–December roadmap. These are
+  // editable suggestions, not a command to force a lift on a bad day.
+  const compoundTargetsByWeek = [
+    { squat: 50, bench: 35, overhead: 22.5, deadlift: 70 },
+    { squat: 60, bench: 42.5, overhead: 27.5, deadlift: 80 },
+    { squat: 67.5, bench: 47.5, overhead: 30, deadlift: 90 },
+    { squat: 77.5, bench: 55, overhead: 35, deadlift: 105 },
+    { squat: 100, bench: 70, overhead: 45, deadlift: 135 },
+    { squat: 55, bench: 37.5, overhead: 25, deadlift: 75 },
+    { squat: 65, bench: 45, overhead: 30, deadlift: 85 },
+    { squat: 75, bench: 50, overhead: 35, deadlift: 95 },
+    { squat: 85, bench: 57.5, overhead: 40, deadlift: 110 },
+    { squat: 110, bench: 75, overhead: 50, deadlift: 142.5 },
+    { squat: 60, bench: 40, overhead: 27.5, deadlift: 77.5 },
+    { squat: 72.5, bench: 47.5, overhead: 32.5, deadlift: 90 },
+    { squat: 80, bench: 55, overhead: 37.5, deadlift: 100 },
+    { squat: 92.5, bench: 62.5, overhead: 42.5, deadlift: 115 },
+    { squat: 120, bench: 80, overhead: 55, deadlift: 150 },
+    { squat: 65, bench: 45, overhead: 30, deadlift: 82.5 },
+  ];
+
+  const compoundTargetKeyByTemplate = {
+    legs: "squat",
+    chest_triceps: "bench",
+    shoulders_forearms: "overhead",
+    deadlift: "deadlift",
+  };
+
+  function roundToPlates(weight) {
+    return Math.round(weight / 2.5) * 2.5;
+  }
+
   const runningPlanByWeek = {
     0: {
       summary:
@@ -319,6 +351,7 @@
       (today.getTime() - planStart.getTime()) / 604800000,
     );
     const cycleSequence = ["0", "1", "2", "3", "4"];
+    const programWeekIndex = Math.max(0, elapsedWeeks);
     cycleWeekSelect.value =
       elapsedWeeks < 0
         ? "4"
@@ -382,6 +415,7 @@
                 : `Accessory work · ${scheme.sets} sets of ${exercise.reps ?? "10–12"} · finish with 2–4 reps available.`;
         return {
           ...scheme,
+          weights: exercise.weights,
           description: `${description}${exercise.note ? ` ${exercise.note}.` : ""}`,
         };
       }
@@ -428,7 +462,10 @@
       for (let index = 1; index <= prescription.sets; index += 1) {
         const data =
           mode === "strength"
-            ? { reps: prescription.reps[index - 1] }
+            ? {
+                reps: prescription.reps[index - 1],
+                weight: prescription.weights?.[index - 1],
+              }
             : {
                 duration: exercise.duration,
                 distance: exercise.distance,
@@ -447,6 +484,46 @@
         list.appendChild(createSetRow(list.children.length + 1, fields));
       });
       return card;
+    }
+
+    function compoundWeightPlan(topWeight) {
+      const cycleWeek = cycleWeekSelect.value;
+      if (cycleWeek === "0") {
+        return [
+          undefined,
+          roundToPlates(topWeight * 0.6),
+          roundToPlates(topWeight * 0.8),
+          topWeight,
+          topWeight,
+          topWeight,
+        ];
+      }
+      if (cycleWeek === "4") {
+        return [
+          undefined,
+          roundToPlates(topWeight * 0.5),
+          roundToPlates(topWeight * 0.65),
+          roundToPlates(topWeight * 0.75),
+          roundToPlates(topWeight * 0.875),
+          roundToPlates(topWeight * 0.95),
+          topWeight,
+          roundToPlates(topWeight * 0.7),
+          roundToPlates(topWeight * 0.7),
+          roundToPlates(topWeight * 0.7),
+        ];
+      }
+      const backoffRatio = { 1: 0.7, 2: 0.725, 3: 0.75 }[cycleWeek];
+      return [
+        undefined,
+        roundToPlates(topWeight * 0.3),
+        roundToPlates(topWeight * 0.4),
+        roundToPlates(topWeight * 0.5),
+        roundToPlates(topWeight * 0.6),
+        roundToPlates(topWeight * 0.7),
+        roundToPlates(topWeight * backoffRatio),
+        roundToPlates(topWeight * backoffRatio),
+        roundToPlates(topWeight * backoffRatio),
+      ];
     }
 
     function runSessionExercises(runType) {
@@ -602,9 +679,19 @@
       const exercises = isRun
         ? runSessionExercises(runTypeSelect.value)
         : templates[templateSelect.value].exercises;
-      exercises.forEach((exercise) =>
-        exerciseContainer.appendChild(createExercise(exercise)),
-      );
+      const targetKey = compoundTargetKeyByTemplate[templateSelect.value];
+      const topWeight = targetKey
+        ? compoundTargetsByWeek[
+            Math.min(programWeekIndex, compoundTargetsByWeek.length - 1)
+          ][targetKey]
+        : undefined;
+      exercises.forEach((exercise) => {
+        const prescribedExercise =
+          exercise.role === "compound" && topWeight
+            ? { ...exercise, weights: compoundWeightPlan(topWeight) }
+            : exercise;
+        exerciseContainer.appendChild(createExercise(prescribedExercise));
+      });
     }
 
     function addExtraExercise() {
@@ -741,6 +828,18 @@
     templateSelect.addEventListener("change", renderTemplate);
     runTypeSelect.addEventListener("change", renderTemplate);
     addExerciseButton.addEventListener("click", addExtraExercise);
+    const poundsInput = root.querySelector("#training-pounds");
+    const kilogramsInput = root.querySelector("#training-kilograms");
+    poundsInput.addEventListener("input", () => {
+      const pounds = numberValue(poundsInput);
+      kilogramsInput.value =
+        pounds === null ? "" : (pounds * 0.45359237).toFixed(1);
+    });
+    kilogramsInput.addEventListener("input", () => {
+      const kilograms = numberValue(kilogramsInput);
+      poundsInput.value =
+        kilograms === null ? "" : (kilograms / 0.45359237).toFixed(1);
+    });
     form.addEventListener("submit", (event) => {
       event.preventDefault();
       const exercises = collectExercises();
