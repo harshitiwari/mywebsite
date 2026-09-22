@@ -69,6 +69,12 @@ nav: false
             <option value="evening">Evening</option>
           </select>
         </label>
+        <label>Weight units
+          <select id="training-weight-unit" name="weight_unit">
+            <option value="lb" selected>lb</option>
+            <option value="kg">kg</option>
+          </select>
+        </label>
         <label>Workout
           <select id="training-template" name="template"></select>
         </label>
@@ -83,8 +89,8 @@ nav: false
             <option value="benchmark">5 km benchmark</option>
           </select>
         </label>
-        <label>Body weight <span>kg</span>
-          <input id="training-body-weight" name="body_weight" type="number" min="40" max="200" step="0.1" inputmode="decimal" value="82">
+        <label>Body weight <span id="training-body-weight-unit">lb</span>
+          <input id="training-body-weight" name="body_weight" type="number" min="40" max="440" step="0.1" inputmode="decimal" data-default-kg="82">
         </label>
         <label>Sleep <span>hours</span>
           <input id="training-sleep" name="sleep" type="number" min="0" max="16" step="0.25" inputmode="decimal" placeholder="7.25">
@@ -102,7 +108,6 @@ nav: false
       </div>
       <div class="training-prep-checks" aria-label="Preparation checklist">
         <label><input id="training-warmup-complete" name="warmup_complete" type="checkbox"> <span><strong>Warm-up completed</strong>Dynamic movement, then progressive ramp-up sets.</span></label>
-        <label><input id="training-cooldown-complete" name="cooldown_complete" type="checkbox"> <span><strong>Cooldown + stretch completed</strong>Easy downshift, then your mobility work.</span></label>
       </div>
       <label class="training-plan-field">Today’s plan or focus
         <textarea id="training-plan" name="plan" rows="2" placeholder="Heavy but technically clean squats; stop if depth or bracing degrades."></textarea>
@@ -153,6 +158,9 @@ nav: false
       <label class="training-plan-field">Notes
         <textarea id="training-notes" name="notes" rows="3" placeholder="What felt strong? What should change next time?"></textarea>
       </label>
+      <div class="training-cooldown-check" aria-label="Finish checklist">
+        <label><input id="training-cooldown-complete" name="cooldown_complete" type="checkbox"> <span><strong>Cooldown + stretch completed</strong>Finish with an easy downshift, then your mobility work.</span></label>
+      </div>
       <div class="training-form-actions">
         <button class="training-save-button" type="submit"><i class="fa-solid fa-check" aria-hidden="true"></i> Save workout</button>
         <span id="training-save-status" class="training-save-status" role="status" aria-live="polite"></span>
@@ -178,7 +186,7 @@ nav: false
       <div><span>05</span><h2>Coach</h2></div>
       <span id="training-coach-state" class="training-coming-soon">PRIVATE SETUP REQUIRED</span>
     </div>
-    <p id="training-coach-copy">Once private cloud access is configured, your coach can review recent training and suggest the next session. Your OpenAI key remains server-side.</p>
+    <p id="training-coach-copy">Once private cloud access is configured, your Gemini coach can review recent training, summarize progress, and suggest the next session. Your API key remains server-side.</p>
     <label class="training-coach-question" for="training-coach-question">Ask about your training
       <textarea id="training-coach-question" rows="3" placeholder="How should I approach next Monday's squat session?" disabled></textarea>
     </label>

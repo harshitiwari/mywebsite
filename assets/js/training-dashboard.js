@@ -125,7 +125,7 @@
 
   const modeFields = {
     strength: [
-      { key: "weight", label: "Weight", placeholder: "kg", step: "0.5" },
+      { key: "weight", label: "Weight", placeholder: "lb", step: "0.1" },
       { key: "reps", label: "Reps", placeholder: "reps", step: "1" },
     ],
     cardio: [
@@ -316,6 +316,8 @@
     const cycleWeekSelect = root.querySelector("#training-cycle-week");
     const periodSelect = root.querySelector("#training-period");
     const templateSelect = root.querySelector("#training-template");
+    const weightUnitSelect = root.querySelector("#training-weight-unit");
+    const bodyWeightInput = root.querySelector("#training-body-weight");
     const runTypeField = root.querySelector("#training-run-type-field");
     const runTypeSelect = root.querySelector("#training-run-type");
     const exerciseContainer = root.querySelector("#training-exercises");
@@ -329,7 +331,62 @@
     const weekRunning = root.querySelector("#training-week-running");
     const weekSchedule = root.querySelector("#training-week-schedule");
     const showAllButton = root.querySelector("#training-show-all");
+    const editingSessionId = new URLSearchParams(window.location.search).get(
+      "edit",
+    );
+    let weightUnit = weightUnitSelect.value || "lb";
     let showingAllSessions = false;
+    let sessionDateForContext = new Date();
+    let editSessionLoaded = false;
+
+    const kilogramsPerPound = 0.45359237;
+    const roundWeight = (value) => Math.round(value * 10) / 10;
+    const toKilograms = (value, unit) =>
+      unit === "lb" ? value * kilogramsPerPound : value;
+    const fromKilograms = (value, unit) =>
+      unit === "lb" ? value / kilogramsPerPound : value;
+    const displayWeight = (value) =>
+      Number.isFinite(value) ? `${roundWeight(value)}` : "";
+
+    function fieldsForMode(mode) {
+      return modeFields[mode].map((field) =>
+        field.key === "weight"
+          ? {
+              ...field,
+              label: `Weight (${weightUnit})`,
+              placeholder: weightUnit,
+              step: "0.1",
+            }
+          : field,
+      );
+    }
+
+    function setWeightUnit(nextUnit, convertExisting = true) {
+      const previousUnit = weightUnit;
+      weightUnit = nextUnit;
+      root.querySelector("#training-body-weight-unit").textContent = nextUnit;
+      if (convertExisting && previousUnit !== nextUnit) {
+        root
+          .querySelectorAll('.training-exercise-card[data-mode="strength"] [data-field="weight"]')
+          .forEach((input) => {
+            const value = numberValue(input);
+            if (value !== null)
+              input.value = displayWeight(
+                fromKilograms(toKilograms(value, previousUnit), nextUnit),
+              );
+            input.placeholder = nextUnit;
+          });
+        const bodyWeight = numberValue(bodyWeightInput);
+        if (bodyWeight !== null)
+          bodyWeightInput.value = displayWeight(
+            fromKilograms(toKilograms(bodyWeight, previousUnit), nextUnit),
+          );
+      }
+      root.querySelectorAll(".training-set-labels").forEach((labels) => {
+        const weightLabel = labels.children[1];
+        if (weightLabel) weightLabel.textContent = `Weight (${nextUnit})`;
+      });
+    }
 
     function populateTemplateOptions(period, selectedTemplate) {
       const availableTemplates = templatesByPeriod[period];
@@ -365,6 +422,9 @@
       "en-US",
       { weekday: "long", month: "long", day: "numeric" },
     ).format(today);
+    bodyWeightInput.value = displayWeight(
+      fromKilograms(Number(bodyWeightInput.dataset.defaultKg || 82), weightUnit),
+    );
 
     function createSetRow(setNumber, fields, data = {}, options = {}) {
       const row = document.createElement("div");
@@ -443,8 +503,18 @@
 
     function createExercise(exercise) {
       const { name, mode = "strength", baseline } = exercise;
-      const fields = modeFields[mode];
-      const prescription = exercisePrescription({ ...exercise, mode });
+      const fields = fieldsForMode(mode);
+      const recordedSets = Array.isArray(exercise.recordedSets)
+        ? exercise.recordedSets
+        : null;
+      const prescription = recordedSets
+        ? {
+            sets: recordedSets.length,
+            reps: recordedSets.map((set) => set.reps),
+            weights: recordedSets.map((set) => set.weight),
+            description: "Recorded session — edit any field, then save to update it.",
+          }
+        : exercisePrescription({ ...exercise, mode });
       const card = document.createElement("article");
       card.className = "training-exercise-card";
       card.dataset.exercise = name;
@@ -457,14 +527,40 @@
         </div>
         <p class="training-exercise-prescription">${prescription.description}${baseline ? ` <b>Baseline: ${baseline}.</b>` : ""}</p>
         <div class="training-set-labels" aria-hidden="true"><span>Set</span><span>${fields[0].label}</span><span>${fields[1].label}</span><span>RPE</span><span></span></div>
-        <div class="training-set-list"></div>`;
+        <div class="training-set-list"></div>
+        <label class="training-exercise-note">Exercise note <textarea rows="2" placeholder="Technique, pain, progression, or anything to remember next time."></textarea></label>
+        <p class="training-previous-exercise" hidden></p>`;
       const list = card.querySelector(".training-set-list");
       for (let index = 1; index <= prescription.sets; index += 1) {
-        const data =
-          mode === "strength"
+        const sourceSet = recordedSets?.[index - 1];
+        const data = sourceSet
+          ? {
+              ...sourceSet,
+              weight:
+                mode === "strength" && sourceSet.weight !== null
+                  ? displayWeight(
+                      fromKilograms(
+                        toKilograms(
+                          sourceSet.weight,
+                          exercise.recordedWeightUnit || "kg",
+                        ),
+                        weightUnit,
+                      ),
+                    )
+                  : sourceSet.weight,
+            }
+          : mode === "strength"
             ? {
                 reps: prescription.reps[index - 1],
-                weight: prescription.weights?.[index - 1],
+                weight:
+                  prescription.weights?.[index - 1] === undefined
+                    ? undefined
+                    : displayWeight(
+                        fromKilograms(
+                          prescription.weights[index - 1],
+                          weightUnit,
+                        ),
+                      ),
               }
             : {
                 duration: exercise.duration,
@@ -483,7 +579,44 @@
       card.querySelector(".training-add-set").addEventListener("click", () => {
         list.appendChild(createSetRow(list.children.length + 1, fields));
       });
+      card.querySelector(".training-exercise-note textarea").value =
+        exercise.recordedNote || "";
+      renderPreviousExercise(card, name);
       return card;
+    }
+
+    function renderPreviousExercise(card, name) {
+      const previous = safeRead(storageKey).find((session) => {
+        if (String(session.id) === String(editingSessionId)) return false;
+        if (session.template !== templateSelect.value) return false;
+        const sessionDay = new Date(`${session.date}T12:00:00`).getDay();
+        if (sessionDay !== sessionDateForContext.getDay()) return false;
+        const exercise = session.exercises?.find(
+          (item) => item.name?.toLowerCase() === name.toLowerCase(),
+        );
+        return Boolean(exercise);
+      });
+      if (!previous) return;
+      const exercise = previous.exercises.find(
+        (item) => item.name?.toLowerCase() === name.toLowerCase(),
+      );
+      const summary = card.querySelector(".training-previous-exercise");
+      const unit = previous.weight_unit || "kg";
+      const usefulSet = exercise.sets?.find(
+        (set) => set.weight !== null || set.duration !== null,
+      );
+      const pieces = [];
+      if (usefulSet?.weight !== null && usefulSet?.weight !== undefined)
+        pieces.push(`${usefulSet.weight} ${unit} × ${usefulSet.reps || "?"}`);
+      else if (usefulSet?.duration !== null && usefulSet?.duration !== undefined)
+        pieces.push(`${usefulSet.duration} min`);
+      if (usefulSet?.rpe !== null && usefulSet?.rpe !== undefined)
+        pieces.push(`RPE ${usefulSet.rpe}`);
+      if (exercise.note) pieces.push(exercise.note);
+      summary.textContent = `Previous ${formatDate(previous.date)} · ${
+        pieces.join(" · ") || "recorded"
+      }`;
+      summary.hidden = false;
     }
 
     function compoundWeightPlan(topWeight) {
@@ -694,6 +827,60 @@
       });
     }
 
+    function loadSessionForEdit(session) {
+      if (!session) return;
+      editSessionLoaded = true;
+      sessionDateForContext = new Date(`${session.date}T12:00:00`);
+      const savedUnit = session.weight_unit || "kg";
+      weightUnitSelect.value = savedUnit;
+      setWeightUnit(savedUnit, false);
+      cycleWeekSelect.value = String(session.cycle_week ?? 0);
+      periodSelect.value = session.period || "evening";
+      populateTemplateOptions(periodSelect.value, session.template);
+      templateSelect.value = session.template;
+      runTypeSelect.value = session.run_type || "easy";
+      runTypeField.hidden = templateSelect.value !== "run";
+      runTypeField.classList.toggle("is-visible", templateSelect.value === "run");
+      bodyWeightInput.value =
+        session.body_weight === null || session.body_weight === undefined
+          ? ""
+          : displayWeight(
+              fromKilograms(
+                toKilograms(
+                  session.body_weight,
+                  session.body_weight_unit || savedUnit,
+                ),
+                savedUnit,
+              ),
+            );
+      root.querySelector("#training-sleep").value = session.sleep_hours ?? "";
+      root.querySelector("#training-readiness").value = session.readiness ?? "";
+      root.querySelector("#training-warmup-complete").checked = Boolean(
+        session.warmup_completed,
+      );
+      root.querySelector("#training-cooldown-complete").checked = Boolean(
+        session.cooldown_completed,
+      );
+      root.querySelector("#training-plan").value = session.plan || "";
+      root.querySelector("#training-duration").value = session.duration_minutes ?? "";
+      root.querySelector("#training-session-rpe").value = session.session_rpe ?? "";
+      root.querySelector("#training-notes").value = session.notes || "";
+      exerciseContainer.replaceChildren();
+      session.exercises.forEach((exercise) =>
+        exerciseContainer.appendChild(
+          createExercise({
+            ...exercise,
+            recordedSets: exercise.sets,
+            recordedWeightUnit: savedUnit,
+            recordedNote: exercise.note,
+          }),
+        ),
+      );
+      root.querySelector(".training-save-button").innerHTML =
+        '<i class="fa-solid fa-pen" aria-hidden="true"></i> Update workout';
+      saveStatus.textContent = "Editing saved session. Update when you are done.";
+    }
+
     function addExtraExercise() {
       const mode = extraExerciseModeSelect.value;
       const names = {
@@ -731,10 +918,13 @@
     function collectExercises() {
       return [...exerciseContainer.querySelectorAll(".training-exercise-card")]
         .map((card) => {
-          const fields = modeFields[card.dataset.mode];
+          const fields = fieldsForMode(card.dataset.mode);
           return {
             name: card.querySelector(".training-exercise-name").value.trim(),
             mode: card.dataset.mode,
+            note: card
+              .querySelector(".training-exercise-note textarea")
+              .value.trim(),
             sets: [...card.querySelectorAll(".training-set-row")]
               .map((row) => ({
                 [fields[0].key]: numberValue(
@@ -754,11 +944,14 @@
     }
 
     function sessionVolume(session) {
+      const unit = session.weight_unit || "kg";
       return session.exercises.reduce(
         (total, exercise) =>
           total +
           exercise.sets.reduce(
-            (sum, set) => sum + (set.weight || 0) * (set.reps || 0),
+            (sum, set) =>
+              sum +
+              toKilograms(set.weight || 0, unit) * (set.reps || 0),
             0,
           ),
         0,
@@ -775,11 +968,12 @@
         .reduce((sum, session) => sum + sessionVolume(session), 0);
       root.querySelector("#training-week-volume").textContent =
         `${Math.round(weekVolume).toLocaleString()} kg`;
-      const latestWeight = sessions.find(
+      const latestSessionWithWeight = sessions.find(
         (session) => session.body_weight !== null,
-      )?.body_weight;
+      );
+      const latestWeight = latestSessionWithWeight?.body_weight;
       root.querySelector("#training-latest-weight").textContent = latestWeight
-        ? `${latestWeight} kg`
+        ? `${latestWeight} ${latestSessionWithWeight.body_weight_unit || latestSessionWithWeight.weight_unit || "kg"}`
         : "—";
 
       historyContainer.replaceChildren();
@@ -807,7 +1001,8 @@
           item.innerHTML = `
           <time>${formatDate(session.date)}</time>
           <div><strong>${session.template_label}</strong><span>${session.cycle_week !== undefined && session.cycle_week !== null ? `W${session.cycle_week} · ` : ""}${session.period ? `${session.period === "morning" ? "AM" : "PM"} · ` : ""}${session.exercises.length} activities · ${setCount} entries</span></div>
-          <div class="training-history-metric"><strong>${Math.round(sessionVolume(session)).toLocaleString()}</strong><span>kg volume</span></div>`;
+          <div class="training-history-metric"><strong>${Math.round(sessionVolume(session)).toLocaleString()}</strong><span>kg volume</span></div>
+          <a class="training-session-link" href="/training/session/?id=${encodeURIComponent(session.id)}">View</a>`;
           historyContainer.appendChild(item);
         },
       );
@@ -820,6 +1015,9 @@
       );
       renderTemplate();
     });
+    weightUnitSelect.addEventListener("change", () =>
+      setWeightUnit(weightUnitSelect.value),
+    );
     cycleWeekSelect.addEventListener("change", () => {
       renderProgramFocus();
       renderWeeklyPlan();
@@ -848,15 +1046,22 @@
         return;
       }
       const now = new Date();
+      const savedSessions = safeRead(storageKey);
+      const existingSession = editingSessionId
+        ? savedSessions.find((session) => session.id === editingSessionId)
+        : null;
       const session = {
-        id: `${now.getTime()}`,
-        created_at: now.toISOString(),
-        date: now.toISOString().slice(0, 10),
+        id: existingSession?.id || `${now.getTime()}`,
+        created_at: existingSession?.created_at || now.toISOString(),
+        updated_at: now.toISOString(),
+        date: existingSession?.date || now.toISOString().slice(0, 10),
         cycle_week: Number(cycleWeekSelect.value),
         period: periodSelect.value,
         template: templateSelect.value,
         template_label: templates[templateSelect.value].label,
+        weight_unit: weightUnit,
         body_weight: numberValue(root.querySelector("#training-body-weight")),
+        body_weight_unit: weightUnit,
         sleep_hours: numberValue(root.querySelector("#training-sleep")),
         readiness: numberValue(root.querySelector("#training-readiness")),
         warmup_completed: root.querySelector("#training-warmup-complete")
@@ -867,12 +1072,16 @@
         duration_minutes: numberValue(root.querySelector("#training-duration")),
         session_rpe: numberValue(root.querySelector("#training-session-rpe")),
         notes: root.querySelector("#training-notes").value.trim(),
+        run_type: templateSelect.value === "run" ? runTypeSelect.value : null,
         exercises,
       };
-      const sessions = safeRead(storageKey);
-      sessions.unshift(session);
+      const sessions = existingSession
+        ? savedSessions.map((item) => (item.id === session.id ? session : item))
+        : [session, ...savedSessions];
       safeWrite(storageKey, sessions);
-      saveStatus.textContent = "Workout saved on this device.";
+      saveStatus.textContent = existingSession
+        ? "Workout updated. Syncing your private copy…"
+        : "Workout saved. Syncing your private copy…";
       window.dispatchEvent(
         new CustomEvent("training:session-saved", { detail: session }),
       );
@@ -906,8 +1115,21 @@
     renderProgramFocus();
     renderWeeklyPlan();
     renderTemplate();
+    if (editingSessionId)
+      loadSessionForEdit(
+        safeRead(storageKey).find((session) => session.id === editingSessionId),
+      );
     renderHistory();
-    window.addEventListener("training:cloud-synced", renderHistory);
+    window.addEventListener("training:cloud-synced", () => {
+      if (editingSessionId && !editSessionLoaded) {
+        loadSessionForEdit(
+          safeRead(storageKey).find(
+            (session) => String(session.id) === String(editingSessionId),
+          ),
+        );
+      }
+      renderHistory();
+    });
   }
 
   document.addEventListener("DOMContentLoaded", initDashboard);

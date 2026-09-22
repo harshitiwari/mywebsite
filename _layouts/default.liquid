@@ -95,9 +95,14 @@
     {% if page.url contains '/training' %}
       <script src="{{ '/assets/js/training-dashboard.js' | relative_url | bust_file_cache }}"></script>
     {% endif %}
-    {% if page.url == '/training/dashboard/' %}
+    {% if page.url == '/training/dashboard/' or page.url == '/training/session/' %}
       <script src="{{ '/assets/js/training-cloud-config.js' | relative_url | bust_file_cache }}"></script>
+    {% endif %}
+    {% if page.url == '/training/dashboard/' %}
       <script type="module" src="{{ '/assets/js/training-private.js' | relative_url | bust_file_cache }}"></script>
+    {% endif %}
+    {% if page.url == '/training/session/' %}
+      <script type="module" src="{{ '/assets/js/training-session-detail.js' | relative_url | bust_file_cache }}"></script>
     {% endif %}
   </body>
 </html>

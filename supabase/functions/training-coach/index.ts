@@ -29,9 +29,9 @@ Deno.serve(async (request) => {
     return new Response("Sign-in required", { status: 401, headers });
   const supabaseUrl = Deno.env.get("SUPABASE_URL");
   const supabaseKey = Deno.env.get("SUPABASE_ANON_KEY");
-  const openaiKey = Deno.env.get("OPENAI_API_KEY");
-  const model = Deno.env.get("OPENAI_MODEL") || "gpt-5.6-luna";
-  if (!supabaseUrl || !supabaseKey || !openaiKey) {
+  const geminiKey = Deno.env.get("GEMINI_API_KEY");
+  const model = Deno.env.get("GEMINI_MODEL") || "gemini-2.5-flash";
+  if (!supabaseUrl || !supabaseKey || !geminiKey) {
     return new Response("Coach is not configured yet", {
       status: 503,
       headers,
@@ -68,29 +68,64 @@ Deno.serve(async (request) => {
   const input = {
     question,
     recent_sessions: sessions || [],
+    training_context: {
+      units: "The dashboard defaults to lb entry, but advice should use SI units first and may show lb in parentheses.",
+      current_block:
+        "Five-week cycle: Week 0 deload, then Weeks 1–4 at RPE 6, 7, 8, and 9–10. Compound sessions use progressive warm-up sets, a top single only outside deload, then three back-off sets of five.",
+      december_targets: {
+        squat_kg: 120,
+        deadlift_kg: 150,
+        bench_kg: 80,
+        overhead_press_kg: 55,
+        five_k_minutes: 27,
+      },
+      weekly_structure:
+        "Mon legs; Tue bench/chest/triceps; Wed run plus shoulders/forearms; Thu recovery walk plus run or bike; Fri deadlift; Sat run plus bike/swim; Sun run and rest. Running uses easy, fartlek, intervals, tempo, threshold, and long-run sessions.",
+    },
     safety:
       "Give general training guidance only. Do not diagnose injury, prescribe medical treatment, or encourage max attempts when fatigue or pain is mentioned.",
   };
-  const openaiResponse = await fetch("https://api.openai.com/v1/responses", {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${openaiKey}`,
-      "Content-Type": "application/json",
+  const geminiResponse = await fetch(
+    `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent`,
+    {
+      method: "POST",
+      headers: {
+        "x-goog-api-key": geminiKey,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        systemInstruction: {
+          parts: [
+            {
+              text: "You are a concise, cautious strength and running coach. Answer only from the supplied private training context and recent sessions. Use SI units first and optionally add pounds in parentheses. Clearly distinguish recorded facts from suggestions. Explain uncertainty and suggest conservative progression. Do not diagnose injury, prescribe medical treatment, or present your answer as medical advice.",
+            },
+          ],
+        },
+        contents: [
+          {
+            role: "user",
+            parts: [{ text: JSON.stringify(input) }],
+          },
+        ],
+        generationConfig: {
+          temperature: 0.35,
+          maxOutputTokens: 600,
+        },
+      }),
     },
-    body: JSON.stringify({
-      model,
-      reasoning: { effort: "low" },
-      max_output_tokens: 450,
-      instructions:
-        "You are a concise, cautious strength and running coach. Use SI units. Explain uncertainty and suggest conservative progression.",
-      input: JSON.stringify(input),
-    }),
-  });
-  if (!openaiResponse.ok)
+  );
+  if (!geminiResponse.ok) {
+    const detail = await geminiResponse.text();
+    console.error("Gemini coach request failed", geminiResponse.status, detail);
     return new Response("Coach request failed", { status: 502, headers });
-  const result = await openaiResponse.json();
+  }
+  const result = await geminiResponse.json();
+  const answer = (result.candidates?.[0]?.content?.parts || [])
+    .map((part: { text?: string }) => part.text || "")
+    .join("")
+    .trim();
   return Response.json(
-    { answer: result.output_text || "No coach response." },
+    { answer: answer || "No coach response." },
     { headers },
   );
 });
