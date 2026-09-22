@@ -47,6 +47,11 @@ import { createClient } from "https://esm.sh/@supabase/supabase-js@2.105.0";
     return `${Math.round(converted * 10) / 10} ${displayUnit}`;
   }
 
+  function formatBodyWeight(value, sourceUnit) {
+    const kilograms = convertWeight(Number(value), sourceUnit, "kg");
+    return `${Math.round(kilograms * 10) / 10} kg`;
+  }
+
   function sessionVolumeKg(item) {
     const sourceUnit = item.weight_unit || "kg";
     return (item.exercises || []).reduce(
@@ -130,7 +135,7 @@ import { createClient } from "https://esm.sh/@supabase/supabase-js@2.105.0";
 
     const summary = createElement("section", "training-detail-summary");
     const bodyWeight = session.body_weight
-      ? formatWeight(
+      ? formatBodyWeight(
           session.body_weight,
           session.body_weight_unit || storedUnit,
         )

@@ -89,7 +89,7 @@ nav: false
             <option value="benchmark">5 km benchmark</option>
           </select>
         </label>
-        <label>Body weight <span id="training-body-weight-unit">lb</span>
+        <label>Body weight <span>kg</span>
           <input id="training-body-weight" name="body_weight" type="number" min="40" max="440" step="0.1" inputmode="decimal" data-default-kg="82">
         </label>
         <label>Sleep <span>hours</span>

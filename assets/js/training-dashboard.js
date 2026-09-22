@@ -368,7 +368,6 @@
     function setWeightUnit(nextUnit, convertExisting = true) {
       const previousUnit = weightUnit;
       weightUnit = nextUnit;
-      root.querySelector("#training-body-weight-unit").textContent = nextUnit;
       if (convertExisting && previousUnit !== nextUnit) {
         root
           .querySelectorAll('.training-exercise-card[data-mode="strength"] [data-field="weight"]')
@@ -380,11 +379,6 @@
               );
             input.placeholder = nextUnit;
           });
-        const bodyWeight = numberValue(bodyWeightInput);
-        if (bodyWeight !== null)
-          bodyWeightInput.value = displayWeight(
-            fromKilograms(toKilograms(bodyWeight, previousUnit), nextUnit),
-          );
       }
       root.querySelectorAll(".training-set-labels").forEach((labels) => {
         const weightLabel = labels.children[1];
@@ -427,7 +421,7 @@
       { weekday: "long", month: "long", day: "numeric" },
     ).format(today);
     bodyWeightInput.value = displayWeight(
-      fromKilograms(Number(bodyWeightInput.dataset.defaultKg || 82), weightUnit),
+      Number(bodyWeightInput.dataset.defaultKg || 82),
     );
 
     function createSetRow(setNumber, fields, data = {}, options = {}) {
@@ -849,12 +843,9 @@
         session.body_weight === null || session.body_weight === undefined
           ? ""
           : displayWeight(
-              fromKilograms(
-                toKilograms(
-                  session.body_weight,
-                  session.body_weight_unit || savedUnit,
-                ),
-                savedUnit,
+              toKilograms(
+                session.body_weight,
+                session.body_weight_unit || savedUnit,
               ),
             );
       root.querySelector("#training-sleep").value = session.sleep_hours ?? "";
@@ -943,6 +934,7 @@
         template: templateSelect.value,
         weight_unit: weightUnit,
         body_weight: bodyWeightInput.value,
+        body_weight_unit: "kg",
         sleep: root.querySelector("#training-sleep").value,
         readiness: root.querySelector("#training-readiness").value,
         warmup_completed: root.querySelector("#training-warmup-complete").checked,
@@ -974,7 +966,15 @@
       runTypeSelect.value = draft.run_type || runTypeSelect.value;
       weightUnitSelect.value = draft.weight_unit || weightUnit;
       setWeightUnit(weightUnitSelect.value, false);
-      bodyWeightInput.value = draft.body_weight ?? "";
+      bodyWeightInput.value =
+        draft.body_weight === undefined || draft.body_weight === null
+          ? ""
+          : displayWeight(
+              toKilograms(
+                Number(draft.body_weight),
+                draft.body_weight_unit || draft.weight_unit || "kg",
+              ),
+            );
       root.querySelector("#training-sleep").value = draft.sleep ?? "";
       root.querySelector("#training-readiness").value = draft.readiness ?? "";
       root.querySelector("#training-warmup-complete").checked = Boolean(draft.warmup_completed);
@@ -1079,7 +1079,14 @@
       );
       const latestWeight = latestSessionWithWeight?.body_weight;
       root.querySelector("#training-latest-weight").textContent = latestWeight
-        ? `${latestWeight} ${latestSessionWithWeight.body_weight_unit || latestSessionWithWeight.weight_unit || "kg"}`
+        ? `${displayWeight(
+            toKilograms(
+              latestWeight,
+              latestSessionWithWeight.body_weight_unit ||
+                latestSessionWithWeight.weight_unit ||
+                "kg",
+            ),
+          )} kg`
         : "—";
 
       historyContainer.replaceChildren();
@@ -1172,7 +1179,7 @@
         template_label: templates[templateSelect.value].label,
         weight_unit: weightUnit,
         body_weight: numberValue(root.querySelector("#training-body-weight")),
-        body_weight_unit: weightUnit,
+        body_weight_unit: "kg",
         sleep_hours: numberValue(root.querySelector("#training-sleep")),
         readiness: numberValue(root.querySelector("#training-readiness")),
         warmup_completed: root.querySelector("#training-warmup-complete")
