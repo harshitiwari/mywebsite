@@ -66,6 +66,93 @@ function actionButton(text, callback, className = "") {
   return button;
 }
 
+function appendInlineMarkdown(container, text) {
+  const pattern = /(\*\*[^*]+\*\*|`[^`]+`|\*[^*]+\*)/g;
+  let cursor = 0;
+  for (const match of text.matchAll(pattern)) {
+    if (match.index > cursor)
+      container.append(document.createTextNode(text.slice(cursor, match.index)));
+    const token = match[0];
+    const node = document.createElement(
+      token.startsWith("**") ? "strong" : token.startsWith("`") ? "code" : "em",
+    );
+    node.textContent = token.slice(token.startsWith("**") ? 2 : 1, token.startsWith("**") ? -2 : -1);
+    container.appendChild(node);
+    cursor = match.index + token.length;
+  }
+  if (cursor < text.length) container.append(document.createTextNode(text.slice(cursor)));
+}
+
+function appendCoachMarkdown(container, markdown) {
+  let paragraph;
+  let list;
+  const flushParagraph = () => {
+    paragraph = undefined;
+  };
+  const flushList = () => {
+    list = undefined;
+  };
+  String(markdown || "")
+    .replace(/\r/g, "")
+    .split("\n")
+    .forEach((line) => {
+      const heading = line.match(/^#{1,3}\s+(.+)/);
+      const bullet = line.match(/^[-*]\s+(.+)/);
+      const numbered = line.match(/^\d+\.\s+(.+)/);
+      if (!line.trim()) {
+        flushParagraph();
+        flushList();
+      } else if (heading) {
+        flushParagraph();
+        flushList();
+        const node = document.createElement("h3");
+        appendInlineMarkdown(node, heading[1]);
+        container.appendChild(node);
+      } else if (bullet || numbered) {
+        flushParagraph();
+        const tag = numbered ? "ol" : "ul";
+        if (!list || list.tagName.toLowerCase() !== tag) {
+          list = document.createElement(tag);
+          container.appendChild(list);
+        }
+        const item = document.createElement("li");
+        appendInlineMarkdown(item, (bullet || numbered)[1]);
+        list.appendChild(item);
+      } else {
+        flushList();
+        if (!paragraph) {
+          paragraph = document.createElement("p");
+          container.appendChild(paragraph);
+        } else {
+          paragraph.appendChild(document.createElement("br"));
+        }
+        appendInlineMarkdown(paragraph, line);
+      }
+    });
+}
+
+function renderCoachResponse(response, question, answer, pending = false) {
+  response.replaceChildren();
+  if (question) {
+    const prompt = document.createElement("article");
+    prompt.className = "training-coach-message training-coach-user";
+    prompt.textContent = question;
+    response.appendChild(prompt);
+  }
+  const reply = document.createElement("article");
+  reply.className = "training-coach-message training-coach-assistant";
+  const label = document.createElement("span");
+  label.className = "training-coach-message-label";
+  label.textContent = pending ? "COACH IS THINKING" : "TRAINING COACH";
+  reply.appendChild(label);
+  const content = document.createElement("div");
+  content.className = "training-coach-message-content";
+  if (pending) content.textContent = answer;
+  else appendCoachMarkdown(content, answer);
+  reply.appendChild(content);
+  response.appendChild(reply);
+}
+
 async function sendMagicLink() {
   const email = document.getElementById("training-login-email")?.value.trim();
   if (!email) {
@@ -209,14 +296,18 @@ async function askCoach() {
     response.textContent = "Write a question for your coach first.";
     return;
   }
-  response.textContent = "Reviewing your recent training…";
+  renderCoachResponse(response, question, "Reviewing your recent training…", true);
   const { data, error } = await supabase.functions.invoke(
     config.coachFunction || "training-coach",
     { body: { question } },
   );
-  response.textContent = error
-    ? `Coach unavailable: ${error.message}`
-    : data?.answer || "The coach returned no answer.";
+  renderCoachResponse(
+    response,
+    question,
+    error
+      ? `Coach unavailable: ${error.message}`
+      : data?.answer || "The coach returned no answer.",
+  );
 }
 
 async function init() {

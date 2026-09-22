@@ -31,7 +31,7 @@ nav: false
   </div>
 
   <aside class="training-unit-converter" aria-label="Weight converter">
-    <strong><i class="fa-solid fa-scale-balanced" aria-hidden="true"></i> Quick weight converter</strong>
+    <strong><i class="fa-solid fa-scale-balanced" aria-hidden="true"></i> Quick convert</strong>
     <label>lb
       <input id="training-pounds" type="number" min="0" step="0.1" inputmode="decimal" placeholder="lb">
     </label>
@@ -193,7 +193,7 @@ nav: false
     </label>
     <div class="training-form-actions">
       <button id="training-coach-ask" class="training-save-button training-coach-button" type="button" disabled><i class="fa-solid fa-sparkles" aria-hidden="true"></i> Ask coach</button>
-      <span id="training-coach-response" class="training-save-status" role="status" aria-live="polite"></span>
+      <div id="training-coach-response" class="training-coach-response" role="status" aria-live="polite"></div>
     </div>
   </section>
 </div>

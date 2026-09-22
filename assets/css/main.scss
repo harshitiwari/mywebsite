@@ -2471,6 +2471,65 @@ html.lorenz-disabled #lorenz-canvas {
   }
 }
 
+.training-coach-response {
+  display: grid;
+  max-width: 720px;
+  gap: 0.65rem;
+  margin-top: 1rem;
+}
+
+.training-coach-message {
+  padding: 0.8rem 0.9rem;
+  border: 1px solid var(--global-divider-color);
+  border-radius: 0.7rem;
+  font-size: 0.8rem;
+  line-height: 1.58;
+}
+
+.training-coach-user {
+  justify-self: end;
+  max-width: min(86%, 34rem);
+  color: var(--global-text-color);
+  background: color-mix(in srgb, var(--global-theme-color) 10%, var(--global-card-bg-color));
+  border-color: color-mix(in srgb, var(--global-theme-color) 30%, var(--global-divider-color));
+}
+
+.training-coach-assistant {
+  color: var(--global-text-color);
+  background: color-mix(in srgb, var(--global-card-bg-color) 96%, transparent);
+}
+
+.training-coach-message-label {
+  display: block;
+  margin-bottom: 0.55rem;
+  color: var(--global-theme-color);
+  font-family: monospace;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.training-coach-message-content {
+  > :first-child { margin-top: 0; }
+  > :last-child { margin-bottom: 0; }
+
+  h3 {
+    margin: 0.9rem 0 0.35rem;
+    color: var(--global-text-color);
+    font-size: 0.86rem;
+  }
+
+  p { margin: 0.55rem 0; }
+  ul, ol { padding-left: 1.2rem; margin: 0.55rem 0; }
+  li + li { margin-top: 0.25rem; }
+  code {
+    padding: 0.1rem 0.25rem;
+    background: color-mix(in srgb, var(--global-theme-color) 9%, transparent);
+    border-radius: 0.2rem;
+    font-size: 0.76rem;
+  }
+}
+
 .training-coming-soon {
   padding: 0.25rem 0.45rem;
   background: color-mix(in srgb, var(--global-theme-color) 10%, transparent);
@@ -2555,10 +2614,10 @@ html.lorenz-disabled #lorenz-canvas {
     position: fixed;
     right: auto;
     left: 0.75rem;
-    bottom: calc(4.75rem + env(safe-area-inset-bottom));
+    bottom: calc(0.75rem + env(safe-area-inset-bottom));
     top: auto;
     z-index: 1040;
-    width: min(11.5rem, calc(50vw - 0.85rem));
+    width: min(9.5rem, calc(50vw - 0.85rem));
     max-width: calc(100vw - 1.5rem);
     justify-content: flex-start;
     margin: 0;
@@ -2628,7 +2687,7 @@ html.lorenz-disabled #lorenz-canvas {
     }
 
     input {
-      width: 3.15rem;
+      width: 2.75rem;
       min-height: 1.65rem;
       font-size: 0.66rem;
     }
@@ -2636,7 +2695,7 @@ html.lorenz-disabled #lorenz-canvas {
 
   .training-exercise-note textarea {
     padding: 0.42rem 0.48rem;
-    font-size: 0.74rem;
+    font-size: 0.64rem;
     line-height: 1.35;
   }
 
