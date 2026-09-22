@@ -584,6 +584,9 @@
     }
 
     function renderPreviousExercise(card, name) {
+      const summary = card.querySelector(".training-previous-exercise");
+      summary.textContent = "";
+      summary.hidden = true;
       const previous = safeRead(storageKey).find((session) => {
         if (String(session.id) === String(editingSessionId)) return false;
         if (session.template !== templateSelect.value) return false;
@@ -598,7 +601,6 @@
       const exercise = previous.exercises.find(
         (item) => item.name?.toLowerCase() === name.toLowerCase(),
       );
-      const summary = card.querySelector(".training-previous-exercise");
       const unit = previous.weight_unit || "kg";
       const usefulSet = exercise.sets?.find(
         (set) => set.weight !== null || set.duration !== null,
@@ -615,6 +617,17 @@
         pieces.join(" · ") || "recorded"
       }`;
       summary.hidden = false;
+    }
+
+    function refreshPreviousExerciseSummaries() {
+      exerciseContainer
+        .querySelectorAll(".training-exercise-card")
+        .forEach((card) =>
+          renderPreviousExercise(
+            card,
+            card.querySelector(".training-exercise-name").value.trim(),
+          ),
+        );
     }
 
     function compoundWeightPlan(topWeight) {
@@ -1254,6 +1267,7 @@
         );
       }
       renderHistory();
+      refreshPreviousExerciseSummaries();
     });
   }
 
