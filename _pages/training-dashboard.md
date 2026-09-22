@@ -158,12 +158,13 @@ nav: false
       <label class="training-plan-field">Notes
         <textarea id="training-notes" name="notes" rows="3" placeholder="What felt strong? What should change next time?"></textarea>
       </label>
-      <div class="training-cooldown-check" aria-label="Finish checklist">
+      <div class="training-prep-checks training-cooldown-check" aria-label="Finish checklist">
         <label><input id="training-cooldown-complete" name="cooldown_complete" type="checkbox"> <span><strong>Cooldown + stretch completed</strong>Finish with an easy downshift, then your mobility work.</span></label>
       </div>
       <div class="training-form-actions">
         <button class="training-save-button" type="submit"><i class="fa-solid fa-check" aria-hidden="true"></i> Save workout</button>
         <span id="training-save-status" class="training-save-status" role="status" aria-live="polite"></span>
+        <span id="training-draft-status" class="training-draft-status" aria-live="polite"></span>
       </div>
     </section>
 
@@ -186,12 +187,12 @@ nav: false
       <div><span>05</span><h2>Coach</h2></div>
       <span id="training-coach-state" class="training-coming-soon">PRIVATE SETUP REQUIRED</span>
     </div>
-    <p id="training-coach-copy">Once private cloud access is configured, your Gemini coach can review recent training, summarize progress, and suggest the next session. Your API key remains server-side.</p>
+    <p id="training-coach-copy">Once private cloud access is configured, your private coach can review recent training, summarize progress, and suggest the next session. Your API key remains server-side.</p>
     <label class="training-coach-question" for="training-coach-question">Ask about your training
       <textarea id="training-coach-question" rows="3" placeholder="How should I approach next Monday's squat session?" disabled></textarea>
     </label>
     <div class="training-form-actions">
-      <button id="training-coach-ask" type="button" disabled><i class="fa-solid fa-sparkles" aria-hidden="true"></i> Ask coach</button>
+      <button id="training-coach-ask" class="training-save-button training-coach-button" type="button" disabled><i class="fa-solid fa-sparkles" aria-hidden="true"></i> Ask coach</button>
       <span id="training-coach-response" class="training-save-status" role="status" aria-live="polite"></span>
     </div>
   </section>

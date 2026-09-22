@@ -1905,12 +1905,8 @@ html.lorenz-disabled #lorenz-canvas {
 }
 
 .training-exercise-note {
-  display: grid;
-  gap: 0.35rem;
+  display: block;
   margin-top: 0.75rem;
-  color: var(--section-metadata-color);
-  font-size: 0.64rem;
-  font-weight: 600;
 
   textarea {
     width: 100%;
@@ -1921,8 +1917,13 @@ html.lorenz-disabled #lorenz-canvas {
     line-height: 1.45;
     background: var(--global-bg-color);
     border: 1px solid var(--global-divider-color);
-    border-radius: 0.35rem;
+    border-radius: 0.5rem;
     resize: vertical;
+
+    &::placeholder {
+      color: var(--section-metadata-color);
+      opacity: 0.72;
+    }
   }
 }
 
@@ -1989,6 +1990,17 @@ html.lorenz-disabled #lorenz-canvas {
   gap: 0.55rem 1.25rem;
   margin-top: 0.75rem;
 
+  > label {
+    width: 100%;
+    padding: 0.7rem 0.75rem;
+    background: color-mix(in srgb, var(--global-theme-color) 5%, transparent);
+    border: 1px solid var(--global-divider-color);
+    border-radius: 0.55rem;
+    transition:
+      border-color 180ms cubic-bezier(0.25, 1, 0.5, 1),
+      background-color 180ms cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
   label {
     display: flex;
     gap: 0.45rem;
@@ -2003,6 +2015,11 @@ html.lorenz-disabled #lorenz-canvas {
     width: auto;
     margin-top: 0.12rem;
     accent-color: var(--global-theme-color);
+  }
+
+  label:has(input:checked) {
+    background: color-mix(in srgb, var(--global-theme-color) 10%, transparent);
+    border-color: color-mix(in srgb, var(--global-theme-color) 45%, var(--global-divider-color));
   }
 
   span {
@@ -2166,14 +2183,39 @@ html.lorenz-disabled #lorenz-canvas {
   border: 0;
 }
 
+.training-coach-button {
+  margin-top: 1rem;
+
+  &:disabled {
+    cursor: not-allowed;
+    filter: none;
+    opacity: 0.45;
+    transform: none;
+  }
+}
+
 .training-save-status {
   margin-top: 1rem;
   color: var(--section-metadata-color);
   font-size: 0.72rem;
 }
 
+.training-draft-status {
+  margin-top: 1rem;
+  color: var(--section-metadata-color);
+  font-family: monospace;
+  font-size: 0.62rem;
+
+  &.is-saved::before {
+    margin-right: 0.35rem;
+    color: var(--global-theme-color);
+    content: "●";
+  }
+}
+
 .training-history {
   display: grid;
+  gap: 0.6rem;
 }
 
 .training-history-item {
@@ -2181,14 +2223,37 @@ html.lorenz-disabled #lorenz-canvas {
   grid-template-columns: 120px minmax(0, 1fr) 90px auto;
   gap: 1rem;
   align-items: center;
-  padding: 0.85rem 0;
-  border-top: 1px solid var(--global-divider-color);
+  padding: 0.9rem 1rem;
+  background: color-mix(in srgb, var(--global-card-bg-color) 96%, transparent);
+  border: 1px solid var(--global-divider-color);
+  border-radius: 0.7rem;
+  transition:
+    transform 180ms cubic-bezier(0.25, 1, 0.5, 1),
+    border-color 180ms cubic-bezier(0.25, 1, 0.5, 1),
+    box-shadow 180ms cubic-bezier(0.25, 1, 0.5, 1);
 
-  time,
-  span {
+  &:hover {
+    border-color: color-mix(in srgb, var(--global-theme-color) 35%, var(--global-divider-color));
+    box-shadow: 0 0.4rem 1.25rem color-mix(in srgb, var(--global-text-color) 7%, transparent);
+    transform: translateY(-1px);
+  }
+
+  time {
+    display: grid;
+    gap: 0.25rem;
     color: var(--section-metadata-color);
     font-family: monospace;
     font-size: 0.64rem;
+
+    span {
+      width: fit-content;
+      padding: 0.12rem 0.32rem;
+      color: var(--global-theme-color);
+      background: color-mix(in srgb, var(--global-theme-color) 9%, transparent);
+      border-radius: 999px;
+      font-size: 0.55rem;
+      font-weight: 700;
+    }
   }
 
   > div {
@@ -2198,31 +2263,29 @@ html.lorenz-disabled #lorenz-canvas {
   }
 }
 
+.training-history-copy span,
+.training-history-metric span {
+  color: var(--section-metadata-color);
+  font-family: monospace;
+  font-size: 0.62rem;
+}
+
 .training-session-link {
+  display: inline-flex;
+  gap: 0.35rem;
+  align-items: center;
   padding: 0.38rem 0.55rem;
   color: var(--global-theme-color);
   font-size: 0.67rem;
   text-align: center;
   border: 1px solid var(--global-divider-color);
   border-radius: 999px;
+
+  span { font-family: inherit; font-size: inherit; }
 }
 
 .training-cooldown-check {
   margin-top: 0.8rem;
-
-  label {
-    display: flex;
-    gap: 0.45rem;
-    align-items: flex-start;
-    color: var(--section-metadata-color);
-    font-size: 0.67rem;
-    line-height: 1.35;
-    cursor: pointer;
-  }
-
-  input { margin-top: 0.12rem; accent-color: var(--global-theme-color); }
-  span { display: grid; }
-  strong { color: var(--global-text-color); font-size: 0.7rem; }
 }
 
 .training-session-detail {
@@ -2231,6 +2294,10 @@ html.lorenz-disabled #lorenz-canvas {
 }
 
 .training-session-detail-header {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-end;
+  justify-content: space-between;
   padding-bottom: 1.25rem;
   border-bottom: 1px solid var(--global-divider-color);
 
@@ -2246,13 +2313,31 @@ html.lorenz-disabled #lorenz-canvas {
   .training-save-button { margin: 0; padding: 0.48rem 0.72rem; color: #fff; }
 }
 
+.training-session-unit {
+  display: inline-flex;
+  gap: 0.35rem;
+  align-items: center;
+  color: var(--section-metadata-color);
+  font-size: 0.65rem;
+
+  select {
+    padding: 0.42rem 1.7rem 0.42rem 0.55rem;
+    color: var(--global-text-color);
+    background-color: var(--global-bg-color);
+    border: 1px solid var(--global-divider-color);
+    border-radius: 999px;
+    font: inherit;
+    font-weight: 700;
+  }
+}
+
 .training-detail-summary {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 0.65rem;
   margin: 1.2rem 0;
 
-  article { display: grid; gap: 0.2rem; padding: 0.8rem; border: 1px solid var(--global-divider-color); border-radius: 0.55rem; }
+  article { display: grid; gap: 0.25rem; padding: 0.85rem; background: color-mix(in srgb, var(--global-theme-color) 4%, transparent); border: 1px solid var(--global-divider-color); border-radius: 0.65rem; }
   span { color: var(--section-metadata-color); font-size: 0.63rem; }
   strong { color: var(--global-text-color); font-size: 0.9rem; }
 }
@@ -2264,17 +2349,52 @@ html.lorenz-disabled #lorenz-canvas {
   h2 { margin-bottom: 0.7rem; font-size: 1.05rem; }
 }
 
+.training-session-list-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 0.7rem;
+
+  h2 { margin: 0; }
+  span { color: var(--section-metadata-color); font-size: 0.68rem; }
+}
+
 .training-session-exercise,
 .training-detail-notes {
-  padding: 0.9rem;
+  padding: 1rem;
   margin-bottom: 0.7rem;
+  background: color-mix(in srgb, var(--global-card-bg-color) 96%, transparent);
   border: 1px solid var(--global-divider-color);
-  border-radius: 0.6rem;
+  border-radius: 0.75rem;
 
   h3 { margin: 0 0 0.55rem; font-size: 0.9rem; }
 }
 
-.training-session-set-list { padding-left: 1.1rem; margin: 0; color: var(--section-metadata-color); font-size: 0.76rem; line-height: 1.75; }
+.training-session-exercise-title {
+  display: flex;
+  gap: 0.65rem;
+  align-items: baseline;
+  margin-bottom: 0.65rem;
+
+  span { color: var(--global-theme-color); font-family: monospace; font-size: 0.62rem; font-weight: 700; }
+  h3 { margin: 0; }
+}
+
+.training-session-set-list { display: grid; gap: 0.35rem; }
+
+.training-session-set-row {
+  display: grid;
+  grid-template-columns: 55px minmax(0, 1fr);
+  gap: 0.75rem;
+  align-items: center;
+  padding: 0.45rem 0.55rem;
+  background: color-mix(in srgb, var(--global-theme-color) 4%, transparent);
+  border-radius: 0.4rem;
+
+  span { color: var(--section-metadata-color); font-family: monospace; font-size: 0.61rem; }
+  strong { color: var(--global-text-color); font-size: 0.73rem; font-weight: 550; }
+}
+
 .training-detail-note { margin: 0.65rem 0 0; color: var(--section-metadata-color); font-size: 0.75rem; font-style: italic; }
 
 .training-history-metric {
@@ -2432,12 +2552,18 @@ html.lorenz-disabled #lorenz-canvas {
   }
 
   .training-unit-converter {
-    position: sticky;
-    top: 0.5rem;
-    width: fit-content;
-    max-width: 100%;
+    position: fixed;
+    right: 0.75rem;
+    bottom: calc(4.75rem + env(safe-area-inset-bottom));
+    top: auto;
+    z-index: 1040;
+    width: auto;
+    max-width: calc(100vw - 1.5rem);
     justify-content: flex-end;
-    margin: 0.75rem 0 0.75rem auto;
+    margin: 0;
+    box-shadow:
+      0 0.7rem 2rem color-mix(in srgb, var(--global-text-color) 14%, transparent),
+      0 1px 3px color-mix(in srgb, var(--global-text-color) 10%, transparent);
   }
 
   .training-summary-grid {
@@ -2473,6 +2599,8 @@ html.lorenz-disabled #lorenz-canvas {
   }
 
   .training-detail-summary { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+  .training-session-detail-header { align-items: flex-start; flex-direction: column; }
 }
 
 @media (max-width: 480px) {
@@ -2490,9 +2618,15 @@ html.lorenz-disabled #lorenz-canvas {
   .training-unit-converter {
     flex-wrap: wrap;
     justify-content: flex-start;
+
+    strong {
+      width: 100%;
+    }
   }
 
   .training-session-detail-actions { align-items: flex-start; flex-direction: column; }
+
+  .training-session-list-heading { align-items: flex-start; flex-direction: column; gap: 0.25rem; }
 
   .training-private-actions {
     justify-content: flex-start;

@@ -29,9 +29,9 @@ Deno.serve(async (request) => {
     return new Response("Sign-in required", { status: 401, headers });
   const supabaseUrl = Deno.env.get("SUPABASE_URL");
   const supabaseKey = Deno.env.get("SUPABASE_ANON_KEY");
-  const geminiKey = Deno.env.get("GEMINI_API_KEY");
-  const model = Deno.env.get("GEMINI_MODEL") || "gemini-2.5-flash";
-  if (!supabaseUrl || !supabaseKey || !geminiKey) {
+  const groqKey = Deno.env.get("GROQ_API_KEY");
+  const model = Deno.env.get("GROQ_MODEL") || "openai/gpt-oss-120b";
+  if (!supabaseUrl || !supabaseKey || !groqKey) {
     return new Response("Coach is not configured yet", {
       status: 503,
       headers,
@@ -85,45 +85,36 @@ Deno.serve(async (request) => {
     safety:
       "Give general training guidance only. Do not diagnose injury, prescribe medical treatment, or encourage max attempts when fatigue or pain is mentioned.",
   };
-  const geminiResponse = await fetch(
-    `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent`,
+  const groqResponse = await fetch(
+    "https://api.groq.com/openai/v1/chat/completions",
     {
       method: "POST",
       headers: {
-        "x-goog-api-key": geminiKey,
+        Authorization: `Bearer ${groqKey}`,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        systemInstruction: {
-          parts: [
-            {
-              text: "You are a concise, cautious strength and running coach. Answer only from the supplied private training context and recent sessions. Use SI units first and optionally add pounds in parentheses. Clearly distinguish recorded facts from suggestions. Explain uncertainty and suggest conservative progression. Do not diagnose injury, prescribe medical treatment, or present your answer as medical advice.",
-            },
-          ],
-        },
-        contents: [
+        model,
+        messages: [
           {
-            role: "user",
-            parts: [{ text: JSON.stringify(input) }],
+            role: "system",
+            content:
+              "You are a concise, cautious strength and running coach. Answer only from the supplied private training context and recent sessions. Use SI units first and optionally add pounds in parentheses. Clearly distinguish recorded facts from suggestions. Explain uncertainty and suggest conservative progression. Do not diagnose injury, prescribe medical treatment, or present your answer as medical advice.",
           },
+          { role: "user", content: JSON.stringify(input) },
         ],
-        generationConfig: {
-          temperature: 0.35,
-          maxOutputTokens: 600,
-        },
+        temperature: 0.35,
+        max_completion_tokens: 900,
       }),
     },
   );
-  if (!geminiResponse.ok) {
-    const detail = await geminiResponse.text();
-    console.error("Gemini coach request failed", geminiResponse.status, detail);
+  if (!groqResponse.ok) {
+    const detail = await groqResponse.text();
+    console.error("Groq coach request failed", groqResponse.status, detail);
     return new Response("Coach request failed", { status: 502, headers });
   }
-  const result = await geminiResponse.json();
-  const answer = (result.candidates?.[0]?.content?.parts || [])
-    .map((part: { text?: string }) => part.text || "")
-    .join("")
-    .trim();
+  const result = await groqResponse.json();
+  const answer = String(result.choices?.[0]?.message?.content || "").trim();
   return Response.json(
     { answer: answer || "No coach response." },
     { headers },

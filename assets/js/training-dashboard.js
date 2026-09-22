@@ -312,6 +312,7 @@
     root.dataset.initialized = "true";
 
     const storageKey = root.dataset.storageKey;
+    const draftStorageKey = `${storageKey}-draft`;
     const form = root.querySelector("#training-session-form");
     const cycleWeekSelect = root.querySelector("#training-cycle-week");
     const periodSelect = root.querySelector("#training-period");
@@ -327,6 +328,7 @@
     const addExerciseButton = root.querySelector("#training-add-exercise");
     const historyContainer = root.querySelector("#training-history");
     const saveStatus = root.querySelector("#training-save-status");
+    const draftStatus = root.querySelector("#training-draft-status");
     const weekStrength = root.querySelector("#training-week-strength");
     const weekRunning = root.querySelector("#training-week-running");
     const weekSchedule = root.querySelector("#training-week-schedule");
@@ -338,6 +340,8 @@
     let showingAllSessions = false;
     let sessionDateForContext = new Date();
     let editSessionLoaded = false;
+    let draftTimer;
+    let restoringDraft = false;
 
     const kilogramsPerPound = 0.45359237;
     const roundWeight = (value) => Math.round(value * 10) / 10;
@@ -528,7 +532,7 @@
         <p class="training-exercise-prescription">${prescription.description}${baseline ? ` <b>Baseline: ${baseline}.</b>` : ""}</p>
         <div class="training-set-labels" aria-hidden="true"><span>Set</span><span>${fields[0].label}</span><span>${fields[1].label}</span><span>RPE</span><span></span></div>
         <div class="training-set-list"></div>
-        <label class="training-exercise-note">Exercise note <textarea rows="2" placeholder="Technique, pain, progression, or anything to remember next time."></textarea></label>
+        <label class="training-exercise-note"><span class="sr-only">Exercise note</span><textarea rows="2" aria-label="Exercise note" placeholder="Add a note about technique, pain, or progression…"></textarea></label>
         <p class="training-previous-exercise" hidden></p>`;
       const list = card.querySelector(".training-set-list");
       for (let index = 1; index <= prescription.sets; index += 1) {
@@ -894,6 +898,108 @@
       card.querySelector(".training-exercise-name").select();
     }
 
+    function setDraftStatus(text, saved = false) {
+      draftStatus.textContent = text;
+      draftStatus.classList.toggle("is-saved", saved);
+    }
+
+    function readDraft() {
+      try {
+        const draft = JSON.parse(localStorage.getItem(draftStorageKey) || "null");
+        return draft?.version === 1 ? draft : null;
+      } catch {
+        return null;
+      }
+    }
+
+    function clearDraft() {
+      window.clearTimeout(draftTimer);
+      localStorage.removeItem(draftStorageKey);
+      setDraftStatus("");
+    }
+
+    function draftExercise(card) {
+      const fields = fieldsForMode(card.dataset.mode);
+      return {
+        name: card.querySelector(".training-exercise-name").value,
+        mode: card.dataset.mode,
+        role: card.dataset.role,
+        note: card.querySelector(".training-exercise-note textarea").value,
+        sets: [...card.querySelectorAll(".training-set-row")].map((row) => ({
+          [fields[0].key]: row.querySelector(`[data-field="${fields[0].key}"]`)?.value ?? null,
+          [fields[1].key]: row.querySelector(`[data-field="${fields[1].key}"]`)?.value ?? null,
+          rpe: row.querySelector('[data-field="rpe"]')?.value ?? null,
+        })),
+      };
+    }
+
+    function writeDraft() {
+      if (restoringDraft || editingSessionId) return;
+      const draft = {
+        version: 1,
+        saved_at: new Date().toISOString(),
+        cycle_week: cycleWeekSelect.value,
+        period: periodSelect.value,
+        template: templateSelect.value,
+        weight_unit: weightUnit,
+        body_weight: bodyWeightInput.value,
+        sleep: root.querySelector("#training-sleep").value,
+        readiness: root.querySelector("#training-readiness").value,
+        warmup_completed: root.querySelector("#training-warmup-complete").checked,
+        cooldown_completed: root.querySelector("#training-cooldown-complete").checked,
+        plan: root.querySelector("#training-plan").value,
+        duration: root.querySelector("#training-duration").value,
+        session_rpe: root.querySelector("#training-session-rpe").value,
+        notes: root.querySelector("#training-notes").value,
+        run_type: runTypeSelect.value,
+        exercises: [...exerciseContainer.querySelectorAll(".training-exercise-card")].map(draftExercise),
+      };
+      localStorage.setItem(draftStorageKey, JSON.stringify(draft));
+      setDraftStatus("Draft saved on this device", true);
+    }
+
+    function scheduleDraft() {
+      if (restoringDraft || editingSessionId) return;
+      window.clearTimeout(draftTimer);
+      draftTimer = window.setTimeout(writeDraft, 450);
+    }
+
+    function restoreDraft(draft) {
+      if (!draft || editingSessionId) return;
+      restoringDraft = true;
+      cycleWeekSelect.value = draft.cycle_week || cycleWeekSelect.value;
+      periodSelect.value = draft.period || periodSelect.value;
+      populateTemplateOptions(periodSelect.value, draft.template);
+      templateSelect.value = draft.template || templateSelect.value;
+      runTypeSelect.value = draft.run_type || runTypeSelect.value;
+      weightUnitSelect.value = draft.weight_unit || weightUnit;
+      setWeightUnit(weightUnitSelect.value, false);
+      bodyWeightInput.value = draft.body_weight ?? "";
+      root.querySelector("#training-sleep").value = draft.sleep ?? "";
+      root.querySelector("#training-readiness").value = draft.readiness ?? "";
+      root.querySelector("#training-warmup-complete").checked = Boolean(draft.warmup_completed);
+      root.querySelector("#training-cooldown-complete").checked = Boolean(draft.cooldown_completed);
+      root.querySelector("#training-plan").value = draft.plan || "";
+      root.querySelector("#training-duration").value = draft.duration ?? "";
+      root.querySelector("#training-session-rpe").value = draft.session_rpe ?? "";
+      root.querySelector("#training-notes").value = draft.notes || "";
+      runTypeField.hidden = templateSelect.value !== "run";
+      runTypeField.classList.toggle("is-visible", templateSelect.value === "run");
+      exerciseContainer.replaceChildren();
+      (draft.exercises || []).forEach((exercise) => {
+        exerciseContainer.appendChild(
+          createExercise({
+            ...exercise,
+            recordedSets: exercise.sets,
+            recordedWeightUnit: weightUnit,
+            recordedNote: exercise.note,
+          }),
+        );
+      });
+      restoringDraft = false;
+      setDraftStatus("Restored unsaved draft", true);
+    }
+
     function renderProgramFocus() {
       const week = programWeeks[cycleWeekSelect.value];
       root.querySelector("#training-cycle-kicker").textContent = week.kicker;
@@ -999,10 +1105,10 @@
             0,
           );
           item.innerHTML = `
-          <time>${formatDate(session.date)}</time>
-          <div><strong>${session.template_label}</strong><span>${session.cycle_week !== undefined && session.cycle_week !== null ? `W${session.cycle_week} · ` : ""}${session.period ? `${session.period === "morning" ? "AM" : "PM"} · ` : ""}${session.exercises.length} activities · ${setCount} entries</span></div>
+          <time><span>${session.period === "morning" ? "AM" : "PM"}</span>${formatDate(session.date)}</time>
+          <div class="training-history-copy"><strong>${session.template_label}</strong><span>${session.cycle_week !== undefined && session.cycle_week !== null ? `Week ${session.cycle_week} · ` : ""}${session.exercises.length} exercises · ${setCount} logged sets${session.session_rpe ? ` · RPE ${session.session_rpe}` : ""}</span></div>
           <div class="training-history-metric"><strong>${Math.round(sessionVolume(session)).toLocaleString()}</strong><span>kg volume</span></div>
-          <a class="training-session-link" href="/training/session/?id=${encodeURIComponent(session.id)}">View</a>`;
+          <a class="training-session-link" href="/training/session/?id=${encodeURIComponent(session.id)}"><span>Open</span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>`;
           historyContainer.appendChild(item);
         },
       );
@@ -1025,7 +1131,10 @@
     });
     templateSelect.addEventListener("change", renderTemplate);
     runTypeSelect.addEventListener("change", renderTemplate);
-    addExerciseButton.addEventListener("click", addExtraExercise);
+    addExerciseButton.addEventListener("click", () => {
+      addExtraExercise();
+      scheduleDraft();
+    });
     const poundsInput = root.querySelector("#training-pounds");
     const kilogramsInput = root.querySelector("#training-kilograms");
     poundsInput.addEventListener("input", () => {
@@ -1038,6 +1147,8 @@
       poundsInput.value =
         kilograms === null ? "" : (kilograms / 0.45359237).toFixed(1);
     });
+    form.addEventListener("input", scheduleDraft);
+    form.addEventListener("change", scheduleDraft);
     form.addEventListener("submit", (event) => {
       event.preventDefault();
       const exercises = collectExercises();
@@ -1079,6 +1190,7 @@
         ? savedSessions.map((item) => (item.id === session.id ? session : item))
         : [session, ...savedSessions];
       safeWrite(storageKey, sessions);
+      clearDraft();
       saveStatus.textContent = existingSession
         ? "Workout updated. Syncing your private copy…"
         : "Workout saved. Syncing your private copy…";
@@ -1086,6 +1198,10 @@
         new CustomEvent("training:session-saved", { detail: session }),
       );
       renderHistory();
+      const destination = existingSession
+        ? `/training/session/?id=${encodeURIComponent(session.id)}`
+        : "/training/dashboard/";
+      window.setTimeout(() => window.location.assign(destination), 700);
     });
 
     root.querySelector("#training-export").addEventListener("click", () => {
@@ -1108,6 +1224,7 @@
       if (!window.confirm("Delete every locally saved workout on this device?"))
         return;
       localStorage.removeItem(storageKey);
+      clearDraft();
       saveStatus.textContent = "Local workout data cleared.";
       renderHistory();
     });
@@ -1119,6 +1236,7 @@
       loadSessionForEdit(
         safeRead(storageKey).find((session) => session.id === editingSessionId),
       );
+    else restoreDraft(readDraft());
     renderHistory();
     window.addEventListener("training:cloud-synced", () => {
       if (editingSessionId && !editSessionLoaded) {

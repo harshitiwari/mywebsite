@@ -1,7 +1,7 @@
 /*
  * Public browser configuration only. The Supabase publishable/anon key is
  * designed to be exposed; row-level security in supabase/schema.sql protects
- * data. Never put a service-role key or a Gemini key in this file.
+ * data. Never put a service-role key or a model API key in this file.
  */
 window.trainingCloudConfig = {
   supabaseUrl: "https://pssphpnkuzsltnrowzok.supabase.co",

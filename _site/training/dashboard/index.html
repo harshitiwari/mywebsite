@@ -672,12 +672,13 @@
       <label class="training-plan-field">Notes
         <textarea id="training-notes" name="notes" rows="3" placeholder="What felt strong? What should change next time?"></textarea>
       </label>
-      <div class="training-cooldown-check" aria-label="Finish checklist">
+      <div class="training-prep-checks training-cooldown-check" aria-label="Finish checklist">
         <label><input id="training-cooldown-complete" name="cooldown_complete" type="checkbox"> <span><strong>Cooldown + stretch completed</strong>Finish with an easy downshift, then your mobility work.</span></label>
       </div>
       <div class="training-form-actions">
         <button class="training-save-button" type="submit"><i class="fa-solid fa-check" aria-hidden="true"></i> Save workout</button>
         <span id="training-save-status" class="training-save-status" role="status" aria-live="polite"></span>
+        <span id="training-draft-status" class="training-draft-status" aria-live="polite"></span>
       </div>
     </section>
 
@@ -704,12 +705,12 @@
 </div>
       <span id="training-coach-state" class="training-coming-soon">PRIVATE SETUP REQUIRED</span>
     </div>
-    <p id="training-coach-copy">Once private cloud access is configured, your Gemini coach can review recent training, summarize progress, and suggest the next session. Your API key remains server-side.</p>
+    <p id="training-coach-copy">Once private cloud access is configured, your private coach can review recent training, summarize progress, and suggest the next session. Your API key remains server-side.</p>
     <label class="training-coach-question" for="training-coach-question">Ask about your training
       <textarea id="training-coach-question" rows="3" placeholder="How should I approach next Monday's squat session?" disabled></textarea>
     </label>
     <div class="training-form-actions">
-      <button id="training-coach-ask" type="button" disabled><i class="fa-solid fa-sparkles" aria-hidden="true"></i> Ask coach</button>
+      <button id="training-coach-ask" class="training-save-button training-coach-button" type="button" disabled><i class="fa-solid fa-sparkles" aria-hidden="true"></i> Ask coach</button>
       <span id="training-coach-response" class="training-save-status" role="status" aria-live="polite"></span>
     </div>
   </section>
@@ -1512,13 +1513,13 @@ ninja.data = [{
     <script src="/assets/js/ambient-controls.js?v=488a2a8648beda2625fdc1ddce55c038"></script>
     <script src="/assets/js/seamless-navigation.js?v=eeeb1f63dcca15c087d9651bc9a3c513"></script>
     
-      <script src="/assets/js/training-dashboard.js?v=bbaee0b06e765535fcf7710930a52224"></script>
+      <script src="/assets/js/training-dashboard.js?v=c6b9e86e1eadbe99f707f088c98b31e6"></script>
     
     
-      <script src="/assets/js/training-cloud-config.js?v=d1aadad1aae76e1616b48ad6f35b2888"></script>
+      <script src="/assets/js/training-cloud-config.js?v=c2bb2eb4fe1c808e353d363d10b2a97a"></script>
     
     
-      <script type="module" src="/assets/js/training-private.js?v=c7dd6d11a41387a75b7559a22ba6be25"></script>
+      <script type="module" src="/assets/js/training-private.js?v=2a2ab1f7d5e9f44ae5cf0a6f68a7a02c"></script>
     
     
   </body>

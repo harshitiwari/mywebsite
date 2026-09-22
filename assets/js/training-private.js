@@ -51,8 +51,8 @@ function setCoach(enabled, text = "") {
   ask.disabled = !enabled;
   state.textContent = enabled ? "PRIVATE COACH" : "PRIVATE SETUP REQUIRED";
   copy.textContent = enabled
-    ? "Ask for a progress summary, compare recent sessions, or plan the next workout. Gemini receives your protected training context only through the private server function."
-    : "Once private cloud access is configured, your Gemini coach can review recent training, summarize progress, and suggest the next session. Your API key remains server-side.";
+    ? "Ask for a progress summary, compare recent sessions, or plan the next workout. The model receives your protected training context only through the private server function."
+    : "Once private cloud access is configured, your private coach can review recent training, summarize progress, and suggest the next session. Your API key remains server-side.";
   if (text)
     document.getElementById("training-coach-response").textContent = text;
 }

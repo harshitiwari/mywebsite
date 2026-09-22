@@ -1,13 +1,13 @@
 # Private training dashboard setup
 
-The public `/training/` page remains public. The `/training/dashboard/` page can become a private, cloud-synced log without putting private entries, Gemini keys, or database credentials in GitHub.
+The public `/training/` page remains public. The `/training/dashboard/` page can become a private, cloud-synced log without putting private entries, model API keys, or database credentials in GitHub.
 
 ## What is protected
 
 - Each workout belongs to its authenticated user ID.
 - Supabase Row Level Security prevents one account from reading, editing, or deleting another account's rows.
 - A public Supabase publishable key is allowed in `assets/js/training-cloud-config.js`; it cannot bypass the database rules.
-- The Gemini key is stored only as a Supabase Edge Function secret. It must never be copied into this repository, a browser script, or GitHub Actions.
+- The Groq key is stored only as a Supabase Edge Function secret. It must never be copied into this repository, a browser script, or GitHub Actions.
 - Face ID is implemented as a device passkey through Apple WebAuthn. There is no homemade PIN, which is safer than maintaining another password.
 
 ## First-time setup
@@ -19,9 +19,9 @@ The public `/training/` page remains public. The `/training/dashboard/` page can
 5. Deploy the site. Open the dashboard, sign in once through the email link, then choose **Enable Face ID / passkey**. Apple will handle the Face ID or device-passcode prompt.
 6. Set up the optional coach only after the logger is working:
    - deploy `supabase/functions/training-coach`;
-   - create a Gemini API key in Google AI Studio;
-   - set `GEMINI_API_KEY` as a Supabase Edge Function secret; it uses `gemini-2.5-flash` with a short response cap by default (set `GEMINI_MODEL` only to override it);
-   - monitor the API project's quota and usage in Google AI Studio.
+   - create a GroqCloud API key and enable Zero Data Retention in its Data Controls;
+   - set `GROQ_API_KEY` as a Supabase Edge Function secret; it uses `openai/gpt-oss-120b` with a short response cap by default (set `GROQ_MODEL` only to override it);
+   - monitor the project quota and usage in GroqCloud.
 
 ## Privacy boundaries
 
