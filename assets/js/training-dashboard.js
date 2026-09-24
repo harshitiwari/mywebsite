@@ -280,10 +280,37 @@
     },
   };
 
+  function easternCalendarDate(value = new Date()) {
+    const date = value instanceof Date ? value : new Date(value);
+    if (Number.isNaN(date.getTime())) return null;
+    const parts = new Intl.DateTimeFormat("en-US", {
+      timeZone: "America/New_York",
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+    }).formatToParts(date);
+    const part = (type) => parts.find((item) => item.type === type)?.value;
+    return `${part("year")}-${part("month")}-${part("day")}`;
+  }
+
+  function repairUtcSessionDates(sessions) {
+    return sessions.map((session) => {
+      const localDate = easternCalendarDate(session.created_at);
+      const utcDate = session.created_at?.slice(0, 10);
+      return localDate && utcDate && session.date === utcDate && localDate !== utcDate
+        ? { ...session, date: localDate }
+        : session;
+    });
+  }
+
   function safeRead(key) {
     try {
       const value = JSON.parse(localStorage.getItem(key) || "[]");
-      return Array.isArray(value) ? value : [];
+      if (!Array.isArray(value)) return [];
+      const repaired = repairUtcSessionDates(value);
+      if (JSON.stringify(repaired) !== JSON.stringify(value))
+        localStorage.setItem(key, JSON.stringify(repaired));
+      return repaired;
     } catch {
       return [];
     }
@@ -1185,7 +1212,7 @@
         id: existingSession?.id || `${now.getTime()}`,
         created_at: existingSession?.created_at || now.toISOString(),
         updated_at: now.toISOString(),
-        date: existingSession?.date || now.toISOString().slice(0, 10),
+        date: existingSession?.date || easternCalendarDate(now),
         cycle_week: Number(cycleWeekSelect.value),
         period: periodSelect.value,
         template: templateSelect.value,

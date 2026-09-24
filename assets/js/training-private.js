@@ -12,10 +12,37 @@ const storageKey = root?.dataset.storageKey;
 let supabase;
 let currentSession;
 
+function easternCalendarDate(value) {
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return null;
+  const parts = new Intl.DateTimeFormat("en-US", {
+    timeZone: "America/New_York",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).formatToParts(date);
+  const part = (type) => parts.find((item) => item.type === type)?.value;
+  return `${part("year")}-${part("month")}-${part("day")}`;
+}
+
+function repairUtcSessionDates(sessions) {
+  return sessions.map((session) => {
+    const localDate = easternCalendarDate(session.created_at);
+    const utcDate = session.created_at?.slice(0, 10);
+    return localDate && utcDate && session.date === utcDate && localDate !== utcDate
+      ? { ...session, date: localDate }
+      : session;
+  });
+}
+
 function readLocalSessions() {
   try {
     const sessions = JSON.parse(localStorage.getItem(storageKey) || "[]");
-    return Array.isArray(sessions) ? sessions : [];
+    if (!Array.isArray(sessions)) return [];
+    const repaired = repairUtcSessionDates(sessions);
+    if (JSON.stringify(repaired) !== JSON.stringify(sessions))
+      localStorage.setItem(storageKey, JSON.stringify(repaired));
+    return repaired;
   } catch {
     return [];
   }
@@ -212,10 +239,11 @@ async function syncCloudToLocal() {
   (data || []).forEach((record) => {
     if (record.payload) merged.set(String(record.client_id), record.payload);
   });
-  const sessions = [...merged.values()].sort(
+  const sessions = repairUtcSessionDates([...merged.values()]).sort(
     (a, b) => new Date(b.created_at) - new Date(a.created_at),
   );
   writeLocalSessions(sessions);
+  await syncLocalToCloud();
   window.dispatchEvent(new Event("training:cloud-synced"));
 }
 
