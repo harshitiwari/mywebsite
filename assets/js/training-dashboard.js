@@ -642,6 +642,7 @@
       const unit = previous.weight_unit || "kg";
       const heading = document.createElement("strong");
       heading.textContent = `Last session · ${formatDate(previous.date)}`;
+      summary.appendChild(document.createElement("br"));
       summary.appendChild(heading);
       (exercise.sets || []).forEach((set, index) => {
         const pieces = [];
@@ -658,12 +659,14 @@
         const line = document.createElement("span");
         line.className = "training-previous-set";
         line.textContent = `Set ${index + 1} · ${pieces.join(" · ") || "recorded"}`;
+        summary.appendChild(document.createElement("br"));
         summary.appendChild(line);
       });
       if (exercise.note) {
         const note = document.createElement("span");
         note.className = "training-previous-set";
         note.textContent = exercise.note;
+        summary.appendChild(document.createElement("br"));
         summary.appendChild(note);
       }
       summary.hidden = false;
