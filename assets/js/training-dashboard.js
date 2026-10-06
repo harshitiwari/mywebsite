@@ -614,24 +614,37 @@
       const summary = card.querySelector(".training-previous-exercise");
       summary.textContent = "";
       summary.hidden = true;
-      const previous = safeRead(storageKey).find((session) => {
+      const normalizedName = (value) =>
+        String(value || "")
+          .toLowerCase()
+          .replace(/dumbell/g, "dumbbell")
+          .replace(/[^a-z0-9]+/g, " ")
+          .trim();
+      const exerciseName = normalizedName(name);
+      if (!exerciseName) return;
+      const previous = safeRead(storageKey)
+        .filter((session) => {
         if (String(session.id) === String(editingSessionId)) return false;
-        if (session.template !== templateSelect.value) return false;
-        const sessionDay = new Date(`${session.date}T12:00:00`).getDay();
-        if (sessionDay !== sessionDateForContext.getDay()) return false;
         const exercise = session.exercises?.find(
-          (item) => item.name?.toLowerCase() === name.toLowerCase(),
+          (item) => normalizedName(item.name) === exerciseName,
         );
         return Boolean(exercise);
-      });
+        })
+        .sort(
+          (a, b) =>
+            new Date(b.updated_at || b.created_at).getTime() -
+            new Date(a.updated_at || a.created_at).getTime(),
+        )[0];
       if (!previous) return;
       const exercise = previous.exercises.find(
-        (item) => item.name?.toLowerCase() === name.toLowerCase(),
+        (item) => normalizedName(item.name) === exerciseName,
       );
       const unit = previous.weight_unit || "kg";
-      const usefulSet = exercise.sets?.find(
+      const completedSets = (exercise.sets || []).filter(
         (set) => set.weight !== null || set.duration !== null,
       );
+      const usefulSet =
+        completedSets.find((set) => Number(set.weight) > 0) || completedSets[0];
       const pieces = [];
       if (usefulSet?.weight !== null && usefulSet?.weight !== undefined)
         pieces.push(`${usefulSet.weight} ${unit} × ${usefulSet.reps || "?"}`);
