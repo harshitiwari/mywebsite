@@ -640,22 +640,32 @@
         (item) => normalizedName(item.name) === exerciseName,
       );
       const unit = previous.weight_unit || "kg";
-      const completedSets = (exercise.sets || []).filter(
-        (set) => set.weight !== null || set.duration !== null,
-      );
-      const usefulSet =
-        completedSets.find((set) => Number(set.weight) > 0) || completedSets[0];
-      const pieces = [];
-      if (usefulSet?.weight !== null && usefulSet?.weight !== undefined)
-        pieces.push(`${usefulSet.weight} ${unit} × ${usefulSet.reps || "?"}`);
-      else if (usefulSet?.duration !== null && usefulSet?.duration !== undefined)
-        pieces.push(`${usefulSet.duration} min`);
-      if (usefulSet?.rpe !== null && usefulSet?.rpe !== undefined)
-        pieces.push(`RPE ${usefulSet.rpe}`);
-      if (exercise.note) pieces.push(exercise.note);
-      summary.textContent = `Previous ${formatDate(previous.date)} · ${
-        pieces.join(" · ") || "recorded"
-      }`;
+      const heading = document.createElement("strong");
+      heading.textContent = `Last session · ${formatDate(previous.date)}`;
+      summary.appendChild(heading);
+      (exercise.sets || []).forEach((set, index) => {
+        const pieces = [];
+        if (set.weight !== null && set.weight !== undefined)
+          pieces.push(`${set.weight} ${unit}`);
+        if (set.reps !== null && set.reps !== undefined)
+          pieces.push(`${set.reps} reps`);
+        if (set.duration !== null && set.duration !== undefined)
+          pieces.push(`${set.duration} min`);
+        if (set.distance !== null && set.distance !== undefined)
+          pieces.push(`${set.distance} km`);
+        if (set.rpe !== null && set.rpe !== undefined)
+          pieces.push(`RPE ${set.rpe}`);
+        const line = document.createElement("span");
+        line.className = "training-previous-set";
+        line.textContent = `Set ${index + 1} · ${pieces.join(" · ") || "recorded"}`;
+        summary.appendChild(line);
+      });
+      if (exercise.note) {
+        const note = document.createElement("span");
+        note.className = "training-previous-set";
+        note.textContent = exercise.note;
+        summary.appendChild(note);
+      }
       summary.hidden = false;
     }
 

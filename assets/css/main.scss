@@ -1935,6 +1935,11 @@ html.lorenz-disabled #lorenz-canvas {
   line-height: 1.45;
   background: color-mix(in srgb, var(--global-theme-color) 6%, transparent);
   border-left: 2px solid var(--global-theme-color);
+
+  .training-previous-set {
+    display: block;
+    margin-top: 0.2rem;
+  }
 }
 
 .training-plan-field {
