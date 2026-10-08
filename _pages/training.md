@@ -9,13 +9,13 @@ nav: false
 <section class="training-hero">
   <p class="training-eyebrow">HYBRID TRAINING SYSTEM</p>
   <h1>Strength and endurance, measured together.</h1>
-  <p class="training-lede">A structured approach to lifting, running, cycling, mobility, and recovery. The public page shows the framework; daily records remain private.</p>
+  <p class="training-lede">A structured approach to lifting, running, cycling, mobility, and recovery. Explore the framework and my recent activities.</p>
   <div class="training-hero-actions">
     <a class="training-primary-action" href="/training/dashboard/">
       <i class="fa-solid fa-lock" aria-hidden="true"></i>
       Open private dashboard
     </a>
-    <a class="training-secondary-action" href="/training/dashboard/#training-history">Saved sessions</a>
+    <a class="training-secondary-action" href="{{ '/training/activities/' | relative_url }}">Public activities</a>
     <a class="training-secondary-action" href="#weekly-structure">View weekly structure</a>
   </div>
 </section>
