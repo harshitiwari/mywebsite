@@ -1,5 +1,3 @@
-import { createClient } from "https://esm.sh/@supabase/supabase-js@2.105.0";
-
 (() => {
   const root = document.getElementById("training-session-detail");
   if (!root) return;
@@ -218,23 +216,28 @@ import { createClient } from "https://esm.sh/@supabase/supabase-js@2.105.0";
       render();
       return;
     }
+    const { createClient } = await withTimeout(
+      import("https://esm.sh/@supabase/supabase-js@2.105.0"),
+    );
     const supabase = createClient(
       config.supabaseUrl,
       config.supabasePublishableKey,
       { auth: { experimental: { passkey: true } } },
     );
-    const { data: auth } = await supabase.auth.getSession();
+    const { data: auth, error: authError } = await withTimeout(supabase.auth.getSession());
+    if (authError) throw authError;
     if (!auth.session) {
       renderEmpty(
         "Sign in to your private dashboard first, then open a saved session.",
       );
       return;
     }
-    const { data, error } = await supabase
+    const { data, error } = await withTimeout(supabase
       .from("training_sessions")
       .select("payload")
       .eq("client_id", id)
-      .maybeSingle();
+      .maybeSingle());
+    if (error) throw error;
     if (!error && data?.payload) {
       session = data.payload;
       displayUnit = session.weight_unit || displayUnit;
@@ -242,5 +245,20 @@ import { createClient } from "https://esm.sh/@supabase/supabase-js@2.105.0";
     render();
   }
 
-  loadCloudSession();
+  function withTimeout(operation) {
+    let timer;
+    return Promise.race([
+      operation,
+      new Promise((_, reject) => {
+        timer = window.setTimeout(
+          () => reject(new Error("The session request took too long.")),
+          12000,
+        );
+      }),
+    ]).finally(() => window.clearTimeout(timer));
+  }
+
+  loadCloudSession().catch(() => {
+    renderEmpty("Could not load the session. Reload this page to retry, or return to your dashboard and sign in again.");
+  });
 })();

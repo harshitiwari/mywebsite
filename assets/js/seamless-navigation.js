@@ -3,6 +3,7 @@
   const skippedExtensions =
     /\.(?:avi|bib|csv|docx?|gif|jpe?g|json|mp3|mp4|pdf|png|pptx?|svg|tex|txt|webm|webp|xlsx?|xml|zip)$/i;
   let navigationController;
+  let renderedPageUrl = new URL(window.location.href);
 
   function shouldNavigate(link, event) {
     if (
@@ -240,6 +241,7 @@
       }
 
       if (pushHistory) history.pushState({}, "", destination.href);
+      renderedPageUrl = new URL(destination.href);
       scrollToDestination(destination);
       document.dispatchEvent(
         new CustomEvent("seamless:load", {
@@ -291,6 +293,20 @@
   });
 
   window.addEventListener("popstate", () => {
-    navigate(new URL(window.location.href), false);
+    const destination = new URL(window.location.href);
+    // Fragment navigation belongs to the currently rendered page. Replacing
+    // its DOM would discard state held by page-specific scripts.
+    if (
+      destination.pathname === renderedPageUrl.pathname &&
+      destination.search === renderedPageUrl.search
+    ) return;
+    if (
+      destination.pathname.startsWith("/training") ||
+      renderedPageUrl.pathname.startsWith("/training")
+    ) {
+      window.location.reload();
+      return;
+    }
+    navigate(destination, false);
   });
 })();
