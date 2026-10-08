@@ -2297,6 +2297,67 @@ html.lorenz-disabled #lorenz-canvas {
   margin: 2rem auto;
 }
 
+.training-public-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.training-public-units {
+  display: flex;
+  gap: 0.25rem;
+  padding: 0.25rem;
+  border: 1px solid var(--global-divider-color);
+  border-radius: 999px;
+
+  button {
+    padding: 0.4rem 0.8rem;
+    color: var(--global-text-color);
+    background: transparent;
+    border: 0;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    cursor: pointer;
+  }
+
+  button[aria-pressed="true"] {
+    color: var(--global-theme-color);
+    background: color-mix(in srgb, var(--global-theme-color) 12%, transparent);
+    font-weight: 700;
+  }
+}
+
+.training-public-session-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.25rem;
+  margin-bottom: 0.75rem;
+  color: var(--global-text-color);
+  border: 1px solid var(--global-divider-color);
+  border-radius: 0.75rem;
+  background: var(--global-card-bg-color);
+
+  h2 { margin: 0.35rem 0; font-size: 1.2rem; }
+  p { margin: 0; color: var(--section-metadata-color); font-size: 0.75rem; }
+  &:hover { text-decoration: none; border-color: var(--global-theme-color); }
+  &:focus-visible { outline: 2px solid var(--global-theme-color); outline-offset: 3px; }
+}
+
+#training-public-activities {
+  .training-session-detail { max-width: none; }
+  .training-detail-notes p { white-space: pre-wrap; }
+  .training-public-metrics { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+  @media (max-width: 767px) {
+    .training-public-metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .training-public-session-card { align-items: flex-start; flex-direction: column; }
+  }
+}
+
 .training-session-detail-header {
   display: flex;
   gap: 1.5rem;
