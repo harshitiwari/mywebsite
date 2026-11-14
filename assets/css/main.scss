@@ -494,6 +494,26 @@ html.seamless-loading body > .container[role="main"] {
   border-bottom: 1px solid var(--global-divider-color);
 }
 
+.talk-document-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+
+  a {
+    display: inline-flex;
+    padding: 0.3rem 0.7rem;
+    color: var(--global-theme-color);
+    border: 1px solid var(--global-theme-color);
+    border-radius: 0.3rem;
+    font-size: 0.75rem;
+    text-decoration: none;
+
+    &:hover { background: color-mix(in srgb, var(--global-theme-color) 10%, transparent); }
+    &:focus-visible { outline: 2px solid var(--global-theme-color); outline-offset: 3px; }
+  }
+}
+
 .repository-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));

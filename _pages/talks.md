@@ -13,6 +13,7 @@ nav_order: 5
 ## Selected presentations
 
 <div class="talks-timeline">
+  <div class="talk-item" id="sc26"><time>Nov 2026</time><div><strong>Cache-driven super-linear scaling in a Python fluid solver</strong><span>Poster · Supercomputing Conference (SC26) · DHARA</span><nav class="talk-document-links" aria-label="SC26 presentation documents"><a href="{{ '/assets/pdf/sc26-poster.pdf' | relative_url }}" target="_blank" rel="noopener">Poster</a><a href="{{ '/assets/pdf/sc26-summary.pdf' | relative_url }}" target="_blank" rel="noopener">Summary</a></nav></div></div>
   <div class="talk-item"><time>May 2026</time><div><strong>High-resolution simulations of dry and moist turbulent convection</strong><span>Oral presentation · Moist Convective Dynamics of Monsoon II, ICTS Bengaluru</span></div></div>
   <div class="talk-item"><time>Nov 2025</time><div><strong>Compressible turbulent convection at very high Rayleigh numbers</strong><span>Oral presentation · APS Division of Fluid Dynamics Annual Meeting, Houston</span></div></div>
   <div class="talk-item"><time>Oct 2025</time><div><strong>Compressible turbulent convection at extreme Rayleigh numbers</strong><span>Poster · The Variable Sun, Thiruvananthapuram</span></div></div>
