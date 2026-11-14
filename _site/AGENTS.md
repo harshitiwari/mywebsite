@@ -45,6 +45,12 @@ docker compose logs --tail=80
 docker compose down
 ```
 
+## User's main work folder
+
+- The user's canonical work folder (the "Human" Obsidian vault) is `/Users/harshit/Library/Mobile Documents/iCloud~md~obsidian/Documents/My vault/Human`.
+- When the user refers to their main work folder or projects, search here first, especially `Projects/`.
+- SC26's revised documents are in `Projects/SC26/revised/` under this folder. Use these rather than Downloads or older Documents project copies.
+
 ## Site-specific CV rule
 
 - Keep the canonical PDF filename as `cv.pdf` everywhere.

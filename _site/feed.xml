@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://harshitiwari.site/feed.xml" rel="self" type="application/atom+xml" /><link href="https://harshitiwari.site/" rel="alternate" type="text/html" hreflang="en" /><updated>2026-11-13T21:54:46-05:00</updated><id>https://harshitiwari.site/feed.xml</id><title type="html">Harshit Tiwari</title><subtitle>Harshit Tiwari is a postdoctoral researcher at New York University working on turbulent flows, scientific computing, and quantum computing for fluid dynamics.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://harshitiwari.site/feed.xml" rel="self" type="application/atom+xml" /><link href="https://harshitiwari.site/" rel="alternate" type="text/html" hreflang="en" /><updated>2026-11-13T22:05:20-05:00</updated><id>https://harshitiwari.site/feed.xml</id><title type="html">Harshit Tiwari</title><subtitle>Harshit Tiwari is a postdoctoral researcher at New York University working on turbulent flows, scientific computing, and quantum computing for fluid dynamics.
 </subtitle><entry><title type="html">नमक और मौन</title><link href="https://harshitiwari.site/blog/2026/salt-and-silence-hindi/" rel="alternate" type="text/html" title="नमक और मौन" /><published>2026-08-15T00:16:00-04:00</published><updated>2026-08-15T00:16:00-04:00</updated><id>https://harshitiwari.site/blog/2026/salt-and-silence-hindi</id><content type="html" xml:base="https://harshitiwari.site/blog/2026/salt-and-silence-hindi/"><![CDATA[<figure>
   <picture>
     <!-- Auto scaling with imagemagick -->
@@ -513,7 +513,7 @@ Content 2
 
 <p>With this you can generate visualizations like:</p>
 
-<ul id="log" class="tab" data-tab="d0c946f0-bac4-423d-8192-3024dc2db983" data-name="log">
+<ul id="log" class="tab" data-tab="4ee4fbdd-afb9-40a5-a6f0-edb71b1a91c1" data-name="log">
   
       <li class="active" id="log-php">
           <a href="#">php </a>
@@ -528,7 +528,7 @@ Content 2
       </li>
   
 </ul>
-<ul class="tab-content" id="d0c946f0-bac4-423d-8192-3024dc2db983" data-name="log">
+<ul class="tab-content" id="4ee4fbdd-afb9-40a5-a6f0-edb71b1a91c1" data-name="log">
   
       <li class="active">
 <div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">var_dump</span><span class="p">(</span><span class="s1">'hello'</span><span class="p">);</span>
@@ -552,7 +552,7 @@ Content 2
 
 <h2 id="another-example">Another example</h2>
 
-<ul id="data-struct" class="tab" data-tab="3412d48a-f111-4c5b-a99e-b5e300ff524a" data-name="data-struct">
+<ul id="data-struct" class="tab" data-tab="382f7634-7e02-4a7b-b675-449b0a2c8893" data-name="data-struct">
   
       <li class="active" id="data-struct-yaml">
           <a href="#">yaml </a>
@@ -563,7 +563,7 @@ Content 2
       </li>
   
 </ul>
-<ul class="tab-content" id="3412d48a-f111-4c5b-a99e-b5e300ff524a" data-name="data-struct">
+<ul class="tab-content" id="382f7634-7e02-4a7b-b675-449b0a2c8893" data-name="data-struct">
   
       <li class="active">
 <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">hello</span><span class="pi">:</span>
@@ -585,7 +585,7 @@ Content 2
 
 <h2 id="tabs-for-something-else">Tabs for something else</h2>
 
-<ul id="something-else" class="tab" data-tab="0ae3c0a4-f417-4032-802b-23d97a7f6d6d" data-name="something-else">
+<ul id="something-else" class="tab" data-tab="412d7c16-fc47-45bd-a2c7-5ccc94410b41" data-name="something-else">
   
       <li class="active" id="something-else-text">
           <a href="#">text </a>
@@ -600,7 +600,7 @@ Content 2
       </li>
   
 </ul>
-<ul class="tab-content" id="0ae3c0a4-f417-4032-802b-23d97a7f6d6d" data-name="something-else">
+<ul class="tab-content" id="412d7c16-fc47-45bd-a2c7-5ccc94410b41" data-name="something-else">
   
       <li class="active">
 <p>Regular text</p>
