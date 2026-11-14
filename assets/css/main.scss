@@ -514,6 +514,22 @@ html.seamless-loading body > .container[role="main"] {
   }
 }
 
+.sc26-presentation {
+  .sc26-authors { margin: 1rem 0 0.75rem; line-height: 1.8; }
+  .sc26-affiliations { padding-left: 1.25rem; color: var(--section-metadata-color); font-size: 0.8rem; line-height: 1.7; }
+  .sc26-document-links { margin: 1.5rem 0 2rem; }
+  .sc26-document-links a { padding: 0.6rem 1.25rem; font-size: 0.85rem; }
+  h2 { margin: 2rem 0 1rem; font-size: 1.4rem; }
+  .sc26-document-note { color: var(--section-metadata-color); font-size: 0.78rem; }
+}
+
+.sc26-poster-preview {
+  margin: 2rem 0;
+
+  img { display: block; width: 100%; height: auto; border: 1px solid var(--global-divider-color); border-radius: 0.4rem; }
+  figcaption { margin-top: 0.5rem; color: var(--section-metadata-color); font-size: 0.75rem; text-align: center; }
+}
+
 .repository-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
